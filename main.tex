@@ -1,0 +1,32 @@
+\input{src/header.tex}
+
+\begin{document}
+% \bibliographystyle{plabbrv} 
+% \bibliographystyle{unsrt} 
+\bibliographystyle{siam}
+
+% \maketitle
+% \import{src/}{dedication.tex}
+\tableofcontents
+
+\import{chapters/introduction/}{src.tex}
+\import{chapters/literature/}{src.tex}
+\import{chapters/experiments/}{src.tex}
+\import{chapters/solution/}{src.tex}
+\import{chapters/ending/}{src.tex}
+
+\appendixpage % Użyć tylko jeśli występuje więcej niż jeden dodatek!
+\begin{appendix}
+    \import{appendices/appendix1/}{src.tex}
+\end{appendix}
+
+\addcontentsline{toc}{chapter}{\bibname}
+\bibliography{bibliography}
+
+\addcontentsline{toc}{chapter}{Spis rysunków}
+\listoffigures
+\addcontentsline{toc}{chapter}{Spis tablic}
+\listoftables
+
+\end{document}
+

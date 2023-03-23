@@ -1,0 +1,146 @@
+\chapter{Przegląd literatury}
+\section{Przegląd - notatki}
+
+\subsection*{Mapping the global structure of TSP fitness landscapes(2018)\cite{DBLP:journals/heuristics/OchoaV18}}
+W pracy przedstawiony został algorytm próbkujący przeszukujący przestrzeń rozwiązań problemu komiwojażera(TSP).
+Algorytm konstruuje sieć optimów lokalnych(LON) - odmianę z tzw. escape edges.
+Do próbkowania wykorzystywana jest implementacja Concorde algorytmu Chained-Lin-Kerninghan.
+Wykonane zostało 1000 niezależnych uruchomień (przebiegów?) algorytmu.
+Połowa była inicjowana metodą Quicka-Borůvki, a druga połowa losowym rozwiązaniem.
+Algorytm opiera się na generowaniu nowych rozwiązań poprzez zastosowanie perturbacji typu double-bridge,
+a następnie uruchomieniu algorytmu Lin-Kerninghan, by znaleźć lokalne minimum.
+Operacja jest powtarzana 10000 razy i budowana jest w ten sposób sieć optimów lokalnych.
+
+Jednym z zadań, które postawili sobie autorzy pracy, jest identyfikacja "struktur lejowych"
+w przestrzeni rozwiązań. Lej jest sekwencją lokalnych optimów, których wartość dopasowania
+się nie pogarsza, i która zmierza do pewnego optimum - globalnego (primary funnel) lub lokalnego (secondary funnels).
+To optimum nazywane jest (spodem leja?) funnel floor/bottom.
+Poszczególne sieci optimów lokalnych wygenerowane przez kolejne uruchomienia algorytmu próbkującego
+zawyżały liczbę lejów w przestrzeni rozwiązań.
+Badacze scalili więc znalezione optima lokalne z wszystkich przebiegów algorytmu.
+Znalezione w ten sposób rozwiązania nazwali atraktorami i utworzyli graf sieci atraktorów, w której są one wierzchołkami.
+Następnie funnel bottoms zostały zidentyfikowane jako wierzchołki, z których nie ma krawędzi wychodzących.
+Następnie przynależność optimów lokalnych do poszczególnych lejów została sprawdzona poprzez sprawdzenie,
+czy istnieje ścieżka w grafie pomiędzy danym optimum a spodem leja.
+
+Do badań wykorzystano 20 instancji TSP o rozmiarach od 500 do 1500 miast.
+Wykorzystano instance o miastach rozłożonych równomiernie i w klastrach.
+Część została wygenerowana, a część pochodzi z TSPLIB.
+
+Zbadano właściwości powstałych sieci optimów lokalnych, m.in
+Liczbę unikalnych optimów lokalnych i globalnych, liczba wykonań funkcji celu,
+stosunek liczby wierzchołków i wywołań funkcji celu, jaka część wierzchołków jest połączona ścieżką
+z optimum globalnym, średnia siła(strength) wierzchołków.
+Zbadano również własności lejów, takie jak rozmiar największego leja czy liczba atraktorów.
+
+Badania wykazały, że przestrzeń rozwiązań badanych instancji TSP zawiera wiele lejów a nie, jak wcześniej sądzono,
+jeden lej kończący się w globalnym minimum. W przestrzeni rozwiązań instancji o regularnej strukturze
+wykryto istnienie rozległych "płaskowyżów". Zauważono różnicę między instancjami wygenerowanymi losowo a rzeczywistymi.
+Te pierwsze miały zwykle jedno globalne optimum i małą neutralność, podczas gdy instancje rzeczywiste
+zwykle miały więcej globalnych optimów, czasem formujących płaskowyż globalnych optimów.
+Zauważono zależność między rozmiarem instancji a liczbą lejów - ich liczba zwiększa się wraz ze wzrostem
+rozmiaru instancji. Najwięcej lejów pojawiło się w instancjach z równomiernym losowym rozmieszczeniem miast.
+Zbadano korelację między różnymi właściwościami przestrzeni rozwiązań.
+Wykazano, że w instancjach, w których miasta rozmieszczone są w klastrach, występuje większa korelacja
+właściwości, niż w instancjach o rozłożeniu równomiernym.
+
+\subsection*{Local Optima Networks in Solving Algorithm Selection Problem for TSP(2018)\cite{DBLP:conf/depcos/BozejkoGNAB18}}
+W pracy badano możliwość wykorzystania analizy sieci optimów lokalnych w problemie wyboru algorytmu heurystycznego dla danej instancji problemu komiwojażera
+(Algorithm selection problem).
+
+Algorytm próbkowania podzielony jest na dwa etapy - poszukiwanie wierzchołków i poszukiwanie krawędzi.
+Wierzchołki wyszukiwane są poprzez generowanie losowych rozwiązań i uruchamianiu na nich algorytmu 2-opt.
+Próbkowanie krawędzi polega na poddaniu każdego ze znalezionych wcześniej lokalnych optimów perturbacji,
+optymalizacji 2-opt typu first-improvement i dodaniu odpowiedniej krawędzi lub zwiększenia jej wagi jeśli już istnieje.
+Wśród badanych parametrów wymienić można m.in stosunek liczby krawędzi do liczby wierzchołków,
+średnia odległość optimum lokalnego od optimum o najniższej
+wartości funkcji celu, stosunek wierzchołków połączonych z tym optimum do pozostałych,
+oraz różnorodność(assortativity) i współczynnik klasteryzacji grafu.
+Do eksperymentów wykorzystano instancji z biblioteki TSPLIB, oraz instancje generowane losowo
+o równomiernym rozkładzie miast.
+Obliczono korelację różnych miar, aby wyeliminować redundantne dane.
+
+Na każdej instancji problemu uruchomiono algorytmy heurystyczne i porównano parami jakość ich rozwiązań.
+Obliczono również średnią względnej jakości rozwiązań dla każdego algorytmu.
+Porównane zostały algorytmy Greedy Descent, Guided Local Search, Simulated Annealing, Tabu Search, Objective Tabu Search,
+zaimplementowane w pakiecie Google Optimization Tools. Sprawdzono również obecny w pakiecie tryb automatyczny, który sam dobiera
+algorytm dla danej instancji.
+
+Na podstawie zebranych danych nauczono 3-klasowe klasyfikatory dla każdej pary algorytmów.
+(algorytm A daje lepszy wynik od algorytmu B, algorytm B daje lepszy wynik od algorytmu A, algorytmy dają ten sam wynik).
+Utworzone klasyfikatory porównano z klasyfikatorem ZeroR.
+Przygotowane klasyfikatory dokonały poprawnej predykcji częściej niż ZeroR w przypadku instancji ze
+zbioru TSPLIb. W przypadku instancji generowanych losowo, tylko w jednym przypadku klasyfikator
+okazał się lepszy od ZeroR.
+
+Eksperymenty wykazały, że analiza sieci optimów lokalnych mogą zostać z powodzeniem wykorzystana do
+selekcji algorytmu heurystycznego, jednak długi czas próbkowania niweluje korzyści uzyskane w ten sposób.
+
+\subsection*{Clarifying the Difference in Local Optima Network Sampling Algorithms(2019)\cite{DBLP:conf/evoW/ThomsonOV19}}
+W pracy wykonane zostało statystyczne porównanie dwóch algorytmów próbkowania
+sieci lokalnych optimów dla kwadratowego problemu przydziału (QAP).
+Do badań wykorzystano instancje problemu z biblioteki QAPLIB.
+Wybrano 30 instancji o różnych klasach (rozłożone równomiernie, na siatce,
+instancje rzeczywiste, instancje losowe symulujące rzeczywiste).
+Porównano algorytmy Snowball oraz Iterated Local Search.
+Spróbkowane dane wykorzystano do stworzenia modelów regresji do przewidywania jakości rozwiązań
+dwóch algorytmów heurystycznych: Robust Taboo Search Taillarda oraz Improved ILS Stützla.
+
+Wykonano próbkowanie przestrzeni rozwiązań i sprawdzono, czy wartości poszczególnych miar pochodzące od dwóch algorytmów
+są ze sobą skorelowane.
+Zbadanymi miarami były m.in: liczba optimów, liczba krawędzi, średnia liczba krawędzi wychodzących z wierzchołka grafu (outdegree),
+średnica grafu, średnie dopasowanie lokalnych optimów (meanfitness), sinkfitness (dopasowanie spływów? TODO: translate).
+Zauważono korelację metryk meanfitness i sinkfitness  na poziomie 0.99.
+Dla wszystkich innych metryk korelacja było mniejsza od 0.5, dla średnicy grafu była ona negatywna.
+Na podstawie zebranych danych nauczono modele typu liniowego oraz RandomForest.
+Zbadano wartości metryki $R^{2}$ dla różnych parametrów algorytmów próbkowania, algorytmów heurystycznych
+i modelów regresji.
+Obliczono również współczynniki korelacji pomiędzy różnymi właściwościami sieci lokalnych optimów
+a performance gap metric(TODO: translate) algorytmów optymalizujących.
+
+Badania wykazały, że sieci wygenerowane przez dwa różne algorytmy próbkujące mają pewne wspólne cechy.
+Snowball okazał się bardziej przewidywalny i łatwiejszy w dobieraniu parametrów.
+ITS natomiast lepiej znajdował "struktury-huby" (TODO: popraw?) w przestrzeni rozwiązań.
+Wartości metryk LON uzyskane na podstawie algorytmu ITS były bardziej skorelowane z
+heuristic performance metric (TODO: translate).
+Modele regresji utworzone na podstawie danych uzyskanych z ITS dokonywały lepszej predykcji
+jakości rozwiązań algorytmów heurystycznych, niż modele utworzone na podstawie algorytmu Snowball.
+Zauważono, że wartości funkcji celu w poszczególnych lokalnych optimach sieci LON
+były lepszymi predyktorami, niż informacje o krawędziach tej sieci.
+
+\subsection*{Inferring Future Landscapes: Sampling the Local Optima Level(2020)\cite{DBLP:journals/ec/ThomsonOVV20}}
+W pracy zostały porównane algorytmy próbkowania sieci optimów lokalnych(LON) dla kwadratowego problemu przydziału (QAP).
+Porównane zostały algorytmy Markov-Chain oraz Snowball.
+Dla małych instancji problemu wykonano kompletne przeszukanie przestrzeni rozwiązań,
+Dla większych - przeszukiwanie z limitowanym budżetem obliczeniowym.
+
+Jako instancje testowe wykorzystano przykłady ze zbioru QAPLIB.
+Instancje należały do pięciu kategorii: Instancje z wartościami odległości i przepływu losowymi z rozkładu równomiernego,
+instancje z wartościami odległości ułożonymi "na siatce" i losowymi wartościami przepływu, rzeczywiste instancje problemu,
+instancje generowane symulujące rzeczywiste, oraz instancje nie pasujące do żadnej z poprzednich kategorii.
+
+Badane właściwości sieci LON różniły się w zależności od algorytmu próbkowania.
+Dla Algorytmu Markov-chain były to: liczba wierzchołków i krawędzi grafu, średnie dopasowanie(mean fitness),
+średnia liczba krawędzi wychodzących z wierzchołka (mean out-degree), oraz najdłuższa ścieżka między wierzchołkami.
+Dodatkowo zbadano tzw. Funnel metrics - liczba krawędzi do globalnego optimum (incoming global) oraz ???(mean funnel-floor fitness)
+
+Dla algorytmu snowball metryki funnel, oraz te oparte o gęstość i wzory połączeń krawędzi nie dają użytecznych informacji,
+zamiast tych metryk wybrano: średnią wagę pętli w grafie, średnią różnicę wag krawędzi wychodzących (mean weight disparity),
+korelacja dopasowania między sąsiadami (fitness-fitness correlation), średnia długość "wspinaczki" do optimum lokalnego,
+maksymalna długość "wspinaczki" do lokalnego optimum oraz maksymalna liczba ścieżek prowadzących do lokalnego optimum.
+
+Na podstawie danych zbudowano modele regresji, dokonujące predykcji jakości rozwiązań
+uzyskanych przy wykorzystaniu heurystyk Improved Iterated Local Search i Robust Taboo Search.
+Sprawdzono modele liniowe i random-forest. Random-forest okazały się lepsze.
+
+Badania nie wykazały wyższości jednego algorytmu próbkowania nad drugim. Autorzy zwracają uwagę na fakt, że niektóre z cech
+sieci optimów lokalnych są lepiej odwzorowywane przez algorytm Markov-chain, a inne lepiej przez Snowball.
+Najlepsze wśród zbudowanych modeli regresji okazały się zaś te, które korzystały z kombinacji danych pozyskanych z obu algorytmów.
+
+\subsection*{Analyzing randomness effects on the reliability of exploratory landscape analysis (2022)\cite{DBLP:journals/nc/MunozKS22}}
+AAA
+
+
+
+
+\section{O przestrzeni rozwiązań}
