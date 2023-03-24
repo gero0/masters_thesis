@@ -9,10 +9,10 @@
   J.~Mazurkiewicz, J.~Sugier, T.~Walkowiak, and J.~Kacprzyk, eds., vol.~761 of
   Advances in Intelligent Systems and Computing, Springer, 2018, pp.~83--93.
 
-\bibitem{DBLP:journals/nc/MunozKS22}
-{\sc M.~A. Mu{\~{n}}oz, M.~Kirley, and K.~Smith{-}Miles}, {\em Analyzing
-  randomness effects on the reliability of exploratory landscape analysis},
-  Nat. Comput., 21 (2022), pp.~131--154.
+\bibitem{FRAGATA201969}
+{\sc I.~Fragata, A.~Blanckaert, M.~A. {Dias Louro}, D.~A. Liberles, and
+  C.~Bank}, {\em Evolution in the light of fitness landscape theory}, Trends in
+  Ecology \& Evolution, 34 (2019), pp.~69--82.
 
 \bibitem{DBLP:journals/heuristics/OchoaV18}
 {\sc G.~Ochoa and N.~Veerapen}, {\em Mapping the global structure of {TSP}
@@ -35,5 +35,10 @@
 {\sc S.~L. Thomson, G.~Ochoa, S.~V{\'{e}}rel, and N.~Veerapen}, {\em Inferring
   future landscapes: Sampling the local optima level}, Evol. Comput., 28
   (2020), pp.~621--641.
+
+\bibitem{PhysRevE.78.066114}
+{\sc M.~Tomassini, S.~V\'erel, and G.~Ochoa}, {\em Complex-network analysis of
+  combinatorial spaces: The $nk$ landscape case}, Phys. Rev. E, 78 (2008),
+  p.~066114.
 
 \end{thebibliography}

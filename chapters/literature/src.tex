@@ -137,10 +137,64 @@ Badania nie wykazały wyższości jednego algorytmu próbkowania nad drugim. Aut
 sieci optimów lokalnych są lepiej odwzorowywane przez algorytm Markov-chain, a inne lepiej przez Snowball.
 Najlepsze wśród zbudowanych modeli regresji okazały się zaś te, które korzystały z kombinacji danych pozyskanych z obu algorytmów.
 
-\subsection*{Analyzing randomness effects on the reliability of exploratory landscape analysis (2022)\cite{DBLP:journals/nc/MunozKS22}}
-AAA
-
-
-
 
 \section{O przestrzeni rozwiązań}
+Fitness landscape(Przestrzeń rozwiązań? Krajobraz dopasowania?) jest pojęciem wywodzącym się z biologii ewolucyjnej.
+W kontekście biologicznym jest to model opisujący relację między genotypem i fenotypem organizmów, a ich przystosowaniem (ang. fitness),
+które jest miarą opisującą sukces reprodukcyjny\cite{FRAGATA201969}.
+
+W kontekście optymalizacji Fitness landscape to trójka $(S, V, f)$, gdzie:
+\begin{itemize}
+    \item $S$ jest zbiorem wszystkich możliwych rozwiązań - przestrzenią przeszukiwania,
+    \item $V$ jest funkcją przypisującą każdemu rozwiązaniu $s\in{S}$ zbiór sąsiadów $V(s)$,
+    \item $f$ jest funkcją $f:S \rightarrow \mathbb{R}$ przypisującą danemu rozwiązaniu wartość przystosowania
+          - zwykle jest to wartość funkcji celu dla danego rozwiązania.
+\end{itemize}
+
+\section{Sieć optimów lokalnych}
+Sieć optimów lokalnych(ang. Local Optima Network, LON) jest konstruktem zaprezentowanym po raz pierwszy w artykule\cite{PhysRevE.78.066114},
+i rozwiniętym w pracy\cite{DBLP:journals/corr/OchoaVDT14}.
+
+Jest to graf $G = (N, E)$ przedstawiający występujące w przestrzeni rozwiązań optima lokalne (zbiór wierzchołków $N$)
+i relacje między nimi (zbiór krawędzi $E$).
+
+\subsection*{Wierzchołki}
+Wierzchołki w sieci optimów lokalnych reprezentują optima lokalne w przestrzeni rozwiązań.
+Do optimów zaliczamy minima i maksima; w problemach optymalizacyjnych zazwyczaj poszukujemy tych pierwszych.
+Minimum lokalne to takie rozwiązanie $s$, w którego sąsiedztwie $V(s)$ nie znajduje się żadne rozwiązanie $x$, dla którego $f(x) < f(s)$.
+Każde rozwiązanie w przestrzeni rozwiązań można przyporządkować do pewnego lokalnego minimum.
+Aby znaleźć lokalne minimum $n \in{N}$, do którego "prowadzi" dane rozwiązanie $s\in{S}$, wykonuje się lokalną optymalizację
+z tym rozwiązaniem przyjętym jako punkt startowy.
+W dalszej części pracy takie przyporządkowanie będzie oznaczane jako $h(s) \rightarrow n\in{N}$.
+Wierzchołkom w sieci LON można przypisać wagę równą wartości funkcji celu w danym optimum lokalnym.
+
+\subsection*{Krawędzie}
+
+Powstały dwa modele krawędzi: basin-transition i escape edges (TODO: translate?)
+
+\subsubsection{Basin-transition}
+Basen przyciągania optimum lokalnego $n$ jest zdefiniowany jako zbiór:
+$$b_i = \{s\in{S} \mid h(s) = n\}$$
+Rozmiarem basenu jest liczność tego zbioru oznaczana jako $\sharp b_i$.
+Dla każdej pary rozwiązań w przestrzeni można obliczyć prawdopodobieństwo przejścia z jednego rozwiązania do drugiego $p(s \rightarrow s')$.
+Dla rozwiązań reprezentowanych permutacją o długości M, prawdopodobieństwo takie wynosi:
+$$p(s \rightarrow s') = \frac{1}{M(M-1)/2}, \quad \text{jeżeli} \quad s'\in{V(s)},$$
+$$p(s \rightarrow s') = 0, \quad \text{jeżeli} \quad s'\notin{V(s)},$$
+
+Mając informacje o prawdopodobieństwach przejścia między poszczególnymi rozwiązaniami można obliczyć prawdopodobieństwo
+przejścia od rozwiązania $s$ do dowolnego rozwiązania należącego do basenu $b_j$:
+$$p(s \rightarrow b_j) = \sum_{s'\in{b_j}} p(s \rightarrow s')$$
+
+Całkowite prawdopodobieństwo przejścia z basenu jednego optimum lokalnego do drugiego wynosi więc:
+$$p(b_i \rightarrow b_j) = \frac{1}{\sharp b} \cdot \sum_{s\in{b_i}} p(s \rightarrow b_j)$$
+
+To całkowite prawdopodobieństwo stanowi wagę krawędzi w grafie.
+
+\subsubsection*{Escape Edges}
+Escape Edges zdefiniowane są przy pomocy funkcji dystansu $d$ zwracającej najmniejszą odległość między dwoma rozwiązaniami
+i liczby całkowitej N.
+Krawędź $e_{ij}$ między lokalnymi optimami $n_i$ i $n_j$ istnieje, jeśli istnieje rozwiązanie $s$ takie, że:
+$$d(s, n_i) \leq D \land h(s)=n_j$$
+Wagą takiej krawędzi jest ilość rozwiązań spełniających powyższy warunek.
+
+TODO: napisać o różnicach sieci tworzonych przez basin-transition i escape edges

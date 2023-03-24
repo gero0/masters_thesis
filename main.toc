@@ -2,14 +2,16 @@
 \contentsline {chapter}{\numberline {2}Przegląd literatury}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Przegląd - notatki}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}O przestrzeni rozwiązań}{8}{section.2.2}%
-\contentsline {chapter}{\numberline {3}Badania eksperymentalne}{9}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Opis eksperymentów}{9}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Zaimplementowane algorytmy}{9}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Wyniki}{9}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Opis implementacji}{11}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Podsumowanie}{13}{chapter.5}%
-\contentsline {chapter}{Dodatki}{15}{section*.7}%
-\contentsline {chapter}{\numberline {A}Jakiś dodatek}{17}{appendix.A}%
-\contentsline {chapter}{Literatura}{17}{appendix.A}%
-\contentsline {chapter}{Spis rysunków}{19}{appendix*.8}%
-\contentsline {chapter}{Spis tablic}{21}{appendix*.9}%
+\contentsline {section}{\numberline {2.3}Sieć optimów lokalnych}{8}{section.2.3}%
+\contentsline {subsubsection}{Basin-transition}{9}{section*.8}%
+\contentsline {chapter}{\numberline {3}Badania eksperymentalne}{11}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Opis eksperymentów}{11}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Zaimplementowane algorytmy}{11}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Wyniki}{11}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Opis implementacji}{13}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Podsumowanie}{15}{chapter.5}%
+\contentsline {chapter}{Dodatki}{17}{section*.10}%
+\contentsline {chapter}{\numberline {A}Jakiś dodatek}{19}{appendix.A}%
+\contentsline {chapter}{Literatura}{19}{appendix.A}%
+\contentsline {chapter}{Spis rysunków}{21}{appendix*.11}%
+\contentsline {chapter}{Spis tablic}{23}{appendix*.12}%
