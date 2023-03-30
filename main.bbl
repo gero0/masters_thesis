@@ -23,6 +23,12 @@
   networks: {A} new model of combinatorial fitness landscapes}, CoRR,
   abs/1402.2959 (2014).
 
+\bibitem{DBLP:conf/gecco/TeixeiraP22}
+{\sc M.~C. Teixeira and G.~L. Pappa}, {\em Understanding automl search spaces
+  with local optima networks}, in {GECCO} '22: Genetic and Evolutionary
+  Computation Conference, Boston, Massachusetts, USA, July 9 - 13, 2022, J.~E.
+  Fieldsend and M.~Wagner, eds., {ACM}, 2022, pp.~449--457.
+
 \bibitem{DBLP:conf/evoW/ThomsonOV19}
 {\sc S.~L. Thomson, G.~Ochoa, and S.~V{\'{e}}rel}, {\em Clarifying the
   difference in local optima network sampling algorithms}, in Evolutionary
