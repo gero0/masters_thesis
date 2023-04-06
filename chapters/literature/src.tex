@@ -216,7 +216,7 @@ i rozwiniętym w pracy\cite{DBLP:journals/corr/OchoaVDT14}.
 Jest to graf $G = (N, E)$ przedstawiający występujące w przestrzeni rozwiązań optima lokalne (zbiór wierzchołków $N$)
 i relacje między nimi (zbiór krawędzi $E$).
 
-\subsection*{Wierzchołki}
+\subsection{Wierzchołki}
 Wierzchołki w sieci optimów lokalnych reprezentują optima lokalne w przestrzeni rozwiązań.
 Do optimów zaliczamy minima i maksima; w problemach optymalizacyjnych zazwyczaj poszukujemy tych pierwszych.
 Minimum lokalne to takie rozwiązanie $s$, w którego sąsiedztwie $V(s)$ nie znajduje się żadne rozwiązanie $x$, dla którego $f(x) < f(s)$.
@@ -226,10 +226,10 @@ z tym rozwiązaniem przyjętym jako punkt startowy.
 W dalszej części pracy takie przyporządkowanie będzie oznaczane jako $h(s) \rightarrow n\in{N}$.
 Wierzchołkom w sieci LON można przypisać wagę równą wartości funkcji celu w danym optimum lokalnym.
 
-\subsection*{Krawędzie}
-
-Powstały dwa modele krawędzi: basin-transition i escape edges (TODO: translate?)
-TODO: można coś napisać jeszcze o perturbation edges
+\subsection{Krawędzie}
+Krawędzie w sieci lokalnych optimów mogą być zdefiniowane na jeden z kilku sposobów.
+W literaturze\cite{DBLP:journals/corr/OchoaVDT14}\cite{DBLP:conf/gecco/TeixeiraP22} zostały opisane trzy różne modele:
+\textit{basin-transition}, \textit{escape edges} i \textit{perturbation edges}.
 
 \subsubsection{Basin-transition}
 Basen przyciągania optimum lokalnego $n$ jest zdefiniowany jako zbiór:
@@ -249,11 +249,22 @@ $$p(b_i \rightarrow b_j) = \frac{1}{\sharp b} \cdot \sum_{s\in{b_i}} p(s \righta
 
 To całkowite prawdopodobieństwo stanowi wagę krawędzi w grafie.
 
+Krawędzie typu \textit{basin-transition} tworzą gęstszą sieć od krawędzi typu \textit{escape edges}.
+
 \subsubsection*{Escape Edges}
-Escape Edges zdefiniowane są przy pomocy funkcji dystansu $d$ zwracającej najmniejszą odległość między dwoma rozwiązaniami
-i liczby całkowitej N.
+Escape Edges zdefiniowane są przy pomocy funkcji dystansu $d$ zwracającej najmniejszą odległość między dwoma rozwiązaniami,
+oraz liczby całkowitej D.
 Krawędź $e_{ij}$ między lokalnymi optimami $n_i$ i $n_j$ istnieje, jeśli istnieje rozwiązanie $s$ takie, że:
 $$d(s, n_i) \leq D \land h(s)=n_j$$
 Wagą takiej krawędzi jest ilość rozwiązań spełniających powyższy warunek.
 
-TODO: napisać o różnicach sieci tworzonych przez basin-transition i escape edges
+\subsubsection{Perturbation edges}
+W tym modelu wagę krawędzi pomiędzy lokalnymi optimami $n_i$ i $n_j$ uzyskuje się poprzez kilkukrotne wykonanie
+operacji perturbacji(mutacji) na $n_i$, a następnie optymalizacji lokalnej otrzymanego rozwiązania.
+Liczba przypadków, w których po optymalizacji otrzymujemy rozwiązanie $n_j$ podzielona przez liczbę prób stanowi wagę krawędzi.
+
+$$
+    w_{ij} = \frac{ \#\{opt(mut(n_i)) = n_j\} }{trials}
+$$
+
+\subsection{Metryki przestrzeni rozwiązań}

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2023.3.22)  31 MAR 2023 14:15
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2023.3.22)  6 APR 2023 14:49
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -806,21 +806,21 @@ Dodatek A.
 
  [27] (/home/gero/Praca_magisterska/main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 618122C4E98C80DFDA91B678C548100A;896.
+(rerunfilecheck)             Checksum: C3F89F61E82AF44CE04184BCC6601C5B;1110.
  ) 
 Here is how much of TeX's memory you used:
- 28152 strings out of 481217
- 631220 string characters out of 5915012
- 954427 words of memory out of 5000000
- 44498 multiletter control sequences out of 15000+600000
+ 28157 strings out of 481217
+ 631311 string characters out of 5915012
+ 954431 words of memory out of 5000000
+ 44501 multiletter control sequences out of 15000+600000
  419604 words of font info for 59 fonts, out of 8000000 for 9000
  34 hyphenation exceptions out of 8191
  111i,9n,109p,1657b,345s stack positions out of 5000i,500n,10000p,200000b,80000s
  </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plmi.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plms.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plme.enc} </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plrm.enc} </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy8.pfb>
-Output written on /home/gero/Praca_magisterska/main.pdf (27 pages, 195179 bytes).
+Output written on /home/gero/Praca_magisterska/main.pdf (27 pages, 199383 bytes).
 PDF statistics:
- 715 PDF objects out of 1000 (max. 8388607)
- 285 compressed objects within 3 object streams
- 62 named destinations out of 1000 (max. 500000)
- 141 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 735 PDF objects out of 1000 (max. 8388607)
+ 301 compressed objects within 4 object streams
+ 64 named destinations out of 1000 (max. 500000)
+ 165 words of extra memory for PDF output out of 10000 (max. 10000000)
 

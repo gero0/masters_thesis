@@ -3,14 +3,17 @@
 \BOOKMARK [1][-]{section.2.1}{Przeglad - notatki}{chapter.2}% 3
 \BOOKMARK [1][-]{section.2.2}{O przestrzeni rozwiazan}{chapter.2}% 4
 \BOOKMARK [1][-]{section.2.3}{Siec optim\363w lokalnych}{chapter.2}% 5
-\BOOKMARK [0][-]{chapter.3}{Badania eksperymentalne}{}% 6
-\BOOKMARK [1][-]{section.3.1}{Opis eksperyment\363w}{chapter.3}% 7
-\BOOKMARK [1][-]{section.3.2}{Zaimplementowane algorytmy}{chapter.3}% 8
-\BOOKMARK [1][-]{section.3.3}{Wyniki}{chapter.3}% 9
-\BOOKMARK [0][-]{chapter.4}{Opis implementacji}{}% 10
-\BOOKMARK [0][-]{chapter.5}{Podsumowanie}{}% 11
-\BOOKMARK [0][-]{section*.11}{Dodatki}{}% 12
-\BOOKMARK [0][-]{appendix.A}{Jakis dodatek}{}% 13
-\BOOKMARK [0][-]{appendix.A}{Literatura}{}% 14
-\BOOKMARK [0][-]{appendix*.12}{Spis rysunk\363w}{}% 15
-\BOOKMARK [0][-]{appendix*.13}{Spis tablic}{}% 16
+\BOOKMARK [2][-]{subsection.2.3.1}{Wierzcho\233ki}{section.2.3}% 6
+\BOOKMARK [2][-]{subsection.2.3.2}{Krawedzie}{section.2.3}% 7
+\BOOKMARK [2][-]{subsection.2.3.3}{Metryki przestrzeni rozwiazan}{section.2.3}% 8
+\BOOKMARK [0][-]{chapter.3}{Badania eksperymentalne}{}% 9
+\BOOKMARK [1][-]{section.3.1}{Opis eksperyment\363w}{chapter.3}% 10
+\BOOKMARK [1][-]{section.3.2}{Zaimplementowane algorytmy}{chapter.3}% 11
+\BOOKMARK [1][-]{section.3.3}{Wyniki}{chapter.3}% 12
+\BOOKMARK [0][-]{chapter.4}{Opis implementacji}{}% 13
+\BOOKMARK [0][-]{chapter.5}{Podsumowanie}{}% 14
+\BOOKMARK [0][-]{section*.10}{Dodatki}{}% 15
+\BOOKMARK [0][-]{appendix.A}{Jakis dodatek}{}% 16
+\BOOKMARK [0][-]{appendix.A}{Literatura}{}% 17
+\BOOKMARK [0][-]{appendix*.11}{Spis rysunk\363w}{}% 18
+\BOOKMARK [0][-]{appendix*.12}{Spis tablic}{}% 19
