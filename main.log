@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2023.3.22)  6 APR 2023 14:49
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2023.4.7)  7 APR 2023 16:09
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -657,53 +657,119 @@ Package: appendix 2020/02/08 v1.2c extra appendix facilities
 \c@@pps=\count336
 \c@@ppsavesec=\count337
 \c@@ppsaveapp=\count338
-)) (/home/gero/Praca_magisterska/src/global.tex) (/home/gero/Praca_magisterska/src/hyphenation.tex) (/home/gero/Praca_magisterska/src/title.tex)) (/home/gero/Praca_magisterska/main.aux)
+)) (/home/gero/Praca_magisterska/src/global.tex) (/home/gero/Praca_magisterska/src/hyphenation.tex) (/home/gero/Praca_magisterska/src/title.tex)) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.sty
+\lst@mode=\count339
+\lst@gtempboxa=\box87
+\lst@token=\toks52
+\lst@length=\count340
+\lst@currlwidth=\dimen297
+\lst@column=\count341
+\lst@pos=\count342
+\lst@lostspace=\dimen298
+\lst@width=\dimen299
+\lst@newlines=\count343
+\lst@lineno=\count344
+\lst@maxwidth=\dimen300
+ (/usr/share/texlive/texmf-dist/tex/latex/listings/lstmisc.sty
+File: lstmisc.sty 2020/03/24 1.8d (Carsten Heinz)
+\c@lstnumber=\count345
+\lst@skipnumbers=\count346
+\lst@framebox=\box88
+) (/usr/share/texlive/texmf-dist/tex/latex/listings/listings.cfg
+File: listings.cfg 2020/03/24 1.8d listings configuration
+))
+Package: listings 2020/03/24 1.8d (Carsten Heinz)
+ (/usr/share/texlive/texmf-dist/tex/latex/algorithm2e/algorithm2e.sty
+Package: algorithm2e 2017/07/18 v5.2 algorithms environments
+\c@AlgoLine=\count347
+ (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
+Package: ifthen 2014/09/29 v1.1c Standard LaTeX ifthen package (DPC)
+)
+\algocf@hangindent=\skip60
+ (/usr/share/texlive/texmf-dist/tex/latex/ifoddpage/ifoddpage.sty
+Package: ifoddpage 2016/04/23 v1.1 Conditionals for odd/even page detection
+\c@checkoddpage=\count348
+) (/usr/share/texlive/texmf-dist/tex/latex/tools/xspace.sty
+Package: xspace 2014/10/28 v1.13 Space after command names (DPC,MH)
+) (/usr/share/texlive/texmf-dist/tex/latex/relsize/relsize.sty
+Package: relsize 2013/03/29 ver 4.1
+)
+\skiptotal=\skip61
+\skiplinenumber=\skip62
+\skiprule=\skip63
+\skiphlne=\skip64
+\skiptext=\skip65
+\skiplength=\skip66
+\algomargin=\skip67
+\skipalgocfslide=\skip68
+\algowidth=\dimen301
+\inoutsize=\dimen302
+\inoutindent=\dimen303
+\interspacetitleruled=\dimen304
+\interspacealgoruled=\dimen305
+\interspacetitleboxruled=\dimen306
+\algocf@ruledwidth=\skip69
+\algocf@inoutbox=\box89
+\algocf@inputbox=\box90
+\AlCapSkip=\skip70
+\AlCapHSkip=\skip71
+\algoskipindent=\skip72
+\algocf@nlbox=\box91
+\algocf@hangingbox=\box92
+\algocf@untilbox=\box93
+\algocf@skipuntil=\skip73
+\algocf@capbox=\box94
+\algocf@lcaptionbox=\skip74
+\algoheightruledefault=\skip75
+\algoheightrule=\skip76
+\algotitleheightruledefault=\skip77
+\algotitleheightrule=\skip78
+\c@algocfline=\count349
+\c@algocfproc=\count350
+\c@algocf=\count351
+\algocf@algoframe=\box95
+\algocf@algobox=\box96
+) (/home/gero/Praca_magisterska/main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 3.
-LaTeX Font Info:    ... okay on input line 3.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 6.
+LaTeX Font Info:    ... okay on input line 6.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count339
-\scratchdimen=\dimen297
-\scratchbox=\box87
-\nofMPsegments=\count340
-\nofMParguments=\count341
-\everyMPshowfont=\toks52
-\MPscratchCnt=\count342
-\MPscratchDim=\dimen298
-\MPnumerator=\count343
-\makeMPintoPDFobject=\count344
-\everyMPtoPDFconversion=\toks53
+\scratchcounter=\count352
+\scratchdimen=\dimen307
+\scratchbox=\box97
+\nofMPsegments=\count353
+\nofMParguments=\count354
+\everyMPshowfont=\toks53
+\MPscratchCnt=\count355
+\MPscratchDim=\dimen308
+\MPnumerator=\count356
+\makeMPintoPDFobject=\count357
+\everyMPtoPDFconversion=\toks54
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
- (/usr/share/texlive/texmf-dist/tex/latex/grfext/grfext.sty
-Package: grfext 2019/12/03 v1.3 Manage graphics extensions (HO)
-)
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
-Package grfext Info: Graphics extension search list:
-(grfext)             [.pdf,.png,.jpg,.mps,.jpeg,.jbig2,.jb2,.PDF,.PNG,.JPG,.JPEG,.JBIG2,.JB2,.eps]
-(grfext)             \AppendGraphicsExtensions on input line 504.
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 3.
+Package hyperref Info: Link coloring OFF on input line 6.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -711,15 +777,16 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count345
+\c@section@level=\count358
 )
-LaTeX Info: Redefining \ref on input line 3.
-LaTeX Info: Redefining \pageref on input line 3.
-LaTeX Info: Redefining \nameref on input line 3.
+LaTeX Info: Redefining \ref on input line 6.
+LaTeX Info: Redefining \pageref on input line 6.
+LaTeX Info: Redefining \nameref on input line 6.
  (/home/gero/Praca_magisterska/main.out) (/home/gero/Praca_magisterska/main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
+\c@lstlisting=\count359
  (/home/gero/Praca_magisterska/main.toc
 LaTeX Font Info:    Trying to load font information for OML+plm on input line 3.
  (/usr/share/texlive/texmf-dist/tex/latex/polski/omlplm.fd
@@ -769,58 +836,68 @@ Rozdzia\PlPrIeC {\l } 2.
 
 ]
 Rozdzia\PlPrIeC {\l } 3.
-) (/home/gero/Praca_magisterska/chapters/solution/src.tex [13] [14
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 56.
+(/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
+File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
+)
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-]
+[13]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) (/home/gero/Praca_magisterska/chapters/solution/src.tex
+Underfull \vbox (badness 3250) has occurred while \output is active []
+
+ [14]
+
+LaTeX Warning: Text page 15 contains only floats.
+
+[15] [16]
 Rozdzia\PlPrIeC {\l } 4.
-) (/home/gero/Praca_magisterska/chapters/ending/src.tex [15] [16
+) (/home/gero/Praca_magisterska/chapters/ending/src.tex [17
+
+
+] [18
 
 
 ]
 Rozdzia\PlPrIeC {\l } 5.
-) [17] [18
+) (/home/gero/Praca_magisterska/main.bbl [19] [20
 
 
-] [19] [20] (/home/gero/Praca_magisterska/appendices/appendix1/src.tex
-Dodatek A.
-) (/home/gero/Praca_magisterska/main.bbl [21
-
-
-] [22
-
-
-]) [23] [24
+]) [21] [22
 
 
 ] (/home/gero/Praca_magisterska/main.lof)
 \tf@lof=\write7
 \openout7 = `main.lof'.
 
- [25] [26
+ [23] [24
 
 
 ] (/home/gero/Praca_magisterska/main.lot)
 \tf@lot=\write8
 \openout8 = `main.lot'.
 
- [27] (/home/gero/Praca_magisterska/main.aux)
+ [25] (/home/gero/Praca_magisterska/main.aux)
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: C3F89F61E82AF44CE04184BCC6601C5B;1110.
+(rerunfilecheck)             Checksum: 6908EE3497F971279D9E3FE9EBFF6205;1152.
  ) 
 Here is how much of TeX's memory you used:
- 28157 strings out of 481217
- 631311 string characters out of 5915012
- 954431 words of memory out of 5000000
- 44501 multiletter control sequences out of 15000+600000
- 419604 words of font info for 59 fonts, out of 8000000 for 9000
- 34 hyphenation exceptions out of 8191
- 111i,9n,109p,1657b,345s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plmi.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plms.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plme.enc} </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plrm.enc} </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy8.pfb>
-Output written on /home/gero/Praca_magisterska/main.pdf (27 pages, 199383 bytes).
+ 30489 strings out of 481144
+ 666437 string characters out of 5913431
+ 1001257 words of memory out of 5000000
+ 46814 multiletter control sequences out of 15000+600000
+ 419917 words of font info for 60 fonts, out of 8000000 for 9000
+ 79 hyphenation exceptions out of 8191
+ 111i,20n,109p,1657b,514s stack positions out of 5000i,500n,10000p,200000b,80000s
+ </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plmi.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plms.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plme.enc} </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plrm.enc} </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy8.pfb>
+Output written on /home/gero/Praca_magisterska/main.pdf (25 pages, 219317 bytes).
 PDF statistics:
- 735 PDF objects out of 1000 (max. 8388607)
- 301 compressed objects within 4 object streams
- 64 named destinations out of 1000 (max. 500000)
+ 767 PDF objects out of 1000 (max. 8388607)
+ 309 compressed objects within 4 object streams
+ 67 named destinations out of 1000 (max. 500000)
  165 words of extra memory for PDF output out of 10000 (max. 10000000)
 

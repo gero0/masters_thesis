@@ -11,11 +11,11 @@
 \contentsline {chapter}{\numberline {3}Badania eksperymentalne}{13}{chapter.3}%
 \contentsline {section}{\numberline {3.1}Opis eksperymentów}{13}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Zaimplementowane algorytmy}{13}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Wyniki}{13}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Opis implementacji}{15}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Podsumowanie}{17}{chapter.5}%
-\contentsline {chapter}{Dodatki}{19}{section*.10}%
-\contentsline {chapter}{\numberline {A}Jakiś dodatek}{21}{appendix.A}%
-\contentsline {chapter}{Literatura}{21}{appendix.A}%
-\contentsline {chapter}{Spis rysunków}{23}{appendix*.11}%
-\contentsline {chapter}{Spis tablic}{25}{appendix*.12}%
+\contentsline {subsection}{\numberline {3.2.1}Próbkowanie dwufazowe}{13}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Snowball}{13}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Wyniki}{16}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Opis implementacji}{17}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Podsumowanie}{19}{chapter.5}%
+\contentsline {chapter}{Literatura}{19}{chapter.5}%
+\contentsline {chapter}{Spis rysunków}{21}{chapter*.10}%
+\contentsline {chapter}{Spis tablic}{23}{chapter*.11}%

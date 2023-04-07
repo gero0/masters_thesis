@@ -1,5 +1,8 @@
 \input{src/header.tex}
 
+\usepackage{listings}
+\usepackage[ruled]{algorithm2e}
+
 \begin{document}
 % \bibliographystyle{plabbrv} 
 % \bibliographystyle{unsrt} 
@@ -15,10 +18,10 @@
 \import{chapters/solution/}{src.tex}
 \import{chapters/ending/}{src.tex}
 
-\appendixpage % Użyć tylko jeśli występuje więcej niż jeden dodatek!
-\begin{appendix}
-    \import{appendices/appendix1/}{src.tex}
-\end{appendix}
+% \appendixpage % Użyć tylko jeśli występuje więcej niż jeden dodatek!
+% \begin{appendix}
+%     \import{appendices/appendix1/}{src.tex}
+% \end{appendix}
 
 \addcontentsline{toc}{chapter}{\bibname}
 \bibliography{bibliography}

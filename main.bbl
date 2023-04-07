@@ -47,4 +47,13 @@
   combinatorial spaces: The $nk$ landscape case}, Phys. Rev. E, 78 (2008),
   p.~066114.
 
+\bibitem{DBLP:conf/ppsn/VerelDOT18}
+{\sc S.~V{\'{e}}rel, F.~Daolio, G.~Ochoa, and M.~Tomassini}, {\em Sampling
+  local optima networks of large combinatorial search spaces: The {QAP} case},
+  in Parallel Problem Solving from Nature - {PPSN} {XV} - 15th International
+  Conference, Coimbra, Portugal, September 8-12, 2018, Proceedings, Part {II},
+  A.~Auger, C.~M. Fonseca, N.~Louren{\c{c}}o, P.~Machado, L.~Paquete, and L.~D.
+  Whitley, eds., vol.~11102 of Lecture Notes in Computer Science, Springer,
+  2018, pp.~257--268.
+
 \end{thebibliography}

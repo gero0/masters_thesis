@@ -1,4 +1,167 @@
 \chapter{Badania eksperymentalne}
 \section{Opis eksperymentów}
 \section{Zaimplementowane algorytmy}
+\subsection{Próbkowanie dwufazowe}
+Próbkowanie dwufazowe swoją nazwę zawdzięcza procesowi próbkowania składającemu się z dwóch oddzielnych faz
+- próbkowania wierzchołków oraz próbkowania krawędzi - wykonywanych jedna po drugiej.
+Istotną zaletą tego podejścia jest jego stosunkowo prosta implementacja.
+
+Zaimplementowany algorytm pochodzi z pracy\cite{DBLP:conf/depcos/BozejkoGNAB18}.
+Został on przygotowany specjalnie do próbkowania przestrzeni rozwiązań problemu komiwojażera.
+Próbkowanie wierzchołków odbywa się poprzez generowanie losowych rozwiązań, a następnie ich optymalizacji algorytmem 2-opt.
+Próbkowanie krawędzi polega na wielokrotnym poddaniu każdego ze znalezionych wcześniej lokalnych optimów $n_i$ operacji perturbacji typu 2-exchange,
+a następnie poddaniu powstałego rozwiązania optymalizacji algorytmem 2-opt typu \textit{first-improvement} uzyskując w ten sposób lokalne optimum $n_j$.
+Następnie dodawana jest krawędź między $n_i$ a $n_j$, lub - jeśli już taka istnieje - jej waga jest zwiększana o 1.
+
+Algorytm przyjmuje trzy parametry: pożądaną liczbę wierzchołków do wygenerowania ($n_{max}$), maksymalną liczbę prób generowania wierzchołka ($n_{att}$)
+oraz maksymalną liczbę prób generowania krawędzi($e_{att}$).
+Implementacja zastosowana w tej pracy dodatkowo powtarza cały proces kilkukrotnie, za każdym razem zapisując zebrane próbki do pliku.
+
+Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:tp}.
+
+\begin{algorithm}[h!]
+    \caption{Próbkowanie dwufazowe - pseudokod}\label{alg:tp}
+
+    \KwData{\\
+        \Indp \Indp
+        $n_{max}$ - żądana liczba wierzchołków\\
+        $n_{att}$ - liczba prób generowania wierzchołków\\
+        $e_{att}$ - liczba prób generowania krawędzi\\
+        $n_{runs}$ - liczba powtórzeń
+    }
+
+    \vspace{1em}
+
+    $N \gets \{\}$\;
+    $E \gets \{\}$\;
+    \For{$i\gets1$ \KwTo $n_{runs}$}{
+        $sampleVerts(N, n_{max}, n_{att})$\;
+        $sampleEdges(N, E, e_{att})$\;
+        $saveToFile(N, E)$\;
+    }
+    \vspace{1em}
+
+    \SetKwFunction{FV}{sampleVerts}
+    \SetKwProg{Fn}{function}{:}{}
+
+    \Fn{\FV{$N, n_{max}, n_{att}$}}{
+        \For{$i\gets1$ \KwTo $n_{max}$}{
+            \For{$i\gets1$ \KwTo $n_{att}$}{
+                $s \gets randomSolution()$\;
+                $s \gets 2opt(s)$\;
+                $N \gets N \cup \{s\}$\;
+            }
+        }
+    }
+    \textbf{end}
+
+    \vspace{1em}
+
+    \SetKwFunction{FE}{sampleEdges}
+
+    \Fn{\FE{$N, E, e_{att}$}}{
+        \ForEach{$n \in{N}$}{
+            \For{$i\gets1$ \KwTo $e_{att}$}{
+                $s \gets 2exchange(n)$\;
+                $s \gets 2optFirstImprovement(s)$\;
+                \If{$s \in{N}$}{
+                    $E \gets E \cup \{(n, s)\}$\;
+                    $w_{ns} \gets w_{ns} + 1$\;
+                }
+            }
+        }
+    }
+    \textbf{end}
+
+    \vspace{1em}
+
+\end{algorithm}
+
+\subsection{Snowball}
+Próbkowanie typu Snowball wywodzi się z techniki używanej w badaniach z dziedziny socjologii, w której ludzie należący do próby z populacji
+rekrutują kolejnych uczestników badania spośród swoich znajomych.
+W kontekście badania przestrzeni rozwiązań technika ta została zaprezentowana w pracy\cite{DBLP:conf/ppsn/VerelDOT18}, gdzie została wykorzystana
+do próbkowanie przestrzeni problemu kwadratowego przypisania (QAP).
+
+Próbkowanie składa się z etapów procedury \textit{snowball} próbkującej "wgłąb" i losowego spaceru(ang. \textit{random walk}).
+Próbkowanie \textit{snowball} polega na wybraniu rozwiązania startowego i przeszukaniu jego najbliższego sąsiedztwa.
+Następnie operacja ta jest powtarzana dla każdego rozwiązania w tym sąsiedztwie. Proces powtarza się aż do osiągnięcia z góry ustalonej głebokości
+przeszukiwania. Następnie rozpoczyna się procedura losowego spaceru - wybierane jest kolejne rozwiązanie startowe
+ze zbioru sąsiadów poprzedniego rozwiązywania startowego (lub rozwiązanie losowe, jeśli to sąsiedztwo jest puste) i proces \textit{snowball}
+rozpoczyna się od nowa. Procedura jest powtarzana aż osiągnięty zostanie z góry ustalony limit długości spaceru.
+
+Zaimplementowany algorytm jest próbą adaptacji tej techniki do zadania przeszukiwania przestrzeni
+problemu komiwojażera. Do najważniejszych modyfikacji należy zastąpienie funkcji optymalizacji lokalnej \textit{hillclimb}
+optymalizacją 2opt, implementacja odpowiedniej funkcji celu oraz operacji mutacji typu 2-exchange.
+
+Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowball}.
+
+\begin{algorithm}[!h]
+    \caption{Próbkowanie snowball - pseudokod}\label{alg:snowball}
+
+    \KwData{\\
+        \Indp \Indp
+        $w_{len}$ - długość losowego spaceru\\
+        $m$ - liczba prób przeszukania sąsiedztwa\\
+        $depth$ - głębokość przeszukiwania\\
+        $n_{runs}$ - liczba powtórzeń
+    }
+
+    \vspace{1em}
+    $s_1 \gets randomSolution()$\;
+    $n_1 \gets 2opt(s_1)$\;
+
+    $N \gets \{ n_1 \}$\;
+    $E \gets \{\}$\;
+    \For{$j\gets1$ \KwTo $n_{runs}$}{
+        \For{$i\gets1$ \KwTo $w_{len}$}{
+            $snowball(n_i, m, depth)$\;
+            $n_{i+1} \gets randomWalk(n_i)$\;
+        }
+        $saveToFile(N, E)$\;
+    }
+    \vspace{1em}
+
+    \SetKwFunction{FS}{snowball}
+    \SetKwProg{Fn}{function}{:}{}
+
+    \Fn{\FS{$n, m, depth$}}{
+        \If{$d > 0$}{
+            \For{$i\gets1$ \KwTo $m$}{
+                $s \gets 2opt(2exchange(n))$\;
+                $N \gets N \cup \{ s \}$\;
+                \uIf{$(n, s) \in{E}$}{
+                    $w_{ns} \gets w_{ns} + 1$\;
+                }
+                \Else{
+                    $E \gets E \cup \{ (n, s) \}$\;
+                    $w_{ns} \gets 1$\;
+                    $snowball(d-1, m, s)$\;
+                }
+            }
+        }
+    }
+    \textbf{end}
+
+    \vspace{1em}
+
+    \SetKwFunction{FW}{randomWalk}
+
+    \Fn{\FW{$n_i$}}{
+        $neighbours \gets \{ s: (n_i, s) \in E \land s \notin \{ n_0...n_i \} \}$\;
+        \uIf{$neighbours \neq \emptyset $}{
+            $n_{i+1} \gets selectRandomlyFromSet(neighbours)$\;
+        }
+        \Else{
+            $s \gets randomSolution()$\;
+            $n_{i+1} \gets 2opt(s)$\;
+            $N \gets N \cup \{ n_{i+1} \}$\;
+        }
+        \Return $n_{i+1}$
+    }
+    \textbf{end}
+
+    \vspace{1em}
+
+\end{algorithm}
 \section{Wyniki}
