@@ -2,20 +2,21 @@
 \contentsline {chapter}{\numberline {2}Przegląd literatury}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Przegląd - notatki}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}O przestrzeni rozwiązań}{9}{section.2.2}%
-\contentsline {section}{\numberline {2.3}Sieć optimów lokalnych}{9}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}Wierzchołki}{10}{subsection.2.3.1}%
-\contentsline {subsection}{\numberline {2.3.2}Krawędzie}{10}{subsection.2.3.2}%
+\contentsline {subsection}{\numberline {2.2.1}Sieć optimów lokalnych}{9}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Wierzchołki}{10}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Krawędzie}{10}{subsection.2.2.3}%
 \contentsline {subsubsection}{Basin-transition}{10}{section*.7}%
 \contentsline {subsubsection}{Perturbation edges}{11}{section*.9}%
-\contentsline {subsection}{\numberline {2.3.3}Metryki przestrzeni rozwiązań}{11}{subsection.2.3.3}%
-\contentsline {chapter}{\numberline {3}Badania eksperymentalne}{13}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Opis eksperymentów}{13}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Zaimplementowane algorytmy}{13}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Próbkowanie dwufazowe}{13}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Snowball}{13}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Wyniki}{16}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Opis implementacji}{17}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Podsumowanie}{19}{chapter.5}%
-\contentsline {chapter}{Literatura}{19}{chapter.5}%
-\contentsline {chapter}{Spis rysunków}{21}{chapter*.10}%
-\contentsline {chapter}{Spis tablic}{23}{chapter*.11}%
+\contentsline {subsection}{\numberline {2.2.4}Struktury lejowe}{11}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Metryki przestrzeni rozwiązań}{11}{subsection.2.2.5}%
+\contentsline {chapter}{\numberline {3}Badania eksperymentalne}{15}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Opis eksperymentów}{15}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Zaimplementowane algorytmy}{15}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Próbkowanie dwufazowe}{15}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Snowball}{15}{subsection.3.2.2}%
+\contentsline {section}{\numberline {3.3}Wyniki}{18}{section.3.3}%
+\contentsline {chapter}{\numberline {4}Opis implementacji}{19}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Podsumowanie}{21}{chapter.5}%
+\contentsline {chapter}{Literatura}{21}{chapter.5}%
+\contentsline {chapter}{Spis rysunków}{23}{chapter*.10}%
+\contentsline {chapter}{Spis tablic}{25}{chapter*.11}%

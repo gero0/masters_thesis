@@ -203,13 +203,13 @@ które jest miarą opisującą sukces reprodukcyjny\cite{FRAGATA201969}.
 
 W kontekście optymalizacji Fitness landscape to trójka $(S, V, f)$, gdzie:
 \begin{itemize}
-    \item $S$ jest zbiorem wszystkich możliwych rozwiązań - przestrzenią przeszukiwania,
-    \item $V$ jest funkcją przypisującą każdemu rozwiązaniu $s\in{S}$ zbiór sąsiadów $V(s)$,
-    \item $f$ jest funkcją $f:S \rightarrow \mathbb{R}$ przypisującą danemu rozwiązaniu wartość przystosowania
-          - zwykle jest to wartość funkcji celu dla danego rozwiązania.
+      \item $S$ jest zbiorem wszystkich możliwych rozwiązań - przestrzenią przeszukiwania,
+      \item $V$ jest funkcją przypisującą każdemu rozwiązaniu $s\in{S}$ zbiór sąsiadów $V(s)$,
+      \item $f$ jest funkcją $f:S \rightarrow \mathbb{R}$ przypisującą danemu rozwiązaniu wartość przystosowania
+            - zwykle jest to wartość funkcji celu dla danego rozwiązania.
 \end{itemize}
 
-\section{Sieć optimów lokalnych}
+\subsection{Sieć optimów lokalnych}
 Sieć optimów lokalnych(ang. Local Optima Network, LON) jest konstruktem zaprezentowanym po raz pierwszy w artykule\cite{PhysRevE.78.066114},
 i rozwiniętym w pracy\cite{DBLP:journals/corr/OchoaVDT14}.
 
@@ -234,7 +234,7 @@ W literaturze\cite{DBLP:journals/corr/OchoaVDT14}\cite{DBLP:conf/gecco/TeixeiraP
 \subsubsection{Basin-transition}
 Basen przyciągania optimum lokalnego $n$ jest zdefiniowany jako zbiór:
 $$b_i = \{s\in{S} \mid h(s) = n\}$$
-Rozmiarem basenu jest liczność tego zbioru oznaczana jako $\sharp b_i$.
+Rozmiarem basenu jest liczność tego zbioru oznaczana jako $|b_i|$.
 Dla każdej pary rozwiązań w przestrzeni można obliczyć prawdopodobieństwo przejścia z jednego rozwiązania do drugiego $p(s \rightarrow s')$.
 Dla rozwiązań reprezentowanych permutacją o długości M, prawdopodobieństwo takie wynosi:
 $$p(s \rightarrow s') = \frac{1}{M(M-1)/2}, \quad \text{jeżeli} \quad s'\in{V(s)},$$
@@ -245,7 +245,7 @@ przejścia od rozwiązania $s$ do dowolnego rozwiązania należącego do basenu 
 $$p(s \rightarrow b_j) = \sum_{s'\in{b_j}} p(s \rightarrow s')$$
 
 Całkowite prawdopodobieństwo przejścia z basenu jednego optimum lokalnego do drugiego wynosi więc:
-$$p(b_i \rightarrow b_j) = \frac{1}{\sharp b} \cdot \sum_{s\in{b_i}} p(s \rightarrow b_j)$$
+$$p(b_i \rightarrow b_j) = \frac{1}{|b_i|} \cdot \sum_{s\in{b_i}} p(s \rightarrow b_j)$$
 
 To całkowite prawdopodobieństwo stanowi wagę krawędzi w grafie.
 
@@ -264,7 +264,71 @@ operacji perturbacji(mutacji) na $n_i$, a następnie optymalizacji lokalnej otrz
 Liczba przypadków, w których po optymalizacji otrzymujemy rozwiązanie $n_j$ podzielona przez liczbę prób stanowi wagę krawędzi.
 
 $$
-    w_{ij} = \frac{ \#\{opt(mut(n_i)) = n_j\} }{trials}
+      w_{ij} = \frac{ |\{opt(mut(n_i)) = n_j\}| }{trials}
 $$
 
+TODO: czy zapis jest poprawny $\land$ ?
+
+\subsection{Struktury lejowe}
+W sieci optimów lokalnych możemy wyróżnić sekwencje złożone z optimów lokalnych, których wartość dopasowania jest niemalejąca.
+Sekwencje te zwane są sekwencjami monotonicznymi\cite{DBLP:journals/heuristics/OchoaV18}.
+Sekwencje monotoniczne zmierzające do tego samego ścieku (ang. sink, wierzchołek bez krawędzi wychodzących)
+tworzy strukturę zwaną lejem. Wspomniany ściek stanowi spód leja (ang. funnel bottom), a liczba wierzchołków zawartych w tej strukturze określa jej rozmiar.
+Ponadto w przestrzeni rozwiązań można wyróżnić lej pierwszorzędny(ang. primary funnel), kończący się w globalnym optimum i leje drugorzędne,
+kończące się w optimach lokalnych. Jeden wierzchołek w grafie może przynależeć jednocześnie do wielu lejów.
+
+Leje w sieci optimów lokalnych można zidentyfikować poprzez usunięcie z grafu krawędzi prowadzących od lepszych rozwiązań do gorszych,
+zidentyfikowanie ścieków, odwrócenie krawędzi i wykonanie przeszukiwania wgłąb lub wszerz w celu odnalezienia wierzchołków należących do leja.
 \subsection{Metryki przestrzeni rozwiązań}
+
+\begin{itemize}
+      \item \textbf{num\_sinks} - liczba ścieków. Ściek (ang. sink) jest wierzchołkiem grafu nie posiadającym krawędzi wychodzących.
+            Pętle nie są uwzględniane.
+      \item \textbf{num\_sources} - liczba źródeł. Źródło (ang. source) jest wierzchołkiem grafu nie posiadającym krawędzi wchodzących.
+            Pętle nie są uwzględniane.
+      \item \textbf{num\_subsinks} - Liczba wierzchołków, które nie posiadają krawędzi wychodzących do rozwiązań o niższej wartości funkcji celu.
+      \item \textbf{edge\_to\_node} - stosunek liczby krawędzi do liczby wierzchołków w grafie.
+      \item \textbf{avg\_fitness} - średnia wartość funkcji celu lokalnych optimów w sieci.
+      \item \textbf{distLO} - średnia odległość rozwiązań od rozwiązania z najniższą wartością funkcji celu. Odległość jest zdefiniowana jako odwrotność wagi krawędzi łączących rozwiązania.
+            Rozwiązania nie połączone krawędzią z najlepszym rozwiązaniem nie są brane pod uwagę.
+      \item \textbf{conrel} - Stosunek liczby rozwiązań połączonych krawędzią z najlepszym rozwiązaniem do liczby pozostałych rozwiązań.
+      \item \textbf{avg\_out\_degree, max\_out\_degree} - średni i maksymalny stopień wychodzący rozwiązań w grafie. Stopień wychodzący wierzchołka to liczba wychodzących z niego krawędzi. Pętle nie są brane pod uwagę.
+      \item \textbf{avg\_in\_degree, max\_in\_degree} - średni i maksymalny stopień wchodzący rozwiązań w grafie. Stopień wchodzący wierzchołka to liczba wchodzących do niego krawędzi. Pętle nie są brane pod uwagę.
+      \item \textbf{assortativity\_deg} - stopień różnorodności grafu.  Różnorodność (ang. assortativity) grafu skierowanego jest zdefiniowana następującym wzorem:
+            $$ assortativity = \frac{1}{\sigma_o \sigma_i} \sum_{(j,k)\in{E}} $$
+            TODO: DEFINICJA
+      \item \textbf{clustering\_coeff} - współczynnik klasteryzacji grafu (ang. clustering coefficient, transitivity) opisuje prawdopodobieństwo istnienia połączenia pomiędzy sąsiednimi wierzchołkami.
+            Współczynnik klasteryzacji opisany jest wzorem:
+            $$cc = \frac{N_{triangles}}{N_{ctriples}}$$
+            Gdzie $N_{triangles}$ to liczba trójkątów w grafie, a $N_{ctriples}$ to liczba połączonych trójek.
+
+            Trójkąt to trójka wierzchołków $(x,y,z)$ taka, że $(x,y), (y,z), (x,z) \in E$.
+
+            Połączona trójka to trójka wierzchołków $(x,y,z)$ taka, że $(x,y), (y,z) \in E$.
+
+      \item \textbf{density} - gęstość grafu. Jest to stosunek liczby krawędzi w grafie do maksymalnej liczby krawędzi, jaka mogłaby istnieć w tym grafie.
+            dana jest wzorem:
+            $$density = \frac{|E|}{|V|(|V|-1)}$$
+
+      \item \textbf{cliques\_num} - Liczba klik. Klika w grafie jest podzbiorem zbioru wierzchołków, w którym wszystkie wierzchołki są sąsiednie - istnieje krawędź pomiędzy każdą parą wierzchołków należących do zbioru.
+      \item \textbf{maximal\_cliques\_num} - Liczba klik maksymalnych w grafie. Klika maksymalna to klika, której nie można powiększyć poprzez dołączenie do niej sąsiedniego wierzchołka.
+      \item \textbf{largest\_clique\_size} - rozmiar największej kliki.
+      \item \textbf{motifs\_randesu\_no} - TODO: definicja
+      \item \textbf{reciprocity} - Wzajemność. Wzajemność jest miarą zdefiniowaną tylko dla grafów skierowanych. Jest to stosunek wierzchołków wzajemnie połączonych do wierzchołków, które są połączone krawędzią tylko w jednym kierunku.
+            Dana jest wzorem:
+            $$reciprocity = \frac{ |(i, j) \in E  \: | \: (j, i) \in E| }{|(i, j) \in E  \: | \: (j, i) \notin E| }$$
+      \item \textbf{funnel\_num} - liczba lejów w przestrzeni rozwiązań
+      \item \textbf{mean\_funnel\_size} - średnia wielkość leja
+      \item \textbf{min\_funnel\_size} - wielkość najmniejszego leja
+      \item \textbf{max\_funnel\_size} - wielkość największego leja
+      \item \textbf{go\_path\_ratio} - stosunek liczby wierzchołków ze ścieżką do najlepszego rozwiązania do liczby wszystkich wierzchołków.
+      \item \textbf{avg\_go\_path\_len} - średnia długość ścieżki do najlepszego rozwiązania. Wierzchołki bez ścieżki do najlepszego rozwiązania nie są brane pod uwagę
+            Długość ścieżki definiowana jest jako liczba krawędzi wchodzących w skład ścieżki pomiędzy wierzchołkami.
+      \item \textbf{max\_go\_path\_len} - długość najdłuższej ścieżki do najlepszego rozwiązania.
+      \item \textbf{num\_cc} - Liczba spójnych podgrafów grafu
+      \item \textbf{largest\_cc} - Wielkość (liczba wierzchołków) największego spójnego podgrafu.
+      \item \textbf{largest\_cc\_radius} - Promień największego spójnego podgrafu. Promień grafu to najmniejsza acentryczność wierzchołka wśród wszystkich wierzchołków grafu.
+            Acentryczność(ang. eccentricity) wierzchołka to największa z odległości wierzchołka do innych wierzchołków grafu.
+\end{itemize}
+
+
