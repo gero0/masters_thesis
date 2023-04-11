@@ -14,9 +14,10 @@
 \contentsline {section}{\numberline {3.2}Zaimplementowane algorytmy}{15}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}Próbkowanie dwufazowe}{15}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}Snowball}{15}{subsection.3.2.2}%
-\contentsline {section}{\numberline {3.3}Wyniki}{18}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Opis implementacji}{19}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Podsumowanie}{21}{chapter.5}%
-\contentsline {chapter}{Literatura}{21}{chapter.5}%
-\contentsline {chapter}{Spis rysunków}{23}{chapter*.10}%
-\contentsline {chapter}{Spis tablic}{25}{chapter*.11}%
+\contentsline {subsection}{\numberline {3.2.3}Przegląd zupełny}{18}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Instancje testowe}{19}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Experimental setup but po polsku}{21}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Wyniki}{21}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Opis implementacji}{23}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Podsumowanie}{25}{chapter.5}%
+\contentsline {chapter}{Literatura}{25}{chapter.5}%

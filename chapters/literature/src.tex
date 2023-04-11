@@ -255,7 +255,10 @@ Krawędzie typu \textit{basin-transition} tworzą gęstszą sieć od krawędzi t
 Escape Edges zdefiniowane są przy pomocy funkcji dystansu $d$ zwracającej najmniejszą odległość między dwoma rozwiązaniami,
 oraz liczby całkowitej D.
 Krawędź $e_{ij}$ między lokalnymi optimami $n_i$ i $n_j$ istnieje, jeśli istnieje rozwiązanie $s$ takie, że:
-$$d(s, n_i) \leq D \land h(s)=n_j$$
+\begin{equation}
+      \label{eq:escape_edge_cond}
+      d(s, n_i) \leq D \land h(s)=n_j
+\end{equation}
 Wagą takiej krawędzi jest ilość rozwiązań spełniających powyższy warunek.
 
 \subsubsection{Perturbation edges}
