@@ -294,9 +294,16 @@ zidentyfikowanie ścieków, odwrócenie krawędzi i wykonanie przeszukiwania wg�
       \item \textbf{conrel} - Stosunek liczby rozwiązań połączonych krawędzią z najlepszym rozwiązaniem do liczby pozostałych rozwiązań.
       \item \textbf{avg\_out\_degree, max\_out\_degree} - średni i maksymalny stopień wychodzący rozwiązań w grafie. Stopień wychodzący wierzchołka to liczba wychodzących z niego krawędzi. Pętle nie są brane pod uwagę.
       \item \textbf{avg\_in\_degree, max\_in\_degree} - średni i maksymalny stopień wchodzący rozwiązań w grafie. Stopień wchodzący wierzchołka to liczba wchodzących do niego krawędzi. Pętle nie są brane pod uwagę.
-      \item \textbf{assortativity\_deg} - stopień różnorodności grafu.  Różnorodność (ang. assortativity) grafu skierowanego jest zdefiniowana następującym wzorem:
-            $$ assortativity = \frac{1}{\sigma_o \sigma_i} \sum_{(j,k)\in{E}} $$
-            TODO: DEFINICJA
+      \item \textbf{assortativity} - współczynnik różnorodności grafu.  Różnorodność (ang. assortativity) grafu skierowanego jest zdefiniowana następującym wzorem:
+            $$ assortativity = \frac{1}{\sigma_o \sigma_i} \sum_{(j,k)\in{E}} deg(j) \cdot deg(k) \cdot (e_{jk} - q_j^o q_k^i) $$
+            Gdzie:
+            \begin{itemize}
+                  \item $e_{ij}$ - część krawędzi łączących wierzchołki i i j w stosunku do liczby wszystkich krawędzi (ułamek z zakresu 0 do 1),
+                  \item $q_i^o = \sum_{j \in V} e_{ij}$
+                  \item $q_i^i = \sum_{j \in V} e_{ji}$
+                  \item $\sigma_o$ - odchylenie standardowe $q^o$
+                  \item $\sigma_i$ - odchylenie standardowe $q^i$
+            \end{itemize}
       \item \textbf{clustering\_coeff} - współczynnik klasteryzacji grafu (ang. clustering coefficient, transitivity) opisuje prawdopodobieństwo istnienia połączenia pomiędzy sąsiednimi wierzchołkami.
             Współczynnik klasteryzacji opisany jest wzorem:
             $$cc = \frac{N_{triangles}}{N_{ctriples}}$$
@@ -313,13 +320,12 @@ zidentyfikowanie ścieków, odwrócenie krawędzi i wykonanie przeszukiwania wg�
       \item \textbf{cliques\_num} - Liczba klik. Klika w grafie jest podzbiorem zbioru wierzchołków, w którym wszystkie wierzchołki są sąsiednie - istnieje krawędź pomiędzy każdą parą wierzchołków należących do zbioru.
       \item \textbf{maximal\_cliques\_num} - Liczba klik maksymalnych w grafie. Klika maksymalna to klika, której nie można powiększyć poprzez dołączenie do niej sąsiedniego wierzchołka.
       \item \textbf{largest\_clique\_size} - rozmiar największej kliki.
-      \item \textbf{motifs\_randesu\_no} - TODO: definicja
+            % \item \textbf{motifs\_randesu\_no} - TODO: definicja
       \item \textbf{reciprocity} - Wzajemność. Wzajemność jest miarą zdefiniowaną tylko dla grafów skierowanych. Jest to stosunek wierzchołków wzajemnie połączonych do wierzchołków, które są połączone krawędzią tylko w jednym kierunku.
             Dana jest wzorem:
             $$reciprocity = \frac{ |(i, j) \in E  \: | \: (j, i) \in E| }{|(i, j) \in E  \: | \: (j, i) \notin E| }$$
       \item \textbf{funnel\_num} - liczba lejów w przestrzeni rozwiązań
       \item \textbf{mean\_funnel\_size} - średnia wielkość leja
-      \item \textbf{min\_funnel\_size} - wielkość najmniejszego leja
       \item \textbf{max\_funnel\_size} - wielkość największego leja
       \item \textbf{go\_path\_ratio} - stosunek liczby wierzchołków ze ścieżką do najlepszego rozwiązania do liczby wszystkich wierzchołków.
       \item \textbf{avg\_go\_path\_len} - średnia długość ścieżki do najlepszego rozwiązania. Wierzchołki bez ścieżki do najlepszego rozwiązania nie są brane pod uwagę
