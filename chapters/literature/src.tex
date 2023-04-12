@@ -340,4 +340,62 @@ zidentyfikowanie ścieków, odwrócenie krawędzi i wykonanie przeszukiwania wg�
             Acentryczność(ang. eccentricity) wierzchołka to największa z odległości wierzchołka do innych wierzchołków grafu.
 \end{itemize}
 
+\subsection{Problem komiwojażera}
+Problem komiwojażera(ang. Traveling Salesman Problem, TSP) jest znanym problemem optymalizacyjnym
+sformułowanym w następujący sposób: mając do dyspozycji listę miast i odległości między nimi, należy odnaleźć
+najkrótszą ścieżkę przechodzącą przez wszystkie miasta zaczynającą i kończącą się w ustalonym punkcie.
+Problem ten jest problemem NP-trudnym i z tego powodu do rozwiązywania większych jego instancji konieczne
+jest stosowanie algorytmów heurystycznych.
+\subsection{Operacja 2-exchange}
+Operacja 2-exchange jest operacją wybrania dwóch wierzchołków i zamiany krawędzi prowadzących do następnych wierzchołków.
+Procedura jest wykorzystywana w algorytmie heurystycznym 2opt, w którym w ten sposób "rozplatane" są skrzyżowane krawędzie.
+
+Algorytmy przeszukiwania przestrzeni rozwiązań zaprezentowane w tej pracy wykorzystują operację 2-exchange jako operację mutacji.
+Mutacja permutacji polega na D-krotnym wykonaniu operacji 2-exchange na losowych wierzchołkach, gdzie D to maksymalna odległość
+z równania \ref{eq:escape_edge_cond}.
+
+Operacja 2-exchange oraz operator mutacji zostały przedstawione na listingu \ref{alg:2ex}.
+
+\begin{algorithm}[h!]
+      \caption{Operacja 2exchange - pseudokod}\label{alg:2ex}
+
+      \SetKwProg{Fn}{function}{:}{}
+      \SetKwFunction{FT}{2exchange}
+
+      \Fn{\FT{$a, b, perm$}}{
+            $a \gets a+1$\;
+            \While{a < b}{
+                  $swap(a, b)$\;
+                  $a \gets a+1$\;
+                  $b \gets b+1$\;
+            }
+      }
+      \textbf{end}
+
+      \vspace{1em}
+
+
+      \SetKwFunction{FM}{2exchange\_mutate}
+      \Fn{\FM{$perm, D$}}{
+            \For{$i\gets1$ \KwTo $D$}{
+                  $a \gets randomFrom(0, length(perm) - 2)$\;
+                  $b \gets randomFrom(a+1, length(perm)-1)$\;
+                  $2exchange(a,b,perm)$\;
+            }
+      }
+      \textbf{end}
+
+\end{algorithm}
+
+\begin{figure}[h!]
+      \centering
+      \includegraphics[width=\textwidth]{chapters/literature/img/2exdrawio.png}
+      \caption{Przykład procedury 2-exchange}
+      \label{fig:2exchange}
+\end{figure}
+
+
+
+
+
 
