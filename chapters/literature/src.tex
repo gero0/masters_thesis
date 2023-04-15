@@ -1,6 +1,17 @@
 \chapter{Przegląd literatury}
 \section{Przegląd - notatki}
 
+\subsection*{First-improvement vs. Best-improvement Local Optima Networks of NK Landscapes (2012)\cite{DBLP:journals/corr/abs-1207-4455}}
+W pracy porównane zostały algorytmy hillclimb first-improvement i best-improvement w próbkowaniu
+NK landscape. Porównano sieci optimów lokalnych wygenerowane przez oba algorytmy.
+Wśród miar można wymienić: Liczbę wierzchołków i krawędzi, współczynnik klasteryzacji,
+disparity, długość najkrótszej ścieżki między wierzchołkami.
+Zbierano także informacje o basenach przyciągania: rozmiar basenu globalnego optimum,
+porównanie rozmiarów basenów w obu sieciach, liczba basenów na rozwiązanie.
+Badania wykazały, że algorytm typu first-improvement tworzy gęstrzą, bardziej kompletną sieć LON,
+z mniejszymi wartościami wag i mniejszą liczbą pętli. First improvement tworzył zwykle dłuższe ścieżki
+w sieci. Dodatkową zaletą first-improvement jest szybsze działanie, gdyż nie musi być przeglądane całe sąsiedztwo.
+
 \subsection*{Mapping the global structure of TSP fitness landscapes (2018) \cite{DBLP:journals/heuristics/OchoaV18}}
 Celem pracy było zbadanie przestrzeni rozwiązań różnych instancji problemu komiwojażera(TSP), oraz opracowanie
 procedury próbkowania tych przestrzeni.
@@ -82,6 +93,23 @@ Eksperymenty wykazały, że analiza sieci optimów lokalnych może zostać z pow
 selekcji algorytmu heurystycznego, jednak czas próbkowania, dłuższy od czasu samego rozwiązywania problemu,
 ogranicza jej użyteczność.
 
+\subsection*{How Perturbation Strength Shapes the Global Structure of TSP Fitness Landscapes\cite{DBLP:conf/evoW/McMenemyVO18}}
+W pracy zbadany został wpływ siły permutacji na wyniki generowane przez algorytm próbkowania Chained-LK.
+Do badań wykorzystano dwa rodzaje generowanych instancji - miasta rozłożone równomiernie i w klastrach.
+Sieć LON była tworzona poprzez agregowanie danych z 1000 niezależnych uruchomień algorytmu.
+Przebadano siłę perturbacji z zakresu 1 do 10. Zastosowanym typem perturbacji był double-bridge.
+Wśród badanych metryk znalazły się: success rate - czy globalne optimum znane a priori zostało znalezione?,
+średnia liczba iteracji Chained-LK potrzebna do znalezienia globalnego optimum, liczba wierzchołków i krawędzi w lon,
+in-strength wierzchołków z globalnym optimum, część wierzchołków należących do leja  globalnego optimum,
+część lokalnych optimów z unikalnymi wartościami funkcji celu.
+Celem było takie dobranie siły perturbacji z, aby otrzymać jak największy success rate.
+Badania wykazały, że dla instancji z miastami ułożonymi w klastrach, lepsze wyniki osiągnięto przy zastosowaniu niskiej siły perturbacji
+- za duża wartość tworzyła dużo sub-optymalnych lejów w przestrzeni rozwiązań.
+Z kolei dla instancji z równomiernym rozłożeniem miast było wręcz przeciwnie - mała siła perturbacji tworzyła przestrzeń pełną
+suboptymalnych lejów, a większa nieco ją wygładzała.
+Badanie wykazało również, że instancje z miastami w klastrach były generalnie prostsze do rozwiązania niż instancje równomierne,
+wynika z tego że rozkład optimów lokalnych bardziej wpływa na trudność problemu niż ich ilość.
+
 \subsection*{Clarifying the Difference in Local Optima Network Sampling Algorithms (2019) \cite{DBLP:conf/evoW/ThomsonOV19}}
 W pracy wykonane zostało statystyczne porównanie dwóch algorytmów próbkowania
 sieci lokalnych optimów dla kwadratowego problemu przydziału(QAP).
@@ -144,6 +172,27 @@ Badania nie wykazały wyższości jednego algorytmu próbkowania nad drugim. Aut
 sieci optimów lokalnych są lepiej odwzorowywane przez algorytm \textit{Markov-chain}, a inne lepiej przez \textit{Snowball}.
 Najlepsze wśród zbudowanych modeli regresji okazały się zaś te, które korzystały z kombinacji danych pozyskanych z obu algorytmów.
 
+\subsection*{Understanding Parameter Spaces using Local Optima Networks: A Case Study on Particle Swarm Optimization\cite{DBLP:conf/gecco/CleghornO21}}
+W pracy sieci optimów lokalnych zostały wykorzystane do analizy i wizualizacji przestrzeni parametrów heurystyki Particle Swarm Optimization
+dla różnych funkcji celu. Przebadano 26 różnych funkcji celu.
+Utworzono sieci LON, oraz CMLON (compressed LON).
+Zbadano: liczbę wierzchołków i krawędzi w LON, liczbę pętli w sieci, Liczbę konfiguracji, dla których osiągnięto wynik zbliżony do najlepszego o ustalony $\epsilon$,
+stosunek krawędzi zmierzających do rozwiązania lepszego o ponad $\epsilon$ do ogółu krawędzi (nie licząc pętli),
+stosunek krawędzi neutralnych (nie zmierzających do rozwiązania lepszego lub gorszego o $\epsilon$) do ogółu krawędzi,
+i krawędzi pogarszających do ogółu krawędzi.
+Dla sieci CMLON zbadana została
+liczba ścieków, optymalnych globalnie ścieków, rozmiar leja dla najlepszego ścieku i inne.
+Badania wykazały istnienie dużej ilości optimów lokalnych, co sugeruje że naiwne metody dobierania parametrów mogą łatwo doprowadzić do suboptymalnej konfiguracji,
+Przestrzeń konfiguracji charakteryzowała się niską neutralnością.
+Dla 20 z 26 celu istniało tylko jedno globalne optimum, co oznacz że najlepsze konfiguracje są do siebie zbliżone, a nie rozsianie po przestrzeni.
+Podsumowując: przestrzeń konfiguracji PSO zwykle ma jeden duży lej zmierzający do najlepszej konfiguracji, jednak istnieje bardzo dużo lokalnych optimów,
+oraz ścieków suboptymalnych, co sprawia że dobór parametrów jest nietrywialny.
+
+MLON jest grafem tworzonym na podstawie sieci LON, ale zawierającym tylko niepogarszające krawędzie.
+CMLON jest grafem tworzonym na podstawie MLON, w którym wierzchołki stanowią płaskowyże sieci MLON.
+Płaskowyż jest spójnym podgrafem, w którym wszystkie wierzchołki mają tą samą wartość funkcji celu.
+krawędzi są tworzone poprzez agregację krawędzi z MLON.
+
 \subsection*{Understanding AutoML Search Spaces with Local Optima Networks (2022) \cite{DBLP:conf/gecco/TeixeiraP22}}
 AutoML jest procesem automatyzacji konfiguracji procesów(pipelines) uczenia maszynowego.
 Może obejmować on takie zadania jak wstępne przetwarzanie danych, ekstrakcja cech, dobór odpowiedniego algorytmu i jego hiperparametrów.
@@ -194,6 +243,7 @@ Stwierdzono, że odległości między optimami globalnymi były mniejsze od odle
 i odległości pomiędzy optimami globalnymi i lokalnymi.
 Zwiększanie sąsiedztwa zmniejszało odległość między globalnymi optimami.
 Zauważono, że optima są skupione w pewnym rejonie przestrzeni rozwiązań, a nie rozłożone równomiernie.
+
 
 
 \section{O przestrzeni rozwiązań}

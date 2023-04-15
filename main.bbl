@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{DBLP:conf/depcos/BozejkoGNAB18}
 {\sc W.~Bozejko, A.~Gnatowski, T.~Nizynski, M.~Affenzeller, and A.~Beham}, {\em
@@ -9,10 +9,25 @@
   J.~Mazurkiewicz, J.~Sugier, T.~Walkowiak, and J.~Kacprzyk, eds., vol.~761 of
   Advances in Intelligent Systems and Computing, Springer, 2018, pp.~83--93.
 
+\bibitem{DBLP:conf/gecco/CleghornO21}
+{\sc C.~W. Cleghorn and G.~Ochoa}, {\em Understanding parameter spaces using
+  local optima networks: a case study on particle swarm optimization}, in
+  {GECCO} '21: Genetic and Evolutionary Computation Conference, Companion
+  Volume, Lille, France, July 10-14, 2021, K.~Krawiec, ed., {ACM}, 2021,
+  pp.~1657--1664.
+
 \bibitem{FRAGATA201969}
 {\sc I.~Fragata, A.~Blanckaert, M.~A. {Dias Louro}, D.~A. Liberles, and
   C.~Bank}, {\em Evolution in the light of fitness landscape theory}, Trends in
   Ecology \& Evolution, 34 (2019), pp.~69--82.
+
+\bibitem{DBLP:conf/evoW/McMenemyVO18}
+{\sc P.~McMenemy, N.~Veerapen, and G.~Ochoa}, {\em How perturbation strength
+  shapes the global structure of {TSP} fitness landscapes}, in Evolutionary
+  Computation in Combinatorial Optimization - 18th European Conference, EvoCOP
+  2018, Parma, Italy, April 4-6, 2018, Proceedings, A.~Liefooghe and
+  M.~L{\'{o}}pez{-}Ib{\'{a}}{\~{n}}ez, eds., vol.~10782 of Lecture Notes in
+  Computer Science, Springer, 2018, pp.~34--49.
 
 \bibitem{DBLP:journals/heuristics/OchoaV18}
 {\sc G.~Ochoa and N.~Veerapen}, {\em Mapping the global structure of {TSP}
@@ -22,6 +37,11 @@
 {\sc G.~Ochoa, S.~V{\'{e}}rel, F.~Daolio, and M.~Tomassini}, {\em Local optima
   networks: {A} new model of combinatorial fitness landscapes}, CoRR,
   abs/1402.2959 (2014).
+
+\bibitem{DBLP:journals/corr/abs-1207-4455}
+{\sc G.~Ochoa, S.~V{\'{e}}rel, and M.~Tomassini}, {\em First-improvement vs.
+  best-improvement local optima networks of {NK} landscapes}, CoRR,
+  abs/1207.4455 (2012).
 
 \bibitem{DBLP:conf/gecco/TeixeiraP22}
 {\sc M.~C. Teixeira and G.~L. Pappa}, {\em Understanding automl search spaces

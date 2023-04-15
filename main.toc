@@ -1,25 +1,25 @@
 \contentsline {chapter}{\numberline {1}Wstęp}{3}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Przegląd literatury}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Przegląd - notatki}{5}{section.2.1}%
-\contentsline {section}{\numberline {2.2}O przestrzeni rozwiązań}{9}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Sieć optimów lokalnych}{9}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Wierzchołki}{10}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Krawędzie}{10}{subsection.2.2.3}%
-\contentsline {subsubsection}{Basin-transition}{10}{section*.7}%
-\contentsline {subsubsection}{Perturbation edges}{11}{section*.9}%
-\contentsline {subsection}{\numberline {2.2.4}Struktury lejowe}{11}{subsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.2.5}Metryki przestrzeni rozwiązań}{11}{subsection.2.2.5}%
-\contentsline {subsection}{\numberline {2.2.6}Problem komiwojażera}{13}{subsection.2.2.6}%
-\contentsline {subsection}{\numberline {2.2.7}Operacja 2-exchange}{14}{subsection.2.2.7}%
-\contentsline {chapter}{\numberline {3}Badania eksperymentalne}{15}{chapter.3}%
-\contentsline {section}{\numberline {3.1}Opis eksperymentów}{15}{section.3.1}%
-\contentsline {section}{\numberline {3.2}Zaimplementowane algorytmy}{15}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Próbkowanie dwufazowe}{15}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Snowball}{15}{subsection.3.2.2}%
-\contentsline {subsection}{\numberline {3.2.3}Przegląd zupełny}{18}{subsection.3.2.3}%
-\contentsline {section}{\numberline {3.3}Instancje testowe}{19}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Experimental setup but po polsku}{21}{section.3.4}%
-\contentsline {section}{\numberline {3.5}Wyniki}{21}{section.3.5}%
-\contentsline {chapter}{\numberline {4}Opis implementacji}{23}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Podsumowanie}{25}{chapter.5}%
-\contentsline {chapter}{Literatura}{25}{chapter.5}%
+\contentsline {section}{\numberline {2.2}O przestrzeni rozwiązań}{10}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Sieć optimów lokalnych}{11}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Wierzchołki}{11}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Krawędzie}{11}{subsection.2.2.3}%
+\contentsline {subsubsection}{Basin-transition}{11}{section*.10}%
+\contentsline {subsubsection}{Perturbation edges}{12}{section*.12}%
+\contentsline {subsection}{\numberline {2.2.4}Struktury lejowe}{12}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Metryki przestrzeni rozwiązań}{13}{subsection.2.2.5}%
+\contentsline {subsection}{\numberline {2.2.6}Problem komiwojażera}{15}{subsection.2.2.6}%
+\contentsline {subsection}{\numberline {2.2.7}Operacja 2-exchange}{15}{subsection.2.2.7}%
+\contentsline {chapter}{\numberline {3}Badania eksperymentalne}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Opis eksperymentów}{17}{section.3.1}%
+\contentsline {section}{\numberline {3.2}Zaimplementowane algorytmy}{17}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Próbkowanie dwufazowe}{17}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Snowball}{17}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}Przegląd zupełny}{20}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}Instancje testowe}{21}{section.3.3}%
+\contentsline {section}{\numberline {3.4}Experimental setup but po polsku}{23}{section.3.4}%
+\contentsline {section}{\numberline {3.5}Wyniki}{23}{section.3.5}%
+\contentsline {chapter}{\numberline {4}Opis implementacji}{25}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Podsumowanie}{27}{chapter.5}%
+\contentsline {chapter}{Literatura}{27}{chapter.5}%
