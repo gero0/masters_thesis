@@ -83,7 +83,7 @@ Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowbal
     \Fn{\FE{$N, E, e_{att}$}}{
         \ForEach{$n \in{N}$}{
             \For{$i\gets1$ \KwTo $e_{att}$}{
-                $s \gets 2exchange(n, D)$\;
+                $s \gets 2exchangeMutacja(n, D)$\;
                 $s \gets 2optFirstImprovement(s)$\;
                 \If{$s \in{N}$}{
                     $E \gets E \cup \{(n, s)\}$\;
@@ -133,7 +133,7 @@ Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowbal
     \Fn{\FS{$n, m, depth$}}{
         \If{$d > 0$}{
             \For{$i\gets1$ \KwTo $m$}{
-                $s \gets 2opt(2exchange(n, D))$\;
+                $s \gets 2opt(2exchangeMutacja(n, D))$\;
                 $N \gets N \cup \{ s \}$\;
                 \uIf{$(n, s) \in{E}$}{
                     $w_{ns} \gets w_{ns} + 1$\;

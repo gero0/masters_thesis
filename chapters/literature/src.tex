@@ -415,23 +415,40 @@ Operacja 2-exchange oraz operator mutacji zostały przedstawione na listingu \re
       \Fn{\FT{$a, b, perm$}}{
             $a \gets a+1$\;
             \While{a < b}{
-                  $zamien(a, b)$\;
+                  $zamien(perm[a], perm[b])$\;
                   $a \gets a+1$\;
                   $b \gets b+1$\;
             }
+            \Return perm\;
       }
       \textbf{end}
 
-      \vspace{1em}
+      \vspace{0.5em}
 
 
       \SetKwFunction{FM}{2exchangeMutacja}
       \Fn{\FM{$perm, D$}}{
             \For{$i\gets1$ \KwTo $D$}{
-                  $a \gets losowaZZakresu(0, length(perm) - 2)$\;
-                  $b \gets losowaZZakresu(a+1, length(perm)-1)$\;
-                  $2exchange(a,b,perm)$\;
+                  $a \gets losowaZZakresu(0, length(perm) - 3)$\;
+                  $b \gets losowaZZakresu(a+2, length(perm)-1)$\;
+                  $perm \gets 2exchange(a,b,perm)$\;
             }
+            \Return perm\;
+      }
+      \textbf{end}
+
+      \vspace{0.5em}
+
+      \SetKwFunction{FA}{2exchangeWszystkiePermutacje}
+      \Fn{\FA{$perm$}}{
+            $perms = \{\}$\;
+            \For{$a \gets 0$ \KwTo $n-3$}{
+                  \For{$b \gets a+2$ \KwTo $n-1$}{
+                        $perm \gets 2exchange(a, b)$\;
+                        $perms \gets perms \cup \{perm\}$\;
+                  }
+            }
+            \Return{perms}\;
       }
       \textbf{end}
 
