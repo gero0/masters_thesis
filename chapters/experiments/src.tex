@@ -56,19 +56,19 @@ Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowbal
     $N \gets \{\}$\;
     $E \gets \{\}$\;
     \For{$i\gets1$ \KwTo $n_{runs}$}{
-        $sampleVerts(N, n_{max}, n_{att})$\;
-        $sampleEdges(N, E, e_{att})$\;
-        $saveToFile(N, E)$\;
+        $probkujWierzcholki(N, n_{max}, n_{att})$\;
+        $probkujKrawedzie(N, E, e_{att})$\;
+        $zapiszDoPliku(N, E)$\;
     }
     \vspace{1em}
 
-    \SetKwFunction{FV}{sampleVerts}
+    \SetKwFunction{FV}{probkujWierzcholki}
     \SetKwProg{Fn}{function}{:}{}
 
     \Fn{\FV{$N, n_{max}, n_{att}$}}{
         \For{$i\gets1$ \KwTo $n_{max}$}{
             \For{$i\gets1$ \KwTo $n_{att}$}{
-                $s \gets randomSolution()$\;
+                $s \gets losoweRozwiazanie()$\;
                 $s \gets 2opt(s)$\;
                 $N \gets N \cup \{s\}$\;
             }
@@ -78,7 +78,7 @@ Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowbal
 
     \vspace{1em}
 
-    \SetKwFunction{FE}{sampleEdges}
+    \SetKwFunction{FE}{probkujKrawedzie}
 
     \Fn{\FE{$N, E, e_{att}$}}{
         \ForEach{$n \in{N}$}{
@@ -113,7 +113,7 @@ Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowbal
     }
 
     \vspace{1em}
-    $s_1 \gets randomSolution()$\;
+    $s_1 \gets losoweRozwiazanie()$\;
     $n_1 \gets 2opt(s_1)$\;
 
     $N \gets \{ n_1 \}$\;
@@ -121,9 +121,9 @@ Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowbal
     \For{$j\gets1$ \KwTo $n_{runs}$}{
         \For{$i\gets1$ \KwTo $w_{len}$}{
             $snowball(n_i, m, depth)$\;
-            $n_{i+1} \gets randomWalk(n_i)$\;
+            $n_{i+1} \gets losowySpacer(n_i)$\;
         }
-        $saveToFile(N, E)$\;
+        $zapiszDoPliku(N, E)$\;
     }
     \vspace{1em}
 
@@ -150,15 +150,15 @@ Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowbal
 
     \vspace{1em}
 
-    \SetKwFunction{FW}{randomWalk}
+    \SetKwFunction{FW}{losowySpacer}
 
     \Fn{\FW{$n_i$}}{
         $neighbours \gets \{ s: (n_i, s) \in E \land s \notin \{ n_0...n_i \} \}$\;
         \uIf{$neighbours \neq \emptyset $}{
-            $n_{i+1} \gets selectRandomlyFromSet(neighbours)$\;
+            $n_{i+1} \gets losowyElementZeZbioru(neighbours)$\;
         }
         \Else{
-            $s \gets randomSolution()$\;
+            $s \gets losoweRozwiazanie()$\;
             $n_{i+1} \gets 2opt(s)$\;
             $N \gets N \cup \{ n_{i+1} \}$\;
         }
@@ -182,7 +182,7 @@ lokalnych optimów, oznacza to, że spełniony jest warunek \ref{eq:escape_edge_
 \begin{algorithm}[]
     \caption{Przegląd zupełny}\label{alg:exhaustive}
     $S \gets \{\}$\;
-    $P \gets generateAllPermutations()$\;
+    $P \gets wygenerujWszystkiePermutacje()$\;
     \ForEach{$p \in P$}{
         $lo \gets 2opt(p)$\;
         $S \gets S \cup \{(p, lo)\}$\;
@@ -192,7 +192,7 @@ lokalnych optimów, oznacza to, że spełniony jest warunek \ref{eq:escape_edge_
 
     \ForEach{$(p, lo) \in S$}{
         \ForEach{$n \in N$}{
-            \If{$inrange\_2exchange(p, n, D)$}{
+            \If{$wZasiegu2Exchange(p, n, D)$}{
                 \uIf{$(n, lo) \in E$}{
                     $w_{n, lo} \gets w_{n, lo} + 1$\;
                 }\Else{
@@ -203,32 +203,30 @@ lokalnych optimów, oznacza to, że spełniony jest warunek \ref{eq:escape_edge_
         }
     }
 
-    \SetKwFunction{FI}{inrange\_2exchange}
+    \SetKwFunction{FI}{wZasiegu2Exchange}
 
     \vspace{1em}
 
     \Fn{\FI{$p, n, D$}}{
-        $perms \gets \{p\}$\;
+        $permutacje \gets \{p\}$\;
         \For{$i \in 1..D$}{
-            $new\_perms \gets \{\}$\;
-            \ForEach{$perm \in perms$}{
-                $child\_perms \gets 2exchange\_allperms(perm)$\;
-                \ForEach{$child \in child\_perms$}{
-                    \If{child = n}{
+            $nowe\_perm \gets \{\}$\;
+            \ForEach{$perm \in permutacje$}{
+                $pochodne\_perm \gets 2exchangeWszystkiePermutacje(permutacje)$\;
+                \ForEach{$poch\in pochodne\_perm$}{
+                    \If{poch = n}{
                         \Return{true}\;
                     }
-                    $new\_perms \gets new\_perms \cup \{child\}$\;
+                    $nowe\_perm \gets nowe\_perm \cup \{poch\}$\;
                 }
             }
-            $perms \gets new\_perms$\;
+            $permutacje \gets nowe\_perm$\;
         }
         \Return{false}\;
     }
     \textbf{end}
 
 \end{algorithm}
-
-TODO: opisać operację 2-exchange i operację kicka i generowania wszystkich możliwych kicków w przeglądzie zupełnym
 
 \section{Instancje testowe}
 Do badań wykorzystano instancje testowe wygenerowane losowo oraz wybrane instancje ze zbioru TSPLIB.

@@ -365,7 +365,7 @@ Operacja 2-exchange oraz operator mutacji zostały przedstawione na listingu \re
       \Fn{\FT{$a, b, perm$}}{
             $a \gets a+1$\;
             \While{a < b}{
-                  $swap(a, b)$\;
+                  $zamien(a, b)$\;
                   $a \gets a+1$\;
                   $b \gets b+1$\;
             }
@@ -375,11 +375,11 @@ Operacja 2-exchange oraz operator mutacji zostały przedstawione na listingu \re
       \vspace{1em}
 
 
-      \SetKwFunction{FM}{2exchange\_mutate}
+      \SetKwFunction{FM}{2exchangeMutacja}
       \Fn{\FM{$perm, D$}}{
             \For{$i\gets1$ \KwTo $D$}{
-                  $a \gets randomFrom(0, length(perm) - 2)$\;
-                  $b \gets randomFrom(a+1, length(perm)-1)$\;
+                  $a \gets losowaZZakresu(0, length(perm) - 2)$\;
+                  $b \gets losowaZZakresu(a+1, length(perm)-1)$\;
                   $2exchange(a,b,perm)$\;
             }
       }
