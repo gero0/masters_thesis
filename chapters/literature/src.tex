@@ -1,250 +1,102 @@
 \chapter{Przegląd literatury}
-\section{Przegląd - notatki}
 
-\subsection*{First-improvement vs. Best-improvement Local Optima Networks of NK Landscapes (2012)\cite{DBLP:journals/corr/abs-1207-4455}}
-W pracy porównane zostały algorytmy hillclimb first-improvement i best-improvement w próbkowaniu
-NK landscape. Porównano sieci optimów lokalnych wygenerowane przez oba algorytmy.
-Wśród miar można wymienić: Liczbę wierzchołków i krawędzi, współczynnik klasteryzacji,
-disparity, długość najkrótszej ścieżki między wierzchołkami.
-Zbierano także informacje o basenach przyciągania: rozmiar basenu globalnego optimum,
-porównanie rozmiarów basenów w obu sieciach, liczba basenów na rozwiązanie.
-Badania wykazały, że algorytm typu first-improvement tworzy gęstrzą, bardziej kompletną sieć LON,
-z mniejszymi wartościami wag i mniejszą liczbą pętli. First improvement tworzył zwykle dłuższe ścieżki
-w sieci. Dodatkową zaletą first-improvement jest szybsze działanie, gdyż nie musi być przeglądane całe sąsiedztwo.
+\section{Cele badania przestrzeni rozwiązań}
+Analiza przestrzeni rozwiązań pozwala na lepsze poznanie niektórych cech problemu, a także zbadanie, w jakim stopniu cechy te zależne są od
+rodzaju badanej instancji. Przedmiotem badań z tej dziedziny najczęściej są znane problemy NP-trudne, takie jak problem komiwojażera czy problem kwadratowego przydziału.
+Jednym z proponowanych zastosowań analizy przestrzeni rozwiązań jest wykorzystanie jej do wyboru najlepszego algorytmu heurystycznego
+dla danej instancji problemu. W pracy \textit{Local Optima Networks in Solving Algorithm Selection Problem for TSP}\cite{DBLP:conf/depcos/BozejkoGNAB18}
+sieci optimów lokalnych wygenerowane na podstawie próbkowania przestrzeni rozwiązań wykorzystano do nauczenia modeli regresji, których zadaniem było
+przewidzenie, który algorytm heurystyczny da lepsze wyniki dla danej instancji problemu.
+Badanie wykazało, że analiza przestrzeni rozwiązań może zostać z powodzeniem wykorzystana w tym celu.
+Problemem pozostaje natomiast długi czas trwania próbkowania przestrzeni, zwykle dłuższy niż czas działania samego algorytmu heurystycznego.
+W pracy \textit{Mapping the global structure of TSP Fitness landscapes}\cite{DBLP:journals/heuristics/OchoaV18} zbadano przestrzeń rozwiązań
+dla różnych instancji problemu komiwojażera. Zauważono, że instancje wygenerowane losowo zwykle mają mniejszą neutralność i mniej globalnych optimów od
+instancji rzeczywistych. Zaobserwowano również, że sposób rozłożenia miast (w klastrach, równomierny) wpływa na wzajemną korelację wartości różnych miar.
+W ostatnich latach w podobny sposób przeprowadzono analizy przestrzeni konfiguracji wieloparametrowych algorytmów optymalizacyjnych.
+W pracy \textit{Understanding Parameter Spaces using Local Optima Networks: A Case Study on Particle Swarm Optimization}\cite{DBLP:conf/gecco/CleghornO21}
+wykorzystano sieci lokalnych optimów, oraz pochodne struktury CMLON do analizy i wizualizacji przestrzeni parametrów algorytmu roju cząstek.
+Analiza wykazała istnienie dużej ilości lokalnych optimów, niską neutralność, oraz istnienie wielu ścieków (ang sinks) nie znajdujących się w optimum globalnym,
+Sugeruje to, że naiwne metody dobierania parametrów mogą łatwo doprowadzić do suboptymalnej konfiguracji i w efekcie nie otrzymaniu najlepszych wyników.
+Podobne badanie wykonano dla przestrzeni parametrów procesu AutoML w pracy \textit{Understanding AutoML Search Spaces with Local Optima Networks}\cite{DBLP:conf/gecco/TeixeiraP22}.
+AutoML jest procesem automatyzacji konfiguracji procesów (ang. pipelines) uczenia maszynowego obejmującym m. in. wybór zastosowanego przetwarzania wstępnego,
+właściwego algorytmu uczenia i jego hiperparametrów. W pracy zbadano przestrzeń konfiguracji AutoML dla zadania klasyfikacji.
+TODO: expand
 
-\subsection*{Mapping the global structure of TSP fitness landscapes (2018) \cite{DBLP:journals/heuristics/OchoaV18}}
-Celem pracy było zbadanie przestrzeni rozwiązań różnych instancji problemu komiwojażera(TSP), oraz opracowanie
-procedury próbkowania tych przestrzeni.
-W pracy przedstawiony został algorytm próbkujący oparty o algorytm \textit{Chained-Lin-Kerninghan}.
-Do próbkowania wykorzystano implementację tego algorytmu z biblioteki \textit{Concorde}.
-Algorytm konstruuje sieć optimów lokalnych(LON) - odmianę z definicją krawędzi \textit{escape edges}.
+\section{Próbkowanie przestrzeni rozwiązań}
+Przegląd zupełny przestrzeni rozwiązań problemów trudnych obliczeniowo jest w praktyce niemożliwy poza bardzo małymi instancjami problemu.
+Z tego powodu analizę przestrzeni rozwiązań przeprowadza się na części przestrzeni zbadanej w procesie próbkowania.
+W tym miejscu pojawiają się pytanie: w jaki sposób próbkować przestrzeń, aby cechy jej zbadanego fragmentu
+jak najlepiej odzwierciedlały cechy całej przestrzeni?
 
-Wykonane zostało 1000 niezależnych przebiegów algorytmu.
-Połowa z nich korzystała z metody inicjalizacji Quicka-Borůvki, a druga połowa za punkt startowy przyjmowała losowe rozwiązanie.
-Algorytm opiera się na generowaniu nowych rozwiązań poprzez zastosowanie perturbacji typu double-bridge,
-a następnie uruchomieniu algorytmu Lin-Kerninghan, by znaleźć lokalne minimum.
-Operacja jest powtarzana 10000 razy i budowana jest w ten sposób sieć optimów lokalnych.
+Próbkowanie przestrzeni rozwiązań i budowanie na jej podstawie sieci optimów lokalnych odbywa się poprzez zastosowanie metody
 
-Jednym z zadań, które postawili sobie autorzy pracy, była identyfikacja struktur lejowych w przestrzeni rozwiązań.
-Lej jest sekwencją lokalnych optimów, których wartość dopasowania się nie pogarsza,
-i która zmierza do pewnego optimum - globalnego (lej pierwszorzędny - ang. primary funnel) lub lokalnego (lej drugorzędny - ang. secondary funnel).
-To optimum nazywane jest spodem leja (ang. funnel floor/bottom).
+Najczęściej stosowane algorytmy próbkowania można podzielić na trzy kategorie:
+Próbkowanie dwufazowe, \textit{Markov-chain} oraz \textit{Snowball}.
 
-Sieci optimów lokalnych wygenerowane przez kolejne uruchomienia algorytmu próbkującego zawyżały liczbę lejów w przestrzeni rozwiązań.
-Badacze scalili więc znalezione optima lokalne z wszystkich przebiegów algorytmu.
-Znalezione w ten sposób rozwiązania nazwali atraktorami i utworzyli graf sieci atraktorów, w której są one wierzchołkami.
-Następnie spody lejów zostały zidentyfikowane jako wierzchołki, z których nie ma krawędzi wychodzących.
-Przynależność optimów lokalnych do poszczególnych lejów odbywała się poprzez sprawdzenie,
-czy istnieje ścieżka w grafie pomiędzy danym optimum a spodem leja.
+Próbkowanie dwufazowe składa się z dwóch faz - najpierw próbkowane są wierzchołki poprzez zastosowanie metody iteracyjnego przeszukiwania lokalnego\cite{DBLP:journals/corr/OchoaVDT14}.
+Metoda ta polega na generowaniu losowego rozwiązania, a następnie wykorzystaniu algorytmu optymalizacji lokalnej do znalezienia najbliższego
+lokalnego optimum. Następuje po tym wylosowanie nowego punktu i powtórzenie procedury.
+Druga faza to faza próbkowania krawędzi, polegająca na poddaniu znalezionych wcześniej rozwiązań operacji perturbacji, a następnie wykonaniu optymalizacji
+lokalnej. Jeśli otrzymane w ten sposób rozwiązanie jest innym lokalnym optimum znajdującym się w zbiorze wierzchołków, to dodawana jest odpowiednia krawędź.
+Metoda ta po raz pierwszy została zaprezentowana w pracy\cite{10.1145/2576768.2598275} do analizy problemu kwadratowego przypisania.
+W pracy\cite{DBLP:conf/depcos/BozejkoGNAB18} algorytm oparty o tę samą metodę został wykorzystany do badania przestrzeni problemu komiwojażera.
+Zastosowana tam odmiana wykorzystuje algorytm 2-opt do optymalizacji lokalnej i procedurę \textit{2-exchange} jako operację perturbacji.
 
-Do badań wykorzystano 20 instancji TSP o rozmiarach od 500 do 1500 miast.
-Wykorzystano instancje o miastach rozłożonych równomiernie i w klastrach.
-Część została wygenerowana losowo, a część pochodziła z biblioteki TSPLIB.
+Metoda \textit{Markov-chain} została po raz pierwszy zaprezentowana w pracy \cite{markovchain}.
+Zaczyna się od wybrania losowego rozwiązania i jego optymalizacji. Następnie otrzymane optimum lokalne zostaje poddane operacji perturbacji
+i otrzymywane w ten sposób rozwiązanie staje się nowym punktem startowym. Procedura jest powtarzana przez określoną liczbę iteracji, z każdą iteracją
+zapisywane są informacje o nowych krawędziach i wierzchołkach.
+Metoda została wykorzystana w pracy\cite{DBLP:journals/heuristics/OchoaV18} do badania przestrzeni problemu komiwojażera.
+Do optymalizacji lokalnej wykorzystany został algorytm Lin-Kerninghan, a jako operacja perturbacji procedura \textit{Double-bridge}.
 
-Zbadano właściwości powstałych sieci optimów lokalnych, m.in. liczbę unikalnych optimów lokalnych i globalnych, liczba wywołań funkcji celu,
-stosunek liczby wierzchołków i wywołań funkcji celu, stosunek wierzchołków jest połączonych ścieżką
-z optimum globalnym do całkowitej liczby wierzchołków, średnią siłę(ang. strength) wierzchołków.
-Zbadano również własności lejów, takie jak rozmiar największego leja czy liczba atraktorów.
+Metoda \textit{Snowball} składa się z dwóch etapów wykonywanych naprzemiennie. Pierwszy polega na kilkukrotnym poddaniu rozwiązania początkowego perturbacji
+w celu uzyskania sąsiednich rozwiązań, a następnie ich optymalizacji. Procedura jest rekurencyjnie powtarzana dla znalezionych w ten sposób lokalnych optimów
+aż do osiągnięcia pewnej z góry ustalonej głębokości. Jedno z lokalnych optimów sąsiadujących z rozwiązaniem początkowym zostaje wybrane jako rozwiązanie początkowe kolejnej iteracji.
+Dodatkowo w pamięci przechowywana jest lista rozwiązań początkowych - jeśli rozwiązanie już się w nim znajduje, to nie może być wybrane ponownie.
+Jeśli nie istnieje rozwiązanie sąsiednie spełniające ten warunek, za kolejne rozwiązanie początkowe przyjmowane jest lokalne optimum otrzymane z optymalizacji rozwiązania losowego.
+Algorytm \textit{Snowball} wywodzi się z technik wykorzystywanych w badaniach z dziedziny socjologii, a w kontekście badania przestrzeni rozwiązań
+problemów optymalizacyjnych został zaprezentowany po raz pierwszy w pracy \cite{DBLP:conf/ppsn/VerelDOT18}.
 
-Badania wykazały, że przestrzeń rozwiązań badanych instancji TSP zawiera wiele lejów a nie, jak wcześniej sądzono,
-jeden lej kończący się w globalnym minimum. W przestrzeni rozwiązań instancji o regularnej strukturze
-wykryto istnienie rozległych płaskowyżów(ang. plateaus). Zauważono różnicę między instancjami wygenerowanymi losowo a rzeczywistymi.
-Te pierwsze miały zwykle jedno globalne optimum i małą neutralność, podczas gdy instancje rzeczywiste
-zwykle miały więcej globalnych optimów, czasem formujących płaskowyż globalnych optimów.
-Zauważono zależność między rozmiarem instancji a liczbą lejów - ich liczba zwiększa się wraz ze wzrostem
-rozmiaru instancji. Najwięcej lejów pojawiło się w instancjach z równomiernym losowym rozmieszczeniem miast.
-Zbadano korelację między różnymi właściwościami przestrzeni rozwiązań.
-Wykazano, że w instancjach, w których miasta rozmieszczone są w klastrach, występuje większa korelacja
-właściwości, niż w instancjach o rozłożeniu równomiernym.
+W pracy\cite{DBLP:conf/evoW/ThomsonOV19} zostało przeprowadzone statystyczne porównanie algorytmów próbkowania \textit{Snowball}
+oraz \textit{Markov-chain}. Eksperyment polegał na spróbkowaniu 30 instancji problemu kwadratowego przypisania, a następnie użyciu zebranych danych
+do stworzenia modeli regresji przewidujących jakość rozwiązań, które zostaną uzyskane przez algorytm optymalizacji uruchomiony na instancji.
+Wybranymi algorytmami heurystycznymi były \textit{Robust Taboo Search} Taillarda oraz \textit{Improved ILS} Stützla.
+Z zebranych danych utworzono grafy LON i zbadano takie właściwości, jak średnia wartość funkcji dostosowania celu, średni stopień wychodzący
+wierzchołków w grafie, promień grafu, liczba lokalnych optimów i liczba krawędzi.
+Stworzono modele regresji typu liniowego oraz lasu losowego. Obliczono wartości korelacji pomiędzy właściwościami przestrzeni rozwiązań
+a jakością rozwiązań zwracanych przez algorytmy optymalizacji.
+Badania wykazały, że dane pozyskane z próbkowania \textit{Markov-chain} były w większym stopniu skorelowane z jakością rozwiązań algorytmów
+optymalizacji, a modele regresji utworzone na ich podstawie dokonywały lepszej predykcji niż te utworzone na podstawie danych ze \textit{Snowball}.
+Z kolei \textit{Snowball} okazał się bardziej przewidywalny i łatwiejszy w doborze parametrów.
 
-\subsection*{Local Optima Networks in Solving Algorithm Selection Problem for TSP (2018) \cite{DBLP:conf/depcos/BozejkoGNAB18}}
-W pracy badano możliwość wykorzystania analizy sieci optimów lokalnych w problemie wyboru algorytmu heurystycznego dla danej instancji problemu komiwojażera
-(Algorithm selection problem).
-
-Wykorzystano algorytm dwufazowy (ang. Two-Phase Sampling).
-Algorytm tego typu podzielony jest na dwa etapy - poszukiwanie wierzchołków i poszukiwanie krawędzi.
-Wierzchołki wyszukiwane są poprzez generowanie losowych rozwiązań i uruchamianiu na nich algorytmu 2-opt typu best-improvement.
-Algorytm generuje LON opartą o escape edges.
-Próbkowanie krawędzi polega na poddaniu każdego ze znalezionych wcześniej lokalnych optimów perturbacji typu 2-change i
-optymalizacji algorytmem 2-opt typu first-improvement.
-Sprawdzany jest następnie warunek istnienia krawędzi i, jeśli jest spełniony, do zbioru dodawana jest odpowiednia krawędź
-bądź zwiększana jest jej waga, jeśli już istnieje ona w zbiorze.
-Wśród badanych parametrów wymienić można m.in stosunek liczby krawędzi do liczby wierzchołków,
-średnia odległość optimum lokalnego od optimum o najniższej wartości funkcji celu,
-stosunek wierzchołków połączonych z tym optimum do pozostałych oraz różnorodność(ang. assortativity) i współczynnik klasteryzacji grafu.
-Do eksperymentów wykorzystano instancje problemu z biblioteki TSPLIB, oraz instancje generowane losowo o równomiernym rozkładzie miast.
-Obliczono korelację różnych miar, aby wyeliminować redundantne dane.
-
-Na każdej instancji problemu uruchomiono algorytmy heurystyczne i porównano parami jakość ich rozwiązań.
-Obliczono również średnią względnej jakości rozwiązań dla każdego algorytmu.
-Porównane zostały algorytmy \textit{Greedy Descent}, \textit{Guided Local Search}, \textit{Simulated Annealing}, \textit{Taboo Search}, \textit{Objective Taboo Search}.
-Wykorzystano implementacje zawarte w pakiecie \textit{Google Optimization Tools}. Sprawdzono również obecny w pakiecie tryb automatyczny, który sam dobiera
-algorytm dla danej instancji.
-
-Na podstawie zebranych danych nauczono klasyfikatory dla każdej pary algorytmów.
-Klasyfikatory przypisywały wyniki do jednej z trzech klas: 1 - algorytm A daje lepszy wynik od algorytmu B,
-2 - algorytm B daje lepszy wynik od algorytmu A, 3 - algorytmy dają ten sam wynik.
-Utworzone klasyfikatory porównano z klasyfikatorem ZeroR.
-Przygotowane klasyfikatory dokonały poprawnej predykcji częściej niż ZeroR w przypadku instancji ze
-zbioru TSPLIb. W przypadku instancji generowanych losowo, tylko w jednym przypadku klasyfikator
-okazał się lepszy od ZeroR.
-
-Eksperymenty wykazały, że analiza sieci optimów lokalnych może zostać z powodzeniem wykorzystana do
-selekcji algorytmu heurystycznego, jednak czas próbkowania, dłuższy od czasu samego rozwiązywania problemu,
-ogranicza jej użyteczność.
-
-\subsection*{How Perturbation Strength Shapes the Global Structure of TSP Fitness Landscapes\cite{DBLP:conf/evoW/McMenemyVO18}}
-W pracy zbadany został wpływ siły permutacji na wyniki generowane przez algorytm próbkowania Chained-LK.
-Do badań wykorzystano dwa rodzaje generowanych instancji - miasta rozłożone równomiernie i w klastrach.
-Sieć LON była tworzona poprzez agregowanie danych z 1000 niezależnych uruchomień algorytmu.
-Przebadano siłę perturbacji z zakresu 1 do 10. Zastosowanym typem perturbacji był double-bridge.
-Wśród badanych metryk znalazły się: success rate - czy globalne optimum znane a priori zostało znalezione?,
-średnia liczba iteracji Chained-LK potrzebna do znalezienia globalnego optimum, liczba wierzchołków i krawędzi w lon,
-in-strength wierzchołków z globalnym optimum, część wierzchołków należących do leja  globalnego optimum,
-część lokalnych optimów z unikalnymi wartościami funkcji celu.
-Celem było takie dobranie siły perturbacji z, aby otrzymać jak największy success rate.
-Badania wykazały, że dla instancji z miastami ułożonymi w klastrach, lepsze wyniki osiągnięto przy zastosowaniu niskiej siły perturbacji
-- za duża wartość tworzyła dużo sub-optymalnych lejów w przestrzeni rozwiązań.
-Z kolei dla instancji z równomiernym rozłożeniem miast było wręcz przeciwnie - mała siła perturbacji tworzyła przestrzeń pełną
-suboptymalnych lejów, a większa nieco ją wygładzała.
-Badanie wykazało również, że instancje z miastami w klastrach były generalnie prostsze do rozwiązania niż instancje równomierne,
-wynika z tego że rozkład optimów lokalnych bardziej wpływa na trudność problemu niż ich ilość.
-
-\subsection*{Clarifying the Difference in Local Optima Network Sampling Algorithms (2019) \cite{DBLP:conf/evoW/ThomsonOV19}}
-W pracy wykonane zostało statystyczne porównanie dwóch algorytmów próbkowania
-sieci lokalnych optimów dla kwadratowego problemu przydziału(QAP).
-Do badań wykorzystano instancje problemu z biblioteki QAPLIB.
-Wybrano 30 instancji o różnych klasach (rozłożone równomiernie, na siatce,
-instancje rzeczywiste, instancje losowe symulujące rzeczywiste).
-Porównano algorytmy \textit{Snowball} oraz \textit{Iterated Local Search}.
-Spróbkowane dane wykorzystano do stworzenia modelów regresji do przewidywania jakości rozwiązań
-dwóch algorytmów heurystycznych: \textit{Robust Taboo Search} Taillarda oraz \textit{Improved ILS} Stützla.
-
-Wykonano próbkowanie przestrzeni rozwiązań i sprawdzono, czy wartości poszczególnych miar pochodzące od dwóch algorytmów
-są ze sobą skorelowane.
-Zbadanymi miarami były m.in: liczba optimów, liczba krawędzi, średnia liczba krawędzi wychodzących z wierzchołka grafu(ang. outdegree),
-średnica grafu, średnie dopasowanie lokalnych optimów(ang. meanfitness), sinkfitness (dopasowanie spływów? TODO: translate).
-Zauważono korelację metryk meanfitness i sinkfitness  na poziomie 0.99.
-Dla wszystkich innych metryk korelacja było mniejsza od 0.5, dla średnicy grafu była ona ujemna.
-Na podstawie zebranych danych nauczono modele typu liniowego oraz \textit{RandomForest}.
-Zbadano wartości metryki $R^{2}$ dla różnych parametrów algorytmów próbkowania, algorytmów heurystycznych
-i modelów regresji.
-Obliczono również współczynniki korelacji pomiędzy różnymi właściwościami sieci lokalnych optimów
-a performance gap metric(TODO: translate) algorytmów optymalizujących.
-
-Badania wykazały, że sieci wygenerowane przez dwa różne algorytmy próbkujące mają pewne wspólne cechy.
-\textit{Snowball} okazał się bardziej przewidywalny i łatwiejszy w dobieraniu parametrów.
-ITS natomiast lepiej znajdował struktury skupiające (ang. hub-and-spoke structures, hubs) w przestrzeni rozwiązań.
-Wartości metryk LON uzyskane na podstawie algorytmu ITS były bardziej skorelowane z
-jakością rozwiązania heurystyki(ang. heuristic performance metric).
-Modele regresji utworzone na podstawie danych uzyskanych z ITS dokonywały lepszej predykcji
-jakości rozwiązań algorytmów heurystycznych, niż modele utworzone na podstawie algorytmu Snowball.
-Zauważono, że wartości funkcji celu w poszczególnych lokalnych optimach sieci LON
-były lepszymi predyktorami, niż informacje o krawędziach tej sieci.
-
-\subsection*{Inferring Future Landscapes: Sampling the Local Optima Level (2020) \cite{DBLP:journals/ec/ThomsonOVV20}}
-W pracy zostały porównane algorytmy próbkowania sieci optimów lokalnych(LON) dla kwadratowego problemu przydziału (QAP).
-Porównane zostały algorytmy \textit{Markov-Chain} oraz \textit{Snowball}.
-Dla małych instancji problemu wykonano kompletne przeszukanie przestrzeni rozwiązań,
-dla większych - przeszukiwanie z limitowanym budżetem obliczeniowym.
-
-Jako instancje testowe wykorzystano przykłady ze zbioru QAPLIB.
-Instancje należały do pięciu kategorii: instancje z wartościami losowymi z rozkładu równomiernego,
-instancje z wartościami odległości ułożonymi "na siatce" i losowymi wartościami przepływu, rzeczywiste instancje problemu,
-instancje generowane symulujące rzeczywiste, oraz instancje nie pasujące do żadnej z poprzednich kategorii.
-
-Badane właściwości sieci LON różniły się w zależności od algorytmu próbkowania.
-Dla Algorytmu \textit{Markov-chain} były to: liczba wierzchołków i krawędzi grafu, średnie dopasowanie(ang. meanfitness),
-średnia liczba krawędzi wychodzących z wierzchołka (ang. mean outdegree), oraz najdłuższa ścieżka między wierzchołkami.
-Dodatkowo zbadano tzw. metryki lejowe(ang. Funnel metrics) - liczba krawędzi do globalnego optimum (ang. incoming global)
-oraz średnie dopasowanie spodu leja(ang. mean funnel-floor fitness).
-
-Dla algorytmu \textit{Snowball} metryki lejowe, oraz te oparte o gęstość i wzory połączeń krawędzi nie dają użytecznych informacji,
-zamiast tych metryk wybrano: średnią wagę pętli w grafie, średnią różnicę wag krawędzi wychodzących (ang. mean weight disparity),
-korelację dopasowania między sąsiadami (ang. fitness-fitness correlation), średnia długość "wspinaczki" do optimum lokalnego,
-maksymalna długość "wspinaczki" do lokalnego optimum oraz maksymalna liczba ścieżek prowadzących do lokalnego optimum.
-
-Na podstawie danych zbudowano modele regresji, dokonujące predykcji jakości rozwiązań
-uzyskanych przy wykorzystaniu heurystyk \textit{Improved Iterated Local Search} i \textit{Robust Taboo Search}.
-Sprawdzono modele liniowe i \textit{RandomForest}. Modele oparte o \textit{RandomForest} okazały się lepsze.
-
-Badania nie wykazały wyższości jednego algorytmu próbkowania nad drugim. Autorzy zwracają uwagę na fakt, że niektóre z cech
-sieci optimów lokalnych są lepiej odwzorowywane przez algorytm \textit{Markov-chain}, a inne lepiej przez \textit{Snowball}.
-Najlepsze wśród zbudowanych modeli regresji okazały się zaś te, które korzystały z kombinacji danych pozyskanych z obu algorytmów.
-
-\subsection*{Understanding Parameter Spaces using Local Optima Networks: A Case Study on Particle Swarm Optimization\cite{DBLP:conf/gecco/CleghornO21}}
-W pracy sieci optimów lokalnych zostały wykorzystane do analizy i wizualizacji przestrzeni parametrów heurystyki Particle Swarm Optimization
-dla różnych funkcji celu. Przebadano 26 różnych funkcji celu.
-Utworzono sieci LON, oraz CMLON (compressed LON).
-Zbadano: liczbę wierzchołków i krawędzi w LON, liczbę pętli w sieci, Liczbę konfiguracji, dla których osiągnięto wynik zbliżony do najlepszego o ustalony $\epsilon$,
-stosunek krawędzi zmierzających do rozwiązania lepszego o ponad $\epsilon$ do ogółu krawędzi (nie licząc pętli),
-stosunek krawędzi neutralnych (nie zmierzających do rozwiązania lepszego lub gorszego o $\epsilon$) do ogółu krawędzi,
-i krawędzi pogarszających do ogółu krawędzi.
-Dla sieci CMLON zbadana została
-liczba ścieków, optymalnych globalnie ścieków, rozmiar leja dla najlepszego ścieku i inne.
-Badania wykazały istnienie dużej ilości optimów lokalnych, co sugeruje że naiwne metody dobierania parametrów mogą łatwo doprowadzić do suboptymalnej konfiguracji,
-Przestrzeń konfiguracji charakteryzowała się niską neutralnością.
-Dla 20 z 26 celu istniało tylko jedno globalne optimum, co oznacz że najlepsze konfiguracje są do siebie zbliżone, a nie rozsianie po przestrzeni.
-Podsumowując: przestrzeń konfiguracji PSO zwykle ma jeden duży lej zmierzający do najlepszej konfiguracji, jednak istnieje bardzo dużo lokalnych optimów,
-oraz ścieków suboptymalnych, co sprawia że dobór parametrów jest nietrywialny.
-
-MLON jest grafem tworzonym na podstawie sieci LON, ale zawierającym tylko niepogarszające krawędzie.
-CMLON jest grafem tworzonym na podstawie MLON, w którym wierzchołki stanowią płaskowyże sieci MLON.
-Płaskowyż jest spójnym podgrafem, w którym wszystkie wierzchołki mają tą samą wartość funkcji celu.
-krawędzi są tworzone poprzez agregację krawędzi z MLON.
-
-\subsection*{Understanding AutoML Search Spaces with Local Optima Networks (2022) \cite{DBLP:conf/gecco/TeixeiraP22}}
-AutoML jest procesem automatyzacji konfiguracji procesów(pipelines) uczenia maszynowego.
-Może obejmować on takie zadania jak wstępne przetwarzanie danych, ekstrakcja cech, dobór odpowiedniego algorytmu i jego hiperparametrów.
-Mnogość możliwych konfiguracji procesu sprawia, że przestrzeń przeszukiwania AutoML jest duża.
-W opisanej pracy autorzy podejmują próbę analizy przestrzeni AutoML dla zadania klasyfikacji przy wykorzystaniu sieci optimów lokalnych.
-
-Przestrzeń przeszukiwania AutoML cechuje się dużą liczbą parametrów warunkowych - parametrów, których istnienie zależy od wartości innych parametrów.
-Jest to spowodowane tym, że algorytmy uczenia maszynowego przyjmują inny zestaw hiperparametrów.
-Z tego powodu do reprezentacji przestrzeni rozwiązań wykorzystano odpowiednią gramatykę BNF z rozwiązaniami generowanymi
-przy użyciu drzewa wyprowadzania gramatyki (grammar derivation tree).
-Powstała gramatyka posiada 38 reguł decydujących o zastosowanych algorytmach wstępnego przetwarzania danych,
-zastosowanego algorytmu klasyfikacji oraz jego hiperparametrów.
-Spośród algorytmów klasyfikacji wykorzystano: Regresję logistyczną, MLP, KNN, Random Forest i Ada Boost.
-
-Wierzchołki LON zdefiniowano jako lokalne maksima przestrzeni rozwiązań.
-Jako wartość dopasowania wybrano uśrednioną wartość metryki F-score dla danej konfiguracji procesu.
-Sąsiedztwo rozwiązania zdefiniowano jako zbiór rozwiązań możliwych do uzyskanie poprzez zastosowanie operatora
-mutacji na danym rozwiązaniu. Za operator mutacji przyjęto losowe wybranie jednego wierzchołka z drzewa rozwiązania
-i zastąpienie go losowym drzewem (przy zachowaniu zasad gramatyki procesu). Szansa na wylosowanie wierzchołka
-została uzależniona od głębokości jego pozycji w drzewie. W ten sposób operacje zmieniające proces w znaczny sposób
-(np. zmiana algorytmu) mają mniejsze prawdopodobieństwo wystąpienia niż operacje zmieniające jedynie wartość hiperparametrów.
-Zbudowano sieci oparte o 3 różne definicje krawędzi - basin-transition edges, escape edges i perturbation edges.
-Do próbkowania przestrzeni rozwiązań w celu utworzenia LON wykorzystano algorytm wstępujący(hill-climb).
-
-Do badań wykorzystano 7 zbiorów danych, zbadano 30 różnych przestrzeni konfiguracji.
-Ze względu na złożoność obliczeniową badania sąsiedztwa, próbkowano ograniczoną liczbę sąsiadów.
-Parametr ten nazwano wielkością sąsiedztwa i zbadano 4 warianty - 20, 30, 50 i 100 sąsiadów.
-W każdym przypadku wartość dopasowania została obliczona dla wszystkich rozwiązań w przestrzeni.
-Nadano budżet 120 sekund na wykonanie obliczeń określających wartość dopasowania danego rozwiązania.
-W przypadku przekroczenia otrzymywał on wartość 0.
-
-Zbadano korelację między wartością dopasowania optimum lokalnego a rozmiarem jego basenu przyciągania w zależności
-od rozmiaru sąsiedztwa. Wykazano, że istnieje silna korelacja i zwiększanie sąsiedztwa w większości przypadków zmniejsza liczbę
-basenów przyciągania w przestrzeni i zwiększa rozmiar istniejących.
-Ta zależność nie zachodziła jednak w przypadku jednego z badanych zbiorów danych.
-
-Zauważono wpływ zastosowanej definicji krawędzi na powstałą sieć LON - w sieciach z krawędziami typu
-basin-transition nie zauważono obecności ścieków (wierzchołków bez krawędzi wychodzących, ang. sinks),
-natomiast istniało wiele źródeł (wierzchołków bez krawędzi wchodzących, ang. sources).
-Ilość źródeł zmniejszała się wraz ze wzrostem sąsiedztwa.
-Sieci oparte o escape edges miały natomiast dużo ścieków i mało źródeł.
-Zwiększanie rozmiaru sąsiedztwa prowadziło do zmniejszenia liczby ścieków.
-Podobny efekt dawało zwiększenie parametru D.
-W przypadku perturbation edges w sieci nie było ścieków ani źródeł niezależnie od rozmiaru sąsiedztwa.
-
-Obliczono odległości między parami lokalnych i globalnych optimów.
-Stwierdzono, że odległości między optimami globalnymi były mniejsze od odległości między optimami lokalnymi
-i odległości pomiędzy optimami globalnymi i lokalnymi.
-Zwiększanie sąsiedztwa zmniejszało odległość między globalnymi optimami.
-Zauważono, że optima są skupione w pewnym rejonie przestrzeni rozwiązań, a nie rozłożone równomiernie.
+Podobne badanie przeprowadzono w pracy\cite{DBLP:journals/ec/ThomsonOVV20}, tym razem na większej liczbie instancji
+- 124 instancji ze zbioru QAPLIB i dodatkowych 60 instancji o rozmiarze N=11.
+Dla tych dodatkowych instancji, oprócz próbkowania wykonano również przegląd zupełny.
+Zauważono, że algorytm \textit{Snowball} produkuje gęstszą sieć od algorytmu \textit{Markov-chain}.
+Dostrzeżono wadę algorytmu \textit{Snowball} - duży wpływ parametrów próbkowania na wartości metryk opartych o gęstość
+i wzory połączeń krawędzi, oraz metryk opisujących struktury lejowe.
 
 
+TODO: dokończyć
+
+Z innych prac z dziedziny warto wymienić\cite{DBLP:journals/corr/abs-1207-4455}, w którym porównano algorytmy wstępujące (hillclimb)
+typu \textit{best-improvement} i \textit{first-improvement} w próbkowaniu przestrzeni NK.
+Wykorzystanie algorytmu typu \textit{first-improvement} prowadziło do powstania gęstszej, bardziej kompletnej sieci optimów lokalnych.
+Pętle obecne w sieci miały mniejszą wagę w przypadku algorytmu \textit{first-improvement} co sugeruje, że łatwiej wychodzi z optimum lokalnego.
+Dodatkową zaletą tego algorytmu jest krótszy czas wykonywania, spowodowany brakiem konieczności przeglądania za każdym razem całego sąsiedztwa
+rozwiązania początkowego.
+
+Z kolei w pracy\cite{DBLP:conf/evoW/McMenemyVO18} zbadano wpływ siły perturbacji (stopnia, w jakim operacja perturbacji zmienia rozwiązanie początkowe)
+na właściwości spróbkowanej przestrzeni. Wybranym algorytmem próbkującym był algorytm typu \textit{Markov-chain} pochodzący z artykułu\cite{DBLP:journals/heuristics/OchoaV18}.
+Operacją perturbacji tego algorytmu jest procedura double-bridge. Badania przeprowadzono na 180 instancjach o znanych rozwiązaniach optymalnych,
+uzyskanych przy pomocy generatora DIMACS TSP . Celem było znalezienie takiego parametru k - siły perturbacji - aby uzyskać jak największy wskaźnik sukcesu.
+Za wskaźnik sukcesu przyjęto stosunek liczby przebiegów algorytmu, które znalazły globalne optimum do wszystkich przebiegów.
+Nie znaleziono uniwersalnej najlepszej wartości parametru k. Zauważono jednak, że niższa siła perturbacji sprawdzała się dla instancji,
+w których miasta rozmieszczone są w klastrach. Dla instancji z miastami rozmieszczonymi równomiernie zwiększanie wartości k powodowało
+zmniejszenie ilości suboptymalnych lejów w przestrzeni.
+Zaobserwowano również, że instancje z miastami ułożonymi w klastrach były generalnie prostsze do rozwiązania, niż instancje z rozkładem równomiernym,
+a także, że rozkład optimów lokalnych w przestrzeni rozwiązań ma większy wpływ na trudność znalezienia optymalnego rozwiązania dla
+danej instancji, niż ich ilość.
 
 \section{O przestrzeni rozwiązań}
 Fitness landscape(Przestrzeń rozwiązań? Krajobraz dopasowania?) jest pojęciem wywodzącym się z biologii ewolucyjnej.
