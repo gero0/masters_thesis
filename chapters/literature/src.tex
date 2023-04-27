@@ -23,14 +23,15 @@ właściwego algorytmu uczenia i jego hiperparametrów. W pracy zbadano przestrz
 TODO: expand
 
 \section{Próbkowanie przestrzeni rozwiązań}
-Przegląd zupełny przestrzeni rozwiązań problemów trudnych obliczeniowo jest w praktyce niemożliwy poza bardzo małymi instancjami problemu.
-Z tego powodu analizę przestrzeni rozwiązań przeprowadza się na części przestrzeni zbadanej w procesie próbkowania.
+Przegląd zupełny przestrzeni rozwiązań problemów trudnych obliczeniowo jest w praktyce niemożliwy, poza bardzo małymi instancjami problemu.
+Z tego powodu analizę przestrzeni rozwiązań przeprowadza się na części przestrzeni zbadanej w procesie próbkowania. \\
 W tym miejscu pojawiają się pytanie: w jaki sposób próbkować przestrzeń, aby cechy jej zbadanego fragmentu
 jak najlepiej odzwierciedlały cechy całej przestrzeni?
 
-Próbkowanie przestrzeni rozwiązań i budowanie na jej podstawie sieci optimów lokalnych odbywa się poprzez zastosowanie metody
-
-Najczęściej stosowane algorytmy próbkowania można podzielić na trzy kategorie:
+Próbkowanie przestrzeni rozwiązań wykonuje się zwykle poprzez zastosowanie pewnej odmiany iteracyjnego przeszukiwania lokalnego
+(ang. ILS - Iterated Local Search),
+a wyniki zapisuje się w postaci sieci optimów lokalnych.
+Najczęściej stosowane algorytmy próbkowania oparte o ILS można podzielić na trzy kategorie:
 Próbkowanie dwufazowe, \textit{Markov-chain} oraz \textit{Snowball}.
 
 Próbkowanie dwufazowe składa się z dwóch faz - najpierw próbkowane są wierzchołki poprzez zastosowanie metody iteracyjnego przeszukiwania lokalnego\cite{DBLP:journals/corr/OchoaVDT14}.
@@ -75,9 +76,16 @@ Dla tych dodatkowych instancji, oprócz próbkowania wykonano również przeglą
 Zauważono, że algorytm \textit{Snowball} produkuje gęstszą sieć od algorytmu \textit{Markov-chain}.
 Dostrzeżono wadę algorytmu \textit{Snowball} - duży wpływ parametrów próbkowania na wartości metryk opartych o gęstość
 i wzory połączeń krawędzi, oraz metryk opisujących struktury lejowe.
-
-
-TODO: dokończyć
+Stworzono modele regresji przewidujące jakość rozwiązań generowanych przez heurystyki \textit{Taboo Search} i ILS.
+Model przewidujący odpowiedź ILS oparty o dane z algorytmu Snowball był nieco lepszy od modelu opartego o dane z algorytmu ILS.
+Między predykcjami modeli przewidujących odpowiedź algorytmu TS nie było znaczącej różnicy.
+Wśród wszystkich czterech testowanych modeli cechą przestrzeni będącą najlepszym predyktorem okazała się średnia wartość
+funkcji dopasowania (ang. mean fitness).
+Porównanie spróbkowanych sieci LON małych instancji z sieciami uzyskanymi
+poprzez przegląd zupełny wykazało, że zarówno \textit{Markov-chain} jak i \textit{Snowball}
+dobrze aproksymują liczbę wierzchołków i krawędzi w sieci.
+\textit{Snowball} odnalazł prawie wszystkie optima lokalne obecne w pełnej sieci.
+\textit{Markov-chain} znalazł ich mniej, ale nadal dawał zadowalający wynik.
 
 Z innych prac z dziedziny warto wymienić\cite{DBLP:journals/corr/abs-1207-4455}, w którym porównano algorytmy wstępujące (hillclimb)
 typu \textit{best-improvement} i \textit{first-improvement} w próbkowaniu przestrzeni NK.
@@ -99,7 +107,7 @@ a także, że rozkład optimów lokalnych w przestrzeni rozwiązań ma większy 
 danej instancji, niż ich ilość.
 
 \section{O przestrzeni rozwiązań}
-Fitness landscape(Przestrzeń rozwiązań? Krajobraz dopasowania?) jest pojęciem wywodzącym się z biologii ewolucyjnej.
+Przestrzeń rozwiązań (przestrzeń przystosowania, ang. Fitness Landscape) jest pojęciem wywodzącym się z biologii ewolucyjnej.
 W kontekście biologicznym jest to model opisujący relację między genotypem i fenotypem organizmów, a ich przystosowaniem (ang. fitness),
 które jest miarą opisującą sukces reprodukcyjny\cite{FRAGATA201969}.
 
@@ -175,7 +183,7 @@ $$
 TODO: czy zapis jest poprawny $\land$ ?
 
 \subsection{Struktury lejowe}
-W sieci optimów lokalnych możemy wyróżnić sekwencje złożone z optimów lokalnych, których wartość dopasowania jest niemalejąca.
+W sieci optimów lokalnych możemy wyróżnić sekwencje złożone z optimów lokalnych, których wartość przystosowania jest niemalejąca.
 Sekwencje te zwane są sekwencjami monotonicznymi\cite{DBLP:journals/heuristics/OchoaV18}.
 Sekwencje monotoniczne zmierzające do tego samego ścieku (ang. sink, wierzchołek bez krawędzi wychodzących)
 tworzy strukturę zwaną lejem. Wspomniany ściek stanowi spód leja (ang. funnel bottom), a liczba wierzchołków zawartych w tej strukturze określa jej rozmiar.
@@ -312,9 +320,3 @@ Operacja 2-exchange oraz operator mutacji zostały przedstawione na listingu \re
       \caption{Przykład procedury 2-exchange}
       \label{fig:2exchange}
 \end{figure}
-
-
-
-
-
-
