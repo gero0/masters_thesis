@@ -12,15 +12,27 @@ Problemem pozostaje natomiast długi czas trwania próbkowania przestrzeni, zwyk
 W pracy \textit{Mapping the global structure of TSP Fitness landscapes}\cite{DBLP:journals/heuristics/OchoaV18} zbadano przestrzeń rozwiązań
 dla różnych instancji problemu komiwojażera. Zauważono, że instancje wygenerowane losowo zwykle mają mniejszą neutralność i mniej globalnych optimów od
 instancji rzeczywistych. Zaobserwowano również, że sposób rozłożenia miast (w klastrach, równomierny) wpływa na wzajemną korelację wartości różnych miar.
+
 W ostatnich latach w podobny sposób przeprowadzono analizy przestrzeni konfiguracji wieloparametrowych algorytmów optymalizacyjnych.
 W pracy \textit{Understanding Parameter Spaces using Local Optima Networks: A Case Study on Particle Swarm Optimization}\cite{DBLP:conf/gecco/CleghornO21}
 wykorzystano sieci lokalnych optimów, oraz pochodne struktury CMLON do analizy i wizualizacji przestrzeni parametrów algorytmu roju cząstek.
 Analiza wykazała istnienie dużej ilości lokalnych optimów, niską neutralność, oraz istnienie wielu ścieków (ang sinks) nie znajdujących się w optimum globalnym,
-Sugeruje to, że naiwne metody dobierania parametrów mogą łatwo doprowadzić do suboptymalnej konfiguracji i w efekcie nie otrzymaniu najlepszych wyników.
+Sugeruje to, że naiwne metody dobierania parametrów mogą łatwo doprowadzić do suboptymalnej konfiguracji i w efekcie nie otrzymania najlepszych wyników.
 Podobne badanie wykonano dla przestrzeni parametrów procesu AutoML w pracy \textit{Understanding AutoML Search Spaces with Local Optima Networks}\cite{DBLP:conf/gecco/TeixeiraP22}.
 AutoML jest procesem automatyzacji konfiguracji procesów (ang. pipelines) uczenia maszynowego obejmującym m. in. wybór zastosowanego przetwarzania wstępnego,
-właściwego algorytmu uczenia i jego hiperparametrów. W pracy zbadano przestrzeń konfiguracji AutoML dla zadania klasyfikacji.
-TODO: expand
+właściwego algorytmu uczenia, oraz jego hiperparametrów. W pracy zbadano przestrzeń konfiguracji AutoML dla zadania klasyfikacji.
+Jako funkcję celu przyjęto uśrednioną wartość metryki F-score dla danej konfiguracji procesu.
+Wartości F-score uzyskano poprzez przetestowanie procesu na kilku zbiorach danych.
+Dla każdej z badanych przestrzeni konfiguracji utworzono trzy sieci LON. Każda z sieci była oparta o inny model krawędzi.
+Przeszukano wszystkie możliwe rozwiązania, ale ze względu na złożoność obliczeniową sieć LON budowano poprzez przeglądanie
+ograniczonego sąsiedztwa każdego z wierzchołków. Badanie wykonano dla kilku wielkości sąsiedztwa - 20, 30, 50 i 100 sąsiadów.
+Zauważono wpływ modelu krawędzi na powstałą sieć - w sieciach z krawędziami typu basin-transition nie zauważono obecności ścieków,
+natomiast istniało wiele źródeł. Sieci oparte o escape edges miały z kolei dużo ścieków i mało źródeł.
+W przypadku perturbation edges w sieci nie było ścieków ani źródeł niezależnie od rozmiaru sąsiedztwa.
+Zauważono, że w badanych przypadkach optima globalne skupiały się w pewnym rejonie przestrzeni rozwiązań, w niewielkiej od siebie odległości.
+Nie były rozłożone równomiernie. Sugeruje to, że w problemie konfiguracji procesu uczenia maszynowego, najlepsze ze wszystkich możliwych
+konfiguracji niewiele się od siebie różnią.
+
 
 \section{Próbkowanie przestrzeni rozwiązań}
 Przegląd zupełny przestrzeni rozwiązań problemów trudnych obliczeniowo jest w praktyce niemożliwy, poza bardzo małymi instancjami problemu.
@@ -62,7 +74,7 @@ W pracy\cite{DBLP:conf/evoW/ThomsonOV19} zostało przeprowadzone statystyczne po
 oraz \textit{Markov-chain}. Eksperyment polegał na spróbkowaniu 30 instancji problemu kwadratowego przypisania, a następnie użyciu zebranych danych
 do stworzenia modeli regresji przewidujących jakość rozwiązań, które zostaną uzyskane przez algorytm optymalizacji uruchomiony na instancji.
 Wybranymi algorytmami heurystycznymi były \textit{Robust Taboo Search} Taillarda oraz \textit{Improved ILS} Stützla.
-Z zebranych danych utworzono grafy LON i zbadano takie właściwości, jak średnia wartość funkcji dostosowania celu, średni stopień wychodzący
+Z zebranych danych utworzono grafy LON i zbadano takie właściwości, jak średnia wartość funkcji celu, średni stopień wychodzący
 wierzchołków w grafie, promień grafu, liczba lokalnych optimów i liczba krawędzi.
 Stworzono modele regresji typu liniowego oraz lasu losowego. Obliczono wartości korelacji pomiędzy właściwościami przestrzeni rozwiązań
 a jakością rozwiązań zwracanych przez algorytmy optymalizacji.
@@ -233,7 +245,6 @@ zidentyfikowanie ścieków, odwrócenie krawędzi i wykonanie przeszukiwania wg�
       \item \textbf{cliques\_num} - Liczba klik. Klika w grafie jest podzbiorem zbioru wierzchołków, w którym wszystkie wierzchołki są sąsiednie - istnieje krawędź pomiędzy każdą parą wierzchołków należących do zbioru.
       \item \textbf{maximal\_cliques\_num} - Liczba klik maksymalnych w grafie. Klika maksymalna to klika, której nie można powiększyć poprzez dołączenie do niej sąsiedniego wierzchołka.
       \item \textbf{largest\_clique\_size} - rozmiar największej kliki.
-            % \item \textbf{motifs\_randesu\_no} - TODO: definicja
       \item \textbf{reciprocity} - Wzajemność. Wzajemność jest miarą zdefiniowaną tylko dla grafów skierowanych. Jest to stosunek wierzchołków wzajemnie połączonych do wierzchołków, które są połączone krawędzią tylko w jednym kierunku.
             Dana jest wzorem:
             $$reciprocity = \frac{ |(i, j) \in E  \: | \: (j, i) \in E| }{|(i, j) \in E  \: | \: (j, i) \notin E| }$$
