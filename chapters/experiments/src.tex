@@ -1,6 +1,5 @@
 \chapter{Badania eksperymentalne}
 
-\section{Opis eksperymentów}
 \section{Zaimplementowane algorytmy}
 \subsection{Próbkowanie dwufazowe}
 Próbkowanie dwufazowe swoją nazwę zawdzięcza procesowi próbkowania składającemu się z dwóch oddzielnych faz
@@ -39,7 +38,9 @@ optymalizacją 2opt, implementacja odpowiedniej funkcji celu oraz operacji mutac
 
 Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowball}.
 
-\begin{algorithm}[h!]
+\vspace{1em}
+
+\begin{algorithm}[H]
     \caption{Próbkowanie dwufazowe - pseudokod}\label{alg:tp}
 
     \KwData{\\
@@ -98,9 +99,7 @@ Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowbal
 
 \end{algorithm}
 
-\newpage
-
-\begin{algorithm}[h!]
+\begin{algorithm}[p]
     \caption{Próbkowanie snowball - pseudokod}\label{alg:snowball}
 
     \KwData{\\
@@ -109,7 +108,8 @@ Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowbal
         $m$ - liczba prób przeszukania sąsiedztwa\\
         $depth$ - głębokość przeszukiwania\\
         $n_{runs}$ - liczba powtórzeń\\
-        $D$ - stała D krawędzi
+        $D$ - stała D krawędzi\\
+        $s_{tresh}$ - interwał zapisu
     }
 
     \vspace{1em}
@@ -123,8 +123,8 @@ Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowbal
             $snowball(n_i, m, depth)$\;
             $n_{i+1} \gets losowySpacer(n_i)$\;
         }
-        $zapiszDoPliku(N, E)$\;
     }
+    $zapiszDoPliku(N, E)$\;
     \vspace{1em}
 
     \SetKwFunction{FS}{snowball}
@@ -135,6 +135,9 @@ Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowbal
             \For{$i\gets1$ \KwTo $m$}{
                 $s \gets 2opt(2exchangeMutacja(n, D))$\;
                 $N \gets N \cup \{ s \}$\;
+                \If{$|N| \hspace{0.5em} mod \hspace{0.5em} s_{tresh} = 0$}{
+                    $zapiszDoPliku(N, E)$\;
+                }
                 \uIf{$(n, s) \in{E}$}{
                     $w_{ns} \gets w_{ns} + 1$\;
                 }
@@ -161,6 +164,9 @@ Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowbal
             $s \gets losoweRozwiazanie()$\;
             $n_{i+1} \gets 2opt(s)$\;
             $N \gets N \cup \{ n_{i+1} \}$\;
+            \If{$|N| \hspace{0.5em} mod \hspace{0.5em} s_{tresh} = 0$}{
+                $zapiszDoPliku(N, E)$\;
+            }
         }
         \Return $n_{i+1}$
     }
@@ -230,46 +236,91 @@ lokalnych optimów, oznacza to, że spełniony jest warunek \ref{eq:escape_edge_
 
 \section{Instancje testowe}
 Do badań wykorzystano instancje testowe wygenerowane losowo oraz wybrane instancje ze zbioru TSPLIB.
-Zaimplementowano trzy generatory tworzące różne typy instancji testowych:
+Zaimplementowano trzy generatory tworzące różne typy instancji testowych: z miastami rozłożonymi równomiernie,
+z miastami rozłożonymi w klastrach oraz z miastami ułożonymi na siatce.
+Wygenerowano instancje testowe każdego z trzech typów instancji losowych o rozmiarach 7, 8, 9, 10, 11 oraz 20, 50, 80 i 100.
+Uzyskano w ten sposób 27 instancji problemu.
+Ze zbioru TSPLIB wybrano instancje o podobnych rozmiarach: \textbf{burma14}, \textbf{ulysses22}, \textbf{att48}, \textbf{berlin52}, \textbf{pr76}, \textbf{eil76}, \textbf{rat99},
+\textbf{bier127}.
+W sumie badanie przeprowadzono na 35 instancjach problemu.
 
 \subsection*{Miasta rozmieszczone równomiernie}
 Generator losowo rozmieszcza miasta na wirtualnej planszy o ustalonym rozmiarze.\\
 Współrzędne miast generowane są losowo z rozkładu równomiernego.
-Przykład wygenerowanej instancji został przedstawiony na rysunku \ref{fig:uniform_example}.
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.60\textwidth]{chapters/experiments/img/uniform_example.png}
-    \caption{Wizualizacja wygenerowanej instancji z miastami rozmieszczonymi równomiernie dla N=100}
-    \label{fig:uniform_example}
-\end{figure}
+W dalszej części dokumentu instancje wygenerowane tym generatorem będą nazywane \textbf{uniform\_<liczba miast>}.
 
-\subsection*{Miasta rozmieszczone w klikach}
+Przykład wygenerowanej instancji został przedstawiony na rysunku \ref{fig:uniform_example}.
+
+\subsection*{Miasta rozmieszczone w klastrach}
 Miasta umieszczane są blisko siebie w kilku grupach oddzielonych większymi odległościami.
+W dalszej części dokumentu instancje wygenerowane tym generatorem będą nazywane \textbf{cliques\_<liczba miast>}.
 Przykład wygenerowanej instancji został przedstawiony na rysunku \ref{fig:clique_example}.
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.60\textwidth]{chapters/experiments/img/clique_example.png}
-    \caption{Wizualizacja wygenerowanej instancji z miastami rozmieszczonymi w kilkach dla N=100}
-    \label{fig:clique_example}
-\end{figure}
+
 
 \subsection*{Miasta rozmieszczone na siatce}
 Miasta umieszczane są na siatce, w stałej odległości od swoich sąsiadów.
+W dalszej części dokumentu instancje wygenerowane tym generatorem będą nazywane \textbf{grid\_<liczba miast>}.
 Przykład wygenerowanej instancji został przedstawiony na rysunku \ref{fig:grid_example}.
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.46\textwidth]{chapters/experiments/img/uniform_example.png}
+    \caption{Wizualizacja przykładowej wygenerowanej instancji z miastami rozmieszczonymi równomiernie dla 100 miast}
+    \label{fig:uniform_example}
+\end{figure}
+
+\newpage
+
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.60\textwidth]{chapters/experiments/img/clique_example.png}
+    \caption{Wizualizacja przykładowej wygenerowanej instancji z miastami rozmieszczonymi w klastrach dla 100 miast}
+    \label{fig:clique_example}
+\end{figure}
+
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.60\textwidth]{chapters/experiments/img/grid_example.png}
-    \caption{Wizualizacja wygenerowanej instancji z miastami rozmieszczonymi na siatce dla N=100}
+    \caption{Wizualizacja przykładowej wygenerowanej instancji z miastami rozmieszczonymi na siatce dla 100 miast}
     \label{fig:grid_example}
 \end{figure}
 
+\section{Opis eksperymentu}
 
-Wygenerowano instancje testowe każdego z trzech typów instancji losowych o rozmiarach 7,8,9,10,11 oraz 20,50,100,200 i 500.
-Uzyskano w ten sposób 30 instancji problemu.
+Dla każdej z instancji problemu wykonano próbkowanie przestrzeni przy użyciu algorytmów dwufazowego oraz \textit{snowball}.
+Dla małych instancji (do 11 miast) wykonano również przegląd zupełny, w celu porównania wartości miar uzyskanych z próbkowania z wartościami
+prawdziwymi.
 
-Ze zbioru TSPLIB wybrano instancje o podobnych rozmiarach: \textbf{burma14}, \textbf{ulysses22}, \textbf{att58}, \textbf{berlin52}, \textbf{rat99},
-\textbf{bier127}, \textbf{d198}, \textbf{a280}, \textbf{pa561}, \textbf{u574}.
+Próbkowanie algorytmem dwufazowym przeprowadzono z następującymi parametrami:
+\begin{itemize}
+    \item $n_{max}$ - żądana liczba wierzchołków - 1000
+    \item $n_{att}$ - liczba prób generowania wierzchołków - 1000
+    \item $e_{att}$ - liczba prób generowania krawędzi - 1000
+    \item $n_{runs}$ - liczba powtórzeń - 100
+\end{itemize}
 
-\section{Experimental setup but po polsku}
+Próbkowanie przeprowadzono przez ustaloną z góry liczbę powtórzeń, zapisując stan przestrzeni po zakończeniu każdego powtórzenia.
+Dla małych instancji próbkowanie przeprowadzono: //TODO: parametry dla próbkowania małych instancji, jak już to zrobisz.
+
+
+Próbkowanie algorytmem snowball wykonano z następującymi parametrami:
+\begin{itemize}
+    \item $w_{len}$ - długość losowego spaceru - 10000
+    \item $m$ - liczba prób przeszukania sąsiedztwa - 100
+    \item $depth$ - głębokość przeszukiwania - 3
+\end{itemize}
+
+Próbkowanie algorytmem \textit{snowball} prowadzono do zakończenia losowego spaceru lub osiągnięcia liczby 100000 wierzchołków.
+Dla bardzo małych instancji (o rozmiarze 6 do 11) zapisywano stan przestrzeni za każdym razem, gdy dodany został nowy wierzchołek.
+Dla instancji: \textbf{burma14}, \textbf{ulysses22}, \textbf{grid\_20}, \textbf{uniform\_20}, \textbf{cliques\_20}, oraz \textbf{cliques\_50},
+zapis wykonywano co 100 nowych wierzchołków.
+Dla pozostałych instancji stan próbkowania zapisywany był co 1000 znalezionych wierzchołków.
+
+Po zakończeniu próbkowania dla każdego zapisanego stanu przestrzeni obliczono wartości badanych miar. W ten sposób uzyskano
+wartości miar dla różnych etapów próbkowania przestrzeni.
+
+Obliczono: //TODO: Średnia, odchylenie standardowe?
+Utworzono wykresy przedstawiające zależność wartości miar od liczby spróbkowanych wierzchołków.
 
 \section{Wyniki}
+
