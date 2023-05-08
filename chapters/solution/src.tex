@@ -1,1 +1,172 @@
 \chapter{Opis implementacji}
+Do realizacji badania konieczne było stworzenie odpowiedniego oprogramowania.
+Kod źródłowy oprogramowania jest publicznie dostępny na platformie Github pod adresem
+\url{https://github.com/gero0/FLA_research}.
+
+Opracowano następujące narzędzia:
+\begin{itemize}
+    \item Program wykonujący próbkowanie przestrzeni rozwiązań ''tsp\_samplers'',
+    \item Program obliczający wartości miar na podstawie spróbkowanej przestrzeni ''stat\_calculator'',
+    \item Generatory instancji testowych,
+    \item Skrypty pomocnicze.
+\end{itemize}
+
+\section{Program próbkujący}
+Ponieważ próbkowanie przestrzeni rozwiązań wymaga dużego nakładu obliczeniowego,
+implementację algorytmów wykonano w języku Rust.
+Rust jest językiem kompilowanym do kodu maszynowego, wspierającym programowanie wielowątkowe.
+
+Program ma postać pliku wykonywalnego uruchamianego z linii poleceń.
+Program wymaga podania nazwy pliku wejściowego, nazwę algorytmu oraz wartości parametrów tego algorytmu.
+Opcjonalnie jako parametr możliwe jest podanie nazwy folderu, do którego mają zostać zapisane wyniki próbkowania,
+jeśli nie zostanie ona podana program zapisze wyniki do folderu o nazwie ''<algorytm>\_latest''.
+
+Format komendy wygląda więc następująco:
+\begin{lstlisting}
+    tsp_samplers <plik_wejściowy> [plik_wyjściowy] \
+    <algorytm> <parametry_algorytmu>
+\end{lstlisting}
+
+
+Akceptowane wartości parametru ''algorytm'' to:
+\begin{itemize}
+    \item tp - próbkowanie dwufazowe
+    \item snowball - próbkowanie snowball
+    \item exhaustive - przegląd zupełny
+\end{itemize}
+
+Plik wejściowy musi być plikiem txt w następującym formacie:
+\begin{itemize}
+    \item Linia 1 - nazwa instancji
+    \item Linia 2 - liczba miast w instancji
+    \item N kolejnych linii - Pełna macierz odległości pomiędzy miastami podanych w postaci liczb całkowitych.
+          Kolejne wartości w rzędzie macierzy rozdzielone spacją, wiersze rozdzielone znakiem nowej linii
+\end{itemize}
+
+
+Przykładowy plik wejściowy przedstawiający instancję burma14 ze zbioru TSPLIB został przedstawiony na listingu
+\ref{lst:burma}.
+
+\begin{lstlisting}[caption={Instancja burma14 w formacie akceptowanym przez program}, label=lst:burma]
+    burma14
+    14
+    0 153 510 706 966 581 455 70 160 372 157 567 342 398 
+    153 0 422 664 997 598 507 197 311 479 310 581 417 376 
+    510 422 0 289 744 390 437 491 645 880 618 374 455 211 
+    706 664 289 0 491 265 410 664 804 1070 768 259 499 310 
+    966 997 744 491 0 400 514 902 990 1261 947 418 635 636 
+    581 598 390 265 400 0 168 522 634 910 593 19 284 239 
+    455 507 437 410 514 168 0 389 482 757 439 163 124 232 
+    70 197 491 664 902 522 389 0 154 406 133 508 273 355 
+    160 311 645 804 990 634 482 154 0 276 43 623 358 498 
+    372 479 880 1070 1261 910 757 406 276 0 318 898 633 761 
+    157 310 618 768 947 593 439 133 43 318 0 582 315 464 
+    567 581 374 259 418 19 163 508 623 898 582 0 275 221 
+    342 417 455 499 635 284 124 273 358 633 315 275 0 247 
+    398 376 211 310 636 239 232 355 498 761 464 221 247 0     
+\end{lstlisting}
+
+Wyniki program zapisuje okresowo do docelowego folderu w plikach ''samples\_<i>.json''.
+Pliki zawierają następujące informacje:
+
+\begin{itemize}
+    \item nodes - lista wierzchołków grafu. Każdy wierzchołek opisywany jest 3-elementową listą:
+          [unikalny identyfikator, rozwiązanie, wartość funkcji celu]. Identyfikator oraz wartość funkcji celu
+          są liczbami całkowitymi, rozwiązanie ma zaś postać listy identyfikatorów miast w kolejności, w jakiej przebiega przez nie trasa,
+    \item edges - lista krawędzi skierowanych. Każda krawędź jest opisane 3-elementową listą - [id. wierzchołka początkowego, id. wierzchołka docelowego, waga],
+    \item opt\_count - liczba wywołań funkcji optymalizującej (2opt),
+    \item oracle\_count - liczba wykonanych obliczeń długości ścieżki,
+    \item time\_ms - czas działania programu podany w ms. Liczony jest jedynie czas spędzony na próbkowaniu
+          (bez liczenia czasu spędzonego na zapisywanie wyników),
+    \item comment - komentarz, zawiera parametry, z którymi uruchomiono algorytm,
+    \item missed - tylko dla próbkowania dwufazowego, licznik prób dodania krawędzi, które zakończyły się
+          niepowodzeniem z powodu braku wierzchołka należącego do krawędzi w zbiorze spróbkowanych wierzchołków.
+\end{itemize}
+
+Przykładowy plik wyjściowy programu został przedstawiony na listingu \ref{lst:sampleoutput}.
+
+\begin{lstlisting}[caption={Przykład pliku wyjściowego po krótkim próbkowaniu małej instancji}, label=lst:sampleoutput]
+{
+"opt_count":101802,
+"oracle_count":5114163,
+"time_ms":199,
+"comment":"n_max:100 n_att:100 e_att:100 iters:10 file:cliques_6",
+"missed":0,
+"nodes": [
+[1,[0, 1, 4, 5, 3, 2],1622],
+[0,[0, 2, 3, 5, 4, 1],1622]],
+"edges": [
+[0,0,335],
+[1,0,93],
+[0,1,665],
+[1,1,907]]
+}
+\end{lstlisting}
+
+\section{Program obliczający wartości miar}
+
+Program obliczający wartości miar został napisany w języku Python.
+Większość miar grafu obliczone zostało przy pomocy biblioteki igraph.
+Aby zwiększyć wydajność, do obliczeń metryk \textbf{avg\_loop\_weight} i \textbf{num\_subsinks}
+wykorzystano moduł natywny napisany w języku Rust.
+
+Program jest uruchamiany przy użyciu interpretera języka Python, jako argument przyjmuje
+ścieżkę do folderu zawierającego pliki z próbkami. Opcjonalnymi parametrami są: nazwa pliku wyjściowego
+limit plików wejściowych (-l), oraz nazwy miar do policzenia (-s, --stats). Jeśli nazwa pliku wyjściowego nie zostanie podana, wyniki zapisywane
+są do pliku ''results.csv''. Jeśli limit nie zostanie podany, obliczenia są wykonywane dla wszystkich plików w folderze.
+Jeśli nie podane zostaną żadne nazwy miar do policzenia, domyślnym działaniem jest obliczenie ich wszystkich.
+
+Format komendy wygląda następująco:
+\begin{lstlisting}
+    python stat_calculator/main.py <plik_wejściowy> \
+    [plik_wyjściowy] [ -l <N>] [ --stats ...]
+\end{lstlisting}
+
+Dane wyjściowe zapisywane są w postaci pliku csv zgodnego ze strukturami DataFrame biblioteki pandas.
+Dodatkowo generowany jest plik ''results\_corr.csv'' zawierający tablicę z wartościami współczynników korelacji
+między wartościami miar.
+
+TODO: przykładowy mały plik wyjściowy
+
+\section{Generatory instancji testowych}
+
+Generatory instancji testowych napisano w języku Python.
+Są to trzy proste skrypty, każdy generujący inny rodzaj instancji problemu.
+
+\section{Skrypty pomocnicze}
+Skrypty pomocnicze wykonano w języku Python.
+Należą do nich:
+\begin{itemize}
+    \item plotting.py - Skrypt rysujący wykresy poszczególnych miar w zależności od liczby wierzchołków. Skrypt przyjmuje na wejście pliki z wartościami miar wygenerowane przez program stat\_calculator
+    \item convert\_tsplib.py - Skrypt konwertujący pliki w formacie tsplib na uproszczony format przyjmowany przez program próbkujący. Korzysta z biblioteki tsplib95.
+    \item visualize.py - Prosty skrypt tworzący wizualizację grafu LON na podstawie pliku wejściowego json z próbkami.
+    \item run\_exhaustive.py - Skrypt uruchamiający po kolei przegląd zupełny dla podanej listy instancji
+    \item run\_tp.py - Skrypt uruchamiający po kolei próbkowanie dwufazowe dla podanej listy instancji
+    \item run\_snowball.py - Skrypt uruchamiający po kolei próbkowanie \textit{snowball} dla podanej listy instancji
+    \item run\_stat\_calc.py - Skrypt uruchamiający program obliczający wartości miar dla podanej listy folderów w próbkami
+    \item run\_plotting.py - Skrypt uruchamiający po kolei skrypt plotting.py dla podanej listy plików z obliczonymi wartościami miar
+\end{itemize}
+
+\section{Wykorzystane biblioteki}
+Najważniejsze zewnętrzne biblioteki wykorzystane w projekcie:
+\vspace{1em}
+
+Rust:
+\begin{itemize}
+    \item rand\_chacha - szybki i deterministyczny generator liczb losowych,
+    \item clap - parser argumentów konsoli,
+    \item rustc-hash - szybka hashmapa,
+    \item permutations\_iter - generator permutacji metodą Steinhausa-Johnsona-Trottera,
+    \item PyO3 - narzędzie do tworzenia natywnych modułów Pythona w języku Rust,
+    \item tsptools - generator losowego rozwiązania problemu TSP oraz funkcja obliczająca długość ścieżki.
+\end{itemize}
+
+Python:
+\begin{itemize}
+    \item igraph - obliczanie wartości miar grafu LON, generowanie wizualizacji,
+    \item matplotlib - rysowanie wykresów,
+    \item numpy, pandas - przetwarzanie danych,
+    \item Pillow - generowanie obrazów,
+    \item tsplib95 - odczytywanie plików w formacie tsplib.
+\end{itemize}
+
