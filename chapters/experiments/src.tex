@@ -1,7 +1,7 @@
 \chapter{Badania eksperymentalne}
 
 \section{Zaimplementowane algorytmy}
-\subsection{Próbkowanie dwufazowe}
+\subsection{Próbkowanie dwufazowe} \label{section:tp}
 Próbkowanie dwufazowe swoją nazwę zawdzięcza procesowi próbkowania składającemu się z dwóch oddzielnych faz
 - próbkowania wierzchołków oraz próbkowania krawędzi - wykonywanych jedna po drugiej.
 Istotną zaletą tego podejścia jest jego stosunkowo prosta implementacja.
@@ -19,7 +19,7 @@ Implementacja zastosowana w tej pracy dodatkowo powtarza cały proces kilkukrotn
 
 Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:tp}.
 
-\subsection{Snowball}
+\subsection{Snowball} \label{section:snowball}
 Próbkowanie typu Snowball wywodzi się z techniki używanej w badaniach z dziedziny socjologii, w której ludzie należący do próby z populacji
 rekrutują kolejnych uczestników badania spośród swoich znajomych.
 W kontekście badania przestrzeni rozwiązań technika ta została zaprezentowana w pracy\cite{DBLP:conf/ppsn/VerelDOT18}, gdzie została wykorzystana
@@ -107,7 +107,6 @@ Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowbal
         $w_{len}$ - długość losowego spaceru\\
         $m$ - liczba prób przeszukania sąsiedztwa\\
         $depth$ - głębokość przeszukiwania\\
-        $n_{runs}$ - liczba powtórzeń\\
         $D$ - stała D krawędzi\\
         $s_{tresh}$ - interwał zapisu
     }
@@ -323,4 +322,80 @@ Obliczono: //TODO: Średnia, odchylenie standardowe?
 Utworzono wykresy przedstawiające zależność wartości miar od liczby spróbkowanych wierzchołków.
 
 \section{Wyniki}
+
+\subsection{Porównanie wartości metryk dla małych instancji}
+
+Dla wygenerowanych instancji o rozmiarze 6-11 wartości miar uzyskane z próbkowania
+porównano z wartościami uzyskanymi z przeglądu zupełnego.
+Dla wartości każdej miary obliczono względny błąd z wzoru \ref{eq:reldiff}.
+
+\begin{equation}
+    \label{eq:reldiff}
+    \frac{|s - t|}{t} \cdot 100\%
+\end{equation}
+
+Gdzie $s$ to wartość z przestrzeni spróbkowanej, a $t$ to wartość z przestrzeni z przeglądu zupełnego.
+Porównano wartości wszystkich metryk wymienionych w sekcji \ref{sec:metrics}, oprócz
+różnorodności (assortativity). Otrzymane wartości błędów przedstawiono w tabelach: \ref{tab:uniform_err}, \ref{tab:cliques_err}, \ref{tab:grid_err}
+W tabelach pominięto metryki, dla których wartość błędu była równa 0.
+
+\begin{table}[h]
+    \centering
+    \caption{Błąd względny podany w \% dla instancji o równomiernie ułożonych miastach}
+    \label{tab:uniform_err}
+    \begin{tabular}{|l|r|r|r|r|r|}
+        \hline
+        \textbf{miara $\backslash$ instancja} & \textbf{uniform\_7} & \textbf{uniform\_8} & \textbf{uniform\_9} & \textbf{uniform\_10} & \textbf{uniform\_11} \\ \hline
+        distLO                                & 99.88               & 99.92               & 99.86               & 98.28                & 98.05                \\ \hline
+        avg\_loop\_weight                     & 218748.47           & 184274.79           & 105710.00           & 24220.36             & 21559.15             \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \caption{Błąd względny podany w \% dla instancji o miastach ułożonych w klastrach}
+    \label{tab:cliques_err}
+    \begin{tabular}{|l|r|r|r|r|r|}
+        \hline
+        \textbf{miara $\backslash$ instancja} & \textbf{cliques\_7} & \textbf{cliques\_8} & c\textbf{liques\_9} & \textbf{cliques\_10} & \textbf{cliques\_11} \\ \hline
+        distLO                                & 99.97               & 99.61               & 99.83               & 99.29                & 98.71                \\ \hline
+        avg\_loop\_weight                     & 362238.26           & 109015.44           & 102432.09           & 32200.04             & 13969.65             \\ \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[h!]
+    \centering
+    \caption{Błąd względny podany w \% dla instancji o miastach ułożonych na siatce}
+    \label{tab:grid_err}
+    \begin{tabular}{|l|r|r|r|r|r|}
+        \hline
+        \textbf{miara $\backslash$ instancja} & \textbf{grid\_7} & \textbf{grid\_8} & \textbf{grid\_9} & \textbf{grid\_10} & \textbf{grid\_11} \\ \hline
+        edge\_count                           & 0.00             & 0.00             & 0.00             & 0.00              & 1.91              \\ \hline
+        edge\_to\_node                        & 0.00             & 0.00             & 0.00             & 0.00              & 1.91              \\ \hline
+        distLO                                & 99.96            & 99.92            & 97.90            & 85.06             & 79.36             \\ \hline
+        avg\_loop\_weight                     & 369966.52        & 182173.06        & 12715.99         & 6865.94           & 2117.10           \\ \hline
+        avg\_go\_path\_len                    & 0.00             & 0.00             & 0.00             & 0.00              & 2.00              \\ \hline
+        mean\_funnel\_size                    & 0.00             & 0.00             & 0.00             & 0.00              & 1.01              \\ \hline
+        avg\_out\_degree                      & 0.00             & 0.00             & 0.00             & 0.00              & 1.98              \\ \hline
+        avg\_in\_degree                       & 0.00             & 0.00             & 0.00             & 0.00              & 1.98              \\ \hline
+        density                               & 0.00             & 0.00             & 0.00             & 0.00              & 1.91              \\ \hline
+        avg\_path\_len                        & 0.00             & 0.00             & 0.00             & 0.00              & 0.92              \\ \hline
+        cliques\_num                          & 0.00             & 0.00             & 0.00             & 0.00              & 52.14             \\ \hline
+        maximal\_cliques\_num                 & 0.00             & 0.00             & 0.00             & 0.00              & 18.01             \\ \hline
+        largest\_clique\_size                 & 0.00             & 0.00             & 0.00             & 0.00              & 10.53             \\ \hline
+        reciprocity                           & 0.00             & 0.00             & 0.00             & 0.00              & 0.16              \\ \hline
+    \end{tabular}
+\end{table}
+
+TODO: Komentarz
+
+\subsection{Badanie stabilności}
+
+\begin{figure}[]
+    \centering
+    \includegraphics[width=\textwidth]{chapters/experiments/img/plot_avg_in_degre.png}
+    \caption{Średni stopień wchodzacy wierzchołków dla różnych instancji}
+    \label{fig:avg_in_degreee}
+\end{figure}
+
 

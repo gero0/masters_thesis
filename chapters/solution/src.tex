@@ -16,6 +16,8 @@ Ponieważ próbkowanie przestrzeni rozwiązań wymaga dużego nakładu obliczeni
 implementację algorytmów wykonano w języku Rust.
 Rust jest językiem kompilowanym do kodu maszynowego, wspierającym programowanie wielowątkowe.
 
+\subsection{Uruchamianie i parametry}
+
 Program ma postać pliku wykonywalnego uruchamianego z linii poleceń.
 Program wymaga podania nazwy pliku wejściowego, nazwę algorytmu oraz wartości parametrów tego algorytmu.
 Opcjonalnie jako parametr możliwe jest podanie nazwy folderu, do którego mają zostać zapisane wyniki próbkowania,
@@ -34,6 +36,42 @@ Akceptowane wartości parametru ''algorytm'' to:
     \item snowball - próbkowanie snowball
     \item exhaustive - przegląd zupełny
 \end{itemize}
+
+Algorytm przeglądu zupełnego nie przyjmuje żadnych parametrów wejściowych.
+
+Algorytm dwufazowy przyjmuje parametry w następującej kolejności:
+
+\begin{lstlisting}
+    <ITERS> <N_MAX> <N_ATT> <E_ATT> <MUT_D>
+\end{lstlisting}
+Gdzie:
+\begin{itemize}
+    \item ITERS ($n_{runs}$) - liczba iteracji,
+    \item N\_MAX ($n_{max}$)- żądana liczba wierzchołków,
+    \item N\_ATT ($n_{att}$)- liczba prób generowania wierzchołków,
+    \item E\_ATT ($e_{att}$)- liczba prób generowania krawędzi,
+    \item MUT\_D ($D$)- parametr D
+\end{itemize}
+
+Algorytm został opisany szczegółowo w sekcji \ref{section:tp} i listingu \ref{alg:tp}.
+
+Algorytm \textit{snowball} przyjmuje parametry w następującej kolejności:
+
+\begin{lstlisting}
+    <WALK_LEN> <N_EDGES> <DEPTH> <MUT_D> <SAVE_TRESHOLD>
+\end{lstlisting}
+Gdzie:
+\begin{itemize}
+    \item WALK\_LEN ($w_{len}$) - długość losowego spaceru
+    \item N\_EDGES ($m$)- liczba prób przeszukania sąsziedztwa
+    \item DEPTH> ($depth$) - głębokość przeszukiwania
+    \item MUT\_D ($D$)- parametr D
+    \item SAVE\_TRESHOLD ($s\_tresh$) - interwał zapisu
+\end{itemize}
+
+Algorytm został opisany szczegółowo w sekcji \ref{section:snowball} i listingu \ref{alg:snowball}.
+
+\subsection{Pliki wejściowe i wyjściowe}
 
 Plik wejściowy musi być plikiem txt w następującym formacie:
 \begin{itemize}
@@ -110,6 +148,8 @@ Większość miar grafu obliczone zostało przy pomocy biblioteki igraph.
 Aby zwiększyć wydajność, do obliczeń metryk \textbf{avg\_loop\_weight} i \textbf{num\_subsinks}
 wykorzystano moduł natywny napisany w języku Rust.
 
+\subsection{Uruchamianie i parametry}
+
 Program jest uruchamiany przy użyciu interpretera języka Python, jako argument przyjmuje
 ścieżkę do folderu zawierającego pliki z próbkami. Opcjonalnymi parametrami są: nazwa pliku wyjściowego
 limit plików wejściowych (-l), oraz nazwy miar do policzenia (-s, --stats). Jeśli nazwa pliku wyjściowego nie zostanie podana, wyniki zapisywane
@@ -118,20 +158,73 @@ Jeśli nie podane zostaną żadne nazwy miar do policzenia, domyślnym działani
 
 Format komendy wygląda następująco:
 \begin{lstlisting}
-    python stat_calculator/main.py <plik_wejściowy> \
+    python stat_calculator/main.py <folder_wejściowy> \
     [plik_wyjściowy] [ -l <N>] [ --stats ...]
 \end{lstlisting}
 
+\subsection{Pliki wejściowe i wyjściowe}
+Program na wejście przyjmuje ścieżkę do folderu. W wybranym folderze wyszukiwane są pliki JSON wygenerowane przez program próbkujący.
+Pliki są sortowane na podstawie numeracji (natsort) i dla każdego wykonywany jest proces wczytania danych, utworzenia grafu LON i obliczenia
+wartości miar. Wszystkie pliki w folderze są traktowane jako pliki z próbkami, dlatego nie można umieszczać w nim innych plików.
+
 Dane wyjściowe zapisywane są w postaci pliku csv zgodnego ze strukturami DataFrame biblioteki pandas.
 Dodatkowo generowany jest plik ''results\_corr.csv'' zawierający tablicę z wartościami współczynników korelacji
-między wartościami miar.
+między wartościami miar. Pliki jako separatora używają znaku średnika ';'.
+Przykładowy plik wyjściowy został przedstawiony na listingu \ref{lst:samplstateoutput}.
 
-TODO: przykładowy mały plik wyjściowy
+\begin{lstlisting}[caption={Przykład pliku wyjściowego z obliczonymi miarami num\_cc i largest\_cc}, label=lst:samplstateoutput]
+;time_ms;opt_count;oracle_count;node_count;edge_count;num_cc;largest_cc
+0;0;1;140;1;0;1;1
+1;0;15;1204;2;1;2;1
+2;1520;1010200;85157744;2;4;1;2
+\end{lstlisting}
+
 
 \section{Generatory instancji testowych}
 
 Generatory instancji testowych napisano w języku Python.
 Są to trzy proste skrypty, każdy generujący inny rodzaj instancji problemu.
+Skrypt uniform.py generuje instancję o miastach ułożonych równomiernie.
+Uruchomienie skryptu wygląda następująco:
+\begin{lstlisting}
+    python uniform.py <N> <area_size> [-o OUTPUT]
+\end{lstlisting}
+Parametr N określa liczbę miast w instancji. Parametr area\_size określa rozmiar boku kwadratowej planszy, na której zostaną umieszczone miasta.
+Opcjonalny parametr output pozwala na ustawienie nazwy folderu wyjściowego (domyślnie uniform\_output).
+
+Skrypt grid.py generuje instancję o miastach ułożonych na siatce.
+Uruchomienie skryptu wygląda następująco:
+\begin{lstlisting}
+    python grid.py <N> <gap> [-o OUTPUT]
+\end{lstlisting}
+Parametr N określa liczbę miast w instancji. Parametr gap określa odległość pomiędzy sąsiadującymi miastami w siatce.
+Opcjonalny parametr output pozwala na ustawienie nazwy folderu wyjściowego (domyślnie grid\_output).
+
+Skrypt cliques.py generuje instancję o miastach ułożonych w klastrach (klikach).
+Uruchomienie skryptu wygląda następująco:
+\begin{lstlisting}
+    python cliques.py <N> <N_cliques> [-minld MINLD] [-maxld MAXLD] \ 
+    [-mincd MINCD] [-maxcd MAXCD] [-o OUTPUT]
+\end{lstlisting}
+Parametr N określa liczbę miast w instancji. Parametr N\_cliques określa liczbę klastrów.
+W odróżnieniu od pozostałych generatorów generator cliques.py może przyjąć dużą liczbę parametrów opcjonalnych:
+\begin{itemize}
+    \item minld - minimalna odległość między miastami w tym samym klastrze (domyślnie 5)
+    \item maxld - maksymalna odległość między miastami w tym samym klastrze (domyślnie 30)
+    \item mincd - minimalna odległość między środkami klastrów (domyślnie 100)
+    \item maxcd - maksymalna odległość między środkami klastrów (domyślnie 300)
+    \item output - nazwa folderu wyjściowego (domyślnie cliques\_output)
+\end{itemize}
+
+Możliwe jest że programowi nie uda się wygenerować instancji o zadanych parametrach. W takim przypadku w konsoli wyświetlany jest stosowny komunikat.
+
+\subsection{Pliki wyjściowe}
+Generatory zapisują trzy pliki do foldery wyjściowego:
+\begin{itemize}
+    \item points.txt - zawiera listę miast w formacie: identyfikator, koordynat x, koordynat y
+    \item matrix.txt - macierz odległości w formacie obsługiwanym przez program próbkujący
+    \item vis.png - wizualizacja instancji
+\end{itemize}
 
 \section{Skrypty pomocnicze}
 Skrypty pomocnicze wykonano w języku Python.
