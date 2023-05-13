@@ -21,6 +21,12 @@
   C.~Bank}, {\em Evolution in the light of fitness landscape theory}, Trends in
   Ecology \& Evolution, 34 (2019), pp.~69--82.
 
+\bibitem{10.1145/2576768.2598275}
+{\sc D.~Iclanzan, F.~Daolio, and M.~Tomassini}, {\em Data-driven local optima
+  network characterization of qaplib instances}, in Proceedings of the 2014
+  Annual Conference on Genetic and Evolutionary Computation, GECCO '14, New
+  York, NY, USA, 2014, Association for Computing Machinery, p.~453–460.
+
 \bibitem{DBLP:conf/evoW/McMenemyVO18}
 {\sc P.~McMenemy, N.~Veerapen, and G.~Ochoa}, {\em How perturbation strength
   shapes the global structure of {TSP} fitness landscapes}, in Evolutionary
@@ -28,6 +34,12 @@
   2018, Parma, Italy, April 4-6, 2018, Proceedings, A.~Liefooghe and
   M.~L{\'{o}}pez{-}Ib{\'{a}}{\~{n}}ez, eds., vol.~10782 of Lecture Notes in
   Computer Science, Springer, 2018, pp.~34--49.
+
+\bibitem{markovchain}
+{\sc G.~Ochoa and S.~Herrmann}, {\em Perturbation Strength and the Global
+  Structure of QAP Fitness Landscapes: 15th International Conference, Coimbra,
+  Portugal, September 8–12, 2018, Proceedings, Part II}, 01 2018,
+  pp.~245--256.
 
 \bibitem{DBLP:journals/heuristics/OchoaV18}
 {\sc G.~Ochoa and N.~Veerapen}, {\em Mapping the global structure of {TSP}

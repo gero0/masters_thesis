@@ -391,11 +391,40 @@ TODO: Komentarz
 
 \subsection{Badanie stabilności}
 
-\begin{figure}[]
-    \centering
-    \includegraphics[width=\textwidth]{chapters/experiments/img/plot_avg_in_degre.png}
-    \caption{Średni stopień wchodzacy wierzchołków dla różnych instancji}
-    \label{fig:avg_in_degreee}
-\end{figure}
+\def\metrics{
+    {edge_count/Liczba krawędzi},
+    {edge_to_node/Stosunek liczby krawędzi do liczby wierzchołków},
+    {assortativity_deg/Współczynnik różnorodności grafu},
+    {avg_fitness/Średnia wartość funkcji celu w znalezionych optimach lokalnych},
+    {conrel/Współczynnik conrel},
+    {density/Gęstość grafu},
+    {distLO/Współczynnik distLO},
+    {reciprocity/Współczynnik wzajemności grafu},
+    {largest_clique_size/Rozmiar największej kliki w grafie},
+    {num_sources/Liczba źródeł w grafie},
+    {num_sinks/Liczba ścieków w grafie},
+    {num_subsinks/Liczba subsinks w grafie},
+    {avg_in_degree/Średni stopień wchodzący wierzchołków w grafie},
+    {max_in_degree/Maksymalny stopień wchodzący wśród wierzchołków w grafie},
+    {max_out_degree/Średni stopień wychodzący wierzchołków w grafie},
+    {avg_out_degree/Maksymalny stopień wychodzący wśród wierzchołków w grafie},
+    {avg_loop_weight/Średnia waga pętli w grafie},
+    {avg_path_len/Średnia waga pętli w grafie},
+    {avg_go_path_len/Średnia długość istniejących ścieżek do globalnego optimum},
+    {max_go_path_len/Długość najdłuższej istniejącej ścieżki do globalnego optimum},
+    {go_path_ratio/Stosunek liczby wierzchołków, z których istnieje ścieżka do globalnego optimum do liczby wszystkich wierzchołków},
+    {funnel_num/Liczba lejów w przestrzeni},
+    {max_funnel_size/Rozmiar największego leja w przestrzeni},
+    {mean_funnel_size/Średni rozmiar lejów w przestrzeni},
+    {num_cc/Liczba spójnych podgrafów},
+    {largest_cc/Rozmiar największego spójnego podgrafu},
+    {largest_cc_radius/Promień największego spójnego podgrafu}}
 
-
+\foreach \metric/\cap in \metrics{
+    \begin{figure}[]
+        \centering
+        \includegraphics[width=\textwidth]{chapters/experiments/img/merged_plots/main_snowball/\metric.png}
+        \caption{\cap  w zależności od liczby wierzchołków - próbkowanie snowball}
+        \label{fig:main_snowball_\metric}
+    \end{figure}
+}

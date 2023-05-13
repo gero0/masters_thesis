@@ -1,23 +1,35 @@
 \BOOKMARK [0][-]{chapter.1}{Wstep}{}% 1
 \BOOKMARK [0][-]{chapter.2}{Przeglad literatury}{}% 2
-\BOOKMARK [1][-]{section.2.1}{Przeglad - notatki}{chapter.2}% 3
-\BOOKMARK [1][-]{section.2.2}{O przestrzeni rozwiazan}{chapter.2}% 4
-\BOOKMARK [2][-]{subsection.2.2.1}{Siec optim\363w lokalnych}{section.2.2}% 5
-\BOOKMARK [2][-]{subsection.2.2.2}{Wierzcho\233ki}{section.2.2}% 6
-\BOOKMARK [2][-]{subsection.2.2.3}{Krawedzie}{section.2.2}% 7
-\BOOKMARK [2][-]{subsection.2.2.4}{Struktury lejowe}{section.2.2}% 8
-\BOOKMARK [2][-]{subsection.2.2.5}{Metryki przestrzeni rozwiazan}{section.2.2}% 9
-\BOOKMARK [2][-]{subsection.2.2.6}{Problem komiwojazera}{section.2.2}% 10
-\BOOKMARK [2][-]{subsection.2.2.7}{Operacja 2-exchange}{section.2.2}% 11
-\BOOKMARK [0][-]{chapter.3}{Badania eksperymentalne}{}% 12
-\BOOKMARK [1][-]{section.3.1}{Opis eksperyment\363w}{chapter.3}% 13
-\BOOKMARK [1][-]{section.3.2}{Zaimplementowane algorytmy}{chapter.3}% 14
-\BOOKMARK [2][-]{subsection.3.2.1}{Pr\363bkowanie dwufazowe}{section.3.2}% 15
-\BOOKMARK [2][-]{subsection.3.2.2}{Snowball}{section.3.2}% 16
-\BOOKMARK [2][-]{subsection.3.2.3}{Przeglad zupe\233ny}{section.3.2}% 17
-\BOOKMARK [1][-]{section.3.3}{Instancje testowe}{chapter.3}% 18
-\BOOKMARK [1][-]{section.3.4}{Experimental setup but po polsku}{chapter.3}% 19
-\BOOKMARK [1][-]{section.3.5}{Wyniki}{chapter.3}% 20
-\BOOKMARK [0][-]{chapter.4}{Opis implementacji}{}% 21
-\BOOKMARK [0][-]{chapter.5}{Podsumowanie}{}% 22
-\BOOKMARK [0][-]{chapter.5}{Literatura}{}% 23
+\BOOKMARK [1][-]{section.2.1}{Cele badania przestrzeni rozwiazan}{chapter.2}% 3
+\BOOKMARK [1][-]{section.2.2}{Pr\363bkowanie przestrzeni rozwiazan}{chapter.2}% 4
+\BOOKMARK [1][-]{section.2.3}{O przestrzeni rozwiazan}{chapter.2}% 5
+\BOOKMARK [2][-]{subsection.2.3.1}{Siec optim\363w lokalnych}{section.2.3}% 6
+\BOOKMARK [2][-]{subsection.2.3.2}{Wierzcho\233ki}{section.2.3}% 7
+\BOOKMARK [2][-]{subsection.2.3.3}{Krawedzie}{section.2.3}% 8
+\BOOKMARK [2][-]{subsection.2.3.4}{Struktury lejowe}{section.2.3}% 9
+\BOOKMARK [2][-]{subsection.2.3.5}{Metryki przestrzeni rozwiazan}{section.2.3}% 10
+\BOOKMARK [2][-]{subsection.2.3.6}{Problem komiwojazera}{section.2.3}% 11
+\BOOKMARK [2][-]{subsection.2.3.7}{Operacja 2-exchange}{section.2.3}% 12
+\BOOKMARK [0][-]{chapter.3}{Badania eksperymentalne}{}% 13
+\BOOKMARK [1][-]{section.3.1}{Zaimplementowane algorytmy}{chapter.3}% 14
+\BOOKMARK [2][-]{subsection.3.1.1}{Pr\363bkowanie dwufazowe}{section.3.1}% 15
+\BOOKMARK [2][-]{subsection.3.1.2}{Snowball}{section.3.1}% 16
+\BOOKMARK [2][-]{subsection.3.1.3}{Przeglad zupe\233ny}{section.3.1}% 17
+\BOOKMARK [1][-]{section.3.2}{Instancje testowe}{chapter.3}% 18
+\BOOKMARK [1][-]{section.3.3}{Opis eksperymentu}{chapter.3}% 19
+\BOOKMARK [1][-]{section.3.4}{Wyniki}{chapter.3}% 20
+\BOOKMARK [2][-]{subsection.3.4.1}{Por\363wnanie wartosci metryk dla ma\233ych instancji}{section.3.4}% 21
+\BOOKMARK [2][-]{subsection.3.4.2}{Badanie stabilnosci}{section.3.4}% 22
+\BOOKMARK [0][-]{chapter.4}{Opis implementacji}{}% 23
+\BOOKMARK [1][-]{section.4.1}{Program pr\363bkujacy}{chapter.4}% 24
+\BOOKMARK [2][-]{subsection.4.1.1}{Uruchamianie i parametry}{section.4.1}% 25
+\BOOKMARK [2][-]{subsection.4.1.2}{Pliki wejsciowe i wyjsciowe}{section.4.1}% 26
+\BOOKMARK [1][-]{section.4.2}{Program obliczajacy wartosci miar}{chapter.4}% 27
+\BOOKMARK [2][-]{subsection.4.2.1}{Uruchamianie i parametry}{section.4.2}% 28
+\BOOKMARK [2][-]{subsection.4.2.2}{Pliki wejsciowe i wyjsciowe}{section.4.2}% 29
+\BOOKMARK [1][-]{section.4.3}{Generatory instancji testowych}{chapter.4}% 30
+\BOOKMARK [2][-]{subsection.4.3.1}{Pliki wyjsciowe}{section.4.3}% 31
+\BOOKMARK [1][-]{section.4.4}{Skrypty pomocnicze}{chapter.4}% 32
+\BOOKMARK [1][-]{section.4.5}{Wykorzystane biblioteki}{chapter.4}% 33
+\BOOKMARK [0][-]{chapter.5}{Podsumowanie}{}% 34
+\BOOKMARK [0][-]{chapter.5}{Literatura}{}% 35
