@@ -18,20 +18,20 @@
 \contentsline {subsection}{\numberline {3.1.2}Snowball}{15}{subsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.1.3}Przegląd zupełny}{18}{subsection.3.1.3}%
 \contentsline {section}{\numberline {3.2}Instancje testowe}{19}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Opis eksperymentu}{21}{section.3.3}%
-\contentsline {section}{\numberline {3.4}Wyniki}{21}{section.3.4}%
-\contentsline {subsection}{\numberline {3.4.1}Porównanie wartości metryk dla małych instancji}{21}{subsection.3.4.1}%
-\contentsline {subsection}{\numberline {3.4.2}Badanie stabilności}{22}{subsection.3.4.2}%
-\contentsline {chapter}{\numberline {4}Opis implementacji}{51}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Program próbkujący}{51}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Uruchamianie i parametry}{51}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Pliki wejściowe i wyjściowe}{52}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Program obliczający wartości miar}{54}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Uruchamianie i parametry}{54}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Pliki wejściowe i wyjściowe}{54}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Generatory instancji testowych}{54}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Pliki wyjściowe}{55}{subsection.4.3.1}%
-\contentsline {section}{\numberline {4.4}Skrypty pomocnicze}{55}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Wykorzystane biblioteki}{56}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Podsumowanie}{57}{chapter.5}%
-\contentsline {chapter}{Literatura}{57}{chapter.5}%
+\contentsline {section}{\numberline {3.3}Opis badań}{21}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Porównanie wartości metryk dla małych instancji}{21}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Badanie stabilności dla średnich instancji}{37}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Badanie stabilności dla dużych instancji}{65}{subsection.3.3.3}%
+\contentsline {chapter}{\numberline {4}Opis implementacji}{93}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Program próbkujący}{93}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Uruchamianie i parametry}{93}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Pliki wejściowe i wyjściowe}{94}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Program obliczający wartości miar}{96}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Uruchamianie i parametry}{96}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Pliki wejściowe i wyjściowe}{96}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Generatory instancji testowych}{96}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Pliki wyjściowe}{97}{subsection.4.3.1}%
+\contentsline {section}{\numberline {4.4}Skrypty pomocnicze}{97}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Wykorzystane biblioteki}{98}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Podsumowanie}{99}{chapter.5}%
+\contentsline {chapter}{Literatura}{99}{chapter.5}%
