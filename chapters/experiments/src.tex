@@ -306,7 +306,7 @@ Wszystkie badania wykonano wykorzystując model krawędzi typu \textit{Escape Ed
 \subsection{Porównanie wartości metryk dla małych instancji}
 Dla małych instancji wygenerowanych losowo (uniform, grid, cliques) o rozmiarach 7 do 11
 możliwe jest wykonanie przeglądu zupełnego.
-Na tych instancjach wykonano próbkowanie algorytmami dwufazowym oraz snowball, z różnym zestawem parametrów.
+Na tych instancjach wykonano próbkowanie algorytmami dwufazowym oraz \textit{snowball}, z różnym zestawem parametrów.
 
 Dla algorytmu dwufazowego wykonano próbkowanie dla różnych wartości parametru $n_{max}$ (liczby żądanych wierzchołków): 10, 100, 1000 oraz 10000.
 Parametry $n_{att}$, $e_{att}$ ustawiono na równe $n_{max}$, a parametr $n_{runs}$ na 1.
@@ -331,9 +331,29 @@ Gdzie:
 
 Wartości, dla których błąd nie wyniósł 0 zostały dodatkowo oznaczone w tabeli grubą czcionką.
 
+\subsubsection{Wyniki}
+
 \include{tables.tex}
 
-TODO: Komentarz do wyników.
+Najbardziej rzucającymi się w oczy metrykami są avg\_loop\_weight i distLO.
+We wszystkich przypadkach są one znacznie większe od wartości uzyskanych z przeglądu zupełnego.
+Nie jest to zaskakujące. Algorytm przeglądu zupełnego jednokrotnie sprawdza każde rozwiązanie w przestrzeni przeszukiwania pod kątem
+możliwości utworzenia krawędzi między optimami lokalnymi, lub zwiększenia wagi istniejącej.
+Po sprawdzeniu wszystkich rozwiązań algorytm kończy pracę.
+Algorytmy próbkowania nie kończą pracy aż do momentu osiągnięcia warunku zatrzymania.
+Ze względu na swój losowy charakter, po operacji perturbacji często trafiają na te same rozwiązania
+(szczególnie w przypadku małych instancji) i powodują zwiększanie wagi krawędzi, w tym pętli, do wartości znacznie większych od rzeczywistych.
+Dlatego metryki, których wartość zależy od bezwzględnych wartości wag, a nie od stosunku wag różnych krawędzi nie dają użytecznej informacji na temat małych instancji.
+
+W przypadku najmniejszych instancji o rozmiarze 7, błąd uzyskany po porównaniu wartości metryk
+wynosił 0 lub był bliski 0 dla wszystkich metryk oprócz avg\_loop\_weight i distLO.
+Wyjątkiem była instancja uniform\_7, gdzie wartości błędów były wyższe dla obu algorytmów.
+W tej instancji algorytm snowball poradził sobie znacznie lepiej - brak błędu dla większości
+metryk wystąpił już dla parametru $w_{len}$ równego 10, natomiast algorytm dwufazowy
+podobny wynik uzyskał dopiero dla parametru $n_{max}$ równego 1000 - wymagało to ponad 600 razy więcej wywołań funkcji optymalizującej.
+Dla instancji tej wielkości przegląd zupełny jest jednak szybszy, dlatego nie ma sensu stosować dla nich próbkowania.
+
+TODO:Redo for twophase\_50
 
 \subsection{Badanie stabilności dla średnich instancji}
 Instancje \textbf{burma14}, \textbf{ulysses22} ze zbioru tsplib oraz wygenerowane instancje
@@ -362,6 +382,8 @@ Zapis wyników wykonywano po zakończeniu każdego powtórzenia.
 
 Utworzono wykresy przedstawiające zależność wartości miar od liczby spróbkowanych wierzchołków.
 Przedstawiono je na rysunkach od \ref{fig:small_edge_count} do \ref{fig:small_missed}.
+
+\subsubsection{Wyniki}
 
 \def\metricsSmall{
     {edge_count/Liczba krawędzi},
@@ -409,9 +431,102 @@ Przedstawiono je na rysunkach od \ref{fig:small_edge_count} do \ref{fig:small_mi
     \label{fig:small_missed}
 \end{figure}
 
-TODO: Komentarz do wyników
+Zależność liczby krawędzi od liczby wierzchołków jest nieliniowa dla wszystkich zbadanych instancji i obu algorytmów.
+Dla instancji typu grid oraz ulyssess22 wykres tej zależności ma postać ''gładkiej'' krzywej.
+W pozostałych przypadkach wzrost jest znacznie mniej stabilny - pojawiają się ''schodki'', miejsca w których wzrost
+spowalnia i gwałtownie rośnie.
+Sugeruje to, że przewidzenie wartości stosunku krawędzi do wierzchołków może być możliwy w przypadku
+instancji z miastami ułożonymi na siatce.
 
-\newpage
+W przypadku metryki assortativity\_deg można zaobserwować pewną właściwość.
+Na początku próbkowania wartość metryki zmienia się gwałtownie, zwiększając i zmniejszając się naprzemiennie.
+Po pewnym czasie jednak się stabilizuje, widoczne jest to zwłaszcza dla instancji z większą ilością optimów lokalnych.
+Nadal obecne są wahania wartości, ale są one znacznie mniejsze.
+Wyjątkiem jest instancja grid\_20 próbkowana algorytmem snowball.
+W tym przypadku wartość zmienia się znacznie przez cały okres próbkowania.
+W wielu przypadkach ostatnia uzyskana wartość różni znacznie pomiędzy algorytmami.
+
+W większości przypadków średnia wartość funkcji celu wierzchołków przestrzeni zwiększa się wraz z ilością wierzchołków.
+W niektórych przypadkach występuje początkowo duża wartość i gwałtowny spadek, zwykle w przypadku próbkowania dwufazowego.
+W innych przypadkach wartość wzrasta przez cały czas.
+Wykresy wartości uzyskane z obu algorytmów różnią się, ale wartości uzyskane na końcu próbkowania są do siebie podobne.
+Niska wartość funkcji celu na początku i powolny wzrost oznacza, że w badanych instancjach szybko znajdowane były
+najlepsze rozwiązania w przestrzeni.
+
+Wartość współczynnika conrel jest nieprzewidywalna.
+Dla niektórych instancji utrzymuje się na podobnym poziomie przez większość czasu,
+ale gwałtownie zwiększa się pod koniec próbkowania.
+W innych wartość miary znacznie zmienia się w trakcie procesu, formując ostre piki.
+
+Gęstość grafu w każdym przypadku osiągała wysoką wartość, by następnie gwałtownie spaść i ustabilizować się w pewnym zakresie.
+W kilku przypadkach występował wzrost gęstości grafu pod koniec próbkowania.
+Miara jest najbardziej stabilna dla instancji z miastami rozłożonymi równomiernie.
+
+Miara distLO jest niestabilna, występują częste nagłe wzrosty i spadki jej wartości.
+W kilku przypadkach wystąpił duży spadek pod koniec próbkowania, w innych - gwałtowny wzrost.
+
+Współczynnik wzajemności (reciprocity) również jest niestabilny.
+W niektórych przypadkach występuje gwałtowny wzrost i spadek wartości na początku próbkowania.
+Ciekawa jest instancja grid\_20 - po spróbkowaniu odpowiednio dużej liczby wierzchołków
+wartość wzrost tej miary jest zbliżony do wzrostu liniowego.
+
+Rozmiar największej kliki zmienia się ''schodkowo'' w momencie, w którym albo ze spróbkowanych wierzchołków
+powstanie większa klika lub nowy wierzchołek zostanie odnaleziony w już istniejącej.
+Wyniki sugerują że możliwe jest oszacowanie wielkości największej kliki przestrzeni na podstawie wartości
+z krótszego próbkowania, zwłaszcza na podstawie danych z próbkowania dwufazowego, gdzie
+wartość zmienia się mniej gwałtownie. Ze względu na stopniowy i nieliniowy charakter wzrostu zmiennej,
+dokładność takiego szacowania nie będzie duża.
+
+Liczba źródeł, ścieków i tzw. subsinks w grafie w wielu przypadkach początkowo rośnie, by nagle zmaleć na końcu próbkowania.
+W przypadkach ze zbioru TSPLIB po pewnym czasie liczba ścieków i subsinks przestała się zmieniać.
+Wszystkie trzy miary są niestabilne, mają charakter nieprzewidywalny.
+
+Charakterystyka wzrostu wartości średniego stopnia wchodzącego wierzchołka jest bardziej zbliżona do liniowej
+w przypadku próbkowania dwufazowego. W instancjach cliques\_20, uniform\_20 i burma14 występuje
+wzrost przyspieszenie wzrostu pod koniec próbkowania.
+W tych przypadkach z dużym prawdopodobieństwem algorytmy znalazły wszystkie optima lokalne.
+Może być to powodem tego zjawiska.
+W przypadku instancji grid\_20 o liczbie optimów lokalnych znacznie wyższej od pozostałych instancji tego rozmiaru,
+wynik z próbkowania snowball ma charakter eksponencjalny.
+Podobnie wyglądają miary największego stopnia wchodzącego, średniego stopnia wychodzącego i maksymalnego stopnia wychodzącego.
+
+Średnia waga pętli w grafie jest niestabilna, w niektórych przypadkach wzrost jest bliski liniowego, w innych
+eksponencjalnego, a w pozostałych jest chaotyczny.
+
+Średnia długość ścieżki w grafie zwiększa się gwałtownie na początku, po czym stabilizuje.
+Pojawiają się przypadki odstające (w grid\_20 przy próbkowaniu snowball wartość dość szybko maleje),
+ale dla większości przypadków wahania wartości po ustabilizowaniu są niewielkie.
+Podobnie jest w przypadku średniej długości ścieżek do globalnego optimum.
+
+Długość najdłuższej ścieżki do globalnego optimum zmniejsza i zwiększa się gwałtownie.
+Jest nieprzewidywalna.
+
+Współczynnik go\_path\_ratio zmienia się zupełnie inaczej w zależności od algorytmu próbkowania.
+Próbkowanie dwufazowe rośnie gwałtownie i bardzo wcześnie się stabilizuje.
+Próbkowanie snowball prowadzi natomiast do powolnego wzrostu z okazjonalnymi spadkami wartości.
+Oba algorytmy osiągają podobną końcową wartość miary, ale próbkowanie dwufazowe osiąga ją przy mniejszej
+liczbie spróbkowanych wierzchołków.
+
+Liczba lejów w przestrzeni jest miarą niestabilną, wartość miary zmienia się w zupełnie inny spodób
+dla różnych instancji.
+
+Rozmiar największego leja w przestrzeni rośnie liniowo dla danych uzyskanych z próbkowania
+dwufazowego. Wartość uzyskana z próbkowania snowball nie jest tak stabilna.
+
+Wzrost średniego rozmiaru lejów dla próbkowania dwufazowego również jest bliski liniowego,
+widać jednak na nim pewne odchylenia. W ramach wzrostu ilości optimów lokalnych w przestrzeni,
+wykres uzyskany ze snowball coraz bardziej zbliża się do wzrostu eksponencjalnego.
+
+Liczba spójnych podgrafów szybko stabilizuje się na stałej wartości dla większości przypadków.
+
+Rozmiar największego spójnego podgrafu rośnie liniowo dla wszystkich instancji i algorytmów.
+
+Promień największego spójnego podgrafu zmienia się wielokrotnie o wartość 1 dla większości przypadków
+
+Im więcej wierzchołków znajduje się w zbiorze, tym więcej prób tworzenia krawędzi w algorytmie dwufazowym
+się powiedzie. Dlatego można zaobserwować delikatne wypłaszczenie krzywej na wykresie liczby nieudanych prób.
+Wyjątkiem jest tu instancja grid\_20  - jest to spowodowane tym że algorytm nie znalazł wszystkich optimów
+lokalnych przed końcem próbkowania.
 
 \subsection{Badanie stabilności dla dużych instancji}
 W tej sekcji opisano badania przeprowadzone dla instancji o rozmiarze 48 i większym.
@@ -460,7 +575,7 @@ Przedstawiono je na rysunkach od \ref{fig:main_snowball_edge_count} do \ref{fig:
     {max_out_degree/Średni stopień wychodzący wierzchołków w grafie},
     {avg_out_degree/Maksymalny stopień wychodzący wśród wierzchołków w grafie},
     {avg_loop_weight/Średnia waga pętli w grafie},
-    {avg_path_len/Średnia waga pętli w grafie},
+    {avg_path_len/Średnia długość ścieżki w grafie},
     {avg_go_path_len/Średnia długość istniejących ścieżek do globalnego optimum},
     {max_go_path_len/Długość najdłuższej istniejącej ścieżki do globalnego optimum},
     {go_path_ratio/Stosunek liczby wierzchołków, z których istnieje ścieżka do globalnego optimum do liczby wszystkich wierzchołków},
@@ -471,13 +586,13 @@ Przedstawiono je na rysunkach od \ref{fig:main_snowball_edge_count} do \ref{fig:
     {largest_cc/Rozmiar największego spójnego podgrafu},
     {largest_cc_radius/Promień największego spójnego podgrafu}}
 
-\foreach \metric/\cap in \metrics{
-    \begin{figure}[p]
-        \centering
-        \includegraphics[width=\textwidth]{chapters/experiments/img/merged_plots/main_snowball/\metric.png}
-        \caption{\cap \space w zależności od liczby wierzchołków - próbkowanie snowball}
-        \label{fig:main_snowball_\metric}
-    \end{figure}
-}
+% \foreach \metric/\cap in \metrics{
+%     \begin{figure}[p]
+%         \centering
+%         \includegraphics[width=\textwidth]{chapters/experiments/img/merged_plots/main_snowball/\metric.png}
+%         \caption{\cap \space w zależności od liczby wierzchołków - próbkowanie snowball}
+%         \label{fig:main_snowball_\metric}
+%     \end{figure}
+% }
 
 TODO: wstawić główne wyniki z twophase, jak już będą, Komentarz do wyników
