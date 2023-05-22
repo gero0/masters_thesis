@@ -27,13 +27,13 @@ do próbkowanie przestrzeni problemu kwadratowego przypisania (QAP).
 
 Próbkowanie składa się z etapów procedury \textit{snowball} próbkującej "wgłąb" i losowego spaceru(ang. \textit{random walk}).
 Próbkowanie \textit{snowball} polega na wybraniu rozwiązania startowego i przeszukaniu jego najbliższego sąsiedztwa.
-Następnie operacja ta jest powtarzana dla każdego rozwiązania w tym sąsiedztwie. Proces powtarza się aż do osiągnięcia z góry ustalonej głebokości
+Następnie operacja ta jest powtarzana dla każdego rozwiązania w tym sąsiedztwie. Proces powtarza się aż do osiągnięcia z góry ustalonej głębokości
 przeszukiwania. Następnie rozpoczyna się procedura losowego spaceru - wybierane jest kolejne rozwiązanie startowe
 ze zbioru sąsiadów poprzedniego rozwiązywania startowego (lub rozwiązanie losowe, jeśli to sąsiedztwo jest puste) i proces \textit{snowball}
 rozpoczyna się od nowa. Procedura jest powtarzana aż osiągnięty zostanie z góry ustalony limit długości spaceru.
 
 Zaimplementowany algorytm jest próbą adaptacji tej techniki do zadania przeszukiwania przestrzeni
-problemu komiwojażera. Do najważniejszych modyfikacji należy zastąpienie funkcji optymalizacji lokalnej \textit{hillclimb}
+problemu komiwojażera. Do najważniejszych modyfikacji należy zastąpienie funkcji optymalizacji lokalnej typu \textit{hillclimb}
 optymalizacją 2opt, implementacja odpowiedniej funkcji celu oraz operacji mutacji typu 2-exchange.
 
 Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowball}.
@@ -308,7 +308,7 @@ Dla małych instancji wygenerowanych losowo (uniform, grid, cliques) o rozmiarac
 możliwe jest wykonanie przeglądu zupełnego.
 Na tych instancjach wykonano próbkowanie algorytmami dwufazowym oraz \textit{snowball}, z różnym zestawem parametrów.
 
-Dla algorytmu dwufazowego wykonano próbkowanie dla różnych wartości parametru $n_{max}$ (liczby żądanych wierzchołków): 10, 100, 1000 oraz 10000.
+Dla algorytmu dwufazowego wykonano próbkowanie dla różnych wartości parametru $n_{max}$ (liczby żądanych wierzchołków): 10, 40, 100 oraz 1000.
 Parametry $n_{att}$, $e_{att}$ ustawiono na równe $n_{max}$, a parametr $n_{runs}$ na 1.
 
 Dla algorytmu \textit{snowball} wykonano próbkowanie dla różnych wartości parametru $w_{len}$ (długości losowego spaceru): 1, 10, 100 oraz 1000.
@@ -330,6 +330,8 @@ Gdzie:
 \end{itemize}
 
 Wartości, dla których błąd nie wyniósł 0 zostały dodatkowo oznaczone w tabeli grubą czcionką.
+Przebadano wszystkie miary opisane w sekcji \ref{sec:metrics} za wyjątkiem assortativity\_deg - wartość ta dla małych instancji zwykle przyjmowała
+nieprawidłową wartość (NaN), więc zdecydowano o jej wykluczeniu.
 
 \subsubsection{Wyniki}
 
@@ -344,6 +346,7 @@ Algorytmy próbkowania nie kończą pracy aż do momentu osiągnięcia warunku z
 Ze względu na swój losowy charakter, po operacji perturbacji często trafiają na te same rozwiązania
 (szczególnie w przypadku małych instancji) i powodują zwiększanie wagi krawędzi, w tym pętli, do wartości znacznie większych od rzeczywistych.
 Dlatego metryki, których wartość zależy od bezwzględnych wartości wag, a nie od stosunku wag różnych krawędzi nie dają użytecznej informacji na temat małych instancji.
+Z tego też powodu ich wartość nie będzie brana pod uwagę w ocenie działania algorytmu.
 
 W przypadku najmniejszych instancji o rozmiarze 7, błąd uzyskany po porównaniu wartości metryk
 wynosił 0 lub był bliski 0 dla wszystkich metryk oprócz avg\_loop\_weight i distLO.
@@ -351,9 +354,33 @@ Wyjątkiem była instancja uniform\_7, gdzie wartości błędów były wyższe d
 W tej instancji algorytm snowball poradził sobie znacznie lepiej - brak błędu dla większości
 metryk wystąpił już dla parametru $w_{len}$ równego 10, natomiast algorytm dwufazowy
 podobny wynik uzyskał dopiero dla parametru $n_{max}$ równego 1000 - wymagało to ponad 600 razy więcej wywołań funkcji optymalizującej.
-Dla instancji tej wielkości przegląd zupełny jest jednak szybszy, dlatego nie ma sensu stosować dla nich próbkowania.
+Dla instancji tej wielkości przegląd zupełny jest szybki, dlatego nie ma sensu stosować dla nich próbkowania.
 
-TODO:Redo for twophase\_50
+Obu algorytmom udało się dobrze odwzorować cechy przestrzeni rozwiązań instancji uniform\_8 i grid\_8 (z wyjątkiem distLO i avg\_loop\_weight),
+w czasie próbkowania kilkukrotnie krótszym od czasu trwania przeglądu zupełnego. Wyjątkiem okazała się instancja cliques\_8, której dokładne spróbkowanie
+udało się dopiero dla $n_{max}$ równego 100 - próbkowanie trwało prawie dwa razy tyle czasu, co przegląd zupełny.
+Algorytm snowball poradził sobie znakomicie już dla wartości $w_{len}$ równej 10 - próbkowanie było ponad dwukrotnie krótsze od przeglądu zupełnego.
+
+Dla instancji uniform\_9 i cliques\_9 oba algorytmy dobrze odwzorowały przestrzeń w czasie znacznie krótszym od czasu przeglądu zupełnego.
+Jednak w przypadku instancji grid\_9 nawet najdłuższe przebiegi testowanych algorytmów nie pozwoliły na uzyskanie zerowego błędu dla wszystkich
+miar z wyłączeniem distLO i avg\_loop\_weight.
+Algorytm snowball ujawnia tu swoją wadę - mimo znalezienia wszystkich krawędzi i wierzchołków wartości miar largest\_clique\_size i reciprocity
+nie zą zgodne z wartościami uzyskanymi z przeglądu zupełnego. Jest to spowodowane tym, że zarówno przegląd zupełny jak i algorytm dwufazowy używają
+algorytmu 2opt typu fist-improvement w procedurze perturbacji. Algorytm snowball używa zaś optymalizacji typu best-improvement, co powoduje nieznaczne,
+ale widoczne różnice topologii zbudowanej sieci LON.
+Pomimo korzystania z 2opt typu fist-improvement, algorytm dwufazowy nie poradził sobie z dokładnym odwzorowaniem przestrzeni instancji grid\_9 i ostatecznie
+lepszy w tym przypadku okazał się algorytm snowball.
+
+W przypadku instancji o rozmiarze 10 coraz bardziej widoczna staje się różnica między poszczególnymi typami instancji - instancje z miastami
+ułożonymi w klastrach nie sprawiają problemów - oba algorytmy dla większości miar otrzymują wartość prawdziwą w czasie krótszym od przeglądu zupełnego.
+Instancja uniform\_10 nie jest już idealnie odwzorowywana - algorytmy nie docierają do niektórych krawędzi i pojawiają się niewielkie błędy.
+Instancja grid\_10 sprawia problemy obu algorytmom. Warto jednak zauważyć, że wartości błędów dla przebiegu snowball\_1000 są mniejsze od błędów
+z przebiegu dwufazowy\_1000 pomimo tego, że ten drugi trwa 10 razy dłużej.
+
+Instancja uniform\_11 okazała się rzadkim przypadkiem, w którym algorytm dwufazowy poradził sobie lepiej od algorytmu snowball w podobnym czasie.
+Snowball okazuje się lepszy dla instancji cliques\_11 - oba algorytmy w najdłuższym przebiegu znajdują prawdziwą wartość większości miar, ale snowball robi to szybciej.
+Instancja grid\_11 zawiera dużą ilość wierzchołków i krawędzi - nawet najdłuższe przebiegi obu algorytmów nie były w stanie znaleźć wszystkich,
+co poskutkowało znacznymi błędami.
 
 \subsection{Badanie stabilności dla średnich instancji}
 Instancje \textbf{burma14}, \textbf{ulysses22} ze zbioru tsplib oraz wygenerowane instancje
@@ -432,7 +459,7 @@ Przedstawiono je na rysunkach od \ref{fig:small_edge_count} do \ref{fig:small_mi
 \end{figure}
 
 Zależność liczby krawędzi od liczby wierzchołków jest nieliniowa dla wszystkich zbadanych instancji i obu algorytmów.
-Dla instancji typu grid oraz ulyssess22 wykres tej zależności ma postać ''gładkiej'' krzywej.
+Dla instancji typu grid oraz ulysses22 wykres tej zależności ma postać ''gładkiej'' krzywej.
 W pozostałych przypadkach wzrost jest znacznie mniej stabilny - pojawiają się ''schodki'', miejsca w których wzrost
 spowalnia i gwałtownie rośnie.
 Sugeruje to, że przewidzenie wartości stosunku krawędzi do wierzchołków może być możliwy w przypadku
@@ -507,7 +534,7 @@ Próbkowanie snowball prowadzi natomiast do powolnego wzrostu z okazjonalnymi sp
 Oba algorytmy osiągają podobną końcową wartość miary, ale próbkowanie dwufazowe osiąga ją przy mniejszej
 liczbie spróbkowanych wierzchołków.
 
-Liczba lejów w przestrzeni jest miarą niestabilną, wartość miary zmienia się w zupełnie inny spodób
+Liczba lejów w przestrzeni jest miarą niestabilną, wartość miary zmienia się w zupełnie inny sposób
 dla różnych instancji.
 
 Rozmiar największego leja w przestrzeni rośnie liniowo dla danych uzyskanych z próbkowania
@@ -586,13 +613,13 @@ Przedstawiono je na rysunkach od \ref{fig:main_snowball_edge_count} do \ref{fig:
     {largest_cc/Rozmiar największego spójnego podgrafu},
     {largest_cc_radius/Promień największego spójnego podgrafu}}
 
-% \foreach \metric/\cap in \metrics{
-%     \begin{figure}[p]
-%         \centering
-%         \includegraphics[width=\textwidth]{chapters/experiments/img/merged_plots/main_snowball/\metric.png}
-%         \caption{\cap \space w zależności od liczby wierzchołków - próbkowanie snowball}
-%         \label{fig:main_snowball_\metric}
-%     \end{figure}
-% }
+\foreach \metric/\cap in \metrics{
+    \begin{figure}[p]
+        \centering
+        \includegraphics[width=\textwidth]{chapters/experiments/img/merged_plots/main_snowball/\metric.png}
+        \caption{\cap \space w zależności od liczby wierzchołków - próbkowanie snowball}
+        \label{fig:main_snowball_\metric}
+    \end{figure}
+}
 
 TODO: wstawić główne wyniki z twophase, jak już będą, Komentarz do wyników
