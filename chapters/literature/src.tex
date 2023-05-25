@@ -220,8 +220,11 @@ zidentyfikowanie ścieków, odwrócenie krawędzi i wykonanie przeszukiwania wg�
       \item \textbf{avg\_out\_degree, max\_out\_degree} - średni i maksymalny stopień wychodzący rozwiązań w grafie. Stopień wychodzący wierzchołka to liczba wychodzących z niego krawędzi. Pętle nie są brane pod uwagę.
       \item \textbf{avg\_in\_degree, max\_in\_degree} - średni i maksymalny stopień wchodzący rozwiązań w grafie. Stopień wchodzący wierzchołka to liczba wchodzących do niego krawędzi. Pętle nie są brane pod uwagę.
       \item \textbf{assortativity} - współczynnik różnorodności grafu.  Różnorodność (ang. assortativity) grafu skierowanego jest zdefiniowana następującym wzorem:
-            $$ assortativity = \frac{1}{\sigma_o \sigma_i} \sum_{(j,k)\in{E}} deg(j) \cdot deg(k) \cdot (e_{jk} - q_j^o q_k^i) $$
-            Gdzie:
+      \begin{equation}
+            \label{eq:assortativity}
+            assortativity = \frac{1}{\sigma_o \sigma_i} \sum_{(j,k)\in{E}} deg(j) \cdot deg(k) \cdot (e_{jk} - q_j^o q_k^i)
+      \end{equation}      
+      Gdzie:
             \begin{itemize}
                   \item $e_{ij}$ - część krawędzi łączących wierzchołki i i j w stosunku do liczby wszystkich krawędzi (ułamek z zakresu 0 do 1),
                   \item $q_i^o = \sum_{j \in V} e_{ij}$
@@ -247,7 +250,10 @@ zidentyfikowanie ścieków, odwrócenie krawędzi i wykonanie przeszukiwania wg�
       \item \textbf{largest\_clique\_size} - rozmiar największej kliki.
       \item \textbf{reciprocity} - Wzajemność. Wzajemność jest miarą zdefiniowaną tylko dla grafów skierowanych. Jest to stosunek wierzchołków wzajemnie połączonych do wierzchołków, które są połączone krawędzią tylko w jednym kierunku.
             Dana jest wzorem:
-            $$reciprocity = \frac{ |(i, j) \in E  \: | \: (j, i) \in E| }{|(i, j) \in E  \: | \: (j, i) \notin E| }$$
+            \begin{equation}
+                  \label{eq:reciprocity}
+                  reciprocity = \frac{ |(i, j) \in E  \: | \: (j, i) \in E| }{|(i, j) \in E  \: | \: (j, i) \notin E| }
+            \end{equation}
       \item \textbf{funnel\_num} - liczba lejów w przestrzeni rozwiązań
       \item \textbf{mean\_funnel\_size} - średnia wielkość leja
       \item \textbf{max\_funnel\_size} - wielkość największego leja
