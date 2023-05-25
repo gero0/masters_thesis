@@ -183,6 +183,7 @@ Przegląd polega na wygenerowaniu wszystkich możliwych rozwiązań danej instan
 optimów lokalnych a następnie znalezieniu krawędzi oraz obliczeniu ich wag. Dla każdego z rozwiązań generowane są wszystkie
 permutacje, które mogą powstać poprzez D-krotne wykonanie na rozwiązaniu operacji 2-exchange. Jeśli wśród tych permutacji znajduje się jedno ze znalezionych wcześniej
 lokalnych optimów, oznacza to, że spełniony jest warunek \ref{eq:escape_edge_cond} i dodawana jest nowa krawędź lub zwiększona zostaje waga istniejącej.
+Algorytm został przedstawiony na listingu \ref{alg:exhaustive}.
 
 \begin{algorithm}[]
     \caption{Przegląd zupełny}\label{alg:exhaustive}
@@ -443,7 +444,7 @@ Przedstawiono je na rysunkach od \ref{fig:small_edge_count} do \ref{fig:small_mi
 
 \include{plots_small.tex}
 
-Zależność liczby krawędzi od liczby wierzchołków jest nieliniowa dla wszystkich zbadanych instancji i obu algorytmów.
+Zależność liczby krawędzi od liczby wierzchołków jest nieliniowa dla wszystkich zbadanych instancji i obu algorytmów (rys. \ref{fig:small_edge_count}, rys. \ref{fig:small_edge_to_node}).
 Dla instancji typu grid oraz ulysses22 wykres tej zależności ma postać ''gładkiej'' krzywej.
 W pozostałych przypadkach wzrost jest znacznie mniej stabilny - pojawiają się ''schodki'', miejsca w których wzrost
 spowalnia i gwałtownie rośnie.
@@ -451,39 +452,39 @@ Sugeruje to, że przewidzenie wartości stosunku krawędzi do wierzchołków mo�
 instancji z miastami ułożonymi na siatce.
 
 W przypadku metryki assortativity\_deg można zaobserwować pewną właściwość.
-Na początku próbkowania wartość metryki zmienia się gwałtownie, zwiększając i zmniejszając się naprzemiennie.
+Na początku próbkowania wartość metryki zmienia się gwałtownie, zwiększając i zmniejszając się naprzemiennie (rys. \ref{fig:small_assortativity_deg}).
 Po pewnym czasie jednak się stabilizuje, widoczne jest to zwłaszcza dla instancji z większą ilością optimów lokalnych.
 Nadal obecne są wahania wartości, ale są one znacznie mniejsze.
 Wyjątkiem jest instancja grid\_20 próbkowana algorytmem snowball.
 W tym przypadku wartość zmienia się znacznie przez cały okres próbkowania.
 W wielu przypadkach ostatnia uzyskana wartość różni znacznie pomiędzy algorytmami.
 
-W większości przypadków średnia wartość funkcji celu wierzchołków przestrzeni zwiększa się wraz z ilością wierzchołków.
+W większości przypadków średnia wartość funkcji celu przestrzeni zwiększa się wraz z ilością wierzchołków (rys. \ref{fig:small_avg_fitness}).
 W niektórych przypadkach występuje początkowo duża wartość i gwałtowny spadek, zwykle w przypadku próbkowania dwufazowego.
 W innych przypadkach wartość wzrasta przez cały czas.
 Wykresy wartości uzyskane z obu algorytmów różnią się, ale wartości uzyskane na końcu próbkowania są do siebie podobne.
 Niska wartość funkcji celu na początku i powolny wzrost oznacza, że w badanych instancjach szybko znajdowane były
 najlepsze rozwiązania w przestrzeni.
 
-Wartość współczynnika conrel jest nieprzewidywalna.
+Wartość współczynnika conrel jest nieprzewidywalna (rys. \ref{fig:small_conrel}).
 Dla niektórych instancji utrzymuje się na podobnym poziomie przez większość czasu,
 ale gwałtownie zwiększa się pod koniec próbkowania.
 W innych wartość miary znacznie zmienia się w trakcie procesu, formując ostre piki.
 
-Gęstość grafu w każdym przypadku osiągała wysoką wartość, by następnie gwałtownie spaść i ustabilizować się w pewnym zakresie.
+Gęstość grafu w każdym przypadku osiągała wysoką wartość, by następnie gwałtownie spaść i ustabilizować się w pewnym zakresie (rys. \ref{fig:small_density}).
 W kilku przypadkach występował wzrost gęstości grafu pod koniec próbkowania.
 Miara jest najbardziej stabilna dla instancji z miastami rozłożonymi równomiernie.
 
-Miara distLO jest niestabilna, występują częste nagłe wzrosty i spadki jej wartości.
+Miara distLO jest niestabilna, występują częste nagłe wzrosty i spadki jej wartości (rys. \ref{fig:small_distLO}).
 W kilku przypadkach wystąpił duży spadek pod koniec próbkowania, w innych - gwałtowny wzrost.
 
-Współczynnik wzajemności (reciprocity) również jest niestabilny.
+Współczynnik wzajemności (reciprocity) również jest niestabilny (rys. \ref{fig:small_reciprocity}).
 W niektórych przypadkach występuje gwałtowny wzrost i spadek wartości na początku próbkowania.
 Ciekawa jest instancja grid\_20 - po spróbkowaniu odpowiednio dużej liczby wierzchołków
 wartość wzrost tej miary jest zbliżony do wzrostu liniowego.
 
 Rozmiar największej kliki zmienia się ''schodkowo'' w momencie, w którym albo ze spróbkowanych wierzchołków
-powstanie większa klika lub nowy wierzchołek zostanie odnaleziony w już istniejącej.
+powstanie większa klika lub nowy wierzchołek zostanie odnaleziony w już istniejącej (rys. \ref{fig:small_largest_clique_size}).
 Wyniki sugerują że możliwe jest oszacowanie wielkości największej kliki przestrzeni na podstawie wartości
 z krótszego próbkowania, zwłaszcza na podstawie danych z próbkowania dwufazowego, gdzie
 wartość zmienia się mniej gwałtownie. Ze względu na stopniowy i nieliniowy charakter wzrostu zmiennej,
@@ -491,54 +492,55 @@ dokładność takiego szacowania nie będzie duża.
 
 Liczba źródeł, ścieków i tzw. subsinks w grafie w wielu przypadkach początkowo rośnie, by nagle zmaleć na końcu próbkowania.
 W przypadkach ze zbioru TSPLIB po pewnym czasie liczba ścieków i subsinks przestała się zmieniać.
-Wszystkie trzy miary są niestabilne, mają charakter nieprzewidywalny.
+Wszystkie trzy miary są niestabilne, mają charakter nieprzewidywalny (rys. \ref{fig:small_num_sinks}, rys. \ref{fig:small_num_sources}, rys. \ref{fig:small_num_subsinks}).
 
 Charakterystyka wzrostu wartości średniego stopnia wchodzącego wierzchołka jest bardziej zbliżona do liniowej
 w przypadku próbkowania dwufazowego. W instancjach cliques\_20, uniform\_20 i burma14 występuje
-wzrost przyspieszenie wzrostu pod koniec próbkowania.
+wzrost przyspieszenie wzrostu pod koniec próbkowania (rys. \ref{fig:small_avg_in_degree}).
 W tych przypadkach z dużym prawdopodobieństwem algorytmy znalazły wszystkie optima lokalne.
 Może być to powodem tego zjawiska.
 W przypadku instancji grid\_20 o liczbie optimów lokalnych znacznie wyższej od pozostałych instancji tego rozmiaru,
 wynik z próbkowania snowball ma charakter eksponencjalny.
-Podobnie wyglądają miary największego stopnia wchodzącego, średniego stopnia wychodzącego i maksymalnego stopnia wychodzącego.
+Podobnie wyglądają miary największego stopnia wchodzącego, średniego stopnia wychodzącego i maksymalnego stopnia wychodzącego
+(rys. \ref{fig:small_max_in_degree}, rys. \ref{fig:small_avg_out_degree}, rys \ref{fig:small_max_out_degree}).
 
 Średnia waga pętli w grafie jest niestabilna, w niektórych przypadkach wzrost jest bliski liniowego, w innych
-eksponencjalnego, a w pozostałych jest chaotyczny.
+eksponencjalnego, a w pozostałych jest chaotyczny (rys. \ref{fig:small_avg_loop_weight}).
 
-Średnia długość ścieżki w grafie zwiększa się gwałtownie na początku, po czym stabilizuje.
+Średnia długość ścieżki w grafie zwiększa się gwałtownie na początku, po czym stabilizuje (rys. \ref{fig:small_avg_path_len}).
 Pojawiają się przypadki odstające (w grid\_20 przy próbkowaniu snowball wartość dość szybko maleje),
 ale dla większości przypadków wahania wartości po ustabilizowaniu są niewielkie.
 Podobnie jest w przypadku średniej długości ścieżek do globalnego optimum.
 
 Długość najdłuższej ścieżki do globalnego optimum zmniejsza i zwiększa się gwałtownie.
-Jest nieprzewidywalna.
+Jest nieprzewidywalna, podobnie jest z wartością maksymalną (rys. \ref{fig:small_avg_go_path_len}, rys. \ref{fig:small_max_go_path_len}).
 
-Współczynnik go\_path\_ratio zmienia się zupełnie inaczej w zależności od algorytmu próbkowania.
+Współczynnik go\_path\_ratio zmienia się zupełnie inaczej w zależności od algorytmu próbkowania (rys. \ref{fig:small_go_path_ratio}).
 Próbkowanie dwufazowe rośnie gwałtownie i bardzo wcześnie się stabilizuje.
 Próbkowanie snowball prowadzi natomiast do powolnego wzrostu z okazjonalnymi spadkami wartości.
 Oba algorytmy osiągają podobną końcową wartość miary, ale próbkowanie dwufazowe osiąga ją przy mniejszej
 liczbie spróbkowanych wierzchołków.
 
 Liczba lejów w przestrzeni jest miarą niestabilną, wartość miary zmienia się w zupełnie inny sposób
-dla różnych instancji.
+dla różnych instancji (rys. \ref{fig:small_funnel_num}).
 
 Rozmiar największego leja w przestrzeni rośnie liniowo dla danych uzyskanych z próbkowania
-dwufazowego. Wartość uzyskana z próbkowania snowball nie jest tak stabilna.
+dwufazowego. Wartość uzyskana z próbkowania snowball nie jest tak stabilna (rys. \ref{fig:small_max_funnel_size}).
 
 Wzrost średniego rozmiaru lejów dla próbkowania dwufazowego również jest bliski liniowego,
-widać jednak na nim pewne odchylenia. W ramach wzrostu ilości optimów lokalnych w przestrzeni,
+widać jednak na nim pewne odchylenia (rys. \ref{fig:small_mean_funnel_size}). W ramach wzrostu ilości optimów lokalnych w przestrzeni,
 wykres uzyskany ze snowball coraz bardziej zbliża się do wzrostu eksponencjalnego.
 
-Liczba spójnych podgrafów szybko stabilizuje się na stałej wartości dla większości przypadków.
+Liczba spójnych podgrafów szybko stabilizuje się na stałej wartości dla większości przypadków (rys. \ref{fig:small_num_cc}).
 
-Rozmiar największego spójnego podgrafu rośnie liniowo dla wszystkich instancji i algorytmów.
+Rozmiar największego spójnego podgrafu rośnie liniowo dla wszystkich instancji i algorytmów (rys. \ref{fig:small_largest_cc}).
 
-Promień największego spójnego podgrafu zmienia się wielokrotnie o wartość 1 dla większości przypadków
+Promień największego spójnego podgrafu zmienia się wielokrotnie o wartość 1 dla większości przypadków (rys. \ref{fig:small_largest_cc_radius}).
 
 Im więcej wierzchołków znajduje się w zbiorze, tym więcej prób tworzenia krawędzi w algorytmie dwufazowym
 się powiedzie. Dlatego można zaobserwować delikatne wypłaszczenie krzywej na wykresie liczby nieudanych prób.
 Wyjątkiem jest tu instancja grid\_20  - jest to spowodowane tym że algorytm nie znalazł wszystkich optimów
-lokalnych przed końcem próbkowania.
+lokalnych przed końcem próbkowania (rys. \ref{fig:small_missed}).
 
 \newpage
 
@@ -635,7 +637,7 @@ Z tego powodu nie udaje się utworzyć dużej ilości krawędzi prowadzących do
 Jeśli już uda się utworzyć krawędź, to z dużym prawdopodobieństwem algorytm spróbkuje również krawędź w przeciwnym kierunku.
 Im większa przestrzeń przeszukiwania, tym dłużej będzie występował ten problem.
 Zjawisko to nie występuje dla algorytmu snowball, gdyż tam wierzchołki są próbkowane równocześnie z krawędziami i każda krawędź, która może powstać jest
-tworzona od razu (rys. \ref{fig:main_twophase_reciprocity}) .
+tworzona od razu (rys. \ref{fig:main_snowball_reciprocity}) .
 
 Rozmiar największej kliki w grafie wzrasta ''schodkowo'' dla obu algorytmów (rys. \ref{fig:main_snowball_largest_clique_size}, (rys. \ref{fig:main_twophase_largest_clique_size})).
 Dla największych instancji jego wartość nie zmienia się przez cały okres próbkowania.
@@ -664,7 +666,7 @@ Oznacza to, że wszystkie krawędzie w tych grafach to pętle. Wyjaśnia to rów
 Podobnie prezentują się wykresy wartości średniej i maksymalnej stopnia wychodzącego
 (rys. \ref{fig:main_snowball_avg_out_degree}, rys. \ref{fig:main_snowball_max_out_degree}, rys. \ref{fig:main_twophase_avg_out_degree}, rys. \ref{fig:main_twophase_max_out_degree}).
 
-Średnia waga pętli w grafie jest nieprzewidywalna dla próbkowania snowball (rys. \ref{fig:main_snowball_avg_loop_weight}).
+Średnia waga pętli w grafie jest nieprzewidywalna dla próbkowania snowball (rys. \ref{fig:main_snowball_avg_loop_weight}, rys. \ref{fig:main_twophase_avg_loop_weight}).
 Dla próbkowania dwufazowego wielkość ta wzrasta niemal liniowo dla każdej instancji oprócz cliques\_50.
 
 Średnia długość ścieżki w grafie jest nieprzewidywalna dla większości instancji próbkowanych algorytmem snowball (rys. \ref{fig:main_snowball_avg_path_len}).
@@ -677,7 +679,7 @@ Nagłe zmiany w wartości są spowodowane najprawdopodobniej znalezieniem nowego
 Podobnie jest w przypadku wartości maksymalnej (rys. \ref{fig:main_snowball_max_go_path_len}, rys. \ref{fig:main_twophase_max_go_path_len}).
 
 Współczynnik go\_path\_ratio jest nieprzewidywalny. O ile w niektórych przypadkach przy próbkowaniu dwufazowym stabilizuje się na pewnej wartości
-po początkowym wzroście, to w innych gwałtownie zmniejsza się i zwiększa (rys. \ref{fig:main_snowball_go_path_ratio}, rys. \ref{fig:main_twophase_go_path_ratio}). 
+po początkowym wzroście, to w innych gwałtownie zmniejsza się i zwiększa (rys. \ref{fig:main_snowball_go_path_ratio}, rys. \ref{fig:main_twophase_go_path_ratio}).
 
 Dla próbkowania snowball liczba lejów w przestrzeni wzrasta liniowo dla wszystkich instancji oprócz cliques\_50 (rys. \ref{fig:main_snowball_funnel_num}).
 Inaczej jest w przypadku próbkowania dwufazowego - tutaj zależność ta wygląda zupełnie inaczej dla różnych instancji.
@@ -703,7 +705,7 @@ eil76, rat99 i bier127 potrafi utrzymywać się na stałym poziomie przez dłuż
 W przypadku próbkowania dwufazowego nie wzrasta on liniowo. Dla niektórych instancji wartość utrzymuje się na niskim poziomie przez długi czas (rys. \ref{fig:main_twophase_largest_cc}).
 Dla instancji rat99 i bier127 zmienia się częściej niż w przypadku próbkowania snowball.
 
-Promień największego spójnego podgrafu sieci zmienia się w sposób nieprzewidywalny dla obu algorytmów (rys. \ref{fig:main_snowball_largest_cc_radius}, rys. \ref{fig:main_twophase_largest_cc_radius}). 
+Promień największego spójnego podgrafu sieci zmienia się w sposób nieprzewidywalny dla obu algorytmów (rys. \ref{fig:main_snowball_largest_cc_radius}, rys. \ref{fig:main_twophase_largest_cc_radius}).
 
 Zależność liczby nieudanych prób tworzenia krawędzi przez algorytm dwufazowy wygląda bardzo podobnie dla wszystkich instancji (rys. \ref{fig:main_twophase_missed}).
 
