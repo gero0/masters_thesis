@@ -799,3 +799,55 @@ Dla algorytmu snowball bliska zera jest również wartość dla współczynnika 
     missed                & -             & 0.52           \\ \hline
     \end{tabular}
     \end{table}
+
+
+\subsection{Podsumowanie wyników}
+W przypadku próbkowania małych instancji algorytm snowball zwykle buduje sieć LON bliższą rzeczywistej.
+Algorytm dwufazowy również radzi sobie z tym zadaniem, zwykle wymaga jednak znacznie dłuższych obliczeń.
+Instancje typu grid - z miastami ułożonymi na siatce - sprawiają największe trudności i już dla jedenastu miast algorytmy nie znalazły
+wszystkich wierzchołków i krawędzi.
+Dla większości instancji o rozmiarze 8 i większym oba algorytmy poradziły sobie ze spróbkowaniem przestrzeni w czasie krótszym od przeglądu zupełnego.
+Metryki oparte o bezwzględne wartości wag krawędzi (avg\_loop\_weight i distLO) nie dają informacji o wartościach w pełnej przestrzeni rozwiązań.
+
+Nie występuje liniowa zależność między liczbą wierzchołków w przestrzeni, a liczbą krawędzi.
+Większość miar przestrzeni rozwiązań zmienia się w sposób nieprzewidywalny.
+Pojawiają się jednak i takie, których wartość stabilizuje się lub wzrasta w przewidywalny sposób.
+Przykładem jest liczba źródeł i ścieków w przestrzeni uzyskanej w próbkowaniu snowball.
+Charakter wzrostu tych zmiennych umożliwia wykorzystanie ekstrapolacji liniowej do przewidzenia ich liczby
+dla większej ilości spróbkowanych wierzchołków.
+Istnieje jednak ryzyko, że przewidywana wartość będzie nieprawdziwa - dla instancji o rozmiarze 20, oraz cliques\_50
+zaobserwowano wypłaszczenie krzywej, a nawet szybki spadek wartości tej miary.
+Podobny spadek zaobserwowano w niektórych przypadkach próbkowania dwufazowego.
+Maksymalny stopień wierzchołków również można oszacować z pewną dokładnością, ale tylko dla instancji o rozmiarze mniejszym od 50.
+Im więcej optimów lokalnych w przestrzeni, tym rzadziej zmienia się ta wartość i tym szersze ''schodki'' widoczne są na wykresie.
+
+Rodzaj zastosowanego algorytmu ma duży wpływ na to, jak wartości miary zmieniają się w miarę próbkowania.
+Algorytm dwufazowy zaczyna tworzyć krawędzie dopiero po pewnym czasie, gdy w zbiorze wierzchołków znajduje się
+odpowiednia ich ilość. Z tego powodu na wykresie liczby krawędzi dla algorytmu dwufazowego widzimy krzywą eksponencjalną.
+Algorytm dwufazowy nie radzi sobie z największymi (pod względem liczby optimów lokalnych) instancjami
+- zdecydowaną większość krawędzi (lub w przypadku większych instancji grid - wszystkie krawędzie) stanowią w nich pętle,
+które nie mogą być wykorzystane do obliczenia wartości większości metryk.
+Dla tych instancji zbudowanie gęstszej sieci LON wymagałoby znacznego zwiększenia i tak już dużego wkładu obliczeniowego.
+Warto jednak zwrócić uwagę na to, że w niektórych instancjach (np. cliques\_50) algorytm snowball znalazł o wiele mniej
+optimów lokalnych od algorytmu dwufazowego, pomimo długiego czasu próbkowania.
+Oznacza to, że algorytm dwufazowy może odnaleźć optima lokalne, których znalezienie sprawia trudności algorytmowi snowball.
+Najprawdopodobniej jest to spowodowane bardziej losowym charakterem algorytmu dwufazowego.
+Snowball kolejny etap przeszukiwania zaczyna od jednego z sąsiednich rozwiązań, algorytm dwufazowy
+za każdym razem zaczyna od rozwiązania całkowicie losowego.
+
+Zaobserwowano różnice między różnymi rodzajami instancji.
+Instancja cliques\_50 z miastami ułożonymi w klikach ma o wiele mniej optimów lokalnych od instancji innego typu o podobnym rozmiarze.
+Instancje typu grid z miastami ułożonymi na siatce mają ich z kolei znacznie więcej.
+Instancje tego typu są również najtrudniejsze do próbkowania algorytmem dwufazowym.
+Instancje typu uniform często wykazują inne właściwości od innych instancji tego samego typu.
+Nie jest to zaskakujące - są to instancje losowe bez ustalonej struktury i wiele zależy od ułożenia miast w konkretnej instancji.
+
+Instancje cliques\_50, cliques\_80, uniform\_50, att48, berlin52 i pr76 cechują się ogromną liczbą krawędzi
+w stosunku do liczby wierzchołków (stosunek ten był największy dla instancji att48 i wynosił ponad 1300 do 1).
+Krawędzie te nie zostały odnalezione przez algorytm snowball, a jedynie w późnym etapie próbkowania dwufazowego.
+Istnienie milionów krawędzi znacznie wydłużyło długość obliczeń, oraz rozmiar plików z reprezentacją grafu i była powodem rezygnacji z obliczenia
+wartości części miar w tym badaniu.
+
+Wiele miar jest ze sobą silnie skorelowanych, większość dodatnie.
+Istnieje jednak kilka miar, których wartość jest praktycznie niezależna od innych.
+Wybór algorytmu próbkowania ma wpływ na wzajemną korelację pomiędzy wartościami miar.
