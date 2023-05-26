@@ -720,7 +720,11 @@ Dla wszystkich instancji cliques, uniform\_50 i uniform\_80, att48, berlin52 ora
 Co ważne, większość z nich została znaleziona w bardzo późnej fazie próbkowania.
 
 \subsection{Korelacja wzajemna miar}
-
+Obliczono współczynnik korelacji Pearsona dla każdej pary miar.
+Obliczono wartość średnią współczynników z każdej instancji, dla której przeprowadzono badanie stabilności.
+W przypadku, gdy wartość miary była stała, jako współczynnik korelacji przyjmowano wartość 0.
+Wyniki dla algorytmu snowball przedstawiono w tabeli \ref{fig:corr_snowball}.
+Wyniki dla algorytmu dwufazowego przedstawiono w tabeli \ref{fig:corr_twophase}.
 \begin{figure}[h!]
     \centering
     \includegraphics[width=\textwidth]{chapters/experiments/img/snowball_corr.png}
@@ -734,3 +738,64 @@ Co ważne, większość z nich została znaleziona w bardzo późnej fazie prób
     \caption{Wzajemna korelacja miar - próbkowanie dwufazowe}
     \label{fig:corr_twophase}
 \end{figure}
+
+Występuje wysoka dodatnia korelacja występuje pomiędzy liczbą wywołań funkcji celu (opt\_count),
+liczbą obliczeń długości ścieżki metodą przyrostową (oracle\_count), liczbą wierzchołków (node\_count) i krawędzi (edge\_count).
+Wspomniane wartości silnie korelują dodatnio z liczbą źródeł i ścieków, a także z metrykami lejowymi oraz średnimi i maksymalnymi wartościami stopni wierzchołków.
+Korelacja ta występuje dla obu algorytmów, ale jest nieco silniejsza dla algorytmu dwufazowego.
+Występuje bardzo silna korelacja między liczbą wywołań funkcji celu i średnią wagą pętli w algorytmie dwufazowym.
+Nie jest to zaskakujące, gdyż - szczególnie dla instancji z dużą liczbą optimów lokalnych - algorytm ten ma tendencję do tworzenia pętli o bardzo dużych wagach.
+
+Dla algorytmu snowball występuje korelacja o wartościach bliskich 1 pomiędzy liczbą źródeł, ścieków i lejów w przestrzeni.
+Dla algorytmu dwufazowego korelacja między liczbą źródeł i ścieków wynosi jedynie 0.25.
+
+Metryki lejowe oraz dotyczące stopni wierzchołków są ze sobą silniej skorelowane w przypadku próbkowania dwufazowego.
+Dla tego rodzaju próbkowania widoczna jest również dość silna ujemna korelacja między różnorodnością (assortativity\_deg) a tymi metrykami.
+Różnorodność koreluje również ujemnie z metrykami conrel, go\_path\_ratio i avg\_loop\_weight.
+
+W przypadku próbkowania snowball występuje silna ujemna korelacja między gęstością grafu (density) a liczbą ścieków, liczbą źródeł i maksymalnym stopniem wychodzącym.
+Metryka ta, dla obu rodzajów próbkowania, koreluje ujemnie z każdą inną metryką oprócz conrel.
+
+Obliczono wartość średnią współczynników korelacji z innymi metrykami dla każdej metryki, aby sprawdzić, które metryki
+są w najmniejszym stopniu zależne od innych. Wyniki przedstawiono w tabeli \ref{tab:meancorr}.
+Najbliższymi 0 średnimi wartościami korelacji cechują się metryki: distLO, avg\_go\_path\_len, max\_go\_path\_len, largest\_cc\_radius.
+Dla algorytmu snowball bliska zera jest również wartość dla współczynnika conrel, a dla algorytmu dwufazowego - wartość dla miary density.
+
+\begin{table}[]
+    \centering
+    \caption{Uśredniona wartość korelacji z innymi metrykami dla każdej metryki}
+    \label{tab:meancorr}
+    \begin{tabular}{|l|l|l|}
+    \hline
+    Metryka               & alg. snowball & alg. dwufazowy \\ \hline
+    node\_count           & 0.53          & 0.52           \\ \hline
+    edge\_count           & 0.52          & 0.53           \\ \hline
+    num\_subsinks         & 0.45          & 0.39           \\ \hline
+    edge\_to\_node        & 0.42          & 0.50           \\ \hline
+    avg\_fitness          & 0.25          & 0.17           \\ \hline
+    distLO                & 0.07          & -0.06          \\ \hline
+    conrel                & -0.02         & 0.41           \\ \hline
+    avg\_loop\_weight     & 0.40          & 0.50           \\ \hline
+    go\_path\_ratio       & 0.32          & 0.31           \\ \hline
+    avg\_go\_path\_len    & -0.03         & 0.02           \\ \hline
+    max\_go\_path\_len    & 0.01          & 0.07           \\ \hline
+    num\_sinks            & 0.45          & 0.29           \\ \hline
+    num\_sources          & 0.49          & 0.41           \\ \hline
+    funnel\_num           & 0.45          & 0.29           \\ \hline
+    mean\_funnel\_size    & 0.29          & 0.49           \\ \hline
+    max\_funnel\_size     & 0.49          & 0.48           \\ \hline
+    max\_out\_degree      & 0.46          & 0.48           \\ \hline
+    avg\_out\_degree      & 0.41          & 0.49           \\ \hline
+    max\_in\_degree       & 0.50          & 0.48           \\ \hline
+    avg\_in\_degree       & 0.41          & 0.49           \\ \hline
+    assortativity\_deg    & 0.21          & -0.30          \\ \hline
+    density               & -0.20         & -0.06          \\ \hline
+    num\_cc               & 0.16          & 0.28           \\ \hline
+    largest\_cc           & 0.53          & 0.48           \\ \hline
+    largest\_cc\_radius   & 0.11          & 0.12           \\ \hline
+    avg\_path\_len        & 0.08          & 0.22           \\ \hline
+    largest\_clique\_size & 0.43          & 0.44           \\ \hline
+    reciprocity           & 0.32          & 0.24           \\ \hline
+    missed                & -             & 0.52           \\ \hline
+    \end{tabular}
+    \end{table}

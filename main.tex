@@ -4,6 +4,7 @@
 
 \usepackage{listings}
 \usepackage[ruled]{algorithm2e}
+\usepackage{pdfpages}
 % \usepackage{refcheck}
 
 
@@ -37,8 +38,8 @@
 % \bibliographystyle{unsrt} 
 \bibliographystyle{siam}
 
-% \maketitle
-% \import{src/}{dedication.tex}
+\includepdf{tytul.pdf}
+\import{src/}{dedication.tex}
 \tableofcontents
 
 \import{chapters/introduction/}{src.tex}
@@ -55,10 +56,10 @@
 \addcontentsline{toc}{chapter}{\bibname}
 \bibliography{bibliography}
 
-% \addcontentsline{toc}{chapter}{Spis rysunków}
-% \listoffigures
-% \addcontentsline{toc}{chapter}{Spis tablic}
-% \listoftables
+\addcontentsline{toc}{chapter}{Spis rysunków}
+\listoffigures
+\addcontentsline{toc}{chapter}{Spis tablic}
+\listoftables
 
 \end{document}
 
