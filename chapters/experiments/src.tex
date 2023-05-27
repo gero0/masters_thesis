@@ -4,9 +4,9 @@
 \subsection{Próbkowanie dwufazowe} \label{section:tp}
 Próbkowanie dwufazowe swoją nazwę zawdzięcza procesowi próbkowania składającemu się z dwóch oddzielnych faz
 - próbkowania wierzchołków oraz próbkowania krawędzi - wykonywanych jedna po drugiej.
-Istotną zaletą tego podejścia jest jego stosunkowo prosta implementacja.
+Istotną zaletą tego podejścia jest jego stosunkowo prosta implementacja oraz możliwość łatwego zrównoleglenia.
 
-Zaimplementowany algorytm pochodzi z pracy\cite{DBLP:conf/depcos/BozejkoGNAB18}.
+Zaimplementowany algorytm pochodzi z pracy \cite{DBLP:conf/depcos/BozejkoGNAB18}.
 Został on przygotowany specjalnie do próbkowania przestrzeni rozwiązań problemu komiwojażera.
 Próbkowanie wierzchołków odbywa się poprzez generowanie losowych rozwiązań, a następnie ich optymalizacji algorytmem 2-opt.
 Próbkowanie krawędzi polega na wielokrotnym poddaniu każdego ze znalezionych wcześniej lokalnych optimów $n_i$ operacji perturbacji typu 2-exchange,
@@ -22,7 +22,7 @@ Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:tp}.
 \subsection{Snowball} \label{section:snowball}
 Próbkowanie typu Snowball wywodzi się z techniki używanej w badaniach z dziedziny socjologii, w której ludzie należący do próby z populacji
 rekrutują kolejnych uczestników badania spośród swoich znajomych.
-W kontekście badania przestrzeni rozwiązań technika ta została zaprezentowana w pracy\cite{DBLP:conf/ppsn/VerelDOT18}, gdzie została wykorzystana
+W kontekście badania przestrzeni rozwiązań technika ta została zaprezentowana w pracy \cite{DBLP:conf/ppsn/VerelDOT18}, gdzie została wykorzystana
 do próbkowanie przestrzeni problemu kwadratowego przypisania (QAP).
 
 Próbkowanie składa się z etapów procedury \textit{snowball} próbkującej "wgłąb" i losowego spaceru(ang. \textit{random walk}).
@@ -190,7 +190,7 @@ Algorytm został przedstawiony na listingu \ref{alg:exhaustive}.
     $S \gets \{\}$\;
     $P \gets wygenerujWszystkiePermutacje()$\;
     \ForEach{$p \in P$}{
-        $lo \gets 2opt(p)$\;
+        $lo \gets 2optFirstImprovement(p)$\;
         $S \gets S \cup \{(p, lo)\}$\;
     }
 
@@ -237,7 +237,7 @@ Algorytm został przedstawiony na listingu \ref{alg:exhaustive}.
 \section{Instancje testowe}
 Do badań wykorzystano instancje testowe wygenerowane losowo oraz wybrane instancje ze zbioru TSPLIB.
 Zaimplementowano trzy generatory tworzące różne typy instancji testowych: z miastami rozłożonymi równomiernie,
-z miastami rozłożonymi w klastrach oraz z miastami ułożonymi na siatce.
+z miastami rozłożonymi w klikach oraz z miastami ułożonymi na siatce.
 Wygenerowano instancje testowe każdego z trzech typów instancji losowych o rozmiarach 7, 8, 9, 10, 11 oraz 20, 50, 80 i 100.
 Uzyskano w ten sposób 27 instancji problemu.
 Ze zbioru TSPLIB wybrano instancje o podobnych rozmiarach: \textbf{burma14}, \textbf{ulysses22}, \textbf{att48}, \textbf{berlin52}, \textbf{pr76}, \textbf{eil76}, \textbf{rat99},
@@ -251,7 +251,7 @@ W dalszej części dokumentu instancje wygenerowane tym generatorem będą nazyw
 
 Przykład wygenerowanej instancji został przedstawiony na rysunku \ref{fig:uniform_example}.
 
-\subsection*{Miasta rozmieszczone w klastrach}
+\subsection*{Miasta rozmieszczone w klikach}
 Miasta umieszczane są blisko siebie w kilku grupach oddzielonych większymi odległościami.
 W dalszej części dokumentu instancje wygenerowane tym generatorem będą nazywane \textbf{cliques\_<liczba miast>}.
 Przykład wygenerowanej instancji został przedstawiony na rysunku \ref{fig:clique_example}.
@@ -274,7 +274,7 @@ Przykład wygenerowanej instancji został przedstawiony na rysunku \ref{fig:grid
 \begin{figure}[h!]
     \centering
     \includegraphics[width=0.60\textwidth]{chapters/experiments/img/clique_example.png}
-    \caption{Wizualizacja przykładowej wygenerowanej instancji z miastami rozmieszczonymi w klastrach dla 100 miast}
+    \caption{Wizualizacja przykładowej wygenerowanej instancji z miastami rozmieszczonymi w klikach dla 100 miast}
     \label{fig:clique_example}
 \end{figure}
 
@@ -339,7 +339,7 @@ nieprawidłową wartość (NaN), więc zdecydowano o jej wykluczeniu.
 \include{tables.tex}
 
 Najbardziej rzucającymi się w oczy metrykami są avg\_loop\_weight i distLO.
-We wszystkich przypadkach są one znacznie większe od wartości uzyskanych z przeglądu zupełnego.
+We wszystkich przypadkach występuje duża rozbieżność między wartościami tych miar uzyskanymi z próbkowania, a tymi z przeglądu zupełnego.
 Nie jest to zaskakujące. Algorytm przeglądu zupełnego jednokrotnie sprawdza każde rozwiązanie w przestrzeni przeszukiwania pod kątem
 możliwości utworzenia krawędzi między optimami lokalnymi, lub zwiększenia wagi istniejącej.
 Po sprawdzeniu wszystkich rozwiązań algorytm kończy pracę.
@@ -373,7 +373,7 @@ Pomimo korzystania z 2opt typu fist-improvement, algorytm dwufazowy nie poradzi�
 lepszy w tym przypadku okazał się algorytm snowball.
 
 W przypadku instancji o rozmiarze 10 coraz bardziej widoczna staje się różnica między poszczególnymi typami instancji - instancje z miastami
-ułożonymi w klastrach nie sprawiają problemów - oba algorytmy dla większości miar otrzymują wartość prawdziwą w czasie krótszym od przeglądu zupełnego.
+ułożonymi w klikach nie sprawiają problemów - oba algorytmy dla większości miar otrzymują wartość prawdziwą w czasie krótszym od przeglądu zupełnego.
 Instancja uniform\_10 nie jest już idealnie odwzorowywana - algorytmy nie docierają do niektórych krawędzi i pojawiają się niewielkie błędy.
 Instancja grid\_10 sprawia problemy obu algorytmom. Warto jednak zauważyć, że wartości błędów dla przebiegu snowball\_1000 są mniejsze od błędów
 z przebiegu dwufazowy\_1000 pomimo tego, że ten drugi trwa 10 razy dłużej.
@@ -397,7 +397,7 @@ Próbkowanie algorytmem snowball wykonano z następującymi parametrami:
     \item $depth$ - głębokość przeszukiwania - 3
 \end{itemize}
 Zapis wyników wykonywano przy każdym znalezionym wierzchołku.
-Wyjątkiem była instancja grid\_20 - tu zapis wykonywano co 100 wierzchołków z powodu dużej ilości optimów lokalnych.
+Wyjątkiem była instancja grid\_20 - tu zapis wykonywano co 100 wierzchołków z powodu dużej liczby optimów lokalnych.
 
 Próbkowanie algorytmem dwufazowym przeprowadzono z następującymi parametrami:
 \begin{itemize}
@@ -445,11 +445,6 @@ Przedstawiono je na rysunkach od \ref{fig:small_edge_count} do \ref{fig:small_mi
 \include{plots_small.tex}
 
 Zależność liczby krawędzi od liczby wierzchołków jest nieliniowa dla wszystkich zbadanych instancji i obu algorytmów (rys. \ref{fig:small_edge_count}, rys. \ref{fig:small_edge_to_node}).
-Dla instancji typu grid oraz ulysses22 wykres tej zależności ma postać ''gładkiej'' krzywej.
-W pozostałych przypadkach wzrost jest znacznie mniej stabilny - pojawiają się ''schodki'', miejsca w których wzrost
-spowalnia i gwałtownie rośnie.
-Sugeruje to, że przewidzenie wartości stosunku krawędzi do wierzchołków może być możliwy w przypadku
-instancji z miastami ułożonymi na siatce.
 
 W przypadku metryki assortativity\_deg można zaobserwować pewną właściwość.
 Na początku próbkowania wartość metryki zmienia się gwałtownie, zwiększając i zmniejszając się naprzemiennie (rys. \ref{fig:small_assortativity_deg}).
@@ -457,7 +452,7 @@ Po pewnym czasie jednak się stabilizuje, widoczne jest to zwłaszcza dla instan
 Nadal obecne są wahania wartości, ale są one znacznie mniejsze.
 Wyjątkiem jest instancja grid\_20 próbkowana algorytmem snowball.
 W tym przypadku wartość zmienia się znacznie przez cały okres próbkowania.
-W wielu przypadkach ostatnia uzyskana wartość różni znacznie pomiędzy algorytmami.
+W wielu przypadkach ostatnia uzyskana wartość różni się znacznie pomiędzy algorytmami.
 
 W większości przypadków średnia wartość funkcji celu przestrzeni zwiększa się wraz z ilością wierzchołków (rys. \ref{fig:small_avg_fitness}).
 W niektórych przypadkach występuje początkowo duża wartość i gwałtowny spadek, zwykle w przypadku próbkowania dwufazowego.
@@ -481,7 +476,7 @@ W kilku przypadkach wystąpił duży spadek pod koniec próbkowania, w innych - 
 Współczynnik wzajemności (reciprocity) również jest niestabilny (rys. \ref{fig:small_reciprocity}).
 W niektórych przypadkach występuje gwałtowny wzrost i spadek wartości na początku próbkowania.
 Ciekawa jest instancja grid\_20 - po spróbkowaniu odpowiednio dużej liczby wierzchołków
-wartość wzrost tej miary jest zbliżony do wzrostu liniowego.
+wzrost tej miary jest zbliżony do wzrostu liniowego.
 
 Rozmiar największej kliki zmienia się ''schodkowo'' w momencie, w którym albo ze spróbkowanych wierzchołków
 powstanie większa klika lub nowy wierzchołek zostanie odnaleziony w już istniejącej (rys. \ref{fig:small_largest_clique_size}).
@@ -496,7 +491,7 @@ Wszystkie trzy miary są niestabilne, mają charakter nieprzewidywalny (rys. \re
 
 Charakterystyka wzrostu wartości średniego stopnia wchodzącego wierzchołka jest bardziej zbliżona do liniowej
 w przypadku próbkowania dwufazowego. W instancjach cliques\_20, uniform\_20 i burma14 występuje
-wzrost przyspieszenie wzrostu pod koniec próbkowania (rys. \ref{fig:small_avg_in_degree}).
+przyspieszenie wzrostu pod koniec próbkowania (rys. \ref{fig:small_avg_in_degree}).
 W tych przypadkach z dużym prawdopodobieństwem algorytmy znalazły wszystkie optima lokalne.
 Może być to powodem tego zjawiska.
 W przypadku instancji grid\_20 o liczbie optimów lokalnych znacznie wyższej od pozostałych instancji tego rozmiaru,
@@ -547,7 +542,7 @@ lokalnych przed końcem próbkowania (rys. \ref{fig:small_missed}).
 \subsection{Badanie stabilności dla dużych instancji}
 W tej sekcji opisano badania przeprowadzone dla instancji o rozmiarze 48 i większym.
 
-Próbkowanie algorytmem snowball wykonano z następującymi parametrami:
+Próbkowanie algorytmem \textit{snowball} wykonano z następującymi parametrami:
 \begin{itemize}
     \item $w_{len}$ - długość losowego spaceru - 10000
     \item $m$ - liczba prób przeszukania sąsiedztwa - 100
@@ -575,7 +570,7 @@ Utworzono wykresy przedstawiające zależność wartości miar od liczby spróbk
 Przedstawiono je na rysunkach od \ref{fig:main_snowball_edge_count} do \ref{fig:main_twophase_missed}.
 
 Ze względu na długi czas obliczeń i ograniczony czas realizacji projektu,
-dla instancji cliques\_50, cliques\_80, uniform\_50, att48, berlin52 i pr76 i próbkowania dwufazowego
+dla instancji \textbf{cliques\_50}, \textbf{cliques\_80}, \textbf{uniform\_50}, \textbf{att48}, \textbf{berlin52} i \textbf{pr76} i próbkowania dwufazowego
 nie wykonano obliczeń wartości następujących miar:
 
 \begin{itemize}
@@ -592,7 +587,7 @@ nie wykonano obliczeń wartości następujących miar:
 
 \include{plots_main.tex}
 
-Wzrost liczby krawędzi w stosunku do liczby wierzchołków jest zbliżony do liniowego dla próbkowania snowball (rys. \ref{fig:main_snowball_edge_count}).
+Wzrost liczby krawędzi w stosunku do liczby wierzchołków jest zbliżony do liniowego dla próbkowania \textit{snowball} (rys. \ref{fig:main_snowball_edge_count}).
 Na wykresie wartości stosunku krawędzi do wierzchołków (rys. \ref{fig:main_snowball_edge_to_node}), w niektórych przypadkach widać co prawda gwałtowne zmiany, ale
 ich bezwzględna wartość jest niewielka.
 W przypadku próbkowania dwufazowego (rys. \ref{fig:main_twophase_edge_count}, rys.\ref{fig:main_twophase_edge_to_node}), ta zależność nie jest liniowa dla części instancji,
@@ -600,7 +595,7 @@ najlepiej widać to w przypadku instancji cliques\_50, cliques\_80, att48, berli
 Dla instancji typu grid oraz pozostałych instancji ze zbioru tsplib zależność ma charakterystykę liniową lub zbliżoną do liniowej.
 
 Współczynnik różnorodności grafu nie jest stabilny. Wykres jego wartości wygląda inaczej w niemal każdym przypadku
-próbkowania snowball (rys. \ref{fig:main_snowball_assortativity_deg}).
+próbkowania \textit{snowball} (rys. \ref{fig:main_snowball_assortativity_deg}).
 Dla próbkowania dwufazowego (rys. \ref{fig:main_twophase_assortativity_deg}) można zaobserwować eksponencjalny spadek wartości taj miary dla części instancji.
 W innych przypadkach wzrasta ona szybko i oscyluje wokół pewnej wartości.
 Odstającym przypadkiem są instancje grid\_80 i grid\_100. Wykres pokazuje dla nich stałą wartość 0.
@@ -618,14 +613,14 @@ więc problem ten występuje również dla mniejszych instancji tego typu.
 Wartość współczynnika conrel jest niestabilna. Różni się ona w zależności od algorytmu próbkowania (rys. \ref{fig:main_snowball_conrel}, rys. \ref{fig:main_twophase_conrel}).
 Dla większych instancji typu grid i próbkowania dwufazowego ma ona stałą wartość 0.
 
-Wartość gęstości grafu (density) zmienia się w przewidywalny sposób dla próbkowania snowball (rys. \ref{fig:main_snowball_density}) i maleje eksponencjalnie.
+Wartość gęstości grafu (density) zmienia się w przewidywalny sposób dla próbkowania \textit{snowball} (rys. \ref{fig:main_snowball_density}) i maleje eksponencjalnie.
 W przypadku próbkowania dwufazowego (rys. \ref{fig:main_twophase_density}) taki spadek występuje tylko w instancjach typu grid, instancji cliques\_100 oraz większych
 instancjach ze zbioru tsplib.
 Dla pozostałych instancji występują kolejne wzrosty i spadki wartości tej miary.
 Z otrzymanych danych można wywnioskować, że wartość tej metryki jest w dużym stopniu zależna od wykorzystanego algorytmu próbkowania.
 
-Wartość współczynnika distLO jest niestabilna. Zmienia się w nieprzewidywalny sposób zarówno dla algorytmu snowball jak i dwufazowego (rys. \ref{fig:main_snowball_distLO}, rys. \ref{fig:main_twophase_distLO}).
-Ciekawym przypadkiem są instancje grid dla próbkowania snowball - wartość distLO jest dla nich stała i wynosi 1. Oznacza to, że każda krawędź połączona
+Wartość współczynnika distLO jest niestabilna. Zmienia się w nieprzewidywalny sposób zarówno dla algorytmu \textit{snowball} jak i dwufazowego (rys. \ref{fig:main_snowball_distLO}, rys. \ref{fig:main_twophase_distLO}).
+Ciekawym przypadkiem są instancje grid dla próbkowania \textit{snowball} - wartość distLO jest dla nich stała i wynosi 1. Oznacza to, że każda krawędź połączona
 z najlepszym rozwiązaniem miała wagę 1 przez cały okres próbkowania.
 
 Wzajemność grafu (reciprocity) w większości przypadkach gwałtownie zmienia się na początku, a potem stabilizuje w okolicach pewnej wartości.
@@ -636,7 +631,7 @@ Jest to najprawdopodobniej spowodowane działaniem algorytmu próbkowania. Na po
 Z tego powodu nie udaje się utworzyć dużej ilości krawędzi prowadzących do nieodkrytych jeszcze wierzchołków.
 Jeśli już uda się utworzyć krawędź, to z dużym prawdopodobieństwem algorytm spróbkuje również krawędź w przeciwnym kierunku.
 Im większa przestrzeń przeszukiwania, tym dłużej będzie występował ten problem.
-Zjawisko to nie występuje dla algorytmu snowball, gdyż tam wierzchołki są próbkowane równocześnie z krawędziami i każda krawędź, która może powstać jest
+Zjawisko to nie występuje dla algorytmu \textit{snowball}, gdyż tam wierzchołki są próbkowane równocześnie z krawędziami i każda krawędź, która może powstać jest
 tworzona od razu (rys. \ref{fig:main_snowball_reciprocity}) .
 
 Rozmiar największej kliki w grafie wzrasta ''schodkowo'' dla obu algorytmów (rys. \ref{fig:main_snowball_largest_clique_size}, (rys. \ref{fig:main_twophase_largest_clique_size})).
@@ -645,18 +640,18 @@ Z danych można wywnioskować, że im mniejsza ilość lokalnych optimów w prze
 Stała wartość dla dużych instancji nie oznacza, że można ją przyjąć za wartość miary dla całej przestrzeni - najprawdopodobniej zmieni się
 ona po jeszcze dłuższym próbkowaniu.
 
-Liczba źródeł w grafie rośnie liniowo dla większości instancji przy próbkowaniu snowball (rys. \ref{fig:main_snowball_num_sources}).
+Liczba źródeł w grafie rośnie liniowo dla większości instancji przy próbkowaniu \textit{snowball} (rys. \ref{fig:main_snowball_num_sources}).
 W przypadku próbkowania dwufazowego zależność liniowa występuje jedynie w przypadku największych instancji i instancji typu grid (rys. \ref{fig:main_twophase_num_sources}).
 Ciekawym przypadkiem jest instancja cliques\_50, w której jako jedynej wartość tej miary zaczyna spadać pod koniec próbkowania.
 
-Liczba ścieków w grafie również rośnie liniowo dla większości instancji w przypadku próbkowania snowball (rys. \ref{fig:main_snowball_num_sinks}).
+Liczba ścieków w grafie również rośnie liniowo dla większości instancji w przypadku próbkowania \textit{snowball} (rys. \ref{fig:main_snowball_num_sinks}).
 W przypadku próbkowania dwufazowego jest zupełnie inaczej. O ile liniowy wzrost wciąż występuje dla niektórych instancji, to w innych przypadkach
 wartość ta maleje lub utrzymuje się na stałym poziomie. Instancja cliques\_50 również się tu wyróżnia - w przestrzeni rozwiązań występują jedynie dwa ścieki
 przez cały okres próbkowania (rys. \ref{fig:main_twophase_num_sinks}).
 Wykresy ilości subsinks wyglądają niemal identycznie do wykresów ilości ścieków - oznacza to, że ich liczba jest zawsze zbliżona
 (rys. \ref{fig:main_snowball_num_subsinks}, rys. \ref{fig:main_twophase_num_subsinks}).
 
-Średni stopień wchodzący wierzchołków jest miarą nieprzewidywalną dla próbkowania snowball (rys. \ref{fig:main_snowball_avg_in_degree}).
+Średni stopień wchodzący wierzchołków jest miarą nieprzewidywalną dla próbkowania \textit{snowball} (rys. \ref{fig:main_snowball_avg_in_degree}).
 W przypadku próbkowania dwufazowego wartość miary jest bardziej przewidywalna - przez cały czas wzrasta dla większości przypadków (rys. \ref{fig:main_twophase_avg_in_degree}).
 Wyjątkiem są instancje grid\_80 i grid\_100, w których przez cały okres próbkowania otrzymywana jest wartość 0.
 Maksymalny stopień wchodzący dla części instancji wzrasta ''schodkowo'', a dla innych łagodniej (rys. \ref{fig:main_snowball_max_in_degree}, rys. \ref{fig:main_twophase_max_in_degree}).
@@ -666,10 +661,10 @@ Oznacza to, że wszystkie krawędzie w tych grafach to pętle. Wyjaśnia to rów
 Podobnie prezentują się wykresy wartości średniej i maksymalnej stopnia wychodzącego
 (rys. \ref{fig:main_snowball_avg_out_degree}, rys. \ref{fig:main_snowball_max_out_degree}, rys. \ref{fig:main_twophase_avg_out_degree}, rys. \ref{fig:main_twophase_max_out_degree}).
 
-Średnia waga pętli w grafie jest nieprzewidywalna dla próbkowania snowball (rys. \ref{fig:main_snowball_avg_loop_weight}, rys. \ref{fig:main_twophase_avg_loop_weight}).
+Średnia waga pętli w grafie jest nieprzewidywalna dla próbkowania \textit{snowball} (rys. \ref{fig:main_snowball_avg_loop_weight}, rys. \ref{fig:main_twophase_avg_loop_weight}).
 Dla próbkowania dwufazowego wielkość ta wzrasta niemal liniowo dla każdej instancji oprócz cliques\_50.
 
-Średnia długość ścieżki w grafie jest nieprzewidywalna dla większości instancji próbkowanych algorytmem snowball (rys. \ref{fig:main_snowball_avg_path_len}).
+Średnia długość ścieżki w grafie jest nieprzewidywalna dla większości instancji próbkowanych algorytmem \textit{snowball} (rys. \ref{fig:main_snowball_avg_path_len}).
 Wyjątkiem są instancje typu grid, dla których wartość tej metryki stale wzrasta.
 Dla próbkowania dwufazowego również nie uzyskano stabilnych wartości.
 Pętle nie są brane pod uwagę w obliczaniu wartości tej metryki. Z tego powodu wynosi ona 0 dla większych instancji typu grid (rys. \ref{fig:main_twophase_avg_path_len}).
@@ -681,7 +676,7 @@ Podobnie jest w przypadku wartości maksymalnej (rys. \ref{fig:main_snowball_max
 Współczynnik go\_path\_ratio jest nieprzewidywalny. O ile w niektórych przypadkach przy próbkowaniu dwufazowym stabilizuje się na pewnej wartości
 po początkowym wzroście, to w innych gwałtownie zmniejsza się i zwiększa (rys. \ref{fig:main_snowball_go_path_ratio}, rys. \ref{fig:main_twophase_go_path_ratio}).
 
-Dla próbkowania snowball liczba lejów w przestrzeni wzrasta liniowo dla wszystkich instancji oprócz cliques\_50 (rys. \ref{fig:main_snowball_funnel_num}).
+Dla próbkowania \textit{snowball} liczba lejów w przestrzeni wzrasta liniowo dla wszystkich instancji oprócz cliques\_50 (rys. \ref{fig:main_snowball_funnel_num}).
 Inaczej jest w przypadku próbkowania dwufazowego - tutaj zależność ta wygląda zupełnie inaczej dla różnych instancji.
 Liniowy wzrost obserwujemy jedynie w instancjach: eil76, rat99, bier127, grid\_80, grid\_100. Podobnie wyglądają również uniform\_100 i grid\_50.
 Dla instancji cliques\_50 wartość miary jest stała przez cały okres próbkowania. W przypadku instancji uniform\_50, att48 i berlin52 wartość miary
@@ -690,20 +685,20 @@ szybko zmniejsza się na początku, po czym utrzymuje stałą wartość do końc
 Rozmiar największego leja dla niektórych instancji wzrasta liniowo. Dla innych wzrasta ''schodkowo'', a w przypadku instancji grid\_80 i grid\_100 dla
 próbkowania dwufazowego - ma stałą wartość 1. Oznacza to, że nie da się dokładnie przewidzieć wartości tej miary. Warto jednak zauważyć, że
 ''schodkowe'' zwiększanie się wartości tej miary występuje w instancjach o największej liczbie lokalnych optimów.
-Widoczne są wyraźne różnice pomiędzy wykresami uzyskanymi z próbkowania snowball i dwufazowego (rys. \ref{fig:main_snowball_max_funnel_size}, rys. \ref{fig:main_twophase_max_funnel_size}).
+Widoczne są wyraźne różnice pomiędzy wykresami uzyskanymi z próbkowania \textit{snowball} i dwufazowego (rys. \ref{fig:main_snowball_max_funnel_size}, rys. \ref{fig:main_twophase_max_funnel_size}).
 Nieco inaczej przedstawiają się wykresy średniej wielkości lejów. O ile dla próbkowania snowball wartość zmienia się w sposób całkowicie nieprzewidywalny,
 to wszystkie wykresy uzyskane z algorytmu dwufazowego (oprócz grid\_80 i grid\_100) wykazują tendencję wzrostową (choć w niektórych instancjach pojawiają się małe spadki wartości.)
 (rys. \ref{fig:main_snowball_mean_funnel_size}, rys. \ref{fig:main_twophase_mean_funnel_size}).
 
-Liczba spójnych podgrafów sieci LON jest stała dla wielu instancji w przypadku próbkowania snowball (rys. \ref{fig:main_snowball_num_cc}). Dla innych zmienia się ona w nieprzewidywalny sposób.
+Liczba spójnych podgrafów sieci LON jest stała dla wielu instancji w przypadku próbkowania \textit{snowball} (rys. \ref{fig:main_snowball_num_cc}). Dla innych zmienia się ona w nieprzewidywalny sposób.
 W przypadku próbkowania dwufazowego i instancji grid liczba podgrafów jest równa liczbie wierzchołków, gdyż każdy wierzchołek w tych grafach jest wierzchołkiem izolowanym.
 W przypadku instancji ze zbioru tsplib, liczba ta nie jest równa liczbie wierzchołków, ale jest bardzo bliska - oznacza to, że znaczna większość
 wierzchołków w tych grafach również jest izolowana (rys. \ref{fig:main_twophase_num_cc}).
 
-W przypadku próbkowania snowball rozmiar największego spójnego podgrafu wzrasta liniowo dla większości instancji. Dla instancji uniform\_100, oraz
+W przypadku próbkowania \textit{snowball} rozmiar największego spójnego podgrafu wzrasta liniowo dla większości instancji. Dla instancji uniform\_100, oraz
 eil76, rat99 i bier127 potrafi utrzymywać się na stałym poziomie przez dłuższy czas i nagle rosnąć (rys. \ref{fig:main_snowball_largest_cc}).
 W przypadku próbkowania dwufazowego nie wzrasta on liniowo. Dla niektórych instancji wartość utrzymuje się na niskim poziomie przez długi czas (rys. \ref{fig:main_twophase_largest_cc}).
-Dla instancji rat99 i bier127 zmienia się częściej niż w przypadku próbkowania snowball.
+Dla instancji rat99 i bier127 zmienia się częściej niż w przypadku próbkowania \textit{snowball}.
 
 Promień największego spójnego podgrafu sieci zmienia się w sposób nieprzewidywalny dla obu algorytmów (rys. \ref{fig:main_snowball_largest_cc_radius}, rys. \ref{fig:main_twophase_largest_cc_radius}).
 
@@ -712,18 +707,18 @@ Zależność liczby nieudanych prób tworzenia krawędzi przez algorytm dwufazow
 Na wykresach \ref{fig:main_opt_nodes} i \ref{fig:main_opt_edges} możemy zobaczyć odpowiednio liczbę wierzchołków i liczbę krawędzi
 w zależności od liczby wywołań funkcji optymalizującej. Liczba wywołań funkcji optymalizującej jest zarazem liczbą wywołań funkcji celu, gdyż
 algorytm 2opt wykonuje pełną kalkulację długości ścieżki tylko raz.
-Na wykresach kolorem niebieskim oznaczono algorytm snowball, a pomarańczowym - algorytm dwufazowy.
+Na wykresach kolorem niebieskim oznaczono algorytm \textit{snowball}, a pomarańczowym - algorytm dwufazowy.
 Oś X została przedstawiona w skali logarytmicznej.
 Na wykresie wyraźnie widać, że spróbkowanie tej samej liczby wierzchołków zawiera o wiele więcej czasu algorytmowi dwufazowemu.
-Należy jednak pamiętać, że w niektórych przypadkach (np. cliques\_50 ) szybszy algorytm snowball nie odnalazł wszystkich optimów lokalnych w przestrzeni.
+Należy jednak pamiętać, że w niektórych przypadkach (np. cliques\_50 ) szybszy algorytm \textit{snowball} nie odnalazł wszystkich optimów lokalnych w przestrzeni.
 Dla wszystkich instancji cliques, uniform\_50 i uniform\_80, att48, berlin52 oraz pr76 algorytm dwufazowy znalazł również o wiele większą ilość krawędzi.
 Co ważne, większość z nich została znaleziona w bardzo późnej fazie próbkowania.
 
 \subsection{Korelacja wzajemna miar}
 Obliczono współczynnik korelacji Pearsona dla każdej pary miar.
 Obliczono wartość średnią współczynników z każdej instancji, dla której przeprowadzono badanie stabilności.
-W przypadku, gdy wartość miary była stała, jako współczynnik korelacji przyjmowano wartość 0.
-Wyniki dla algorytmu snowball przedstawiono w tabeli \ref{fig:corr_snowball}.
+W przypadku, gdy wartość miary w danej instancji była stała, jako współczynnik korelacji przyjmowano wartość 0.
+Wyniki dla algorytmu \textit{snowball} przedstawiono w tabeli \ref{fig:corr_snowball}.
 Wyniki dla algorytmu dwufazowego przedstawiono w tabeli \ref{fig:corr_twophase}.
 \begin{figure}[h!]
     \centering
@@ -746,17 +741,17 @@ Korelacja ta występuje dla obu algorytmów, ale jest nieco silniejsza dla algor
 Występuje bardzo silna korelacja między liczbą wywołań funkcji celu i średnią wagą pętli w algorytmie dwufazowym.
 Nie jest to zaskakujące, gdyż - szczególnie dla instancji z dużą liczbą optimów lokalnych - algorytm ten ma tendencję do tworzenia pętli o bardzo dużych wagach.
 
-Dla algorytmu snowball występuje korelacja o wartościach bliskich 1 pomiędzy liczbą źródeł, ścieków i lejów w przestrzeni.
+Dla algorytmu \textit{snowball} występuje korelacja o wartościach bliskich 1 pomiędzy liczbą źródeł, ścieków i lejów w przestrzeni.
 Dla algorytmu dwufazowego korelacja między liczbą źródeł i ścieków wynosi jedynie 0.25.
 
 Metryki lejowe oraz dotyczące stopni wierzchołków są ze sobą silniej skorelowane w przypadku próbkowania dwufazowego.
 Dla tego rodzaju próbkowania widoczna jest również dość silna ujemna korelacja między różnorodnością (assortativity\_deg) a tymi metrykami.
 Różnorodność koreluje również ujemnie z metrykami conrel, go\_path\_ratio i avg\_loop\_weight.
 
-W przypadku próbkowania snowball występuje silna ujemna korelacja między gęstością grafu (density) a liczbą ścieków, liczbą źródeł i maksymalnym stopniem wychodzącym.
+W przypadku próbkowania \textit{snowball} występuje silna ujemna korelacja między gęstością grafu (density) a liczbą ścieków, liczbą źródeł i maksymalnym stopniem wychodzącym.
 Metryka ta, dla obu rodzajów próbkowania, koreluje ujemnie z każdą inną metryką oprócz conrel.
 
-Obliczono wartość średnią współczynników korelacji z innymi metrykami dla każdej metryki, aby sprawdzić, które metryki
+Obliczono wartość średnią współczynników korelacji z innymi metrykami dla każdej metryki, aby sprawdzić, które z nich
 są w najmniejszym stopniu zależne od innych. Wyniki przedstawiono w tabeli \ref{tab:meancorr}.
 Najbliższymi 0 średnimi wartościami korelacji cechują się metryki: distLO, avg\_go\_path\_len, max\_go\_path\_len, largest\_cc\_radius.
 Dla algorytmu snowball bliska zera jest również wartość dla współczynnika conrel, a dla algorytmu dwufazowego - wartość dla miary density.
@@ -766,43 +761,43 @@ Dla algorytmu snowball bliska zera jest również wartość dla współczynnika 
     \caption{Uśredniona wartość korelacji z innymi metrykami dla każdej metryki}
     \label{tab:meancorr}
     \begin{tabular}{|l|l|l|}
-    \hline
-    Metryka               & alg. snowball & alg. dwufazowy \\ \hline
-    node\_count           & 0.53          & 0.52           \\ \hline
-    edge\_count           & 0.52          & 0.53           \\ \hline
-    num\_subsinks         & 0.45          & 0.39           \\ \hline
-    edge\_to\_node        & 0.42          & 0.50           \\ \hline
-    avg\_fitness          & 0.25          & 0.17           \\ \hline
-    distLO                & 0.07          & -0.06          \\ \hline
-    conrel                & -0.02         & 0.41           \\ \hline
-    avg\_loop\_weight     & 0.40          & 0.50           \\ \hline
-    go\_path\_ratio       & 0.32          & 0.31           \\ \hline
-    avg\_go\_path\_len    & -0.03         & 0.02           \\ \hline
-    max\_go\_path\_len    & 0.01          & 0.07           \\ \hline
-    num\_sinks            & 0.45          & 0.29           \\ \hline
-    num\_sources          & 0.49          & 0.41           \\ \hline
-    funnel\_num           & 0.45          & 0.29           \\ \hline
-    mean\_funnel\_size    & 0.29          & 0.49           \\ \hline
-    max\_funnel\_size     & 0.49          & 0.48           \\ \hline
-    max\_out\_degree      & 0.46          & 0.48           \\ \hline
-    avg\_out\_degree      & 0.41          & 0.49           \\ \hline
-    max\_in\_degree       & 0.50          & 0.48           \\ \hline
-    avg\_in\_degree       & 0.41          & 0.49           \\ \hline
-    assortativity\_deg    & 0.21          & -0.30          \\ \hline
-    density               & -0.20         & -0.06          \\ \hline
-    num\_cc               & 0.16          & 0.28           \\ \hline
-    largest\_cc           & 0.53          & 0.48           \\ \hline
-    largest\_cc\_radius   & 0.11          & 0.12           \\ \hline
-    avg\_path\_len        & 0.08          & 0.22           \\ \hline
-    largest\_clique\_size & 0.43          & 0.44           \\ \hline
-    reciprocity           & 0.32          & 0.24           \\ \hline
-    missed                & -             & 0.52           \\ \hline
+        \hline
+        Metryka               & alg. snowball & alg. dwufazowy \\ \hline
+        node\_count           & 0.53          & 0.52           \\ \hline
+        edge\_count           & 0.52          & 0.53           \\ \hline
+        num\_subsinks         & 0.45          & 0.39           \\ \hline
+        edge\_to\_node        & 0.42          & 0.50           \\ \hline
+        avg\_fitness          & 0.25          & 0.17           \\ \hline
+        distLO                & 0.07          & -0.06          \\ \hline
+        conrel                & -0.02         & 0.41           \\ \hline
+        avg\_loop\_weight     & 0.40          & 0.50           \\ \hline
+        go\_path\_ratio       & 0.32          & 0.31           \\ \hline
+        avg\_go\_path\_len    & -0.03         & 0.02           \\ \hline
+        max\_go\_path\_len    & 0.01          & 0.07           \\ \hline
+        num\_sinks            & 0.45          & 0.29           \\ \hline
+        num\_sources          & 0.49          & 0.41           \\ \hline
+        funnel\_num           & 0.45          & 0.29           \\ \hline
+        mean\_funnel\_size    & 0.29          & 0.49           \\ \hline
+        max\_funnel\_size     & 0.49          & 0.48           \\ \hline
+        max\_out\_degree      & 0.46          & 0.48           \\ \hline
+        avg\_out\_degree      & 0.41          & 0.49           \\ \hline
+        max\_in\_degree       & 0.50          & 0.48           \\ \hline
+        avg\_in\_degree       & 0.41          & 0.49           \\ \hline
+        assortativity\_deg    & 0.21          & -0.30          \\ \hline
+        density               & -0.20         & -0.06          \\ \hline
+        num\_cc               & 0.16          & 0.28           \\ \hline
+        largest\_cc           & 0.53          & 0.48           \\ \hline
+        largest\_cc\_radius   & 0.11          & 0.12           \\ \hline
+        avg\_path\_len        & 0.08          & 0.22           \\ \hline
+        largest\_clique\_size & 0.43          & 0.44           \\ \hline
+        reciprocity           & 0.32          & 0.24           \\ \hline
+        missed                & -             & 0.52           \\ \hline
     \end{tabular}
-    \end{table}
+\end{table}
 
 
 \subsection{Podsumowanie wyników}
-W przypadku próbkowania małych instancji algorytm snowball zwykle buduje sieć LON bliższą rzeczywistej.
+W przypadku próbkowania małych instancji algorytm \textit{snowball} zwykle buduje sieć LON bliższą rzeczywistej.
 Algorytm dwufazowy również radzi sobie z tym zadaniem, zwykle wymaga jednak znacznie dłuższych obliczeń.
 Instancje typu grid - z miastami ułożonymi na siatce - sprawiają największe trudności i już dla jedenastu miast algorytmy nie znalazły
 wszystkich wierzchołków i krawędzi.
@@ -812,7 +807,7 @@ Metryki oparte o bezwzględne wartości wag krawędzi (avg\_loop\_weight i distL
 Nie występuje liniowa zależność między liczbą wierzchołków w przestrzeni, a liczbą krawędzi.
 Większość miar przestrzeni rozwiązań zmienia się w sposób nieprzewidywalny.
 Pojawiają się jednak i takie, których wartość stabilizuje się lub wzrasta w przewidywalny sposób.
-Przykładem jest liczba źródeł i ścieków w przestrzeni uzyskanej w próbkowaniu snowball.
+Przykładem jest liczba źródeł i ścieków w przestrzeni uzyskanej w próbkowaniu \textit{snowball}.
 Charakter wzrostu tych zmiennych umożliwia wykorzystanie ekstrapolacji liniowej do przewidzenia ich liczby
 dla większej ilości spróbkowanych wierzchołków.
 Istnieje jednak ryzyko, że przewidywana wartość będzie nieprawdziwa - dla instancji o rozmiarze 20, oraz cliques\_50
@@ -828,9 +823,9 @@ Algorytm dwufazowy nie radzi sobie z największymi (pod względem liczby optimó
 - zdecydowaną większość krawędzi (lub w przypadku większych instancji grid - wszystkie krawędzie) stanowią w nich pętle,
 które nie mogą być wykorzystane do obliczenia wartości większości metryk.
 Dla tych instancji zbudowanie gęstszej sieci LON wymagałoby znacznego zwiększenia i tak już dużego wkładu obliczeniowego.
-Warto jednak zwrócić uwagę na to, że w niektórych instancjach (np. cliques\_50) algorytm snowball znalazł o wiele mniej
+Warto jednak zwrócić uwagę na to, że w niektórych instancjach (np. cliques\_50) algorytm \textit{snowball} znalazł o wiele mniej
 optimów lokalnych od algorytmu dwufazowego, pomimo długiego czasu próbkowania.
-Oznacza to, że algorytm dwufazowy może odnaleźć optima lokalne, których znalezienie sprawia trudności algorytmowi snowball.
+Oznacza to, że algorytm dwufazowy może odnaleźć optima lokalne, których znalezienie sprawia trudności algorytmowi \textit{snowball}.
 Najprawdopodobniej jest to spowodowane bardziej losowym charakterem algorytmu dwufazowego.
 Snowball kolejny etap przeszukiwania zaczyna od jednego z sąsiednich rozwiązań, algorytm dwufazowy
 za każdym razem zaczyna od rozwiązania całkowicie losowego.
@@ -842,12 +837,12 @@ Instancje tego typu są również najtrudniejsze do próbkowania algorytmem dwuf
 Instancje typu uniform często wykazują inne właściwości od innych instancji tego samego typu.
 Nie jest to zaskakujące - są to instancje losowe bez ustalonej struktury i wiele zależy od ułożenia miast w konkretnej instancji.
 
-Instancje cliques\_50, cliques\_80, uniform\_50, att48, berlin52 i pr76 cechują się ogromną liczbą krawędzi
+Instancje cliques\_50, cliques\_80, uniform\_50, att48, berlin52 i pr76 cechują się wyjątkowo dużą liczbą krawędzi
 w stosunku do liczby wierzchołków (stosunek ten był największy dla instancji att48 i wynosił ponad 1300 do 1).
-Krawędzie te nie zostały odnalezione przez algorytm snowball, a jedynie w późnym etapie próbkowania dwufazowego.
+Krawędzie te nie zostały odnalezione przez algorytm \textit{snowball}, a jedynie w późnym etapie próbkowania dwufazowego.
 Istnienie milionów krawędzi znacznie wydłużyło długość obliczeń, oraz rozmiar plików z reprezentacją grafu i była powodem rezygnacji z obliczenia
 wartości części miar w tym badaniu.
 
-Wiele miar jest ze sobą silnie skorelowanych, większość dodatnie.
+Wiele miar jest ze sobą silnie skorelowanych, większość dodatnio.
 Istnieje jednak kilka miar, których wartość jest praktycznie niezależna od innych.
-Wybór algorytmu próbkowania ma wpływ na wzajemną korelację pomiędzy wartościami miar.
+Wybór algorytmu próbkowania ma znaczący wpływ na wzajemną korelację pomiędzy wartościami niektórych miar.

@@ -1,0 +1,96 @@
+\addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Przykład procedury 2-exchange}}{13}{figure.2.1}%
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Wizualizacja przykładowej wygenerowanej instancji z miastami rozmieszczonymi równomiernie dla 100 miast}}{20}{figure.3.1}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Wizualizacja przykładowej wygenerowanej instancji z miastami rozmieszczonymi w klikach dla 100 miast}}{20}{figure.3.2}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Wizualizacja przykładowej wygenerowanej instancji z miastami rozmieszczonymi na siatce dla 100 miast}}{21}{figure.3.3}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Liczba krawędzi (edge\_count) w zależności od liczby wierzchołków}}{40}{figure.3.4}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Stosunek liczby krawędzi do liczby wierzchołków (edge\_to\_node) w zależności od liczby wierzchołków}}{41}{figure.3.5}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Współczynnik różnorodności grafu (assortativity\_deg) w zależności od liczby wierzchołków}}{42}{figure.3.6}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Średnia wartość funkcji celu w znalezionych optimach lokalnych (avg\_fitness) w zależności od liczby wierzchołków}}{43}{figure.3.7}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Współczynnik conrel w zależności od liczby wierzchołków}}{44}{figure.3.8}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Gęstość grafu (density) w zależności od liczby wierzchołków}}{45}{figure.3.9}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces Współczynnik distLO w zależności od liczby wierzchołków}}{46}{figure.3.10}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Współczynnik wzajemności grafu (reciprocity) w zależności od liczby wierzchołków}}{47}{figure.3.11}%
+\contentsline {figure}{\numberline {3.12}{\ignorespaces Rozmiar największej kliki w grafie (largest\_clique\_size) w zależności od liczby wierzchołków}}{48}{figure.3.12}%
+\contentsline {figure}{\numberline {3.13}{\ignorespaces Liczba źródeł w grafie (num\_sources) w zależności od liczby wierzchołków}}{49}{figure.3.13}%
+\contentsline {figure}{\numberline {3.14}{\ignorespaces Liczba ścieków w grafie (num\_sinks) w zależności od liczby wierzchołków}}{50}{figure.3.14}%
+\contentsline {figure}{\numberline {3.15}{\ignorespaces Liczba subsinks w grafie (num\_subsinks) w zależności od liczby wierzchołków}}{51}{figure.3.15}%
+\contentsline {figure}{\numberline {3.16}{\ignorespaces Średni stopień wchodzący wierzchołków w grafie (avg\_in\_degree) w zależności od liczby wierzchołków}}{52}{figure.3.16}%
+\contentsline {figure}{\numberline {3.17}{\ignorespaces Maksymalny stopień wchodzący wśród wierzchołków w grafie (max\_in\_degree) w zależności od liczby wierzchołków}}{53}{figure.3.17}%
+\contentsline {figure}{\numberline {3.18}{\ignorespaces Średni stopień wychodzący wśród wierzchołków w grafie (avg\_out\_degree) w zależności od liczby wierzchołków}}{54}{figure.3.18}%
+\contentsline {figure}{\numberline {3.19}{\ignorespaces Maksymalny stopień wychodzący wierzchołków w grafie (max\_out\_degree) w zależności od liczby wierzchołków}}{55}{figure.3.19}%
+\contentsline {figure}{\numberline {3.20}{\ignorespaces Średnia waga pętli w grafie (avg\_loop\_weight) w zależności od liczby wierzchołków}}{56}{figure.3.20}%
+\contentsline {figure}{\numberline {3.21}{\ignorespaces Średnia długość ścieżki w grafie (avg\_path\_len) w zależności od liczby wierzchołków}}{57}{figure.3.21}%
+\contentsline {figure}{\numberline {3.22}{\ignorespaces Średnia długość istniejących ścieżek do globalnego optimum (avg\_go\_path\_len) w zależności od liczby wierzchołków}}{58}{figure.3.22}%
+\contentsline {figure}{\numberline {3.23}{\ignorespaces Długość najdłuższej istniejącej ścieżki do globalnego optimum (max\_go\_path\_len) w zależności od liczby wierzchołków}}{59}{figure.3.23}%
+\contentsline {figure}{\numberline {3.24}{\ignorespaces Stosunek liczby wierzchołków, z których istnieje ścieżka do globalnego optimum do liczby wszystkich wierzchołków (go\_path\_ratio) w zależności od liczby wierzchołków}}{60}{figure.3.24}%
+\contentsline {figure}{\numberline {3.25}{\ignorespaces Liczba lejów w przestrzeni (funnel\_num) w zależności od liczby wierzchołków}}{61}{figure.3.25}%
+\contentsline {figure}{\numberline {3.26}{\ignorespaces Rozmiar największego leja w przestrzeni (max\_funnel\_size) w zależności od liczby wierzchołków}}{62}{figure.3.26}%
+\contentsline {figure}{\numberline {3.27}{\ignorespaces Średni rozmiar lejów w przestrzeni (mean\_funnel\_size) w zależności od liczby wierzchołków}}{63}{figure.3.27}%
+\contentsline {figure}{\numberline {3.28}{\ignorespaces Liczba spójnych podgrafów (num\_cc) w zależności od liczby wierzchołków}}{64}{figure.3.28}%
+\contentsline {figure}{\numberline {3.29}{\ignorespaces Rozmiar największego spójnego podgrafu (largest\_cc) w zależności od liczby wierzchołków}}{65}{figure.3.29}%
+\contentsline {figure}{\numberline {3.30}{\ignorespaces Promień największego spójnego podgrafu (largest\_cc\_radius) w zależności od liczby wierzchołków}}{66}{figure.3.30}%
+\contentsline {figure}{\numberline {3.31}{\ignorespaces Liczba nieudanych prób tworzenia krawędzi w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{67}{figure.3.31}%
+\contentsline {figure}{\numberline {3.32}{\ignorespaces Liczba krawędzi (edge\_count) w zależności od liczby wierzchołków - próbkowanie snowball}}{71}{figure.3.32}%
+\contentsline {figure}{\numberline {3.33}{\ignorespaces Stosunek liczby krawędzi do liczby wierzchołków (edge\_to\_node) w zależności od liczby wierzchołków - próbkowanie snowball}}{72}{figure.3.33}%
+\contentsline {figure}{\numberline {3.34}{\ignorespaces Współczynnik różnorodności grafu (assortativity\_deg) w zależności od liczby wierzchołków - próbkowanie snowball}}{73}{figure.3.34}%
+\contentsline {figure}{\numberline {3.35}{\ignorespaces Średnia wartość funkcji celu w znalezionych optimach lokalnych (avg\_fitness) w zależności od liczby wierzchołków - próbkowanie snowball}}{74}{figure.3.35}%
+\contentsline {figure}{\numberline {3.36}{\ignorespaces Współczynnik conrel w zależności od liczby wierzchołków - próbkowanie snowball}}{75}{figure.3.36}%
+\contentsline {figure}{\numberline {3.37}{\ignorespaces Gęstość grafu (density) w zależności od liczby wierzchołków - próbkowanie snowball}}{76}{figure.3.37}%
+\contentsline {figure}{\numberline {3.38}{\ignorespaces Współczynnik distLO w zależności od liczby wierzchołków - próbkowanie snowball}}{77}{figure.3.38}%
+\contentsline {figure}{\numberline {3.39}{\ignorespaces Współczynnik wzajemności grafu (reciprocity) w zależności od liczby wierzchołków - próbkowanie snowball}}{78}{figure.3.39}%
+\contentsline {figure}{\numberline {3.40}{\ignorespaces Rozmiar największej kliki w grafie (largest\_clique\_size) w zależności od liczby wierzchołków - próbkowanie snowball}}{79}{figure.3.40}%
+\contentsline {figure}{\numberline {3.41}{\ignorespaces Liczba źródeł w grafie (num\_sources) w zależności od liczby wierzchołków - próbkowanie snowball}}{80}{figure.3.41}%
+\contentsline {figure}{\numberline {3.42}{\ignorespaces Liczba ścieków w grafie (num\_sinks) w zależności od liczby wierzchołków - próbkowanie snowball}}{81}{figure.3.42}%
+\contentsline {figure}{\numberline {3.43}{\ignorespaces Liczba subsinks w grafie (num\_subsinks) w zależności od liczby wierzchołków - próbkowanie snowball}}{82}{figure.3.43}%
+\contentsline {figure}{\numberline {3.44}{\ignorespaces Średni stopień wchodzący wierzchołków w grafie (avg\_in\_degree) w zależności od liczby wierzchołków - próbkowanie snowball}}{83}{figure.3.44}%
+\contentsline {figure}{\numberline {3.45}{\ignorespaces Maksymalny stopień wchodzący wśród wierzchołków w grafie (max\_in\_degree) w zależności od liczby wierzchołków - próbkowanie snowball}}{84}{figure.3.45}%
+\contentsline {figure}{\numberline {3.46}{\ignorespaces Średni stopień wychodzący wśród wierzchołków w grafie (avg\_out\_degree) w zależności od liczby wierzchołków - próbkowanie snowball}}{85}{figure.3.46}%
+\contentsline {figure}{\numberline {3.47}{\ignorespaces Maksymalny stopień wychodzący wierzchołków w grafie (max\_out\_degree) w zależności od liczby wierzchołków - próbkowanie snowball}}{86}{figure.3.47}%
+\contentsline {figure}{\numberline {3.48}{\ignorespaces Średnia waga pętli w grafie (avg\_loop\_weight) w zależności od liczby wierzchołków - próbkowanie snowball}}{87}{figure.3.48}%
+\contentsline {figure}{\numberline {3.49}{\ignorespaces Średnia długość ścieżki w grafie (avg\_path\_len) w zależności od liczby wierzchołków - próbkowanie snowball}}{88}{figure.3.49}%
+\contentsline {figure}{\numberline {3.50}{\ignorespaces Średnia długość istniejących ścieżek do globalnego optimum (avg\_go\_path\_len) w zależności od liczby wierzchołków - próbkowanie snowball}}{89}{figure.3.50}%
+\contentsline {figure}{\numberline {3.51}{\ignorespaces Długość najdłuższej istniejącej ścieżki do globalnego optimum (max\_go\_path\_len) w zależności od liczby wierzchołków - próbkowanie snowball}}{90}{figure.3.51}%
+\contentsline {figure}{\numberline {3.52}{\ignorespaces Stosunek liczby wierzchołków, z których istnieje ścieżka do globalnego optimum do liczby wszystkich wierzchołków (go\_path\_ratio) w zależności od liczby wierzchołków - próbkowanie snowball}}{91}{figure.3.52}%
+\contentsline {figure}{\numberline {3.53}{\ignorespaces Liczba lejów w przestrzeni (funnel\_num) w zależności od liczby wierzchołków - próbkowanie snowball}}{92}{figure.3.53}%
+\contentsline {figure}{\numberline {3.54}{\ignorespaces Rozmiar największego leja w przestrzeni (max\_funnel\_size) w zależności od liczby wierzchołków - próbkowanie snowball}}{93}{figure.3.54}%
+\contentsline {figure}{\numberline {3.55}{\ignorespaces Średni rozmiar lejów w przestrzeni (mean\_funnel\_size) w zależności od liczby wierzchołków - próbkowanie snowball}}{94}{figure.3.55}%
+\contentsline {figure}{\numberline {3.56}{\ignorespaces Liczba spójnych podgrafów (num\_cc) w zależności od liczby wierzchołków - próbkowanie snowball}}{95}{figure.3.56}%
+\contentsline {figure}{\numberline {3.57}{\ignorespaces Rozmiar największego spójnego podgrafu (largest\_cc) w zależności od liczby wierzchołków - próbkowanie snowball}}{96}{figure.3.57}%
+\contentsline {figure}{\numberline {3.58}{\ignorespaces Promień największego spójnego podgrafu (largest\_cc\_radius) w zależności od liczby wierzchołków - próbkowanie snowball}}{97}{figure.3.58}%
+\contentsline {figure}{\numberline {3.59}{\ignorespaces Liczba krawędzi (edge\_count) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{98}{figure.3.59}%
+\contentsline {figure}{\numberline {3.60}{\ignorespaces Stosunek liczby krawędzi do liczby wierzchołków (edge\_to\_node) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{99}{figure.3.60}%
+\contentsline {figure}{\numberline {3.61}{\ignorespaces Współczynnik różnorodności grafu (assortativity\_deg) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{100}{figure.3.61}%
+\contentsline {figure}{\numberline {3.62}{\ignorespaces Średnia wartość funkcji celu w znalezionych optimach lokalnych (avg\_fitness) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{101}{figure.3.62}%
+\contentsline {figure}{\numberline {3.63}{\ignorespaces Współczynnik conrel w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{102}{figure.3.63}%
+\contentsline {figure}{\numberline {3.64}{\ignorespaces Gęstość grafu (density) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{103}{figure.3.64}%
+\contentsline {figure}{\numberline {3.65}{\ignorespaces Współczynnik distLO w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{104}{figure.3.65}%
+\contentsline {figure}{\numberline {3.66}{\ignorespaces Współczynnik wzajemności grafu (reciprocity) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{105}{figure.3.66}%
+\contentsline {figure}{\numberline {3.67}{\ignorespaces Rozmiar największej kliki w grafie (largest\_clique\_size) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{106}{figure.3.67}%
+\contentsline {figure}{\numberline {3.68}{\ignorespaces Liczba źródeł w grafie (num\_sources) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{107}{figure.3.68}%
+\contentsline {figure}{\numberline {3.69}{\ignorespaces Liczba ścieków w grafie (num\_sinks) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{108}{figure.3.69}%
+\contentsline {figure}{\numberline {3.70}{\ignorespaces Liczba subsinks w grafie (num\_subsinks) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{109}{figure.3.70}%
+\contentsline {figure}{\numberline {3.71}{\ignorespaces Średni stopień wchodzący wierzchołków w grafie (avg\_in\_degree) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{110}{figure.3.71}%
+\contentsline {figure}{\numberline {3.72}{\ignorespaces Maksymalny stopień wchodzący wśród wierzchołków w grafie (max\_in\_degree) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{111}{figure.3.72}%
+\contentsline {figure}{\numberline {3.73}{\ignorespaces Średni stopień wychodzący wśród wierzchołków w grafie (avg\_out\_degree) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{112}{figure.3.73}%
+\contentsline {figure}{\numberline {3.74}{\ignorespaces Maksymalny stopień wychodzący wierzchołków w grafie (max\_out\_degree) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{113}{figure.3.74}%
+\contentsline {figure}{\numberline {3.75}{\ignorespaces Średnia waga pętli w grafie (avg\_loop\_weight) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{114}{figure.3.75}%
+\contentsline {figure}{\numberline {3.76}{\ignorespaces Średnia długość ścieżki w grafie (avg\_path\_len) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{115}{figure.3.76}%
+\contentsline {figure}{\numberline {3.77}{\ignorespaces Średnia długość istniejących ścieżek do globalnego optimum (avg\_go\_path\_len) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{116}{figure.3.77}%
+\contentsline {figure}{\numberline {3.78}{\ignorespaces Długość najdłuższej istniejącej ścieżki do globalnego optimum (max\_go\_path\_len) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{117}{figure.3.78}%
+\contentsline {figure}{\numberline {3.79}{\ignorespaces Stosunek liczby wierzchołków, z których istnieje ścieżka do globalnego optimum do liczby wszystkich wierzchołków (go\_path\_ratio) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{118}{figure.3.79}%
+\contentsline {figure}{\numberline {3.80}{\ignorespaces Liczba lejów w przestrzeni (funnel\_num) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{119}{figure.3.80}%
+\contentsline {figure}{\numberline {3.81}{\ignorespaces Rozmiar największego leja w przestrzeni (max\_funnel\_size) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{120}{figure.3.81}%
+\contentsline {figure}{\numberline {3.82}{\ignorespaces Średni rozmiar lejów w przestrzeni (mean\_funnel\_size) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{121}{figure.3.82}%
+\contentsline {figure}{\numberline {3.83}{\ignorespaces Liczba spójnych podgrafów (num\_cc) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{122}{figure.3.83}%
+\contentsline {figure}{\numberline {3.84}{\ignorespaces Rozmiar największego spójnego podgrafu (largest\_cc) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{123}{figure.3.84}%
+\contentsline {figure}{\numberline {3.85}{\ignorespaces Promień największego spójnego podgrafu (largest\_cc\_radius) w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{124}{figure.3.85}%
+\contentsline {figure}{\numberline {3.86}{\ignorespaces Liczba nieudanych prób tworzenia krawędzi w zależności od liczby wierzchołków - próbkowanie dwufazowe}}{125}{figure.3.86}%
+\contentsline {figure}{\numberline {3.87}{\ignorespaces Wykres zależności liczby wierzchołków od liczby wywołań funkcji celu. Kolor niebieski - próbkowanie snowball, kolor pomarańczowy - próbkowanie dwufazowe. Oś X w skali logarytmicznej}}{126}{figure.3.87}%
+\contentsline {figure}{\numberline {3.88}{\ignorespaces Wykres zależności liczby krawędzi od liczby wywołań funkcji celu. Kolor niebieski - próbkowanie snowball, kolor pomarańczowy - próbkowanie dwufazowe. Oś X w skali logarytmicznej}}{127}{figure.3.88}%
+\contentsline {figure}{\numberline {3.89}{\ignorespaces Wzajemna korelacja miar - próbkowanie snowball}}{131}{figure.3.89}%
+\contentsline {figure}{\numberline {3.90}{\ignorespaces Wzajemna korelacja miar - próbkowanie dwufazowe}}{132}{figure.3.90}%
+\addvspace {10\p@ }
+\addvspace {10\p@ }

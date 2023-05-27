@@ -4,21 +4,21 @@
 Analiza przestrzeni rozwiązań pozwala na lepsze poznanie niektórych cech problemu, a także zbadanie, w jakim stopniu cechy te zależne są od
 rodzaju badanej instancji. Przedmiotem badań z tej dziedziny najczęściej są znane problemy NP-trudne, takie jak problem komiwojażera czy problem kwadratowego przydziału.
 Jednym z proponowanych zastosowań analizy przestrzeni rozwiązań jest wykorzystanie jej do wyboru najlepszego algorytmu heurystycznego
-dla danej instancji problemu. W pracy \textit{Local Optima Networks in Solving Algorithm Selection Problem for TSP}\cite{DBLP:conf/depcos/BozejkoGNAB18}
+dla danej instancji problemu. W pracy \textit{Local Optima Networks in Solving Algorithm Selection Problem for TSP} \cite{DBLP:conf/depcos/BozejkoGNAB18}
 sieci optimów lokalnych wygenerowane na podstawie próbkowania przestrzeni rozwiązań wykorzystano do nauczenia modeli regresji, których zadaniem było
 przewidzenie, który algorytm heurystyczny da lepsze wyniki dla danej instancji problemu.
 Badanie wykazało, że analiza przestrzeni rozwiązań może zostać z powodzeniem wykorzystana w tym celu.
-Problemem pozostaje natomiast długi czas trwania próbkowania przestrzeni, zwykle dłuższy niż czas działania samego algorytmu heurystycznego.
-W pracy \textit{Mapping the global structure of TSP Fitness landscapes}\cite{DBLP:journals/heuristics/OchoaV18} zbadano przestrzeń rozwiązań
+Problemem pozostaje natomiast długi czas trwania próbkowania przestrzeni, zwykle dłuższy niż czas działania samego algorytmu optymalizacji.
+W pracy \textit{Mapping the global structure of TSP Fitness landscapes} \cite{DBLP:journals/heuristics/OchoaV18} zbadano przestrzeń rozwiązań
 dla różnych instancji problemu komiwojażera. Zauważono, że instancje wygenerowane losowo zwykle mają mniejszą neutralność i mniej globalnych optimów od
 instancji rzeczywistych. Zaobserwowano również, że sposób rozłożenia miast (w klastrach, równomierny) wpływa na wzajemną korelację wartości różnych miar.
 
 W ostatnich latach w podobny sposób przeprowadzono analizy przestrzeni konfiguracji wieloparametrowych algorytmów optymalizacyjnych.
-W pracy \textit{Understanding Parameter Spaces using Local Optima Networks: A Case Study on Particle Swarm Optimization}\cite{DBLP:conf/gecco/CleghornO21}
+W pracy \textit{Understanding Parameter Spaces using Local Optima Networks: A Case Study on Particle Swarm Optimization} \cite{DBLP:conf/gecco/CleghornO21}
 wykorzystano sieci lokalnych optimów, oraz pochodne struktury CMLON do analizy i wizualizacji przestrzeni parametrów algorytmu roju cząstek.
 Analiza wykazała istnienie dużej ilości lokalnych optimów, niską neutralność, oraz istnienie wielu ścieków (ang sinks) nie znajdujących się w optimum globalnym,
 Sugeruje to, że naiwne metody dobierania parametrów mogą łatwo doprowadzić do suboptymalnej konfiguracji i w efekcie nie otrzymania najlepszych wyników.
-Podobne badanie wykonano dla przestrzeni parametrów procesu AutoML w pracy \textit{Understanding AutoML Search Spaces with Local Optima Networks}\cite{DBLP:conf/gecco/TeixeiraP22}.
+Podobne badanie wykonano dla przestrzeni parametrów procesu AutoML w pracy \textit{Understanding AutoML Search Spaces with Local Optima Networks} \cite{DBLP:conf/gecco/TeixeiraP22}.
 AutoML jest procesem automatyzacji konfiguracji procesów (ang. pipelines) uczenia maszynowego obejmującym m. in. wybór zastosowanego przetwarzania wstępnego,
 właściwego algorytmu uczenia, oraz jego hiperparametrów. W pracy zbadano przestrzeń konfiguracji AutoML dla zadania klasyfikacji.
 Jako funkcję celu przyjęto uśrednioną wartość metryki F-score dla danej konfiguracji procesu.
@@ -36,41 +36,45 @@ konfiguracji niewiele się od siebie różnią.
 
 \section{Próbkowanie przestrzeni rozwiązań}
 Przegląd zupełny przestrzeni rozwiązań problemów trudnych obliczeniowo jest w praktyce niemożliwy, poza bardzo małymi instancjami problemu.
-Z tego powodu analizę przestrzeni rozwiązań przeprowadza się na części przestrzeni zbadanej w procesie próbkowania. \\
+Z tego powodu analizę tą przeprowadza się na części przestrzeni zbadanej w procesie próbkowania. \\
 W tym miejscu pojawiają się pytanie: w jaki sposób próbkować przestrzeń, aby cechy jej zbadanego fragmentu
 jak najlepiej odzwierciedlały cechy całej przestrzeni?
 
 Próbkowanie przestrzeni rozwiązań wykonuje się zwykle poprzez zastosowanie pewnej odmiany iteracyjnego przeszukiwania lokalnego
-(ang. ILS - Iterated Local Search),
+(ang. ILS - Iterated Local Search) \cite{DBLP:journals/corr/OchoaVDT14},
 a wyniki zapisuje się w postaci sieci optimów lokalnych.
 Najczęściej stosowane algorytmy próbkowania oparte o ILS można podzielić na trzy kategorie:
 Próbkowanie dwufazowe, \textit{Markov-chain} oraz \textit{Snowball}.
 
-Próbkowanie dwufazowe składa się z dwóch faz - najpierw próbkowane są wierzchołki poprzez zastosowanie metody iteracyjnego przeszukiwania lokalnego\cite{DBLP:journals/corr/OchoaVDT14}.
-Metoda ta polega na generowaniu losowego rozwiązania, a następnie wykorzystaniu algorytmu optymalizacji lokalnej do znalezienia najbliższego
+Próbkowanie dwufazowe składa się z dwóch faz - najpierw próbkowane są wierzchołki poprzez  generowanie
+losowego rozwiązania, a następnie wykorzystaniu algorytmu optymalizacji lokalnej do znalezienia najbliższego
 lokalnego optimum. Następuje po tym wylosowanie nowego punktu i powtórzenie procedury.
 Druga faza to faza próbkowania krawędzi, polegająca na poddaniu znalezionych wcześniej rozwiązań operacji perturbacji, a następnie wykonaniu optymalizacji
 lokalnej. Jeśli otrzymane w ten sposób rozwiązanie jest innym lokalnym optimum znajdującym się w zbiorze wierzchołków, to dodawana jest odpowiednia krawędź.
-Metoda ta po raz pierwszy została zaprezentowana w pracy\cite{10.1145/2576768.2598275} do analizy problemu kwadratowego przypisania.
-W pracy\cite{DBLP:conf/depcos/BozejkoGNAB18} algorytm oparty o tę samą metodę został wykorzystany do badania przestrzeni problemu komiwojażera.
+Metoda ta po raz pierwszy została zaprezentowana w pracy \textit{Data-Driven Local Optima Network Characterization of QAPLIB Instances} \cite{10.1145/2576768.2598275}
+do analizy problemu kwadratowego przypisania.
+W pracy \textit{Local Optima Networks in Solving Algorithm Selection Problem for TSP} \cite{DBLP:conf/depcos/BozejkoGNAB18}
+algorytm oparty o tę samą metodę został wykorzystany do badania przestrzeni problemu komiwojażera.
 Zastosowana tam odmiana wykorzystuje algorytm 2-opt do optymalizacji lokalnej i procedurę \textit{2-exchange} jako operację perturbacji.
 
-Metoda \textit{Markov-chain} została po raz pierwszy zaprezentowana w pracy \cite{markovchain}.
+Metoda \textit{Markov-chain} została zaprezentowana w pracy \textit{Perturbation Strength and the Global Structure of QAP Fitness Landscapes} \cite{markovchain}.
 Zaczyna się od wybrania losowego rozwiązania i jego optymalizacji. Następnie otrzymane optimum lokalne zostaje poddane operacji perturbacji
 i otrzymywane w ten sposób rozwiązanie staje się nowym punktem startowym. Procedura jest powtarzana przez określoną liczbę iteracji, z każdą iteracją
 zapisywane są informacje o nowych krawędziach i wierzchołkach.
-Metoda została wykorzystana w pracy\cite{DBLP:journals/heuristics/OchoaV18} do badania przestrzeni problemu komiwojażera.
+Metoda została wykorzystana w pracy \textit{Mapping the global structure of TSP fitness landscapes} \cite{DBLP:journals/heuristics/OchoaV18} do badania przestrzeni problemu komiwojażera.
 Do optymalizacji lokalnej wykorzystany został algorytm Lin-Kerninghan, a jako operacja perturbacji procedura \textit{Double-bridge}.
 
 Metoda \textit{Snowball} składa się z dwóch etapów wykonywanych naprzemiennie. Pierwszy polega na kilkukrotnym poddaniu rozwiązania początkowego perturbacji
 w celu uzyskania sąsiednich rozwiązań, a następnie ich optymalizacji. Procedura jest rekurencyjnie powtarzana dla znalezionych w ten sposób lokalnych optimów
-aż do osiągnięcia pewnej z góry ustalonej głębokości. Jedno z lokalnych optimów sąsiadujących z rozwiązaniem początkowym zostaje wybrane jako rozwiązanie początkowe kolejnej iteracji.
+aż do osiągnięcia pewnej z góry ustalonej głębokości. Jedno z lokalnych optimów sąsiadujących z rozwiązaniem początkowym zostaje wybrane jako punkt startowy kolejnej iteracji.
 Dodatkowo w pamięci przechowywana jest lista rozwiązań początkowych - jeśli rozwiązanie już się w nim znajduje, to nie może być wybrane ponownie.
 Jeśli nie istnieje rozwiązanie sąsiednie spełniające ten warunek, za kolejne rozwiązanie początkowe przyjmowane jest lokalne optimum otrzymane z optymalizacji rozwiązania losowego.
 Algorytm \textit{Snowball} wywodzi się z technik wykorzystywanych w badaniach z dziedziny socjologii, a w kontekście badania przestrzeni rozwiązań
-problemów optymalizacyjnych został zaprezentowany po raz pierwszy w pracy \cite{DBLP:conf/ppsn/VerelDOT18}.
+został zaprezentowany po raz pierwszy w pracy \textit{Sampling Local Optima Networks of Large Combinatorial Search Spaces: The QAP Case}
+\cite{DBLP:conf/ppsn/VerelDOT18}.
 
-W pracy\cite{DBLP:conf/evoW/ThomsonOV19} zostało przeprowadzone statystyczne porównanie algorytmów próbkowania \textit{Snowball}
+W pracy \textit{Clarifying the Difference in Local Optima Network Sampling Algorithms} \cite{DBLP:conf/evoW/ThomsonOV19}
+zostało przeprowadzone statystyczne porównanie algorytmów próbkowania \textit{Snowball}
 oraz \textit{Markov-chain}. Eksperyment polegał na spróbkowaniu 30 instancji problemu kwadratowego przypisania, a następnie użyciu zebranych danych
 do stworzenia modeli regresji przewidujących jakość rozwiązań, które zostaną uzyskane przez algorytm optymalizacji uruchomiony na instancji.
 Wybranymi algorytmami heurystycznymi były \textit{Robust Taboo Search} Taillarda oraz \textit{Improved ILS} Stützla.
@@ -82,7 +86,7 @@ Badania wykazały, że dane pozyskane z próbkowania \textit{Markov-chain} były
 optymalizacji, a modele regresji utworzone na ich podstawie dokonywały lepszej predykcji niż te utworzone na podstawie danych ze \textit{Snowball}.
 Z kolei \textit{Snowball} okazał się bardziej przewidywalny i łatwiejszy w doborze parametrów.
 
-Podobne badanie przeprowadzono w pracy\cite{DBLP:journals/ec/ThomsonOVV20}, tym razem na większej liczbie instancji
+Podobne badanie przeprowadzono w pracy \textit{Inferring Future Landscapes: Sampling the Local Optima Level} \cite{DBLP:journals/ec/ThomsonOVV20}, tym razem na większej liczbie instancji
 - 124 instancji ze zbioru QAPLIB i dodatkowych 60 instancji o rozmiarze N=11.
 Dla tych dodatkowych instancji, oprócz próbkowania wykonano również przegląd zupełny.
 Zauważono, że algorytm \textit{Snowball} produkuje gęstszą sieć od algorytmu \textit{Markov-chain}.
@@ -99,18 +103,18 @@ dobrze aproksymują liczbę wierzchołków i krawędzi w sieci.
 \textit{Snowball} odnalazł prawie wszystkie optima lokalne obecne w pełnej sieci.
 \textit{Markov-chain} znalazł ich mniej, ale nadal dawał zadowalający wynik.
 
-Z innych prac z dziedziny warto wymienić\cite{DBLP:journals/corr/abs-1207-4455}, w którym porównano algorytmy wstępujące (hillclimb)
+Z innych prac z dziedziny warto wymienić \textit{First-improvement vs. Best-improvement Local Optima Networks of NK Landscapes} \cite{DBLP:journals/corr/abs-1207-4455}, w którym porównano algorytmy wstępujące (hillclimb)
 typu \textit{best-improvement} i \textit{first-improvement} w próbkowaniu przestrzeni NK.
 Wykorzystanie algorytmu typu \textit{first-improvement} prowadziło do powstania gęstszej, bardziej kompletnej sieci optimów lokalnych.
 Pętle obecne w sieci miały mniejszą wagę w przypadku algorytmu \textit{first-improvement} co sugeruje, że łatwiej wychodzi z optimum lokalnego.
 Dodatkową zaletą tego algorytmu jest krótszy czas wykonywania, spowodowany brakiem konieczności przeglądania za każdym razem całego sąsiedztwa
 rozwiązania początkowego.
 
-Z kolei w pracy\cite{DBLP:conf/evoW/McMenemyVO18} zbadano wpływ siły perturbacji (stopnia, w jakim operacja perturbacji zmienia rozwiązanie początkowe)
-na właściwości spróbkowanej przestrzeni. Wybranym algorytmem próbkującym był algorytm typu \textit{Markov-chain} pochodzący z artykułu\cite{DBLP:journals/heuristics/OchoaV18}.
+Z kolei w pracy \textit{How Perturbation Strength Shapes the Global Structure of TSP Fitness Landscapes} \cite{DBLP:conf/evoW/McMenemyVO18} zbadano wpływ siły perturbacji (stopnia, w jakim operacja perturbacji zmienia rozwiązanie początkowe)
+na właściwości spróbkowanej przestrzeni. Wybranym algorytmem próbkującym był algorytm typu \textit{Markov-chain} pochodzący z artykułu \cite{DBLP:journals/heuristics/OchoaV18}.
 Operacją perturbacji tego algorytmu jest procedura double-bridge. Badania przeprowadzono na 180 instancjach o znanych rozwiązaniach optymalnych,
 uzyskanych przy pomocy generatora DIMACS TSP . Celem było znalezienie takiego parametru k - siły perturbacji - aby uzyskać jak największy wskaźnik sukcesu.
-Za wskaźnik sukcesu przyjęto stosunek liczby przebiegów algorytmu, które znalazły globalne optimum do wszystkich przebiegów.
+Za wskaźnik sukcesu przyjęto stosunek liczby przebiegów algorytmu, które znalazły globalne optimum, do wszystkich przebiegów.
 Nie znaleziono uniwersalnej najlepszej wartości parametru k. Zauważono jednak, że niższa siła perturbacji sprawdzała się dla instancji,
 w których miasta rozmieszczone są w klastrach. Dla instancji z miastami rozmieszczonymi równomiernie zwiększanie wartości k powodowało
 zmniejszenie ilości suboptymalnych lejów w przestrzeni.
@@ -121,7 +125,7 @@ danej instancji, niż ich ilość.
 \section{O przestrzeni rozwiązań}
 Przestrzeń rozwiązań (Krajobraz adaptacyjny, ang. Fitness Landscape) jest pojęciem wywodzącym się z biologii ewolucyjnej.
 W kontekście biologicznym jest to model opisujący relację między genotypem i fenotypem organizmów, a ich przystosowaniem (ang. fitness),
-które jest miarą opisującą sukces reprodukcyjny\cite{FRAGATA201969}.
+które jest miarą opisującą sukces reprodukcyjny \cite{FRAGATA201969}.
 
 W kontekście optymalizacji Fitness landscape to trójka $(S, V, f)$, gdzie:
 \begin{itemize}
@@ -132,8 +136,8 @@ W kontekście optymalizacji Fitness landscape to trójka $(S, V, f)$, gdzie:
 \end{itemize}
 
 \subsection{Sieć optimów lokalnych}
-Sieć optimów lokalnych(ang. Local Optima Network, LON) jest konstruktem zaprezentowanym po raz pierwszy w artykule\cite{PhysRevE.78.066114},
-i rozwiniętym w pracy\cite{DBLP:journals/corr/OchoaVDT14}.
+Sieć optimów lokalnych (ang. Local Optima Network, LON) jest formą reprezentacji przestrzeni rozwiązań zaprezentowaną po raz pierwszy w artykule \textit{Complex-network analysis of combinatorial spaces: The $NK$ landscape case} \cite{PhysRevE.78.066114},
+a następnie rozwiniętym w pracy \textit{Local Optima Networks: A New Model of Combinatorial Fitness Landscapes} \cite{DBLP:journals/corr/OchoaVDT14}.
 
 Jest to graf $G = (N, E)$ przedstawiający występujące w przestrzeni rozwiązań optima lokalne (zbiór wierzchołków $N$)
 i relacje między nimi (zbiór krawędzi $E$).
@@ -150,7 +154,7 @@ Wierzchołkom w sieci LON można przypisać wagę równą wartości funkcji celu
 
 \subsection{Krawędzie}
 Krawędzie w sieci lokalnych optimów mogą być zdefiniowane na jeden z kilku sposobów.
-W literaturze\cite{DBLP:journals/corr/OchoaVDT14}\cite{DBLP:conf/gecco/TeixeiraP22} zostały opisane trzy różne modele:
+W literaturze \cite{DBLP:journals/corr/OchoaVDT14} \cite{DBLP:conf/gecco/TeixeiraP22} zostały opisane trzy różne modele:
 \textit{basin-transition}, \textit{escape edges} i \textit{perturbation edges}.
 
 \subsubsection{Basin-transition}
@@ -181,22 +185,20 @@ Krawędź $e_{ij}$ między lokalnymi optimami $n_i$ i $n_j$ istnieje, jeśli ist
       \label{eq:escape_edge_cond}
       d(s, n_i) \leq D \land h(s)=n_j
 \end{equation}
-Wagą takiej krawędzi jest ilość rozwiązań spełniających powyższy warunek.
+Wagą takiej krawędzi jest liczba rozwiązań spełniających powyższy warunek.
 
 \subsubsection{Perturbation edges}
 W tym modelu wagę krawędzi pomiędzy lokalnymi optimami $n_i$ i $n_j$ uzyskuje się poprzez kilkukrotne wykonanie
-operacji perturbacji(mutacji) na $n_i$, a następnie optymalizacji lokalnej otrzymanego rozwiązania.
+operacji perturbacji na $n_i$, a następnie optymalizacji lokalnej otrzymanego rozwiązania.
 Liczba przypadków, w których po optymalizacji otrzymujemy rozwiązanie $n_j$ podzielona przez liczbę prób stanowi wagę krawędzi.
 
 $$
-      w_{ij} = \frac{ |\{opt(mut(n_i)) = n_j\}| }{trials}
+      w_{ij} = \frac{ |\{opt(pert(n_i)) = n_j\}| }{n_{trials}}
 $$
-
-TODO: czy zapis jest poprawny $\land$ ?
 
 \subsection{Struktury lejowe}
 W sieci optimów lokalnych możemy wyróżnić sekwencje złożone z optimów lokalnych, których wartość przystosowania jest niemalejąca.
-Sekwencje te zwane są sekwencjami monotonicznymi\cite{DBLP:journals/heuristics/OchoaV18}.
+Sekwencje te zwane są sekwencjami monotonicznymi \cite{DBLP:journals/heuristics/OchoaV18}.
 Sekwencje monotoniczne zmierzające do tego samego ścieku (ang. sink, wierzchołek bez krawędzi wychodzących)
 tworzy strukturę zwaną lejem. Wspomniany ściek stanowi spód leja (ang. funnel bottom), a liczba wierzchołków zawartych w tej strukturze określa jej rozmiar.
 Ponadto w przestrzeni rozwiązań można wyróżnić lej pierwszorzędny(ang. primary funnel), kończący się w globalnym optimum i leje drugorzędne,
@@ -205,7 +207,8 @@ kończące się w optimach lokalnych. Jeden wierzchołek w grafie może przynale
 Leje w sieci optimów lokalnych można zidentyfikować poprzez usunięcie z grafu krawędzi prowadzących od lepszych rozwiązań do gorszych,
 zidentyfikowanie ścieków, odwrócenie krawędzi i wykonanie przeszukiwania wgłąb lub wszerz w celu odnalezienia wierzchołków należących do leja.
 \subsection{Metryki przestrzeni rozwiązań} \label{sec:metrics}
-
+W tej sekcji opisane zostaną metryki przestrzeni rozwiązań wykorzystane w tej pracy.
+Definicje niektórych miar zostały oparte o dokumentację biblioteki \textit{igraph} \cite{igraphdocs}.
 \begin{itemize}
       \item \textbf{num\_sinks} - liczba ścieków. Ściek (ang. sink) jest wierzchołkiem grafu nie posiadającym krawędzi wychodzących.
             Pętle nie są uwzględniane.
@@ -214,17 +217,17 @@ zidentyfikowanie ścieków, odwrócenie krawędzi i wykonanie przeszukiwania wg�
       \item \textbf{num\_subsinks} - Liczba wierzchołków, które nie posiadają krawędzi wychodzących do rozwiązań o niższej wartości funkcji celu.
       \item \textbf{edge\_to\_node} - stosunek liczby krawędzi do liczby wierzchołków w grafie.
       \item \textbf{avg\_fitness} - średnia wartość funkcji celu lokalnych optimów w sieci.
-      \item \textbf{distLO} - średnia odległość rozwiązań od rozwiązania z najniższą wartością funkcji celu. Odległość jest zdefiniowana jako odwrotność wagi krawędzi łączących rozwiązania.
+      \item \textbf{distLO} - średnia odległość rozwiązań od rozwiązania z najniższą wartością funkcji celu. Odległość jest zdefiniowana jako odwrotność wagi krawędzi łączącej rozwiązanie z rozwiązaniem najlepszym.
             Rozwiązania nie połączone krawędzią z najlepszym rozwiązaniem nie są brane pod uwagę.
       \item \textbf{conrel} - Stosunek liczby rozwiązań połączonych krawędzią z najlepszym rozwiązaniem do liczby pozostałych rozwiązań.
       \item \textbf{avg\_out\_degree, max\_out\_degree} - średni i maksymalny stopień wychodzący rozwiązań w grafie. Stopień wychodzący wierzchołka to liczba wychodzących z niego krawędzi. Pętle nie są brane pod uwagę.
       \item \textbf{avg\_in\_degree, max\_in\_degree} - średni i maksymalny stopień wchodzący rozwiązań w grafie. Stopień wchodzący wierzchołka to liczba wchodzących do niego krawędzi. Pętle nie są brane pod uwagę.
       \item \textbf{assortativity} - współczynnik różnorodności grafu.  Różnorodność (ang. assortativity) grafu skierowanego jest zdefiniowana następującym wzorem:
-      \begin{equation}
-            \label{eq:assortativity}
-            assortativity = \frac{1}{\sigma_o \sigma_i} \sum_{(j,k)\in{E}} deg(j) \cdot deg(k) \cdot (e_{jk} - q_j^o q_k^i)
-      \end{equation}      
-      Gdzie:
+            \begin{equation}
+                  \label{eq:assortativity}
+                  assortativity = \frac{1}{\sigma_o \sigma_i} \sum_{(j,k)\in{E}} deg(j) \cdot deg(k) \cdot (e_{jk} - q_j^o q_k^i)
+            \end{equation}
+            Gdzie:
             \begin{itemize}
                   \item $e_{ij}$ - część krawędzi łączących wierzchołki i i j w stosunku do liczby wszystkich krawędzi (ułamek z zakresu 0 do 1),
                   \item $q_i^o = \sum_{j \in V} e_{ij}$
@@ -245,9 +248,7 @@ zidentyfikowanie ścieków, odwrócenie krawędzi i wykonanie przeszukiwania wg�
             dana jest wzorem:
             $$density = \frac{|E|}{|V|(|V|-1)}$$
 
-      \item \textbf{cliques\_num} - Liczba klik. Klika w grafie jest podzbiorem zbioru wierzchołków, w którym wszystkie wierzchołki są sąsiednie - istnieje krawędź pomiędzy każdą parą wierzchołków należących do zbioru.
-      \item \textbf{maximal\_cliques\_num} - Liczba klik maksymalnych w grafie. Klika maksymalna to klika, której nie można powiększyć poprzez dołączenie do niej sąsiedniego wierzchołka.
-      \item \textbf{largest\_clique\_size} - rozmiar największej kliki.
+      \item \textbf{largest\_clique\_size} - rozmiar największej kliki. Klika w grafie jest podzbiorem zbioru wierzchołków, w którym wszystkie wierzchołki są sąsiednie - istnieje krawędź pomiędzy każdą parą wierzchołków należących do zbioru.
       \item \textbf{reciprocity} - Wzajemność. Wzajemność jest miarą zdefiniowaną tylko dla grafów skierowanych. Jest to stosunek wierzchołków wzajemnie połączonych do wierzchołków, które są połączone krawędzią tylko w jednym kierunku.
             Dana jest wzorem:
             \begin{equation}
@@ -255,10 +256,10 @@ zidentyfikowanie ścieków, odwrócenie krawędzi i wykonanie przeszukiwania wg�
                   reciprocity = \frac{ |(i, j) \in E  \: | \: (j, i) \in E| }{|(i, j) \in E  \: | \: (j, i) \notin E| }
             \end{equation}
       \item \textbf{funnel\_num} - liczba lejów w przestrzeni rozwiązań
-      \item \textbf{mean\_funnel\_size} - średnia wielkość leja
+      \item \textbf{mean\_funnel\_size} - średnia wielkość leja. Wielkość leja to liczba należących do niego optimów lokalnych.
       \item \textbf{max\_funnel\_size} - wielkość największego leja
-      \item \textbf{go\_path\_ratio} - stosunek liczby wierzchołków ze ścieżką do najlepszego rozwiązania do liczby wszystkich wierzchołków.
-      \item \textbf{avg\_go\_path\_len} - średnia długość ścieżki do najlepszego rozwiązania. Wierzchołki bez ścieżki do najlepszego rozwiązania nie są brane pod uwagę
+      \item \textbf{go\_path\_ratio} - stosunek liczby wierzchołków z istniejącą ścieżką do najlepszego rozwiązania do liczby wszystkich wierzchołków.
+      \item \textbf{avg\_go\_path\_len} - średnia długość ścieżki do najlepszego rozwiązania. Wierzchołki bez ścieżki do najlepszego rozwiązania nie są brane pod uwagę.
             Długość ścieżki definiowana jest jako liczba krawędzi wchodzących w skład ścieżki pomiędzy wierzchołkami.
       \item \textbf{max\_go\_path\_len} - długość najdłuższej ścieżki do najlepszego rozwiązania.
       \item \textbf{num\_cc} - Liczba spójnych podgrafów grafu
@@ -279,7 +280,7 @@ Procedura jest wykorzystywana w algorytmie heurystycznym 2opt, w którym w ten s
 
 Algorytmy przeszukiwania przestrzeni rozwiązań zaprezentowane w tej pracy wykorzystują operację 2-exchange jako operację mutacji.
 Mutacja permutacji polega na D-krotnym wykonaniu operacji 2-exchange na losowych wierzchołkach, gdzie D to maksymalna odległość
-z równania \ref{eq:escape_edge_cond}.
+z definicji \ref{eq:escape_edge_cond}.
 
 Operacja 2-exchange oraz operator mutacji zostały przedstawione na listingu \ref{alg:2ex} oraz rysunku \ref{fig:2exchange}.
 
@@ -319,8 +320,8 @@ Operacja 2-exchange oraz operator mutacji zostały przedstawione na listingu \re
       \SetKwFunction{FA}{2exchangeWszystkiePermutacje}
       \Fn{\FA{$perm$}}{
             $perms = \{\}$\;
-            \For{$a \gets 0$ \KwTo $n-3$}{
-                  \For{$b \gets a+2$ \KwTo $n-1$}{
+            \For{$a \gets 0$ \KwTo $n-2$}{
+                  \For{$b \gets a+1$ \KwTo $n-1$}{
                         $perm \gets 2exchange(a, b)$\;
                         $perms \gets perms \cup \{perm\}$\;
                   }

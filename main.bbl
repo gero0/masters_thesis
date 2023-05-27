@@ -16,6 +16,11 @@
   Volume, Lille, France, July 10-14, 2021, K.~Krawiec, ed., {ACM}, 2021,
   pp.~1657--1664.
 
+\bibitem{igraphdocs}
+{\sc G.~Csárdi, T.~Nepusz, V.~Traag, S.~Horvát, F.~Zanini, and D.~Noom}, {\em
+  Igraph c reference manual}.
+\newblock \url{https://igraph.org/c/html/latest/}, dostęp: 27.05.2023.
+
 \bibitem{FRAGATA201969}
 {\sc I.~Fragata, A.~Blanckaert, M.~A. {Dias Louro}, D.~A. Liberles, and
   C.~Bank}, {\em Evolution in the light of fitness landscape theory}, Trends in

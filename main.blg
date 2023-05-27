@@ -3,47 +3,49 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: main.aux
 The style file: siam.bst
 A level-1 auxiliary file: chapters/experiments//tables.aux
+A level-1 auxiliary file: chapters/experiments//plots_small.aux
+A level-1 auxiliary file: chapters/experiments//plots_main.aux
 Database file #1: bibliography.bib
 Warning--empty publisher in markovchain
-You've used 14 entries,
+You've used 15 entries,
             2030 wiz_defined-function locations,
-            610 strings with 8210 characters,
-and the built_in function-call counts, 6302 in all, are:
-= -- 586
-> -- 332
+            616 strings with 8482 characters,
+and the built_in function-call counts, 6665 in all, are:
+= -- 614
+> -- 365
 < -- 0
-+ -- 122
-- -- 108
-* -- 500
-:= -- 958
-add.period$ -- 14
-call.type$ -- 14
-change.case$ -- 86
++ -- 135
+- -- 120
+* -- 531
+:= -- 1021
+add.period$ -- 16
+call.type$ -- 15
+change.case$ -- 95
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 287
-empty$ -- 459
-format.name$ -- 108
-if$ -- 1378
+cite$ -- 16
+duplicate$ -- 296
+empty$ -- 481
+format.name$ -- 120
+if$ -- 1448
 int.to.chr$ -- 0
-int.to.str$ -- 14
+int.to.str$ -- 15
 missing$ -- 15
-newline$ -- 45
-num.names$ -- 40
-pop$ -- 93
+newline$ -- 49
+num.names$ -- 42
+pop$ -- 105
 preamble$ -- 1
-purify$ -- 73
+purify$ -- 81
 quote$ -- 0
-skip$ -- 251
+skip$ -- 259
 stack$ -- 0
-substring$ -- 396
-swap$ -- 134
+substring$ -- 401
+swap$ -- 136
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 54
+type$ -- 58
 warning$ -- 1
-while$ -- 64
-width$ -- 16
-write$ -- 138
+while$ -- 66
+width$ -- 17
+write$ -- 146
 (There was 1 warning)

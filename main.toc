@@ -1,4 +1,4 @@
-\contentsline {chapter}{\numberline {1}Wstęp}{3}{chapter.1}%
+\contentsline {chapter}{\numberline {1}Wprowadzenie}{3}{chapter.1}%
 \contentsline {chapter}{\numberline {2}Przegląd literatury}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Cele badania przestrzeni rozwiązań}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Próbkowanie przestrzeni rozwiązań}{6}{section.2.2}%
@@ -17,21 +17,28 @@
 \contentsline {subsection}{\numberline {3.1.1}Próbkowanie dwufazowe}{15}{subsection.3.1.1}%
 \contentsline {subsection}{\numberline {3.1.2}Snowball}{15}{subsection.3.1.2}%
 \contentsline {subsection}{\numberline {3.1.3}Przegląd zupełny}{18}{subsection.3.1.3}%
-\contentsline {section}{\numberline {3.2}Instancje testowe}{19}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Opis badań}{21}{section.3.3}%
+\contentsline {section}{\numberline {3.2}Instancje testowe}{18}{section.3.2}%
+\contentsline {section}{\numberline {3.3}Opis badań}{20}{section.3.3}%
 \contentsline {subsection}{\numberline {3.3.1}Porównanie wartości metryk dla małych instancji}{21}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Badanie stabilności dla średnich instancji}{37}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Badanie stabilności dla dużych instancji}{65}{subsection.3.3.3}%
-\contentsline {chapter}{\numberline {4}Opis implementacji}{93}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Program próbkujący}{93}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Uruchamianie i parametry}{93}{subsection.4.1.1}%
-\contentsline {subsection}{\numberline {4.1.2}Pliki wejściowe i wyjściowe}{94}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Program obliczający wartości miar}{96}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Uruchamianie i parametry}{96}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Pliki wejściowe i wyjściowe}{96}{subsection.4.2.2}%
-\contentsline {section}{\numberline {4.3}Generatory instancji testowych}{96}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}Pliki wyjściowe}{97}{subsection.4.3.1}%
-\contentsline {section}{\numberline {4.4}Skrypty pomocnicze}{97}{section.4.4}%
-\contentsline {section}{\numberline {4.5}Wykorzystane biblioteki}{98}{section.4.5}%
-\contentsline {chapter}{\numberline {5}Podsumowanie}{99}{chapter.5}%
-\contentsline {chapter}{Literatura}{99}{chapter.5}%
+\contentsline {subsubsection}{Wyniki}{22}{section*.8}%
+\contentsline {subsection}{\numberline {3.3.2}Badanie stabilności dla średnich instancji}{39}{subsection.3.3.2}%
+\contentsline {subsubsection}{Wyniki}{39}{section*.9}%
+\contentsline {subsection}{\numberline {3.3.3}Badanie stabilności dla dużych instancji}{70}{subsection.3.3.3}%
+\contentsline {subsubsection}{Wyniki}{70}{section*.10}%
+\contentsline {subsection}{\numberline {3.3.4}Korelacja wzajemna miar}{131}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Podsumowanie wyników}{133}{subsection.3.3.5}%
+\contentsline {chapter}{\numberline {4}Opis implementacji}{135}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Program próbkujący}{135}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Uruchamianie i parametry}{135}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Pliki wejściowe i wyjściowe}{136}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Program obliczający wartości miar}{138}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Uruchamianie i parametry}{138}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Pliki wejściowe i wyjściowe}{138}{subsection.4.2.2}%
+\contentsline {section}{\numberline {4.3}Generatory instancji testowych}{138}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Pliki wyjściowe}{139}{subsection.4.3.1}%
+\contentsline {section}{\numberline {4.4}Skrypty pomocnicze}{139}{section.4.4}%
+\contentsline {section}{\numberline {4.5}Wykorzystane biblioteki}{140}{section.4.5}%
+\contentsline {chapter}{\numberline {5}Podsumowanie}{141}{chapter.5}%
+\contentsline {chapter}{Literatura}{141}{chapter.5}%
+\contentsline {chapter}{Spis rysunków}{144}{chapter*.11}%
+\contentsline {chapter}{Spis tablic}{148}{chapter*.12}%

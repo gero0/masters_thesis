@@ -1,1 +1,36 @@
 \chapter{Podsumowanie}
+
+W pracy wykonano badanie stabilności wartości miar dla problemu komiwojażera.
+Wykonano implementację generatorów instancji testowych, algorytmów próbkowania przestrzeni rozwiązań,
+oraz programu obliczającego wartości miar.
+Wykonano badania dla 35 instancji problemu pochodzących z generatorów oraz ze zbioru tsplib.
+Wykorzystano algorytm dwufazowy oraz \textit{snowball}.
+
+Dla małych instancji o rozmiarze do 11 miast, wykonano przegląd zupełny i porównano wartości miar z wartościami uzyskanymi
+z próbkowania. Wykazano, że dla większości małych instancji możliwe jest uzyskanie dokładnych wartości
+większości miar w czasie znacznie krótszym od przeglądu zupełnego.
+Wyniki sugerują również, że dla instancji tego rozmiaru bardziej efektywne obliczeniowo jest wykorzystanie
+algorytmu \textit{snowball}.
+
+Większe instancje poddano badaniu stabilności, polegającemu na zapisywaniu kolejnych wartości miar
+w ramach zwiększania się liczby wierzchołków w spróbkowanej przestrzeni.
+Stwierdzono, że wartość większości miar jest niemożliwa do przewidzenia z dużą dokładnością.
+Zauważono duży wpływ długości próbkowania oraz wybranego algorytmu na wartości miar przestrzeni rozwiązań.
+Zidentyfikowano słabe punkty obu algorytmów próbkowania.
+Algorytm dwufazowy nie radzi sobie z odnajdywaniem krawędzi w instancjach z dużą liczbą optimów lokalnych przy niedostatecznie długim próbkowaniu.
+Algorytm \textit{snowball} może mieć trudności ze znalezieniem wszystkich optimów lokalnych w przestrzeni.
+
+Zauważono różnice między różnymi typami instancji.
+Instancje z miastami ułożonymi na siatce cechują się dużym stosunkiem liczby optimów lokalnych do liczby miast.
+Instancje z miastami rozmieszczonymi w klikach mają zwykle mniej optimów lokalnych od podobnych rozmiarem instancji innego typu.
+
+Ze względu na ograniczony czas i moc obliczeniową, eksperymenty zostały przeprowadzone dla niewielkiej liczby instancji.
+Rozwój badań w tym kierunku powinien obejmować przeprowadzenie analizy dla dużej liczby instancji tego samego typu i rozmiaru,
+np. kilkanaście instancji o rozmiarze 100 i rozkładzie równomiernym.
+Wtedy będzie można stwierdzić z większą pewnością, na które cechy przestrzeni wpływa dany sposób rozmieszczenia miast.
+Należy również przeprowadzić dłuższe próbkowanie, szczególnie dla instancji z dużą ilością lokalnych optimów.
+
+Aby dłuższe próbkowanie było możliwe, należy zadbać o wydajną implementację algorytmów.
+Oprócz wymyślania nowych algorytmów, można również dokonywać prób zrównoleglenia istniejących. 
+Na potrzeby tej pracy zaimplementowano algorytm dwufazowy w sposób umożliwiający wykorzystanie wielu procesorów.
+Kolejnym krokiem może być uruchomienie algorytmu w systemie rozproszonym i/lub na kartach GPU.

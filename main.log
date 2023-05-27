@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2023.4.7)  17 MAY 2023 20:27
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020/Debian) (preloaded format=pdflatex 2023.4.7)  27 MAY 2023 17:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -729,47 +729,66 @@ Package: relsize 2013/03/29 ver 4.1
 \c@algocf=\count351
 \algocf@algoframe=\box95
 \algocf@algobox=\box96
-) (/home/gero/Praca_magisterska/main.aux (/home/gero/Praca_magisterska/chapters/experiments//tables.aux))
+) (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pdfpages.sty
+Package: pdfpages 2021/01/09 v0.5r Insert pages of external PDF documents (AM)
+ (/usr/share/texlive/texmf-dist/tex/latex/eso-pic/eso-pic.sty
+Package: eso-pic 2020/10/14 v3.0a eso-pic (RN)
+\ESO@tempdima=\dimen307
+\ESO@tempdimb=\dimen308
+)
+\AM@pagewidth=\dimen309
+\AM@pageheight=\dimen310
+ (/usr/share/texlive/texmf-dist/tex/latex/pdfpages/pppdftex.def
+File: pppdftex.def 2021/01/09 v0.5r Pdfpages driver for pdfTeX (AM)
+)
+\pdfpages@includegraphics@status=\count352
+\AM@pagebox=\box97
+\AM@global@opts=\toks53
+\AM@pagecnt=\count353
+\AM@toc@title=\toks54
+\c@AM@survey=\count354
+\AM@templatesizebox=\box98
+) (/home/gero/Praca_magisterska/main.aux (/home/gero/Praca_magisterska/chapters/experiments//tables.aux) (/home/gero/Praca_magisterska/chapters/experiments//plots_small.aux) (/home/gero/Praca_magisterska/chapters/experiments//plots_main.aux))
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 34.
-LaTeX Font Info:    ... okay on input line 34.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for OT4/cmr/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 35.
+LaTeX Font Info:    ... okay on input line 35.
  (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count352
-\scratchdimen=\dimen307
-\scratchbox=\box97
-\nofMPsegments=\count353
-\nofMParguments=\count354
-\everyMPshowfont=\toks53
-\MPscratchCnt=\count355
-\MPscratchDim=\dimen308
-\MPnumerator=\count356
-\makeMPintoPDFobject=\count357
-\everyMPtoPDFconversion=\toks54
+\scratchcounter=\count355
+\scratchdimen=\dimen311
+\scratchbox=\box99
+\nofMPsegments=\count356
+\nofMParguments=\count357
+\everyMPshowfont=\toks55
+\MPscratchCnt=\count358
+\MPscratchDim=\dimen312
+\MPnumerator=\count359
+\makeMPintoPDFobject=\count360
+\everyMPtoPDFconversion=\toks56
 ) (/usr/share/texlive/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
  (/usr/share/texlive/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Live
 ))
-Package hyperref Info: Link coloring OFF on input line 34.
+Package hyperref Info: Link coloring OFF on input line 35.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2019/09/16 v2.46 Cross-referencing by name of section
  (/usr/share/texlive/texmf-dist/tex/latex/refcount/refcount.sty
@@ -777,72 +796,157 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (/usr/share/texlive/texmf-dist/tex/generic/gettitlestring/gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count358
+\c@section@level=\count361
 )
-LaTeX Info: Redefining \ref on input line 34.
-LaTeX Info: Redefining \pageref on input line 34.
-LaTeX Info: Redefining \nameref on input line 34.
+LaTeX Info: Redefining \ref on input line 35.
+LaTeX Info: Redefining \pageref on input line 35.
+LaTeX Info: Redefining \nameref on input line 35.
  (/home/gero/Praca_magisterska/main.out) (/home/gero/Praca_magisterska/main.out)
 \@outlinefile=\write5
 \openout5 = `main.out'.
 
-\c@lstlisting=\count359
- (/home/gero/Praca_magisterska/main.toc
-LaTeX Font Info:    Trying to load font information for OML+plm on input line 3.
- (/usr/share/texlive/texmf-dist/tex/latex/polski/omlplm.fd
+\c@lstlisting=\count362
+ (/usr/share/texlive/texmf-dist/tex/latex/pdflscape/pdflscape.sty
+Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
+ (/usr/share/texlive/texmf-dist/tex/latex/graphics/lscape.sty
+Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
+)
+Package pdflscape Info: Auto-detected driver: pdftex on input line 81.
+)
+
+pdfTeX warning: pdflatex (file /home/gero/Praca_magisterska/tytul.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<tytul.pdf, id=162, 597.4822pt x 844.90656pt>
+File: tytul.pdf Graphic file (type pdf)
+<use tytul.pdf>
+Package pdftex.def Info: tytul.pdf  used on input line 40.
+(pdftex.def)             Requested size: 597.48073pt x 844.90448pt.
+
+
+pdfTeX warning: pdflatex (file /home/gero/Praca_magisterska/tytul.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+File: tytul.pdf Graphic file (type pdf)
+<use tytul.pdf>
+Package pdftex.def Info: tytul.pdf  used on input line 40.
+(pdftex.def)             Requested size: 597.48073pt x 844.90448pt.
+
+
+pdfTeX warning: pdflatex (file /home/gero/Praca_magisterska/tytul.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+
+
+pdfTeX warning: pdflatex (file /home/gero/Praca_magisterska/tytul.pdf): PDF inclusion: found PDF version <1.7>, but at most version <1.5> allowed
+<tytul.pdf, id=165, page=1, 597.4822pt x 844.90656pt>
+File: tytul.pdf Graphic file (type pdf)
+<use tytul.pdf, page 1>
+Package pdftex.def Info: tytul.pdf , page1 used on input line 40.
+(pdftex.def)             Requested size: 597.48073pt x 844.90448pt.
+File: tytul.pdf Graphic file (type pdf)
+<use tytul.pdf, page 1>
+Package pdftex.def Info: tytul.pdf , page1 used on input line 40.
+(pdftex.def)             Requested size: 597.98215pt x 845.61354pt.
+File: tytul.pdf Graphic file (type pdf)
+<use tytul.pdf, page 1>
+Package pdftex.def Info: tytul.pdf , page1 used on input line 40.
+(pdftex.def)             Requested size: 597.98215pt x 845.61354pt.
+File: tytul.pdf Graphic file (type pdf)
+<use tytul.pdf, page 1>
+Package pdftex.def Info: tytul.pdf , page1 used on input line 40.
+(pdftex.def)             Requested size: 597.98215pt x 845.61354pt.
+File: tytul.pdf Graphic file (type pdf)
+<use tytul.pdf, page 1>
+Package pdftex.def Info: tytul.pdf , page1 used on input line 40.
+(pdftex.def)             Requested size: 597.98215pt x 845.61354pt.
+[1
+
+ </home/gero/Praca_magisterska/tytul.pdf>] (/home/gero/Praca_magisterska/src/dedication.tex [2
+
+
+]
+Underfull \hbox (badness 10000) in paragraph at lines 5--5
+[]\T1/cmr/m/it/12 Serdecznie dzi¦-ku-j¦ mo-je-mu
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--5
+\T1/cmr/m/it/12 Gna-tow-skie-mu za nie-oce-nio-n¡
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 5--5
+
+ []
+
+LaTeX Font Info:    Trying to load font information for OML+plm on input line 5.
+(/usr/share/texlive/texmf-dist/tex/latex/polski/omlplm.fd
 File: omlplm.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Trying to load font information for OMS+plsy on input line 3.
+LaTeX Font Info:    Trying to load font information for OMS+plsy on input line 5.
  (/usr/share/texlive/texmf-dist/tex/latex/polski/omsplsy.fd
 File: omsplsy.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
-LaTeX Font Info:    Trying to load font information for OMX+plex on input line 3.
+LaTeX Font Info:    Trying to load font information for OMX+plex on input line 5.
  (/usr/share/texlive/texmf-dist/tex/latex/polski/omxplex.fd
 File: omxplex.fd 2008/02/24 v1.2.1 Font defs for fonts PL (MW)
 )
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <12> on input line 3.
+(Font)              <12> on input line 5.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <8> on input line 3.
+(Font)              <8> on input line 5.
 LaTeX Font Info:    External font `plex10' loaded for size
-(Font)              <6> on input line 3.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 3.
+(Font)              <6> on input line 5.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 5.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 3.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 5.
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.5 }
+      [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}]pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.5 }
+      [2
+
+
+]) (/home/gero/Praca_magisterska/main.tocpdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.41 ...umberline {5}Podsumowanie}{141}{chapter.5}
+                                                  % [1
+
+
+])
 \tf@toc=\write6
 \openout6 = `main.toc'.
 
- (/home/gero/Praca_magisterska/chapters/introduction/src.tex [1
-
-
-
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2
-
-
-]
+ (/home/gero/Praca_magisterska/chapters/introduction/src.texpdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.1 \chapter
+            {Wprowadzenie} [2]
 Rozdzia\PlPrIeC {\l } 1.
-) (/home/gero/Praca_magisterska/chapters/literature/src.tex [3] [4
+) (/home/gero/Praca_magisterska/chapters/literature/src.tex [3
+
+
+] [4
 
 
 ]
 Rozdzia\PlPrIeC {\l } 2.
 [5] [6] [7] [8] [9] [10] [11]
-LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 295.
+LaTeX Font Info:    Trying to load font information for T1+cmtt on input line 302.
  (/usr/share/texlive/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 2019/12/16 v2.5j Standard LaTeX font definitions
 )
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<chapters/literature/img/2exdrawio.png, id=288, 683.55376pt x 222.8325pt>
+<chapters/literature/img/2exdrawio.png, id=360, 683.55376pt x 222.8325pt>
 File: chapters/literature/img/2exdrawio.png Graphic file (type png)
 <use chapters/literature/img/2exdrawio.png>
-Package pdftex.def Info: chapters/literature/img/2exdrawio.png  used on input line 330.
+Package pdftex.def Info: chapters/literature/img/2exdrawio.png  used on input line 337.
 (pdftex.def)             Requested size: 455.24408pt x 148.40956pt.
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
@@ -859,29 +963,32 @@ LaTeX Warning: Float too large for page by 69.51077pt on input line 176.
 [16] [17]
 
 LaTeX Warning: No positions in optional float specifier.
-               Default added (so using `htbp') on input line 187.
+               Default added (so using `htbp') on input line 188.
 
-[18]
-<chapters/experiments/img/uniform_example.png, id=339, 1003.75pt x 1003.75pt>
+<chapters/experiments/img/uniform_example.png, id=405, 1003.75pt x 1003.75pt>
 File: chapters/experiments/img/uniform_example.png Graphic file (type png)
 <use chapters/experiments/img/uniform_example.png>
-Package pdftex.def Info: chapters/experiments/img/uniform_example.png  used on input line 266.
+Package pdftex.def Info: chapters/experiments/img/uniform_example.png  used on input line 267.
 (pdftex.def)             Requested size: 209.41533pt x 209.41528pt.
- [19 </home/gero/Praca_magisterska/chapters/experiments/img/uniform_example.png>]
-<chapters/experiments/img/clique_example.png, id=352, 1003.75pt x 1003.75pt>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[18] [19]
+<chapters/experiments/img/clique_example.png, id=422, 1003.75pt x 1003.75pt>
 File: chapters/experiments/img/clique_example.png Graphic file (type png)
 <use chapters/experiments/img/clique_example.png>
-Package pdftex.def Info: chapters/experiments/img/clique_example.png  used on input line 275.
+Package pdftex.def Info: chapters/experiments/img/clique_example.png  used on input line 276.
 (pdftex.def)             Requested size: 273.14922pt x 273.14503pt.
-<chapters/experiments/img/grid_example.png, id=353, 1003.75pt x 1003.75pt>
+<chapters/experiments/img/grid_example.png, id=423, 1003.75pt x 1003.75pt>
 File: chapters/experiments/img/grid_example.png Graphic file (type png)
 <use chapters/experiments/img/grid_example.png>
-Package pdftex.def Info: chapters/experiments/img/grid_example.png  used on input line 282.
+Package pdftex.def Info: chapters/experiments/img/grid_example.png  used on input line 283.
 (pdftex.def)             Requested size: 273.14922pt x 273.14503pt.
 
-Underfull \vbox (badness 6559) has occurred while \output is active []
 
- [20 </home/gero/Praca_magisterska/chapters/experiments/img/clique_example.png> </home/gero/Praca_magisterska/chapters/experiments/img/grid_example.png>] [21]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[20 </home/gero/Praca_magisterska/chapters/experiments/img/uniform_example.png> </home/gero/Praca_magisterska/chapters/experiments/img/clique_example.png>] [21 </home/gero/Praca_magisterska/chapters/experiments/img/grid_example.png>] [22]
 \openout2 = `chapters/experiments//tables.aux'.
 
  (/home/gero/Praca_magisterska/chapters/experiments//tables.tex
@@ -891,344 +998,759 @@ LaTeX Font Info:    External font `plex10' loaded for size
 (Font)              <7> on input line 40.
 LaTeX Font Info:    External font `plex10' loaded for size
 (Font)              <5> on input line 40.
-) [22] [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36]
-<chapters/experiments/img/merged_plots/per1_all/edge_count.png, id=466, 1186.4325pt x 1699.34875pt>
+) [23] [24] [25] [26] [27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38
+
+
+
+] [39]
+\openout2 = `chapters/experiments//plots_small.aux'.
+
+ (/home/gero/Praca_magisterska/chapters/experiments//plots_small.tex
+<chapters/experiments/img/merged_plots/per1_all/edge_count.png, id=556, 1185.42876pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/per1_all/edge_count.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/per1_all/edge_count.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/edge_count.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 652.06023pt.
-<chapters/experiments/img/merged_plots/per1_all/edge_to_node.png, id=467, 1173.38374pt x 1699.34875pt>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/edge_count.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 652.60475pt.
+<chapters/experiments/img/merged_plots/per1_all/edge_to_node.png, id=557, 1173.38374pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/per1_all/edge_to_node.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/per1_all/edge_to_node.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/edge_to_node.png  used on input line 403.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/edge_to_node.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 659.29468pt.
-<chapters/experiments/img/merged_plots/per1_all/assortativity_deg.png, id=468, 1185.42876pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/assortativity_deg.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/assortativity_deg.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/assortativity_deg.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 652.60475pt.
-<chapters/experiments/img/merged_plots/per1_all/avg_fitness.png, id=469, 1192.455pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/avg_fitness.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/avg_fitness.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/avg_fitness.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 648.76712pt.
-<chapters/experiments/img/merged_plots/per1_all/conrel.png, id=470, 1182.4175pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/conrel.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/conrel.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/conrel.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 654.26427pt.
-<chapters/experiments/img/merged_plots/per1_all/density.png, id=471, 1182.4175pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/density.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/density.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/density.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 654.26427pt.
-<chapters/experiments/img/merged_plots/per1_all/distLO.png, id=472, 1176.395pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/distLO.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/distLO.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/distLO.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 657.60922pt.
-<chapters/experiments/img/merged_plots/per1_all/reciprocity.png, id=473, 1176.395pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/reciprocity.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/reciprocity.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/reciprocity.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 657.60922pt.
-<chapters/experiments/img/merged_plots/per1_all/largest_clique_size.png, id=474, 1183.42125pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/largest_clique_size.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/largest_clique_size.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/largest_clique_size.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
-<chapters/experiments/img/merged_plots/per1_all/num_sources.png, id=475, 1176.395pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/num_sources.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/num_sources.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/num_sources.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 657.60922pt.
-<chapters/experiments/img/merged_plots/per1_all/num_sinks.png, id=476, 1183.42125pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/num_sinks.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/num_sinks.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/num_sinks.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
-<chapters/experiments/img/merged_plots/per1_all/num_subsinks.png, id=477, 1183.42125pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/num_subsinks.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/num_subsinks.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/num_subsinks.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
-<chapters/experiments/img/merged_plots/per1_all/avg_in_degree.png, id=478, 1173.38374pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/avg_in_degree.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/avg_in_degree.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/avg_in_degree.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 659.29468pt.
-<chapters/experiments/img/merged_plots/per1_all/max_in_degree.png, id=479, 1180.41pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/max_in_degree.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/max_in_degree.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/max_in_degree.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 655.37926pt.
-<chapters/experiments/img/merged_plots/per1_all/max_out_degree.png, id=480, 1183.42125pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/max_out_degree.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/max_out_degree.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/max_out_degree.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
-<chapters/experiments/img/merged_plots/per1_all/avg_out_degree.png, id=481, 1173.38374pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/avg_out_degree.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/avg_out_degree.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/avg_out_degree.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 659.29468pt.
-<chapters/experiments/img/merged_plots/per1_all/avg_loop_weight.png, id=482, 1192.455pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/avg_loop_weight.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/avg_loop_weight.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/avg_loop_weight.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 648.76712pt.
-<chapters/experiments/img/merged_plots/per1_all/avg_path_len.png, id=483, 1183.42125pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/avg_path_len.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/avg_path_len.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/avg_path_len.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
-<chapters/experiments/img/merged_plots/per1_all/avg_go_path_len.png, id=484, 1183.42125pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/avg_go_path_len.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/avg_go_path_len.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/avg_go_path_len.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
-<chapters/experiments/img/merged_plots/per1_all/max_go_path_len.png, id=485, 1183.42125pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/max_go_path_len.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/max_go_path_len.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/max_go_path_len.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
-<chapters/experiments/img/merged_plots/per1_all/go_path_ratio.png, id=486, 1177.39874pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/go_path_ratio.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/go_path_ratio.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/go_path_ratio.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 657.0647pt.
-<chapters/experiments/img/merged_plots/per1_all/funnel_num.png, id=487, 1183.42125pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/funnel_num.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/funnel_num.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/funnel_num.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
-<chapters/experiments/img/merged_plots/per1_all/max_funnel_size.png, id=488, 1180.41pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/max_funnel_size.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/max_funnel_size.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/max_funnel_size.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 655.37926pt.
-<chapters/experiments/img/merged_plots/per1_all/mean_funnel_size.png, id=489, 1180.41pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/mean_funnel_size.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/mean_funnel_size.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/mean_funnel_size.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 655.37926pt.
-<chapters/experiments/img/merged_plots/per1_all/num_cc.png, id=490, 1188.44pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/num_cc.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/num_cc.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/num_cc.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 650.94524pt.
-<chapters/experiments/img/merged_plots/per1_all/largest_cc.png, id=491, 1180.41pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/largest_cc.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/largest_cc.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/largest_cc.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 655.37926pt.
-<chapters/experiments/img/merged_plots/per1_all/largest_cc_radius.png, id=492, 1183.42125pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/per1_all/largest_cc_radius.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/largest_cc_radius.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/largest_cc_radius.png  used on input line 403.
-(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
-<chapters/experiments/img/merged_plots/per1_all/missed.png, id=493, 1180.41pt x 607.26875pt>
-File: chapters/experiments/img/merged_plots/per1_all/missed.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/per1_all/missed.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/missed.png  used on input line 407.
-(pdftex.def)             Requested size: 455.24408pt x 234.20227pt.
 
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-[37
+<chapters/experiments/img/merged_plots/per1_all/assortativity_deg.png, id=558, 1184.425pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/assortativity_deg.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/assortativity_deg.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/assortativity_deg.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 653.14928pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/avg_fitness.png, id=559, 1186.4325pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/avg_fitness.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/avg_fitness.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/avg_fitness.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 652.06023pt.
+
+Underfull \hbox (badness 2486) in paragraph at lines 8--8
+[]\T1/cmr/m/n/12 Rysunek 3.7  []‘rednia war-to±¢ funk-cji ce-lu w zna-le-zio-nych opti-mach lo-kal-nych
+ []
 
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-] [38 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/edge_count.png>] [39 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/edge_to_node.png>] [40 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/assortativity_deg.png>] [41 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/avg_fitness.png>] [42 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/conrel.png>] [43 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/density.png>] [44 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/distLO.png>] [45 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/reciprocity.png>] [46 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/largest_clique_size.png>] [47 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/num_sources.png>] [48 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/num_sinks.png>] [49 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/num_subsinks.png>] [50 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/avg_in_degree.png>] [51 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/max_in_degree.png>] [52 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/max_out_degree.png>] [53 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/avg_out_degree.png>] [54 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/avg_loop_weight.png>] [55 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/avg_path_len.png>] [56 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/avg_go_path_len.png>] [57 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/max_go_path_len.png>] [58 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/go_path_ratio.png>] [59 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/funnel_num.png>] [60 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/max_funnel_size.png>] [61 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/mean_funnel_size.png>] [62 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/num_cc.png>] [63 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/largest_cc.png>] [64 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/largest_cc_radius.png>]
+<chapters/experiments/img/merged_plots/per1_all/conrel.png, id=560, 1175.39125pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/conrel.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/conrel.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/conrel.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 658.17969pt.
 
-LaTeX Warning: Reference `fig:main_twophase_missed' on page 65 undefined on input line 443.
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<chapters/experiments/img/merged_plots/main_snowball/edge_count.png, id=668, 1199.48125pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/per1_all/density.png, id=561, 1182.4175pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/density.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/density.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/density.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 654.26427pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/distLO.png, id=562, 1175.39125pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/distLO.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/distLO.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/distLO.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 658.17969pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/reciprocity.png, id=563, 1175.39125pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/reciprocity.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/reciprocity.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/reciprocity.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 658.17969pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/largest_clique_size.png, id=564, 1183.42125pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/largest_clique_size.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/largest_clique_size.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/largest_clique_size.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/num_sources.png, id=565, 1175.39125pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/num_sources.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/num_sources.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/num_sources.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 658.17969pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/num_sinks.png, id=566, 1183.42125pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/num_sinks.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/num_sinks.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/num_sinks.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/num_subsinks.png, id=567, 1183.42125pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/num_subsinks.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/num_subsinks.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/num_subsinks.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/avg_in_degree.png, id=568, 1173.38374pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/avg_in_degree.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/avg_in_degree.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/avg_in_degree.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 659.29468pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/max_in_degree.png, id=569, 1179.40625pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/max_in_degree.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/max_in_degree.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/max_in_degree.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 655.9497pt.
+
+Underfull \hbox (badness 4752) in paragraph at lines 8--8
+[]\T1/cmr/m/n/12 Rysunek 3.17  []Maksymalny sto-pie« wcho-dz¡-cy w±ród wierz-choª-ków w gra-fie
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/avg_out_degree.png, id=570, 1173.38374pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/avg_out_degree.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/avg_out_degree.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/avg_out_degree.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 659.29468pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/max_out_degree.png, id=571, 1183.42125pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/max_out_degree.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/max_out_degree.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/max_out_degree.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/avg_loop_weight.png, id=572, 1185.42876pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/avg_loop_weight.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/avg_loop_weight.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/avg_loop_weight.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 652.60475pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/avg_path_len.png, id=573, 1183.42125pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/avg_path_len.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/avg_path_len.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/avg_path_len.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/avg_go_path_len.png, id=574, 1183.42125pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/avg_go_path_len.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/avg_go_path_len.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/avg_go_path_len.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
+
+Underfull \hbox (badness 6461) in paragraph at lines 8--8
+[]\T1/cmr/m/n/12 Rysunek 3.22  []‘rednia dªu-go±¢ ist-nie-j¡-cych ±cie-»ek do glo-bal-ne-go opti-mum
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/max_go_path_len.png, id=575, 1183.42125pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/max_go_path_len.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/max_go_path_len.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/max_go_path_len.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
+
+Underfull \hbox (badness 3942) in paragraph at lines 8--8
+[]\T1/cmr/m/n/12 Rysunek 3.23  []Dªugo±¢ naj-dªu»-szej ist-nie-j¡-cej ±cie»-ki do glo-bal-ne-go opti-mum
+ []
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/go_path_ratio.png, id=576, 1176.395pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/go_path_ratio.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/go_path_ratio.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/go_path_ratio.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 657.60922pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/funnel_num.png, id=577, 1183.42125pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/funnel_num.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/funnel_num.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/funnel_num.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/max_funnel_size.png, id=578, 1179.40625pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/max_funnel_size.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/max_funnel_size.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/max_funnel_size.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 655.9497pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/mean_funnel_size.png, id=579, 1179.40625pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/mean_funnel_size.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/mean_funnel_size.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/mean_funnel_size.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 655.9497pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/num_cc.png, id=580, 1182.4175pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/num_cc.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/num_cc.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/num_cc.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 654.26427pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/largest_cc.png, id=581, 1179.40625pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/largest_cc.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/largest_cc.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/largest_cc.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 655.9497pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/largest_cc_radius.png, id=582, 1183.42125pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/per1_all/largest_cc_radius.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/largest_cc_radius.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/largest_cc_radius.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/merged_plots/per1_all/missed.png, id=583, 1182.4175pt x 891.33pt>
+File: chapters/experiments/img/merged_plots/per1_all/missed.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/per1_all/missed.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/per1_all/missed.png  used on input line 12.
+(pdftex.def)             Requested size: 455.24408pt x 343.1699pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [40
+
+ </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/edge_count.png>] [41 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/edge_to_node.png>] [42 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/assortativity_deg.png>] [43 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/avg_fitness.png>] [44 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/conrel.png>] [45 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/density.png>] [46 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/distLO.png>] [47 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/reciprocity.png>] [48 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/largest_clique_size.png>] [49 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/num_sources.png>] [50 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/num_sinks.png>] [51 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/num_subsinks.png>] [52 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/avg_in_degree.png>] [53 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/max_in_degree.png>] [54 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/avg_out_degree.png>] [55 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/max_out_degree.png>] [56 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/avg_loop_weight.png>] [57 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/avg_path_len.png>] [58 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/avg_go_path_len.png>] [59 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/max_go_path_len.png>] [60 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/go_path_ratio.png>] [61 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/funnel_num.png>] [62 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/max_funnel_size.png>] [63 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/mean_funnel_size.png>] [64 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/num_cc.png>] [65 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/largest_cc.png>] [66 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/largest_cc_radius.png>] [67 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/missed.png>] [68
+
+
+] [69] [70]
+\openout2 = `chapters/experiments//plots_main.aux'.
+
+ (/home/gero/Praca_magisterska/chapters/experiments//plots_main.tex
+<chapters/experiments/img/merged_plots/main_snowball/edge_count.png, id=802, 1199.48125pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/edge_count.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/edge_count.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/edge_count.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/edge_count.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 644.95541pt.
-<chapters/experiments/img/merged_plots/main_snowball/edge_to_node.png, id=669, 1183.42125pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/edge_to_node.png, id=803, 1183.42125pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/edge_to_node.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/edge_to_node.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/edge_to_node.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/edge_to_node.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
-<chapters/experiments/img/merged_plots/main_snowball/assortativity_deg.png, id=670, 1191.45125pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/assortativity_deg.png, id=804, 1191.45125pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/assortativity_deg.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/assortativity_deg.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/assortativity_deg.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/assortativity_deg.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 649.31165pt.
-<chapters/experiments/img/merged_plots/main_snowball/avg_fitness.png, id=671, 1193.45876pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/avg_fitness.png, id=805, 1193.45876pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/avg_fitness.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/avg_fitness.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/avg_fitness.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/avg_fitness.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 648.2226pt.
-<chapters/experiments/img/merged_plots/main_snowball/conrel.png, id=672, 1195.46625pt x 1699.34875pt>
+
+Underfull \hbox (badness 1796) in paragraph at lines 8--8
+[]\T1/cmr/m/n/12 Rysunek 3.35  []‘rednia war-to±¢ funk-cji ce-lu w zna-le-zio-nych opti-mach lo-kal-nych
+ []
+
+<chapters/experiments/img/merged_plots/main_snowball/conrel.png, id=806, 1195.46625pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/conrel.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/conrel.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/conrel.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/conrel.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 647.13353pt.
-<chapters/experiments/img/merged_plots/main_snowball/density.png, id=673, 1201.48875pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/density.png, id=807, 1201.48875pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/density.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/density.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/density.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/density.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 643.89229pt.
-<chapters/experiments/img/merged_plots/main_snowball/distLO.png, id=674, 1182.4175pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/distLO.png, id=808, 1182.4175pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/distLO.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/distLO.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/distLO.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/distLO.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 654.26427pt.
-<chapters/experiments/img/merged_plots/main_snowball/reciprocity.png, id=675, 1188.44pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/reciprocity.png, id=809, 1188.44pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/reciprocity.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/reciprocity.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/reciprocity.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/reciprocity.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 650.94524pt.
-<chapters/experiments/img/merged_plots/main_snowball/largest_clique_size.png, id=676, 1183.42125pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/largest_clique_size.png, id=810, 1183.42125pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/largest_clique_size.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/largest_clique_size.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/largest_clique_size.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/largest_clique_size.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
-<chapters/experiments/img/merged_plots/main_snowball/num_sources.png, id=677, 1191.45125pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/num_sources.png, id=811, 1191.45125pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/num_sources.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/num_sources.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/num_sources.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/num_sources.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 649.31165pt.
-<chapters/experiments/img/merged_plots/main_snowball/num_sinks.png, id=678, 1192.455pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/num_sinks.png, id=812, 1192.455pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/num_sinks.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/num_sinks.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/num_sinks.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/num_sinks.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 648.76712pt.
-<chapters/experiments/img/merged_plots/main_snowball/num_subsinks.png, id=679, 1192.455pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/num_subsinks.png, id=813, 1192.455pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/num_subsinks.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/num_subsinks.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/num_subsinks.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/num_subsinks.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 648.76712pt.
-<chapters/experiments/img/merged_plots/main_snowball/avg_in_degree.png, id=680, 1190.4475pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/avg_in_degree.png, id=814, 1190.4475pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/avg_in_degree.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/avg_in_degree.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/avg_in_degree.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/avg_in_degree.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 649.85617pt.
-<chapters/experiments/img/merged_plots/main_snowball/max_in_degree.png, id=681, 1180.41pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/max_in_degree.png, id=815, 1180.41pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/max_in_degree.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/max_in_degree.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/max_in_degree.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/max_in_degree.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 655.37926pt.
-<chapters/experiments/img/merged_plots/main_snowball/max_out_degree.png, id=682, 1174.3875pt x 1699.34875pt>
-File: chapters/experiments/img/merged_plots/main_snowball/max_out_degree.png Graphic file (type png)
-<use chapters/experiments/img/merged_plots/main_snowball/max_out_degree.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/max_out_degree.png  used on input line 481.
-(pdftex.def)             Requested size: 455.24408pt x 658.72421pt.
-<chapters/experiments/img/merged_plots/main_snowball/avg_out_degree.png, id=683, 1190.4475pt x 1699.34875pt>
+
+Underfull \hbox (badness 4752) in paragraph at lines 8--8
+[]\T1/cmr/m/n/12 Rysunek 3.45  []Maksymalny sto-pie« wcho-dz¡-cy w±ród wierz-choª-ków w gra-fie
+ []
+
+<chapters/experiments/img/merged_plots/main_snowball/avg_out_degree.png, id=816, 1190.4475pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/avg_out_degree.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/avg_out_degree.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/avg_out_degree.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/avg_out_degree.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 649.85617pt.
-<chapters/experiments/img/merged_plots/main_snowball/avg_loop_weight.png, id=684, 1180.41pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/max_out_degree.png, id=817, 1174.3875pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_snowball/max_out_degree.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_snowball/max_out_degree.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/max_out_degree.png  used on input line 8.
+(pdftex.def)             Requested size: 455.24408pt x 658.72421pt.
+<chapters/experiments/img/merged_plots/main_snowball/avg_loop_weight.png, id=818, 1180.41pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/avg_loop_weight.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/avg_loop_weight.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/avg_loop_weight.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/avg_loop_weight.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 655.37926pt.
-<chapters/experiments/img/merged_plots/main_snowball/avg_path_len.png, id=685, 1180.41pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/avg_path_len.png, id=819, 1180.41pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/avg_path_len.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/avg_path_len.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/avg_path_len.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/avg_path_len.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 655.37926pt.
-<chapters/experiments/img/merged_plots/main_snowball/avg_go_path_len.png, id=686, 1183.42125pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/avg_go_path_len.png, id=820, 1183.42125pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/avg_go_path_len.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/avg_go_path_len.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/avg_go_path_len.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/avg_go_path_len.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
-<chapters/experiments/img/merged_plots/main_snowball/max_go_path_len.png, id=687, 1183.42125pt x 1699.34875pt>
+
+Underfull \hbox (badness 6461) in paragraph at lines 8--8
+[]\T1/cmr/m/n/12 Rysunek 3.50  []‘rednia dªu-go±¢ ist-nie-j¡-cych ±cie-»ek do glo-bal-ne-go opti-mum
+ []
+
+<chapters/experiments/img/merged_plots/main_snowball/max_go_path_len.png, id=821, 1183.42125pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/max_go_path_len.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/max_go_path_len.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/max_go_path_len.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/max_go_path_len.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
-<chapters/experiments/img/merged_plots/main_snowball/go_path_ratio.png, id=688, 1189.44376pt x 1699.34875pt>
+
+Underfull \hbox (badness 3942) in paragraph at lines 8--8
+[]\T1/cmr/m/n/12 Rysunek 3.51  []Dªugo±¢ naj-dªu»-szej ist-nie-j¡-cej ±cie»-ki do glo-bal-ne-go opti-mum
+ []
+
+<chapters/experiments/img/merged_plots/main_snowball/go_path_ratio.png, id=822, 1189.44376pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/go_path_ratio.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/go_path_ratio.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/go_path_ratio.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/go_path_ratio.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 650.40071pt.
-<chapters/experiments/img/merged_plots/main_snowball/funnel_num.png, id=689, 1192.455pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/funnel_num.png, id=823, 1192.455pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/funnel_num.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/funnel_num.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/funnel_num.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/funnel_num.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 648.76712pt.
-<chapters/experiments/img/merged_plots/main_snowball/max_funnel_size.png, id=690, 1192.455pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/max_funnel_size.png, id=824, 1192.455pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/max_funnel_size.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/max_funnel_size.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/max_funnel_size.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/max_funnel_size.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 648.76712pt.
-<chapters/experiments/img/merged_plots/main_snowball/mean_funnel_size.png, id=691, 1183.42125pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/mean_funnel_size.png, id=825, 1183.42125pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/mean_funnel_size.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/mean_funnel_size.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/mean_funnel_size.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/mean_funnel_size.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
-<chapters/experiments/img/merged_plots/main_snowball/num_cc.png, id=692, 1189.44376pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/num_cc.png, id=826, 1189.44376pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/num_cc.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/num_cc.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/num_cc.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/num_cc.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 650.40071pt.
-<chapters/experiments/img/merged_plots/main_snowball/largest_cc.png, id=693, 1198.4775pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/largest_cc.png, id=827, 1198.4775pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/largest_cc.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/largest_cc.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/largest_cc.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/largest_cc.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 645.49994pt.
-<chapters/experiments/img/merged_plots/main_snowball/largest_cc_radius.png, id=694, 1183.42125pt x 1699.34875pt>
+<chapters/experiments/img/merged_plots/main_snowball/largest_cc_radius.png, id=828, 1183.42125pt x 1699.34875pt>
 File: chapters/experiments/img/merged_plots/main_snowball/largest_cc_radius.png Graphic file (type png)
 <use chapters/experiments/img/merged_plots/main_snowball/largest_cc_radius.png>
-Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/largest_cc_radius.png  used on input line 481.
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_snowball/largest_cc_radius.png  used on input line 8.
 (pdftex.def)             Requested size: 455.24408pt x 653.71974pt.
-) (/home/gero/Praca_magisterska/chapters/solution/src.tex [65 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/per1_all/missed.png>] [66 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/edge_count.png>] [67 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/edge_to_node.png>] [68 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/assortativity_deg.png>] [69 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/avg_fitness.png>] [70 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/conrel.png>] [71 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/density.png>] [72 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/distLO.png>] [73 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/reciprocity.png>] [74 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/largest_clique_size.png>] [75 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/num_sources.png>] [76 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/num_sinks.png>] [77 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/num_subsinks.png>] [78 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/avg_in_degree.png>] [79 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/max_in_degree.png>] [80 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/max_out_degree.png>] [81 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/avg_out_degree.png>] [82 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/avg_loop_weight.png>] [83 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/avg_path_len.png>] [84 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/avg_go_path_len.png>] [85 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/max_go_path_len.png>] [86 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/go_path_ratio.png>] [87 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/funnel_num.png>] [88 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/max_funnel_size.png>] [89 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/mean_funnel_size.png>] [90 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/num_cc.png>] [91 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/largest_cc.png>] [92 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/largest_cc_radius.png>]
+<chapters/experiments/img/merged_plots/main_twophase/edge_count.png, id=829, 1197.47375pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/edge_count.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/edge_count.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/edge_count.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 646.01854pt.
+<chapters/experiments/img/merged_plots/main_twophase/edge_to_node.png, id=830, 1188.44pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/edge_to_node.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/edge_to_node.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/edge_to_node.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 650.94524pt.
+<chapters/experiments/img/merged_plots/main_twophase/assortativity_deg.png, id=831, 1190.4475pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/assortativity_deg.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/assortativity_deg.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/assortativity_deg.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 649.85617pt.
+<chapters/experiments/img/merged_plots/main_twophase/avg_fitness.png, id=832, 1195.46625pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/avg_fitness.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/avg_fitness.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/avg_fitness.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 647.13353pt.
+
+Underfull \hbox (badness 1796) in paragraph at lines 19--19
+[]\T1/cmr/m/n/12 Rysunek 3.62  []‘rednia war-to±¢ funk-cji ce-lu w zna-le-zio-nych opti-mach lo-kal-nych
+ []
+
+<chapters/experiments/img/merged_plots/main_twophase/conrel.png, id=833, 1193.45876pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/conrel.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/conrel.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/conrel.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 648.2226pt.
+<chapters/experiments/img/merged_plots/main_twophase/density.png, id=834, 1194.4625pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/density.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/density.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/density.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 647.67805pt.
+<chapters/experiments/img/merged_plots/main_twophase/distLO.png, id=835, 1181.41376pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/distLO.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/distLO.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/distLO.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 654.80879pt.
+<chapters/experiments/img/merged_plots/main_twophase/reciprocity.png, id=836, 1189.44376pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/reciprocity.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/reciprocity.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/reciprocity.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 650.40071pt.
+<chapters/experiments/img/merged_plots/main_twophase/largest_clique_size.png, id=837, 1190.4475pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/largest_clique_size.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/largest_clique_size.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/largest_clique_size.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 649.85617pt.
+<chapters/experiments/img/merged_plots/main_twophase/num_sources.png, id=838, 1196.47pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/num_sources.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/num_sources.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/num_sources.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 646.589pt.
+<chapters/experiments/img/merged_plots/main_twophase/num_sinks.png, id=839, 1197.47375pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/num_sinks.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/num_sinks.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/num_sinks.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 646.01854pt.
+<chapters/experiments/img/merged_plots/main_twophase/num_subsinks.png, id=840, 1197.47375pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/num_subsinks.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/num_subsinks.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/num_subsinks.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 646.01854pt.
+<chapters/experiments/img/merged_plots/main_twophase/avg_in_degree.png, id=841, 1188.44pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/avg_in_degree.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/avg_in_degree.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/avg_in_degree.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 650.94524pt.
+<chapters/experiments/img/merged_plots/main_twophase/max_in_degree.png, id=842, 1191.45125pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/max_in_degree.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/max_in_degree.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/max_in_degree.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 649.31165pt.
+
+Underfull \hbox (badness 4752) in paragraph at lines 19--19
+[]\T1/cmr/m/n/12 Rysunek 3.72  []Maksymalny sto-pie« wcho-dz¡-cy w±ród wierz-choª-ków w gra-fie
+ []
+
+<chapters/experiments/img/merged_plots/main_twophase/avg_out_degree.png, id=843, 1188.44pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/avg_out_degree.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/avg_out_degree.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/avg_out_degree.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 650.94524pt.
+<chapters/experiments/img/merged_plots/main_twophase/max_out_degree.png, id=844, 1185.42876pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/max_out_degree.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/max_out_degree.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/max_out_degree.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 652.60475pt.
+<chapters/experiments/img/merged_plots/main_twophase/avg_loop_weight.png, id=845, 1185.42876pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/avg_loop_weight.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/avg_loop_weight.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/avg_loop_weight.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 652.60475pt.
+<chapters/experiments/img/merged_plots/main_twophase/avg_path_len.png, id=846, 1190.4475pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/avg_path_len.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/avg_path_len.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/avg_path_len.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 649.85617pt.
+<chapters/experiments/img/merged_plots/main_twophase/avg_go_path_len.png, id=847, 1182.4175pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/avg_go_path_len.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/avg_go_path_len.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/avg_go_path_len.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 654.26427pt.
+
+Underfull \hbox (badness 6461) in paragraph at lines 19--19
+[]\T1/cmr/m/n/12 Rysunek 3.77  []‘rednia dªu-go±¢ ist-nie-j¡-cych ±cie-»ek do glo-bal-ne-go opti-mum
+ []
+
+<chapters/experiments/img/merged_plots/main_twophase/max_go_path_len.png, id=848, 1182.4175pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/max_go_path_len.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/max_go_path_len.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/max_go_path_len.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 654.26427pt.
+
+Underfull \hbox (badness 3942) in paragraph at lines 19--19
+[]\T1/cmr/m/n/12 Rysunek 3.78  []Dªugo±¢ naj-dªu»-szej ist-nie-j¡-cej ±cie»-ki do glo-bal-ne-go opti-mum
+ []
+
+<chapters/experiments/img/merged_plots/main_twophase/go_path_ratio.png, id=849, 1195.46625pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/go_path_ratio.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/go_path_ratio.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/go_path_ratio.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 647.13353pt.
+<chapters/experiments/img/merged_plots/main_twophase/funnel_num.png, id=850, 1197.47375pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/funnel_num.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/funnel_num.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/funnel_num.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 646.01854pt.
+<chapters/experiments/img/merged_plots/main_twophase/max_funnel_size.png, id=851, 1197.47375pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/max_funnel_size.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/max_funnel_size.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/max_funnel_size.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 646.01854pt.
+<chapters/experiments/img/merged_plots/main_twophase/mean_funnel_size.png, id=852, 1197.47375pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/mean_funnel_size.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/mean_funnel_size.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/mean_funnel_size.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 646.01854pt.
+<chapters/experiments/img/merged_plots/main_twophase/num_cc.png, id=853, 1196.47pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/num_cc.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/num_cc.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/num_cc.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 646.589pt.
+<chapters/experiments/img/merged_plots/main_twophase/largest_cc.png, id=854, 1191.45125pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/largest_cc.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/largest_cc.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/largest_cc.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 649.31165pt.
+<chapters/experiments/img/merged_plots/main_twophase/largest_cc_radius.png, id=855, 1190.4475pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/largest_cc_radius.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/largest_cc_radius.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/largest_cc_radius.png  used on input line 19.
+(pdftex.def)             Requested size: 455.24408pt x 649.85617pt.
+<chapters/experiments/img/merged_plots/main_twophase/missed.png, id=856, 1181.41376pt x 1699.34875pt>
+File: chapters/experiments/img/merged_plots/main_twophase/missed.png Graphic file (type png)
+<use chapters/experiments/img/merged_plots/main_twophase/missed.png>
+Package pdftex.def Info: chapters/experiments/img/merged_plots/main_twophase/missed.png  used on input line 23.
+(pdftex.def)             Requested size: 455.24408pt x 654.80879pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/opt_nodes.png, id=857, 1193.45876pt x 1674.255pt>
+File: chapters/experiments/img/opt_nodes.png Graphic file (type png)
+<use chapters/experiments/img/opt_nodes.png>
+Package pdftex.def Info: chapters/experiments/img/opt_nodes.png  used on input line 30.
+(pdftex.def)             Requested size: 455.24408pt x 638.6505pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<chapters/experiments/img/opt_edges.png, id=858, 1194.4625pt x 1674.255pt>
+File: chapters/experiments/img/opt_edges.png Graphic file (type png)
+<use chapters/experiments/img/opt_edges.png>
+Package pdftex.def Info: chapters/experiments/img/opt_edges.png  used on input line 39.
+(pdftex.def)             Requested size: 455.24408pt x 638.114pt.
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+) [71 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/edge_count.png>] [72 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/edge_to_node.png>] [73 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/assortativity_deg.png>] [74 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/avg_fitness.png>] [75 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/conrel.png>] [76 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/density.png>] [77 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/distLO.png>] [78 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/reciprocity.png>] [79 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/largest_clique_size.png>] [80 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/num_sources.png>] [81 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/num_sinks.png>] [82 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/num_subsinks.png>] [83 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/avg_in_degree.png>] [84 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/max_in_degree.png>] [85 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/avg_out_degree.png>] [86 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/max_out_degree.png>] [87 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/avg_loop_weight.png>] [88 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/avg_path_len.png>] [89 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/avg_go_path_len.png>] [90 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/max_go_path_len.png>] [91 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/go_path_ratio.png>] [92 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/funnel_num.png>] [93 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/max_funnel_size.png>] [94 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/mean_funnel_size.png>] [95 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/num_cc.png>] [96 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/largest_cc.png>] [97 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_snowball/largest_cc_radius.png>] [98 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/edge_count.png>] [99 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/edge_to_node.png>] [100 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/assortativity_deg.png>] [101 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/avg_fitness.png>] [102 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/conrel.png>] [103 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/density.png>] [104 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/distLO.png>] [105 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/reciprocity.png>] [106 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/largest_clique_size.png>] [107 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/num_sources.png>] [108 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/num_sinks.png>] [109 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/num_subsinks.png>] [110 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/avg_in_degree.png>] [111 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/max_in_degree.png>] [112 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/avg_out_degree.png>] [113 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/max_out_degree.png>] [114 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/avg_loop_weight.png>] [115 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/avg_path_len.png>] [116 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/avg_go_path_len.png>] [117 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/max_go_path_len.png>] [118 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/go_path_ratio.png>] [119 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/funnel_num.png>] [120 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/max_funnel_size.png>] [121 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/mean_funnel_size.png>] [122 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/num_cc.png>] [123 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/largest_cc.png>] [124 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/largest_cc_radius.png>] [125 </home/gero/Praca_magisterska/chapters/experiments/img/merged_plots/main_twophase/missed.png>] [126 </home/gero/Praca_magisterska/chapters/experiments/img/opt_nodes.png>] [127 </home/gero/Praca_magisterska/chapters/experiments/img/opt_edges.png>] [128
+
+
+
+] [129] [130]
+<chapters/experiments/img/snowball_corr.png, id=1285, 2143.00626pt x 1930.21124pt>
+File: chapters/experiments/img/snowball_corr.png Graphic file (type png)
+<use chapters/experiments/img/snowball_corr.png>
+Package pdftex.def Info: chapters/experiments/img/snowball_corr.png  used on input line 725.
+(pdftex.def)             Requested size: 455.24408pt x 410.03929pt.
+<chapters/experiments/img/twophase_corr.png, id=1286, 2143.00626pt x 1930.21124pt>
+File: chapters/experiments/img/twophase_corr.png Graphic file (type png)
+<use chapters/experiments/img/twophase_corr.png>
+Package pdftex.def Info: chapters/experiments/img/twophase_corr.png  used on input line 732.
+(pdftex.def)             Requested size: 455.24408pt x 410.03929pt.
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[131 </home/gero/Praca_magisterska/chapters/experiments/img/snowball_corr.png>] [132 </home/gero/Praca_magisterska/chapters/experiments/img/twophase_corr.png>]
+
+LaTeX Warning: No positions in optional float specifier.
+               Default added (so using `tbp') on input line 759.
+
+[133]) (/home/gero/Praca_magisterska/chapters/solution/src.tex [134]
 Rozdzia\PlPrIeC {\l } 4.
 
 Overfull \hbox (40.261pt too wide) in paragraph at lines 9--10
 []\T1/cmr/m/n/12 Program ob-li-cza-j¡-cy war-to-±ci miar na pod-sta-wie sprób-ko-wa-nej prze-strze-ni ''stat_calculator'', 
  []
 
-[93
+[135
 
 
 ]
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 88.
- [94]
+ [136]
 Overfull \hbox (7.46211pt too wide) in paragraph at lines 107--109
 []\T1/cmr/m/n/12 Wyniki pro-gram za-pi-su-je okre-so-wo do do-ce-lo-we-go fol-de-ru w pli-kach ''sam-ples_<i>.json''.
  []
 
-[95] [96] [97]) (/home/gero/Praca_magisterska/chapters/ending/src.tex [98]
+[137] [138] [139]) (/home/gero/Praca_magisterska/chapters/ending/src.tex [140]
 Rozdzia\PlPrIeC {\l } 5.
-) (/home/gero/Praca_magisterska/main.bbl [99
+) (/home/gero/Praca_magisterska/main.bbl [141
 
 
-] [100
+] [142
 
 
 ]
-Underfull \hbox (badness 2680) in paragraph at lines 54--57
+Underfull \hbox (badness 2680) in paragraph at lines 59--62
 []\T1/cmr/m/sc/12 G. Ochoa, S. Vérel, and M. To-mas-si-ni\T1/cmr/m/n/12 , \T1/cmr/m/it/12 First-improvement vs. best-
  []
 
-[101]) [102] (/home/gero/Praca_magisterska/main.aux (/home/gero/Praca_magisterska/chapters/experiments//tables.aux))
+[143]) [144] (/home/gero/Praca_magisterska/main.lof
+Overfull \hbox (8.1801pt too wide) in paragraph at lines 11--11
+ [][] [][]\T1/cmr/m/n/12 ‘rednia war-to±¢ funk-cji ce-lu w zna-le-zio-nych opti-mach lo-kal-nych (avg_fitness) 
+ []
 
-LaTeX Warning: There were undefined references.
 
+Overfull \hbox (20.6084pt too wide) in paragraph at lines 21--21
+ [][] [][]\T1/cmr/m/n/12 Maksymalny sto-pie« wcho-dz¡-cy w±ród wierz-choª-ków w gra-fie (max_in_degree) 
+ []
+
+
+Overfull \hbox (1.29091pt too wide) in paragraph at lines 23--23
+ [][] [][]\T1/cmr/m/n/12 Maksymalny sto-pie« wy-cho-dz¡-cy wierz-choª-ków w gra-fie (max_out_degree) 
+ []
+
+
+Overfull \hbox (26.48613pt too wide) in paragraph at lines 26--26
+ [][] [][]\T1/cmr/m/n/12 ‘rednia dªu-go±¢ ist-nie-j¡-cych ±cie-»ek do glo-bal-ne-go opti-mum (avg_go_path_len) 
+ []
+
+
+Overfull \hbox (41.429pt too wide) in paragraph at lines 27--27
+ [][] [][]\T1/cmr/m/n/12 Dªugo±¢ naj-dªu»-szej ist-nie-j¡-cej ±cie»-ki do glo-bal-ne-go opti-mum (max_go_path_len) 
+ []
+
+[145
+
+
+]
+Overfull \hbox (8.1801pt too wide) in paragraph at lines 39--39
+ [][] [][]\T1/cmr/m/n/12 ‘rednia war-to±¢ funk-cji ce-lu w zna-le-zio-nych opti-mach lo-kal-nych (avg_fitness) 
+ []
+
+
+Overfull \hbox (20.6084pt too wide) in paragraph at lines 49--49
+ [][] [][]\T1/cmr/m/n/12 Maksymalny sto-pie« wcho-dz¡-cy w±ród wierz-choª-ków w gra-fie (max_in_degree) 
+ []
+
+
+Overfull \hbox (1.29091pt too wide) in paragraph at lines 51--51
+ [][] [][]\T1/cmr/m/n/12 Maksymalny sto-pie« wy-cho-dz¡-cy wierz-choª-ków w gra-fie (max_out_degree) 
+ []
+
+[146]
+Overfull \hbox (26.48613pt too wide) in paragraph at lines 54--54
+ [][] [][]\T1/cmr/m/n/12 ‘rednia dªu-go±¢ ist-nie-j¡-cych ±cie-»ek do glo-bal-ne-go opti-mum (avg_go_path_len) 
+ []
+
+
+Overfull \hbox (41.429pt too wide) in paragraph at lines 55--55
+ [][] [][]\T1/cmr/m/n/12 Dªugo±¢ naj-dªu»-szej ist-nie-j¡-cej ±cie»-ki do glo-bal-ne-go opti-mum (max_go_path_len) 
+ []
+
+
+Overfull \hbox (8.1801pt too wide) in paragraph at lines 66--66
+ [][] [][]\T1/cmr/m/n/12 ‘rednia war-to±¢ funk-cji ce-lu w zna-le-zio-nych opti-mach lo-kal-nych (avg_fitness) 
+ []
+
+
+Overfull \hbox (20.6084pt too wide) in paragraph at lines 76--76
+ [][] [][]\T1/cmr/m/n/12 Maksymalny sto-pie« wcho-dz¡-cy w±ród wierz-choª-ków w gra-fie (max_in_degree) 
+ []
+
+[147]
+Overfull \hbox (1.29091pt too wide) in paragraph at lines 78--78
+ [][] [][]\T1/cmr/m/n/12 Maksymalny sto-pie« wy-cho-dz¡-cy wierz-choª-ków w gra-fie (max_out_degree) 
+ []
+
+
+Overfull \hbox (26.48613pt too wide) in paragraph at lines 81--81
+ [][] [][]\T1/cmr/m/n/12 ‘rednia dªu-go±¢ ist-nie-j¡-cych ±cie-»ek do glo-bal-ne-go opti-mum (avg_go_path_len) 
+ []
+
+
+Overfull \hbox (41.429pt too wide) in paragraph at lines 82--82
+ [][] [][]\T1/cmr/m/n/12 Dªugo±¢ naj-dªu»-szej ist-nie-j¡-cej ±cie»-ki do glo-bal-ne-go opti-mum (max_go_path_len) 
+ []
+
+)
+\tf@lof=\write7
+\openout7 = `main.lof'.
+
+ [148] (/home/gero/Praca_magisterska/main.lot [149
+
+
+])
+\tf@lot=\write8
+\openout8 = `main.lot'.
+
+ [150] (/home/gero/Praca_magisterska/main.aux (/home/gero/Praca_magisterska/chapters/experiments//tables.aux) (/home/gero/Praca_magisterska/chapters/experiments//plots_small.aux) (/home/gero/Praca_magisterska/chapters/experiments//plots_main.aux))
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 5CB586B45C4E38C8A509AC7C5F761690;2489.
+(rerunfilecheck)             Checksum: D29050E5BBA6DB8CEF16D13946BD1D31;2753.
  ) 
 Here is how much of TeX's memory you used:
- 32486 strings out of 481144
- 703834 string characters out of 5913431
+ 33484 strings out of 481144
+ 729340 string characters out of 5913431
  2621734 words of memory out of 5000000
- 48505 multiletter control sequences out of 15000+600000
+ 49362 multiletter control sequences out of 15000+600000
  427858 words of font info for 80 fonts, out of 8000000 for 9000
  79 hyphenation exceptions out of 8191
  1003i,22n,1003p,1657b,1844s stack positions out of 5000i,500n,10000p,200000b,80000s
- </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plrm.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plmi.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plms.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plme.enc} </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy8.pfb>
-Output written on /home/gero/Praca_magisterska/main.pdf (102 pages, 7857631 bytes).
+ </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/eccc1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1000.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1000.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1000.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ectt1200.600pk>{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plrm.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plmi.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plms.enc}{/usr/share/texlive/texmf-dist/fonts/enc/dvips/pl/plme.enc} </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1440.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/tcrm1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1728.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1095.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecrm1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx1200.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecbx2488.600pk> </home/gero/.texlive2020/texmf-var/fonts/pk/ljfour/jknappen/ec/ecti1200.600pk></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/pl/plsy8.pfb>
+Output written on /home/gero/Praca_magisterska/main.pdf (154 pages, 13115766 bytes).
 PDF statistics:
- 1706 PDF objects out of 1728 (max. 8388607)
- 883 compressed objects within 9 object streams
- 313 named destinations out of 1000 (max. 500000)
- 588 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 2449 PDF objects out of 2487 (max. 8388607)
+ 1480 compressed objects within 15 object streams
+ 404 named destinations out of 1000 (max. 500000)
+ 800 words of extra memory for PDF output out of 10000 (max. 10000000)
 

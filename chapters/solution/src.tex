@@ -63,7 +63,7 @@ Algorytm \textit{snowball} przyjmuje parametry w następującej kolejności:
 Gdzie:
 \begin{itemize}
     \item WALK\_LEN ($w_{len}$) - długość losowego spaceru
-    \item N\_EDGES ($m$)- liczba prób przeszukania sąsziedztwa
+    \item N\_EDGES ($m$)- liczba prób przeszukania sąsiedztwa
     \item DEPTH> ($depth$) - głębokość przeszukiwania
     \item MUT\_D ($D$)- parametr D
     \item SAVE\_TRESHOLD ($s\_tresh$) - interwał zapisu
@@ -200,19 +200,19 @@ Uruchomienie skryptu wygląda następująco:
 Parametr N określa liczbę miast w instancji. Parametr gap określa odległość pomiędzy sąsiadującymi miastami w siatce.
 Opcjonalny parametr output pozwala na ustawienie nazwy folderu wyjściowego (domyślnie grid\_output).
 
-Skrypt cliques.py generuje instancję o miastach ułożonych w klastrach (klikach).
+Skrypt cliques.py generuje instancję o miastach ułożonych w klikach.
 Uruchomienie skryptu wygląda następująco:
 \begin{lstlisting}
     python cliques.py <N> <N_cliques> [-minld MINLD] [-maxld MAXLD] \ 
     [-mincd MINCD] [-maxcd MAXCD] [-o OUTPUT]
 \end{lstlisting}
-Parametr N określa liczbę miast w instancji. Parametr N\_cliques określa liczbę klastrów.
+Parametr N określa liczbę miast w instancji. Parametr N\_cliques określa liczbę klik.
 W odróżnieniu od pozostałych generatorów generator cliques.py może przyjąć dużą liczbę parametrów opcjonalnych:
 \begin{itemize}
-    \item minld - minimalna odległość między miastami w tym samym klastrze (domyślnie 5)
-    \item maxld - maksymalna odległość między miastami w tym samym klastrze (domyślnie 30)
-    \item mincd - minimalna odległość między środkami klastrów (domyślnie 100)
-    \item maxcd - maksymalna odległość między środkami klastrów (domyślnie 300)
+    \item minld - minimalna odległość między miastami w tym samym klice (domyślnie 5)
+    \item maxld - maksymalna odległość między miastami w tym samym klice(domyślnie 30)
+    \item mincd - minimalna odległość między środkami klik (domyślnie 100)
+    \item maxcd - maksymalna odległość między środkami klik (domyślnie 300)
     \item output - nazwa folderu wyjściowego (domyślnie cliques\_output)
 \end{itemize}
 
@@ -251,7 +251,7 @@ Rust:
     \item rustc-hash - szybka hashmapa,
     \item permutations\_iter - generator permutacji metodą Steinhausa-Johnsona-Trottera,
     \item PyO3 - narzędzie do tworzenia natywnych modułów Pythona w języku Rust,
-    \item tsptools - generator losowego rozwiązania problemu TSP oraz funkcja obliczająca długość ścieżki.
+    \item tsptools - generator losowego rozwiązania problemu TSP, implementacja 2opt oraz funkcja obliczająca długość ścieżki.
 \end{itemize}
 
 Python:

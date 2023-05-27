@@ -1,0 +1,15 @@
+# Fdb version 3
+["pdflatex"] 1685004472 "/home/gero/Praca_magisterska/src/header.tex" "/home/gero/Praca_magisterska/src/header.pdf" "header" 1685004472
+  "/etc/texmf/web2c/texmf.cnf" 1672441980 475 c0e671620eb5563b2130f56340a5fde8 ""
+  "/home/gero/Praca_magisterska/src/header.aux" 1685004472 8 a94a2480d3289e625eea47cd1b285758 ""
+  "/home/gero/Praca_magisterska/src/header.tex" 1679472172 174 2f342c6bc510b6c933d7ca213659f5e0 ""
+  "/home/gero/Praca_magisterska/src/lib/mgr.cls" 0 -1 0 ""
+  "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1613593815 38841 799d1dd9682a55ce442e10c99777ecc1 ""
+  "/usr/share/texmf/web2c/texmf.cnf" 1613593815 38841 799d1dd9682a55ce442e10c99777ecc1 ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1680864670 1325922 40545b513afcfaf3f0b17af59072723a ""
+  "header.tex" 1679472172 174 2f342c6bc510b6c933d7ca213659f5e0 ""
+  "lib/mgr.cls" 0 -1 0 ""
+  (generated)
+  "header.log"
+  "/home/gero/Praca_magisterska/src/header.log"
+  "/home/gero/Praca_magisterska/src/header.pdf"
