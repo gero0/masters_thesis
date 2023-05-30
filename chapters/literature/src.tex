@@ -25,8 +25,8 @@ Jako funkcję celu przyjęto uśrednioną wartość metryki F-score dla danej ko
 Wartości F-score uzyskano poprzez przetestowanie procesu na kilku zbiorach danych.
 Dla każdej z badanych przestrzeni konfiguracji utworzono trzy sieci LON. Każda z sieci była oparta o inny model krawędzi.
 Przeszukano wszystkie możliwe rozwiązania, ale ze względu na złożoność obliczeniową sieć LON budowano poprzez przeglądanie
-ograniczonego sąsiedztwa każdego z wierzchołków. Badanie wykonano dla kilku wielkości sąsiedztwa - 20, 30, 50 i 100 sąsiadów.
-Zauważono wpływ modelu krawędzi na powstałą sieć - w sieciach z krawędziami typu basin-transition nie zauważono obecności ścieków,
+ograniczonego sąsiedztwa każdego z wierzchołków. Badanie wykonano dla kilku wielkości sąsiedztwa --- 20, 30, 50 i 100 sąsiadów.
+Zauważono wpływ modelu krawędzi na powstałą sieć --- w sieciach z krawędziami typu basin-transition nie zauważono obecności ścieków,
 natomiast istniało wiele źródeł. Sieci oparte o escape edges miały z kolei dużo ścieków i mało źródeł.
 W przypadku perturbation edges w sieci nie było ścieków ani źródeł niezależnie od rozmiaru sąsiedztwa.
 Zauważono, że w badanych przypadkach optima globalne skupiały się w pewnym rejonie przestrzeni rozwiązań, w niewielkiej od siebie odległości.
@@ -41,12 +41,12 @@ W tym miejscu pojawiają się pytanie: w jaki sposób próbkować przestrzeń, a
 jak najlepiej odzwierciedlały cechy całej przestrzeni?
 
 Próbkowanie przestrzeni rozwiązań wykonuje się zwykle poprzez zastosowanie pewnej odmiany iteracyjnego przeszukiwania lokalnego
-(ang. ILS - Iterated Local Search) \cite{DBLP:journals/corr/OchoaVDT14},
+(ang. ILS --- Iterated Local Search) \cite{DBLP:journals/corr/OchoaVDT14},
 a wyniki zapisuje się w postaci sieci optimów lokalnych.
 Najczęściej stosowane algorytmy próbkowania oparte o ILS można podzielić na trzy kategorie:
 Próbkowanie dwufazowe, \textit{Markov-chain} oraz \textit{Snowball}.
 
-Próbkowanie dwufazowe składa się z dwóch faz - najpierw próbkowane są wierzchołki poprzez  generowanie
+Próbkowanie dwufazowe składa się z dwóch faz --- najpierw próbkowane są wierzchołki poprzez  generowanie
 losowego rozwiązania, a następnie wykorzystaniu algorytmu optymalizacji lokalnej do znalezienia najbliższego
 lokalnego optimum. Następuje po tym wylosowanie nowego punktu i powtórzenie procedury.
 Druga faza to faza próbkowania krawędzi, polegająca na poddaniu znalezionych wcześniej rozwiązań operacji perturbacji, a następnie wykonaniu optymalizacji
@@ -67,7 +67,7 @@ Do optymalizacji lokalnej wykorzystany został algorytm Lin-Kerninghan, a jako o
 Metoda \textit{Snowball} składa się z dwóch etapów wykonywanych naprzemiennie. Pierwszy polega na kilkukrotnym poddaniu rozwiązania początkowego perturbacji
 w celu uzyskania sąsiednich rozwiązań, a następnie ich optymalizacji. Procedura jest rekurencyjnie powtarzana dla znalezionych w ten sposób lokalnych optimów
 aż do osiągnięcia pewnej z góry ustalonej głębokości. Jedno z lokalnych optimów sąsiadujących z rozwiązaniem początkowym zostaje wybrane jako punkt startowy kolejnej iteracji.
-Dodatkowo w pamięci przechowywana jest lista rozwiązań początkowych - jeśli rozwiązanie już się w nim znajduje, to nie może być wybrane ponownie.
+Dodatkowo w pamięci przechowywana jest lista rozwiązań początkowych --- jeśli rozwiązanie już się w nim znajduje, to nie może być wybrane ponownie.
 Jeśli nie istnieje rozwiązanie sąsiednie spełniające ten warunek, za kolejne rozwiązanie początkowe przyjmowane jest lokalne optimum otrzymane z optymalizacji rozwiązania losowego.
 Algorytm \textit{Snowball} wywodzi się z technik wykorzystywanych w badaniach z dziedziny socjologii, a w kontekście badania przestrzeni rozwiązań
 został zaprezentowany po raz pierwszy w pracy \textit{Sampling Local Optima Networks of Large Combinatorial Search Spaces: The QAP Case}
@@ -87,10 +87,10 @@ optymalizacji, a modele regresji utworzone na ich podstawie dokonywały lepszej 
 Z kolei \textit{Snowball} okazał się bardziej przewidywalny i łatwiejszy w doborze parametrów.
 
 Podobne badanie przeprowadzono w pracy \textit{Inferring Future Landscapes: Sampling the Local Optima Level} \cite{DBLP:journals/ec/ThomsonOVV20}, tym razem na większej liczbie instancji
-- 124 instancji ze zbioru QAPLIB i dodatkowych 60 instancji o rozmiarze N=11.
+--- 124 instancji ze zbioru QAPLIB i dodatkowych 60 instancji o rozmiarze N=11.
 Dla tych dodatkowych instancji, oprócz próbkowania wykonano również przegląd zupełny.
 Zauważono, że algorytm \textit{Snowball} produkuje gęstszą sieć od algorytmu \textit{Markov-chain}.
-Dostrzeżono wadę algorytmu \textit{Snowball} - duży wpływ parametrów próbkowania na wartości metryk opartych o gęstość
+Dostrzeżono wadę algorytmu \textit{Snowball} --- duży wpływ parametrów próbkowania na wartości metryk opartych o gęstość
 i wzory połączeń krawędzi, oraz metryk opisujących struktury lejowe.
 Stworzono modele regresji przewidujące jakość rozwiązań generowanych przez heurystyki \textit{Taboo Search} i ILS.
 Model przewidujący odpowiedź ILS oparty o dane z algorytmu Snowball był nieco lepszy od modelu opartego o dane z algorytmu ILS.
@@ -147,7 +147,7 @@ Wierzchołki w sieci optimów lokalnych reprezentują optima lokalne w przestrze
 Do optimów zaliczamy minima i maksima; w problemach optymalizacyjnych zazwyczaj poszukujemy tych pierwszych.
 Minimum lokalne to takie rozwiązanie $s$, w którego sąsiedztwie $V(s)$ nie znajduje się żadne rozwiązanie $x$, dla którego $f(x) < f(s)$.
 Każde rozwiązanie w przestrzeni rozwiązań można przyporządkować do pewnego lokalnego minimum.
-Aby znaleźć lokalne minimum $n \in{N}$, do którego "prowadzi" dane rozwiązanie $s\in{S}$, wykonuje się lokalną optymalizację
+Aby znaleźć lokalne minimum $n \in{N}$, do którego ,,prowadzi'' dane rozwiązanie $s\in{S}$, wykonuje się lokalną optymalizację
 z tym rozwiązaniem przyjętym jako punkt startowy.
 W dalszej części pracy takie przyporządkowanie będzie oznaczane jako $h(s) \rightarrow n\in{N}$.
 Wierzchołkom w sieci LON można przypisać wagę równą wartości funkcji celu w danym optimum lokalnym.
@@ -210,32 +210,32 @@ zidentyfikowanie ścieków, odwrócenie krawędzi i wykonanie przeszukiwania wg�
 W tej sekcji opisane zostaną metryki przestrzeni rozwiązań wykorzystane w tej pracy.
 Definicje niektórych miar zostały oparte o dokumentację biblioteki \textit{igraph} \cite{igraphdocs}.
 \begin{itemize}
-      \item \textbf{num\_sinks} - liczba ścieków. Ściek (ang. sink) jest wierzchołkiem grafu nie posiadającym krawędzi wychodzących.
+      \item \textbf{num\_sinks} --- liczba ścieków. Ściek (ang. sink) jest wierzchołkiem grafu nie posiadającym krawędzi wychodzących.
             Pętle nie są uwzględniane.
-      \item \textbf{num\_sources} - liczba źródeł. Źródło (ang. source) jest wierzchołkiem grafu nie posiadającym krawędzi wchodzących.
+      \item \textbf{num\_sources} --- liczba źródeł. Źródło (ang. source) jest wierzchołkiem grafu nie posiadającym krawędzi wchodzących.
             Pętle nie są uwzględniane.
-      \item \textbf{num\_subsinks} - Liczba wierzchołków, które nie posiadają krawędzi wychodzących do rozwiązań o niższej wartości funkcji celu.
-      \item \textbf{edge\_to\_node} - stosunek liczby krawędzi do liczby wierzchołków w grafie.
-      \item \textbf{avg\_fitness} - średnia wartość funkcji celu lokalnych optimów w sieci.
-      \item \textbf{distLO} - średnia odległość rozwiązań od rozwiązania z najniższą wartością funkcji celu. Odległość jest zdefiniowana jako odwrotność wagi krawędzi łączącej rozwiązanie z rozwiązaniem najlepszym.
+      \item \textbf{num\_subsinks} --- Liczba wierzchołków, które nie posiadają krawędzi wychodzących do rozwiązań o niższej wartości funkcji celu.
+      \item \textbf{edge\_to\_node} --- stosunek liczby krawędzi do liczby wierzchołków w grafie.
+      \item \textbf{avg\_fitness} --- średnia wartość funkcji celu lokalnych optimów w sieci.
+      \item \textbf{distLO} --- średnia odległość rozwiązań od rozwiązania z najniższą wartością funkcji celu. Odległość jest zdefiniowana jako odwrotność wagi krawędzi łączącej rozwiązanie z rozwiązaniem najlepszym.
             Rozwiązania nie połączone krawędzią z najlepszym rozwiązaniem nie są brane pod uwagę.
-      \item \textbf{conrel} - Stosunek liczby rozwiązań połączonych krawędzią z najlepszym rozwiązaniem do liczby pozostałych rozwiązań.
-      \item \textbf{avg\_out\_degree, max\_out\_degree} - średni i maksymalny stopień wychodzący rozwiązań w grafie. Stopień wychodzący wierzchołka to liczba wychodzących z niego krawędzi. Pętle nie są brane pod uwagę.
-      \item \textbf{avg\_in\_degree, max\_in\_degree} - średni i maksymalny stopień wchodzący rozwiązań w grafie. Stopień wchodzący wierzchołka to liczba wchodzących do niego krawędzi. Pętle nie są brane pod uwagę.
-      \item \textbf{assortativity} - współczynnik różnorodności grafu.  Różnorodność (ang. assortativity) grafu skierowanego jest zdefiniowana następującym wzorem:
+      \item \textbf{conrel} --- Stosunek liczby rozwiązań połączonych krawędzią z najlepszym rozwiązaniem do liczby pozostałych rozwiązań.
+      \item \textbf{avg\_out\_degree, max\_out\_degree} --- średni i maksymalny stopień wychodzący rozwiązań w grafie. Stopień wychodzący wierzchołka to liczba wychodzących z niego krawędzi. Pętle nie są brane pod uwagę.
+      \item \textbf{avg\_in\_degree, max\_in\_degree} --- średni i maksymalny stopień wchodzący rozwiązań w grafie. Stopień wchodzący wierzchołka to liczba wchodzących do niego krawędzi. Pętle nie są brane pod uwagę.
+      \item \textbf{assortativity} --- współczynnik różnorodności grafu.  Różnorodność (ang. assortativity) grafu skierowanego jest zdefiniowana następującym wzorem:
             \begin{equation}
                   \label{eq:assortativity}
                   assortativity = \frac{1}{\sigma_o \sigma_i} \sum_{(j,k)\in{E}} deg(j) \cdot deg(k) \cdot (e_{jk} - q_j^o q_k^i)
             \end{equation}
             Gdzie:
             \begin{itemize}
-                  \item $e_{ij}$ - część krawędzi łączących wierzchołki i i j w stosunku do liczby wszystkich krawędzi (ułamek z zakresu 0 do 1),
+                  \item $e_{ij}$ --- część krawędzi łączących wierzchołki i i j w stosunku do liczby wszystkich krawędzi (ułamek z zakresu 0 do 1),
                   \item $q_i^o = \sum_{j \in V} e_{ij}$
                   \item $q_i^i = \sum_{j \in V} e_{ji}$
-                  \item $\sigma_o$ - odchylenie standardowe $q^o$
-                  \item $\sigma_i$ - odchylenie standardowe $q^i$
+                  \item $\sigma_o$ --- odchylenie standardowe $q^o$
+                  \item $\sigma_i$ --- odchylenie standardowe $q^i$
             \end{itemize}
-      \item \textbf{clustering\_coeff} - współczynnik klasteryzacji grafu (ang. clustering coefficient, transitivity) opisuje prawdopodobieństwo istnienia połączenia pomiędzy sąsiednimi wierzchołkami.
+      \item \textbf{clustering\_coeff} --- współczynnik klasteryzacji grafu (ang. clustering coefficient, transitivity) opisuje prawdopodobieństwo istnienia połączenia pomiędzy sąsiednimi wierzchołkami.
             Współczynnik klasteryzacji opisany jest wzorem:
             $$cc = \frac{N_{triangles}}{N_{ctriples}}$$
             Gdzie $N_{triangles}$ to liczba trójkątów w grafie, a $N_{ctriples}$ to liczba połączonych trójek.
@@ -244,27 +244,27 @@ Definicje niektórych miar zostały oparte o dokumentację biblioteki \textit{ig
 
             Połączona trójka to trójka wierzchołków $(x,y,z)$ taka, że $(x,y), (y,z) \in E$.
 
-      \item \textbf{density} - gęstość grafu. Jest to stosunek liczby krawędzi w grafie do maksymalnej liczby krawędzi, jaka mogłaby istnieć w tym grafie.
+      \item \textbf{density} --- gęstość grafu. Jest to stosunek liczby krawędzi w grafie do maksymalnej liczby krawędzi, jaka mogłaby istnieć w tym grafie.
             dana jest wzorem:
             $$density = \frac{|E|}{|V|(|V|-1)}$$
 
-      \item \textbf{largest\_clique\_size} - rozmiar największej kliki. Klika w grafie jest podzbiorem zbioru wierzchołków, w którym wszystkie wierzchołki są sąsiednie - istnieje krawędź pomiędzy każdą parą wierzchołków należących do zbioru.
-      \item \textbf{reciprocity} - Wzajemność. Wzajemność jest miarą zdefiniowaną tylko dla grafów skierowanych. Jest to stosunek wierzchołków wzajemnie połączonych do wierzchołków, które są połączone krawędzią tylko w jednym kierunku.
+      \item \textbf{largest\_clique\_size} --- rozmiar największej kliki. Klika w grafie jest podzbiorem zbioru wierzchołków, w którym wszystkie wierzchołki są sąsiednie --- istnieje krawędź pomiędzy każdą parą wierzchołków należących do zbioru.
+      \item \textbf{reciprocity} --- Wzajemność. Wzajemność jest miarą zdefiniowaną tylko dla grafów skierowanych. Jest to stosunek wierzchołków wzajemnie połączonych do wierzchołków, które są połączone krawędzią tylko w jednym kierunku.
             Dana jest wzorem:
             \begin{equation}
                   \label{eq:reciprocity}
                   reciprocity = \frac{ |(i, j) \in E  \: | \: (j, i) \in E| }{|(i, j) \in E  \: | \: (j, i) \notin E| }
             \end{equation}
-      \item \textbf{funnel\_num} - liczba lejów w przestrzeni rozwiązań
-      \item \textbf{mean\_funnel\_size} - średnia wielkość leja. Wielkość leja to liczba należących do niego optimów lokalnych.
-      \item \textbf{max\_funnel\_size} - wielkość największego leja
-      \item \textbf{go\_path\_ratio} - stosunek liczby wierzchołków z istniejącą ścieżką do najlepszego rozwiązania do liczby wszystkich wierzchołków.
-      \item \textbf{avg\_go\_path\_len} - średnia długość ścieżki do najlepszego rozwiązania. Wierzchołki bez ścieżki do najlepszego rozwiązania nie są brane pod uwagę.
+      \item \textbf{funnel\_num} --- liczba lejów w przestrzeni rozwiązań
+      \item \textbf{mean\_funnel\_size} --- średnia wielkość leja. Wielkość leja to liczba należących do niego optimów lokalnych.
+      \item \textbf{max\_funnel\_size} --- wielkość największego leja
+      \item \textbf{go\_path\_ratio} --- stosunek liczby wierzchołków z istniejącą ścieżką do najlepszego rozwiązania do liczby wszystkich wierzchołków.
+      \item \textbf{avg\_go\_path\_len} --- średnia długość ścieżki do najlepszego rozwiązania. Wierzchołki bez ścieżki do najlepszego rozwiązania nie są brane pod uwagę.
             Długość ścieżki definiowana jest jako liczba krawędzi wchodzących w skład ścieżki pomiędzy wierzchołkami.
-      \item \textbf{max\_go\_path\_len} - długość najdłuższej ścieżki do najlepszego rozwiązania.
-      \item \textbf{num\_cc} - Liczba spójnych podgrafów grafu
-      \item \textbf{largest\_cc} - Wielkość (liczba wierzchołków) największego spójnego podgrafu.
-      \item \textbf{largest\_cc\_radius} - Promień największego spójnego podgrafu. Promień grafu to najmniejsza acentryczność wierzchołka wśród wszystkich wierzchołków grafu.
+      \item \textbf{max\_go\_path\_len} --- długość najdłuższej ścieżki do najlepszego rozwiązania.
+      \item \textbf{num\_cc} --- Liczba spójnych podgrafów grafu
+      \item \textbf{largest\_cc} --- Wielkość (liczba wierzchołków) największego spójnego podgrafu.
+      \item \textbf{largest\_cc\_radius} --- Promień największego spójnego podgrafu. Promień grafu to najmniejsza acentryczność wierzchołka wśród wszystkich wierzchołków grafu.
             Acentryczność(ang. eccentricity) wierzchołka to największa z odległości wierzchołka do innych wierzchołków grafu.
 \end{itemize}
 
@@ -276,7 +276,7 @@ Problem ten jest problemem NP-trudnym i z tego powodu do rozwiązywania większy
 jest stosowanie algorytmów heurystycznych.
 \subsection{Operacja 2-exchange}
 Operacja 2-exchange jest operacją wybrania dwóch wierzchołków i zamiany krawędzi prowadzących do następnych wierzchołków.
-Procedura jest wykorzystywana w algorytmie heurystycznym 2opt, w którym w ten sposób "rozplatane" są skrzyżowane krawędzie.
+Procedura jest wykorzystywana w algorytmie heurystycznym 2opt, w którym w ten sposób ,,rozplatane'' są skrzyżowane krawędzie.
 
 Algorytmy przeszukiwania przestrzeni rozwiązań zaprezentowane w tej pracy wykorzystują operację 2-exchange jako operację mutacji.
 Mutacja permutacji polega na D-krotnym wykonaniu operacji 2-exchange na losowych wierzchołkach, gdzie D to maksymalna odległość
@@ -285,7 +285,7 @@ z definicji \ref{eq:escape_edge_cond}.
 Operacja 2-exchange oraz operator mutacji zostały przedstawione na listingu \ref{alg:2ex} oraz rysunku \ref{fig:2exchange}.
 
 \begin{algorithm}[h!]
-      \caption{Operacja 2exchange - pseudokod}\label{alg:2ex}
+      \caption{Operacja 2exchange --- pseudokod}\label{alg:2ex}
 
       \SetKwProg{Fn}{function}{:}{}
       \SetKwFunction{FT}{2exchange}

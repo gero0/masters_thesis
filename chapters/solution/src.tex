@@ -5,8 +5,8 @@ Kod źródłowy oprogramowania jest publicznie dostępny na platformie Github po
 
 Opracowano następujące narzędzia:
 \begin{itemize}
-    \item Program wykonujący próbkowanie przestrzeni rozwiązań ''tsp\_samplers'',
-    \item Program obliczający wartości miar na podstawie spróbkowanej przestrzeni ''stat\_calculator'',
+    \item Program wykonujący próbkowanie przestrzeni rozwiązań ,,tsp\_samplers'',
+    \item Program obliczający wartości miar na podstawie spróbkowanej przestrzeni ,,stat\_calculator'',
     \item Generatory instancji testowych,
     \item Skrypty pomocnicze.
 \end{itemize}
@@ -21,7 +21,7 @@ Rust jest językiem kompilowanym do kodu maszynowego, wspierającym programowani
 Program ma postać pliku wykonywalnego uruchamianego z linii poleceń.
 Program wymaga podania nazwy pliku wejściowego, nazwę algorytmu oraz wartości parametrów tego algorytmu.
 Opcjonalnie jako parametr możliwe jest podanie nazwy folderu, do którego mają zostać zapisane wyniki próbkowania,
-jeśli nie zostanie ona podana program zapisze wyniki do folderu o nazwie ''<algorytm>\_latest''.
+jeśli nie zostanie ona podana program zapisze wyniki do folderu o nazwie ,,<algorytm>\_latest''.
 
 Format komendy wygląda więc następująco:
 \begin{lstlisting}
@@ -30,11 +30,11 @@ Format komendy wygląda więc następująco:
 \end{lstlisting}
 
 
-Akceptowane wartości parametru ''algorytm'' to:
+Akceptowane wartości parametru ,,algorytm'' to:
 \begin{itemize}
-    \item tp - próbkowanie dwufazowe
-    \item snowball - próbkowanie snowball
-    \item exhaustive - przegląd zupełny
+    \item tp --- próbkowanie dwufazowe
+    \item snowball --- próbkowanie snowball
+    \item exhaustive --- przegląd zupełny
 \end{itemize}
 
 Algorytm przeglądu zupełnego nie przyjmuje żadnych parametrów wejściowych.
@@ -46,11 +46,11 @@ Algorytm dwufazowy przyjmuje parametry w następującej kolejności:
 \end{lstlisting}
 Gdzie:
 \begin{itemize}
-    \item ITERS ($n_{runs}$) - liczba iteracji,
-    \item N\_MAX ($n_{max}$)- żądana liczba wierzchołków,
-    \item N\_ATT ($n_{att}$)- liczba prób generowania wierzchołków,
-    \item E\_ATT ($e_{att}$)- liczba prób generowania krawędzi,
-    \item MUT\_D ($D$)- parametr D
+    \item ITERS ($n_{runs}$) --- liczba iteracji,
+    \item N\_MAX ($n_{max}$) --- żądana liczba wierzchołków,
+    \item N\_ATT ($n_{att}$) --- liczba prób generowania wierzchołków,
+    \item E\_ATT ($e_{att}$) --- liczba prób generowania krawędzi,
+    \item MUT\_D ($D$) --- parametr D
 \end{itemize}
 
 Algorytm został opisany szczegółowo w sekcji \ref{section:tp} i listingu \ref{alg:tp}.
@@ -62,11 +62,11 @@ Algorytm \textit{snowball} przyjmuje parametry w następującej kolejności:
 \end{lstlisting}
 Gdzie:
 \begin{itemize}
-    \item WALK\_LEN ($w_{len}$) - długość losowego spaceru
-    \item N\_EDGES ($m$)- liczba prób przeszukania sąsiedztwa
-    \item DEPTH> ($depth$) - głębokość przeszukiwania
-    \item MUT\_D ($D$)- parametr D
-    \item SAVE\_TRESHOLD ($s\_tresh$) - interwał zapisu
+    \item WALK\_LEN ($w_{len}$) --- długość losowego spaceru
+    \item N\_EDGES ($m$) --- liczba prób przeszukania sąsiedztwa
+    \item DEPTH> ($depth$) --- głębokość przeszukiwania
+    \item MUT\_D ($D$) --- parametr D
+    \item SAVE\_TRESHOLD ($s\_tresh$) --- interwał zapisu
 \end{itemize}
 
 Algorytm został opisany szczegółowo w sekcji \ref{section:snowball} i listingu \ref{alg:snowball}.
@@ -75,9 +75,9 @@ Algorytm został opisany szczegółowo w sekcji \ref{section:snowball} i listing
 
 Plik wejściowy musi być plikiem txt w następującym formacie:
 \begin{itemize}
-    \item Linia 1 - nazwa instancji
-    \item Linia 2 - liczba miast w instancji
-    \item N kolejnych linii - Pełna macierz odległości pomiędzy miastami podanych w postaci liczb całkowitych.
+    \item Linia 1 --- nazwa instancji
+    \item Linia 2 --- liczba miast w instancji
+    \item N kolejnych linii --- Pełna macierz odległości pomiędzy miastami podanych w postaci liczb całkowitych.
           Kolejne wartości w rzędzie macierzy rozdzielone spacją, wiersze rozdzielone znakiem nowej linii
 \end{itemize}
 
@@ -104,20 +104,20 @@ Przykładowy plik wejściowy przedstawiający instancję burma14 ze zbioru TSPLI
     398 376 211 310 636 239 232 355 498 761 464 221 247 0     
 \end{lstlisting}
 
-Wyniki program zapisuje okresowo do docelowego folderu w plikach ''samples\_<i>.json''.
+Wyniki program zapisuje okresowo do docelowego folderu w plikach ,,samples\_<i>.json''.
 Pliki zawierają następujące informacje:
 
 \begin{itemize}
-    \item nodes - lista wierzchołków grafu. Każdy wierzchołek opisywany jest 3-elementową listą:
+    \item nodes --- lista wierzchołków grafu. Każdy wierzchołek opisywany jest 3-elementową listą:
           [unikalny identyfikator, rozwiązanie, wartość funkcji celu]. Identyfikator oraz wartość funkcji celu
           są liczbami całkowitymi, rozwiązanie ma zaś postać listy identyfikatorów miast w kolejności, w jakiej przebiega przez nie trasa,
-    \item edges - lista krawędzi skierowanych. Każda krawędź jest opisane 3-elementową listą - [id. wierzchołka początkowego, id. wierzchołka docelowego, waga],
-    \item opt\_count - liczba wywołań funkcji optymalizującej (2opt),
-    \item oracle\_count - liczba wykonanych obliczeń długości ścieżki,
-    \item time\_ms - czas działania programu podany w ms. Liczony jest jedynie czas spędzony na próbkowaniu
+    \item edges --- lista krawędzi skierowanych. Każda krawędź jest opisane 3-elementową listą --- [id. wierzchołka początkowego, id. wierzchołka docelowego, waga],
+    \item opt\_count --- liczba wywołań funkcji optymalizującej (2opt),
+    \item oracle\_count --- liczba wykonanych obliczeń długości ścieżki,
+    \item time\_ms --- czas działania programu podany w ms. Liczony jest jedynie czas spędzony na próbkowaniu
           (bez liczenia czasu spędzonego na zapisywanie wyników),
-    \item comment - komentarz, zawiera parametry, z którymi uruchomiono algorytm,
-    \item missed - tylko dla próbkowania dwufazowego, licznik prób dodania krawędzi, które zakończyły się
+    \item comment --- komentarz, zawiera parametry, z którymi uruchomiono algorytm,
+    \item missed --- tylko dla próbkowania dwufazowego, licznik prób dodania krawędzi, które zakończyły się
           niepowodzeniem z powodu braku wierzchołka należącego do krawędzi w zbiorze spróbkowanych wierzchołków.
 \end{itemize}
 
@@ -153,7 +153,7 @@ wykorzystano moduł natywny napisany w języku Rust.
 Program jest uruchamiany przy użyciu interpretera języka Python, jako argument przyjmuje
 ścieżkę do folderu zawierającego pliki z próbkami. Opcjonalnymi parametrami są: nazwa pliku wyjściowego
 limit plików wejściowych (-l), oraz nazwy miar do policzenia (-s, --stats). Jeśli nazwa pliku wyjściowego nie zostanie podana, wyniki zapisywane
-są do pliku ''results.csv''. Jeśli limit nie zostanie podany, obliczenia są wykonywane dla wszystkich plików w folderze.
+są do pliku ,,results.csv''. Jeśli limit nie zostanie podany, obliczenia są wykonywane dla wszystkich plików w folderze.
 Jeśli nie podane zostaną żadne nazwy miar do policzenia, domyślnym działaniem jest obliczenie ich wszystkich.
 
 Format komendy wygląda następująco:
@@ -168,7 +168,7 @@ Pliki są sortowane na podstawie numeracji (natsort) i dla każdego wykonywany j
 wartości miar. Wszystkie pliki w folderze są traktowane jako pliki z próbkami, dlatego nie można umieszczać w nim innych plików.
 
 Dane wyjściowe zapisywane są w postaci pliku csv zgodnego ze strukturami DataFrame biblioteki pandas.
-Dodatkowo generowany jest plik ''results\_corr.csv'' zawierający tablicę z wartościami współczynników korelacji
+Dodatkowo generowany jest plik ,,results\_corr.csv'' zawierający tablicę z wartościami współczynników korelacji
 między wartościami miar. Pliki jako separatora używają znaku średnika ';'.
 Przykładowy plik wyjściowy został przedstawiony na listingu \ref{lst:samplstateoutput}.
 
@@ -209,11 +209,11 @@ Uruchomienie skryptu wygląda następująco:
 Parametr N określa liczbę miast w instancji. Parametr N\_cliques określa liczbę klik.
 W odróżnieniu od pozostałych generatorów generator cliques.py może przyjąć dużą liczbę parametrów opcjonalnych:
 \begin{itemize}
-    \item minld - minimalna odległość między miastami w tym samym klice (domyślnie 5)
-    \item maxld - maksymalna odległość między miastami w tym samym klice(domyślnie 30)
-    \item mincd - minimalna odległość między środkami klik (domyślnie 100)
-    \item maxcd - maksymalna odległość między środkami klik (domyślnie 300)
-    \item output - nazwa folderu wyjściowego (domyślnie cliques\_output)
+    \item minld --- minimalna odległość między miastami w tym samym klice (domyślnie 5)
+    \item maxld --- maksymalna odległość między miastami w tym samym klice(domyślnie 30)
+    \item mincd --- minimalna odległość między środkami klik (domyślnie 100)
+    \item maxcd --- maksymalna odległość między środkami klik (domyślnie 300)
+    \item output --- nazwa folderu wyjściowego (domyślnie cliques\_output)
 \end{itemize}
 
 Możliwe jest że programowi nie uda się wygenerować instancji o zadanych parametrach. W takim przypadku w konsoli wyświetlany jest stosowny komunikat.
@@ -221,23 +221,23 @@ Możliwe jest że programowi nie uda się wygenerować instancji o zadanych para
 \subsection{Pliki wyjściowe}
 Generatory zapisują trzy pliki do foldery wyjściowego:
 \begin{itemize}
-    \item points.txt - zawiera listę miast w formacie: identyfikator, koordynat x, koordynat y
-    \item matrix.txt - macierz odległości w formacie obsługiwanym przez program próbkujący
-    \item vis.png - wizualizacja instancji
+    \item points.txt --- zawiera listę miast w formacie: identyfikator, koordynat x, koordynat y
+    \item matrix.txt --- macierz odległości w formacie obsługiwanym przez program próbkujący
+    \item vis.png --- wizualizacja instancji
 \end{itemize}
 
 \section{Skrypty pomocnicze}
 Skrypty pomocnicze wykonano w języku Python.
 Należą do nich:
 \begin{itemize}
-    \item plotting.py - Skrypt rysujący wykresy poszczególnych miar w zależności od liczby wierzchołków. Skrypt przyjmuje na wejście pliki z wartościami miar wygenerowane przez program stat\_calculator
-    \item convert\_tsplib.py - Skrypt konwertujący pliki w formacie tsplib na uproszczony format przyjmowany przez program próbkujący. Korzysta z biblioteki tsplib95.
-    \item visualize.py - Prosty skrypt tworzący wizualizację grafu LON na podstawie pliku wejściowego json z próbkami.
-    \item run\_exhaustive.py - Skrypt uruchamiający po kolei przegląd zupełny dla podanej listy instancji
-    \item run\_tp.py - Skrypt uruchamiający po kolei próbkowanie dwufazowe dla podanej listy instancji
-    \item run\_snowball.py - Skrypt uruchamiający po kolei próbkowanie \textit{snowball} dla podanej listy instancji
-    \item run\_stat\_calc.py - Skrypt uruchamiający program obliczający wartości miar dla podanej listy folderów w próbkami
-    \item run\_plotting.py - Skrypt uruchamiający po kolei skrypt plotting.py dla podanej listy plików z obliczonymi wartościami miar
+    \item plotting.py --- Skrypt rysujący wykresy poszczególnych miar w zależności od liczby wierzchołków. Skrypt przyjmuje na wejście pliki z wartościami miar wygenerowane przez program stat\_calculator
+    \item convert\_tsplib.py --- Skrypt konwertujący pliki w formacie tsplib na uproszczony format przyjmowany przez program próbkujący. Korzysta z biblioteki tsplib95.
+    \item visualize.py --- Prosty skrypt tworzący wizualizację grafu LON na podstawie pliku wejściowego json z próbkami.
+    \item run\_exhaustive.py --- Skrypt uruchamiający po kolei przegląd zupełny dla podanej listy instancji
+    \item run\_tp.py --- Skrypt uruchamiający po kolei próbkowanie dwufazowe dla podanej listy instancji
+    \item run\_snowball.py --- Skrypt uruchamiający po kolei próbkowanie \textit{snowball} dla podanej listy instancji
+    \item run\_stat\_calc.py --- Skrypt uruchamiający program obliczający wartości miar dla podanej listy folderów w próbkami
+    \item run\_plotting.py --- Skrypt uruchamiający po kolei skrypt plotting.py dla podanej listy plików z obliczonymi wartościami miar
 \end{itemize}
 
 \section{Wykorzystane biblioteki}
@@ -246,20 +246,20 @@ Najważniejsze zewnętrzne biblioteki wykorzystane w projekcie:
 
 Rust:
 \begin{itemize}
-    \item rand\_chacha - szybki i deterministyczny generator liczb losowych,
-    \item clap - parser argumentów konsoli,
-    \item rustc-hash - szybka hashmapa,
-    \item permutations\_iter - generator permutacji metodą Steinhausa-Johnsona-Trottera,
-    \item PyO3 - narzędzie do tworzenia natywnych modułów Pythona w języku Rust,
-    \item tsptools - generator losowego rozwiązania problemu TSP, implementacja 2opt oraz funkcja obliczająca długość ścieżki.
+    \item rand\_chacha --- szybki i deterministyczny generator liczb losowych,
+    \item clap --- parser argumentów konsoli,
+    \item rustc-hash --- szybka hashmapa,
+    \item permutations\_iter --- generator permutacji metodą Steinhausa-Johnsona-Trottera,
+    \item PyO3 --- narzędzie do tworzenia natywnych modułów Pythona w języku Rust,
+    \item tsptools --- generator losowego rozwiązania problemu TSP, implementacja 2opt oraz funkcja obliczająca długość ścieżki.
 \end{itemize}
 
 Python:
 \begin{itemize}
-    \item igraph - obliczanie wartości miar grafu LON, generowanie wizualizacji,
-    \item matplotlib - rysowanie wykresów,
-    \item numpy, pandas - przetwarzanie danych,
-    \item Pillow - generowanie obrazów,
-    \item tsplib95 - odczytywanie plików w formacie tsplib.
+    \item igraph --- obliczanie wartości miar grafu LON, generowanie wizualizacji,
+    \item matplotlib --- rysowanie wykresów,
+    \item numpy, pandas --- przetwarzanie danych,
+    \item Pillow --- generowanie obrazów,
+    \item tsplib95 --- odczytywanie plików w formacie tsplib.
 \end{itemize}
 
