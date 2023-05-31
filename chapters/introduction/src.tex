@@ -1,27 +1,51 @@
 \chapter{Wprowadzenie}
 
-Analiza przestrzeni rozwiązań jest jednym z rzadziej rozważanych aspektów badań nad problemami optymalizacyjnymi.
-Dane uzyskane z analizy przestrzeni rozwiązań, oraz otrzymane z nich wartości miar, mogą nosić w sobie
-informacje o właściwościach danego problemu, lub jego konkretnej instancji.
-Z powodu dużej złożoności obliczeniowej problemów optymalizacyjnych, zwykle nie jest możliwy przegląd całej przestrzeni.
-Do badań wykorzystuje się więc próbkowanie, które można przeprowadzić na wiele różnych sposobów.
-Wybór algorytmu, oraz długość procesu próbkowania może mieć istotny wpływ na wartości miar obliczonych na podstawie spróbkowanej przestrzeni.
+Analiza przestrzeni rozwiązań, znanej również jako krajobraz adaptacyjny, jest jednym z rzadziej rozważanych aspektów badań nad problemami optymalizacyjnymi.
+Przestrzeń ta pozwala na reprezentację problemu jako ,,krajobraz'', w którym każde rozwiązanie jest punktem na płaszczyźnie, a wysokość punktu wartością funkcji celu
+danego rozwiązania.
+Niektóre z cech tej przestrzeni, takie jak liczba optimów lokalnych i ich rozkład, obecność rozległych obszarów płaskich,
+licznych wzniesień lub wgłębień, mogą dostarczać informacji o właściwościach danego problemu, lub jego konkretnej instancji \cite{DBLP:journals/corr/OchoaVDT14}.
+Dokładna reprezentacja przestrzeni rozwiązań, obejmująca wszystkie rozwiązania,
+wymagałaby przechowywania olbrzymiej ilości danych.
+Jednym z bardziej kompaktowych formatów jej reprezentacji jest sieć optimów lokalnych (ang. Local Optima Network, LON) - graf, którego wierzchołki reprezentują
+optima lokalne przestrzeni, a krawędzie relacje pomiędzy nimi.
+Wartości miar opisujące graf LON, takie jak wagi krawędzi, czy długości ścieżek między wierzchołkami można wykorzystać
+m.in do predykcji jakości wyników uzyskiwanych przez techniki heurystyczne, dostrajania ich parametrów, lub do projektowania całkiem nowych algorytmów.
+Z powodu dużej złożoności obliczeniowej problemów optymalizacyjnych, zwykle nie jest możliwy przegląd całej przestrzeni rozwiązań.
+W badaniach wykorzystuje się zatem próbkowanie, zakładając przy tym, że wartości miar uzyskane z obszaru nim objętego
+są w pewnym stopniu reprezentatywne dla całej przestrzeni. Próbkowanie to można wykonać na wiele różnych sposobów,
+a wybór algorytmu, oraz długość procesu może mieć istotny wpływ na wartości miar obliczonych na podstawie spróbkowanej przestrzeni.
 
 O ile większość najnowszych publikacji z dziedziny zajmuje się badaniami nad możliwościami praktycznego zastosowania analizy przestrzeni rozwiązań w różnych zadaniach,
 niniejsza praca skupia się głównie na samym aspekcie próbkowania przestrzeni.
 Celem jest zbadanie wpływu metody próbkowania na wartości miar dla jednego z najbardziej znanych
 problemów optymalizacji dyskretnej --- problemu komiwojażera.
-Wykonane zostanie długotrwałe próbkowanie przestrzeni rozwiązań kilkudziesięciu instancji problemu, przy użyciu dwóch różnych algorytmów.
-Uzyskane dane posłużą do obliczenia wartości miar i przedstawieniu ich w relacji do wielkości spróbkowanej przestrzeni.
-Umożliwi to ocenę wpływu metody na wartości poszczególnych miar oraz ich stabilność.
+
+\section{Cel pracy}
+\begin{itemize}
+    \item Sprawdzenie dokładności, z jaką algorytmy próbkowania odwzorowują rzeczywistą przestrzeń rozwiązań,
+    \item Zbadanie wpływu metody próbkowania, oraz przeznaczonego na nie nakładu obliczeniowego na wartości miar uzyskanej spróbkowanej przestrzeni,
+    \item Zbadanie korelacji wzajemnej miar przestrzeni rozwiązań oraz wpływu metody próbkowania na wartości współczynników korelacji.
+\end{itemize}
+
+\section{Zakres Pracy}
 
 Praca składa się z pięciu rozdziałów.
 W rozdziale pierwszym znajduje się krótkie wprowadzenie do tematyki pracy.
-Rozdział drugi zawiera przegląd najnowszych publikacji z dziedziny, oraz sekcje poświęcone objaśnieniu niektórych terminów związanych z tematyką
+Rozdział drugi zawiera przegląd najnowszych publikacji z dziedziny, opisane są w nim zastosowania analizy przestrzeni rozwiązań, oraz algorytmy
+próbkowania znalezione w literaturze.
+Rozdział trzeci poświęcony jest objaśnieniu niektórych terminów związanych z tematyką
 analizy przestrzeni rozwiązań. Znajduje się w nim również opis miar analizowanych w reszcie pracy.
-Rozdział trzeci zawiera opis eksperymentu. Przedstawione są w nim testowe instancje problemu i wykorzystane algorytmy próbkowania.
+Rozdział czwarty zawiera opis eksperymentu. Przedstawione są w nim testowe instancje problemu i wykorzystane algorytmy próbkowania.
 W dalszej części rozdziału opisany jest przebieg eksperymentu oraz uzyskane wyniki.
-Rozdział czwarty jest technicznym opisem implementacji i zawiera informacje o programach i skryptach napisanych na potrzeby pracy.
+Dla małych instancji problemu, dla których możliwe jest wykonanie przeglądu zupełnego zostanie wykonane porównanie wartości miar
+uzyskanych z próbkowania do tych uzyskanych z przeglądu zupełnego. Pozwoli to na ocenę dokładności próbkowania.
+Dla kilkudziesięciu większych instancji wykonane zostanie długotrwałe próbkowanie przestrzeni rozwiązań, przy użyciu dwóch różnych algorytmów.
+Uzyskane dane posłużą do obliczenia wartości miar i przedstawieniu ich w relacji do wielkości spróbkowanej przestrzeni.
+Umożliwi to ocenę wpływu algorytmu na wartości poszczególnych miar oraz ich stabilność.
+Dane te posłużą również do obliczenia współczynników wzajemnej korelacji Pearsona poszczególnych miar.
+Współczynniki zostaną obliczone osobno dla dwóch algorytmów, co pozwoli na ocenę wpływu metody próbkowania na ich wartość.
+Rozdział piąty jest technicznym opisem implementacji i zawiera informacje o programach i skryptach napisanych na potrzeby pracy.
 Przedstawiono w nim krótkie instrukcje uruchomienia najważniejszych programów. Opisane zostały również wykorzystywane przez nie formaty plików.
 W rozdziale znajduje się także spis najważniejszych zewnętrznych bibliotek i narzędzi wykorzystanych w tworzeniu projektu.
-W rozdziale piątym znajduje się krótkie podsumowanie całości pracy oraz wnioski wyciągnięte na podstawie uzyskanych wyników.
+W rozdziale szóstym znajduje się krótkie podsumowanie całości pracy oraz wnioski wyciągnięte na podstawie uzyskanych wyników.

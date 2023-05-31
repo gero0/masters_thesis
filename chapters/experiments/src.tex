@@ -1,6 +1,15 @@
 \chapter{Badania eksperymentalne}
 
-\section{Zaimplementowane algorytmy}
+Rozdział opisuje przeprowadzone w pracy badania. Sekcja \ref{section:algorithms} przedstawia wykorzystane algorytmy próbkowania,
+a sekcja \ref{section:instances} zawiera opis analizowanych instancji problemu komiwojażera.
+W kolejnych sekcjach opisane są przeprowadzone eksperymenty, oraz uzyskane z nich wyniki.
+
+\section{Zaimplementowane algorytmy} \label{section:algorithms}
+
+Na potrzeby badania wykonano implementacje dwóch algorytmów próbkowania - próbkowania dwufazowego oraz próbkowania \textit{snowball}.
+Dodatkowo, aby możliwe było porównanie wyników próbkowania z rzeczywistą przestrzenią rozwiązań, zaimplementowano algorytm
+przeglądu zupełnego.
+
 \subsection{Próbkowanie dwufazowe} \label{section:tp}
 Próbkowanie dwufazowe swoją nazwę zawdzięcza procesowi próbkowania składającemu się z dwóch oddzielnych faz
 - próbkowania wierzchołków oraz próbkowania krawędzi --- wykonywanych jedna po drugiej.
@@ -38,7 +47,7 @@ optymalizacją 2opt, implementacja odpowiedniej funkcji celu oraz operacji mutac
 
 Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowball}.
 
-\vspace{1em}
+\newpage
 
 \begin{algorithm}[H]
     \caption{Próbkowanie dwufazowe --- pseudokod}\label{alg:tp}
@@ -234,7 +243,7 @@ Algorytm został przedstawiony na listingu \ref{alg:exhaustive}.
 
 \end{algorithm}
 
-\section{Instancje testowe}
+\section{Instancje testowe} \label{section:instances}
 Do badań wykorzystano instancje testowe wygenerowane losowo oraz wybrane instancje ze zbioru TSPLIB.
 Zaimplementowano trzy generatory tworzące różne typy instancji testowych: z miastami rozłożonymi równomiernie,
 z miastami rozłożonymi w klikach oraz z miastami ułożonymi na siatce.
