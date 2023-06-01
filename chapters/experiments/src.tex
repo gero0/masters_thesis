@@ -187,7 +187,7 @@ Algorytm w postaci pseudokodu został przedstawiony na listingu \ref{alg:snowbal
 \newpage
 
 \subsection{Przegląd zupełny}
-Ze względu na złożoność problemu komiwojażera przegląd zupełny można zastosować tylko do bardzo małych instancji problemu.
+Ze względu na złożoność problemu komiwojażera oraz rozmiar przestrzeni rozwiązań, przegląd zupełny można zastosować tylko do bardzo małych instancji problemu.
 Przegląd polega na wygenerowaniu wszystkich możliwych rozwiązań danej instancji, wykonaniu na nich optymalizacji 2-opt w celu znalezienia
 optimów lokalnych a następnie znalezieniu krawędzi oraz obliczeniu ich wag. Dla każdego z rozwiązań generowane są wszystkie
 permutacje, które mogą powstać poprzez D-krotne wykonanie na rozwiązaniu operacji 2-exchange. Jeśli wśród tych permutacji znajduje się jedno ze znalezionych wcześniej
@@ -296,8 +296,13 @@ Przykład wygenerowanej instancji został przedstawiony na rysunku \ref{fig:grid
 
 \section{Opis badań}
 
-Badania podzielono na trzy etapy: Porównanie wartości metryk z przeglądem zupełnym dla małych instancji,
-badanie stabilności średnich instancji, oraz badanie stabilności dużych instancji.
+Badania podzielono na trzy etapy, odpowiadające poszczególnym celom pracy:
+
+\begin{enumerate}
+    \item Porównanie wartości metryk z przeglądem zupełnym dla małych instancji, celem sprawdzenia dokładności odwzorowania przestrzeni rozwiązań przez algorytmy próbkowania (sekcja \ref{section:experimentcomp}),
+    \item Badanie stabilności średnich i dużych instancji - długotrwałe próbkowanie przeprowadzone w celu zbadania wpływu metody i długości próbkowania na wartości miar (sekcje \ref{section:experimentsmall} i \ref{section:experimentmain}),
+    \item Badanie korelacji wzajemnej poszczególnych miar, oraz wpływu metody próbkowania na ich wartości (sekcja \ref{section:experimentcorr}).
+\end{enumerate}
 
 W tym rozdziale przedstawione zostaną tabele i wykresy wygenerowane z wyników próbkowania.
 Nazwy metryk są identyczne z nazwami objaśnionymi w rozdziale \ref{sec:metrics}.
@@ -313,10 +318,12 @@ Ponadto występują pojęcia:
 
 Wszystkie badania wykonano wykorzystując model krawędzi typu \textit{Escape Edges} z parametrem $D$ o wartości 2.
 
-\subsection{Porównanie wartości metryk dla małych instancji}
-Dla małych instancji wygenerowanych losowo (uniform, grid, cliques) o rozmiarach 7 do 11
-możliwe jest wykonanie przeglądu zupełnego.
-Na tych instancjach wykonano próbkowanie algorytmami dwufazowym oraz \textit{snowball}, z różnym zestawem parametrów.
+\subsection{Porównanie wartości metryk dla małych instancji} \label{section:experimentcomp}
+Aby sprawdzić, z jaką dokładnością algorytmy próbkowania odwzorowują rzeczywistą przestrzeń rozwiązań,
+porównano wartości miar uzyskane z próbkowania z rzeczywistymi wartościami uzyskanymi z przeglądu zupełnego.
+Wykorzystano w tym celu instancje wygenerowane losowo (uniform, grid, cliques) o rozmiarach 7 do 11, dla których wykonanie takiego przeglądu jest możliwe.
+Aby ocenić, ile czasu jest potrzebne na wykonanie próbkowania z zadowalającą dokładnością wyników, uruchomiono algorytmy kilkukrotnie,
+za każdym razem zwiększając czas ich działania.
 
 Dla algorytmu dwufazowego wykonano próbkowanie dla różnych wartości parametru $n_{max}$ (liczby żądanych wierzchołków): 10, 40, 100 oraz 1000.
 Parametry $n_{att}$, $e_{att}$ ustawiono na równe $n_{max}$, a parametr $n_{runs}$ na 1.
@@ -392,12 +399,18 @@ Snowball okazuje się lepszy dla instancji cliques\_11 --- oba algorytmy w najd�
 Instancja grid\_11 zawiera dużą ilość wierzchołków i krawędzi --- nawet najdłuższe przebiegi obu algorytmów nie były w stanie znaleźć wszystkich,
 co poskutkowało znacznymi błędami.
 
-\subsection{Badanie stabilności dla średnich instancji}
+\subsection{Badanie stabilności dla średnich instancji} \label{section:experimentsmall}
+Aby zbadać wpływ długości i metody próbkowania na wartości miar przestrzeni rozwiązań,
+wykonano długotrwałe próbkowanie przestrzeni, podczas którego zapisywano jej stan w postaci sieci LON w określonych interwałach.
+Na podstawie zebranych danych obliczono wartości miar w poszczególnych etapach i przedstawiono je w relacji do wielkości spróbkowanej przestrzeni,
+wyrażonej jako liczba obecnych w niej wierzchołków.
+
 Instancje \textbf{burma14}, \textbf{ulysses22} ze zbioru tsplib oraz wygenerowane instancje
-\textbf{cliques\_20}, \textbf{uniform\_20} oraz \textbf{grid\_20} są zbyt duże, by wykonać dla nich przegląd zupełny,
-ale zbyt małe, żeby próbkować je z takimi samymi parametrami, jak większe instancje.
-Z tego powodu badania przeprowadzone dla tych instancji umieszczono w osobnej sekcji.
+\textbf{cliques\_20}, \textbf{uniform\_20} oraz \textbf{grid\_20}
+są zbyt małe, żeby próbkować je z takimi samymi parametrami, jak większe instancje.
+Z tego powodu badania na nich przeprowadzone umieszczono w osobnej sekcji.
 Dla instancji tego typu wykonano bardziej szczegółowe próbkowanie z mniejszymi interwałami zapisu.
+Badania większych instancji przedstawiono w sekcji \ref{section:experimentmain}.
 
 Próbkowanie algorytmem snowball wykonano z następującymi parametrami:
 \begin{itemize}
@@ -548,8 +561,12 @@ lokalnych przed końcem próbkowania (rys. \ref{fig:small_missed}).
 
 \newpage
 
-\subsection{Badanie stabilności dla dużych instancji}
-W tej sekcji opisano badania przeprowadzone dla instancji o rozmiarze 48 i większym.
+\subsection{Badanie stabilności dla dużych instancji} \label{section:experimentmain}
+W tej sekcji opisano badania przeprowadzone dla instancji o rozmiarze 48 i większym. \\
+Podobnie jak w eksperymentach opisanych w sekcji \ref{section:experimentsmall}, wykonano długotrwałe próbkowanie przestrzeni rozwiązań
+i przedstawiono uzyskane wartości miar na wykresach.
+Ponieważ instancje badane w tej sekcji cechują się znacznie większym rozmiarem przestrzeni rozwiązań, próbkowanie przeprowadzono
+dla innego zestawu parametrów, wykonując zapisy w większych interwałach.
 
 Próbkowanie algorytmem \textit{snowball} wykonano z następującymi parametrami:
 \begin{itemize}
@@ -558,7 +575,7 @@ Próbkowanie algorytmem \textit{snowball} wykonano z następującymi parametrami
     \item $depth$ --- głębokość przeszukiwania --- 3
 \end{itemize}
 
-Próbkowanie algorytmem \textit{snowball} prowadzono do zakończenia losowego spaceru lub osiągnięcia liczby 100000 wierzchołków.
+Próbkowanie prowadzono do momentu zakończenia losowego spaceru lub osiągnięcia liczby 100000 wierzchołków.
 Dla instancji \textbf{cliques\_50} z powodu małej liczby optimów lokalnych zapis wykonywano co 100 znalezionych wierzchołków.
 Dla pozostałych instancji stan próbkowania zapisywany był co 1000 znalezionych wierzchołków.
 
@@ -571,11 +588,9 @@ Próbkowanie algorytmem dwufazowym przeprowadzono z następującymi parametrami:
 \end{itemize}
 
 Próbkowanie przeprowadzono przez ustaloną z góry liczbę powtórzeń, zapisując stan przestrzeni po zakończeniu każdego powtórzenia.
-
-Po zakończeniu próbkowania dla każdego zapisanego stanu przestrzeni obliczono wartości badanych miar. W ten sposób uzyskano
-wartości miar dla różnych etapów próbkowania przestrzeni.
-
-Utworzono wykresy przedstawiające zależność wartości miar od liczby spróbkowanych wierzchołków.
+Po zakończeniu działania algorytmów, dla każdego zapisanego stanu przestrzeni obliczono wartości badanych miar. W ten sposób uzyskano
+ich wartości w różnych etapach próbkowania przestrzeni.
+Utworzono wykresy przedstawiające zależność wartości miar od liczby wierzchołków w grafie LON.
 Przedstawiono je na rysunkach od \ref{fig:main_snowball_edge_count} do \ref{fig:main_twophase_missed}.
 
 Ze względu na długi czas obliczeń i ograniczony czas realizacji projektu,
@@ -723,10 +738,11 @@ Należy jednak pamiętać, że w niektórych przypadkach (np. cliques\_50 ) szyb
 Dla wszystkich instancji cliques, uniform\_50 i uniform\_80, att48, berlin52 oraz pr76 algorytm dwufazowy znalazł również o wiele większą ilość krawędzi.
 Co ważne, większość z nich została znaleziona w bardzo późnej fazie próbkowania.
 
-\subsection{Korelacja wzajemna miar}
-Obliczono współczynnik korelacji Pearsona dla każdej pary miar.
-Obliczono wartość średnią współczynników z każdej instancji, dla której przeprowadzono badanie stabilności.
+\subsection{Korelacja wzajemna miar} \label{section:experimentcorr}
+Aby sprawdzić, w jakim stopniu skorelowane są ze sobą poszczególne miary przestrzeni rozwiązań, obliczono współczynnik korelacji Pearsona dla każdej pary miar.
+Współczynniki uzyskane ze wszystkich instancji badanych w sekcjach \ref{section:experimentsmall} i \ref{section:experimentmain} uśredniono i przestawiono na wykresach.
 W przypadku, gdy wartość miary w danej instancji była stała, jako współczynnik korelacji przyjmowano wartość 0.
+Wykonano osobne wykresy dla algorytmu dwufazowego i snowball, aby ocenić wpływ metody na korelację miar.
 Wyniki dla algorytmu \textit{snowball} przedstawiono w tabeli \ref{fig:corr_snowball}.
 Wyniki dla algorytmu dwufazowego przedstawiono w tabeli \ref{fig:corr_twophase}.
 \begin{figure}[h!]
