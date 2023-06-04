@@ -9,24 +9,31 @@ Dokładna reprezentacja przestrzeni rozwiązań, obejmująca wszystkie rozwiąza
 wymagałaby przechowywania olbrzymiej ilości danych.
 Jednym z bardziej kompaktowych formatów jej reprezentacji jest sieć optimów lokalnych (ang. Local Optima Network, LON) --- graf, którego wierzchołki reprezentują
 optima lokalne przestrzeni, a krawędzie relacje pomiędzy nimi.
-Wartości miar opisujące graf LON, takie jak wagi krawędzi, czy długości ścieżek między wierzchołkami można wykorzystać
+Wartości miar opisujące graf LON, takie jak wagi krawędzi, czy długości ścieżek między wierzchołkami, można wykorzystać
 m.in do predykcji jakości wyników uzyskiwanych przez techniki heurystyczne, dostrajania ich parametrów, lub do projektowania całkiem nowych algorytmów.
-Z powodu dużej złożoności obliczeniowej problemów optymalizacyjnych, zwykle nie jest możliwy przegląd całej przestrzeni rozwiązań.
-W badaniach wykorzystuje się zatem próbkowanie, zakładając przy tym, że wartości miar uzyskane z obszaru nim objętego
+Z powodu dużego rozmiaru przestrzeni rozwiązań zbudowanie grafu stanowiącego jej dokładną reprezentację jest trudne, czasochłonne i zwykle niemożliwe
+do wykonania w akceptowalnym czasie.
+W badaniach zamiast przeglądu zupełnego wykorzystuje się zatem próbkowanie, zakładając przy tym, że wartości miar uzyskane z obszaru nim objętego
 są w pewnym stopniu reprezentatywne dla całej przestrzeni. Próbkowanie to można wykonać na wiele różnych sposobów,
 a wybór algorytmu, oraz długość procesu może mieć istotny wpływ na wartości miar obliczonych na podstawie spróbkowanej przestrzeni.
 
-O ile większość najnowszych publikacji z dziedziny zajmuje się badaniami nad możliwościami praktycznego zastosowania analizy przestrzeni rozwiązań w różnych zadaniach,
-niniejsza praca skupia się głównie na samym aspekcie próbkowania przestrzeni.
-Celem jest zbadanie wpływu metody próbkowania na wartości miar dla jednego z najbardziej znanych
-problemów optymalizacji dyskretnej --- problemu komiwojażera.
+Większość najnowszych publikacji z dziedziny zajmuje się badaniami nad możliwościami praktycznego zastosowania analizy przestrzeni rozwiązań w różnych zadaniach.
+Niniejsza praca skupia się zaś głównie na samym aspekcie próbkowania.
+Uzyskane z eksperymentów dane pozwolą na sprawdzenie, w jaki sposób wartości miar zmieniają się wraz z postępem procesu próbkowania.
+Pozwoli to ocenić, które z nich zmieniają się w sposób na tyle przewidywalny, by możliwe było szacowanie ich wartości dla pełnej przestrzeni na podstawie danych z jej spróbkowanego fragmentu.
+Wyniki ukażą również różnice pomiędzy sieciami LON budowanymi przez różne techniki próbkowania i ujawnią mocne oraz słabe strony poszczególnych algorytmów.
 
 \section{Cel pracy}
+W pracy zostaną przeprowadzone badania nad przestrzenią rozwiązań jednego z najbardziej znanych problemów optymalizacji dyskretnej --- problemu komiwojażera.
+
+Do poszczególnych celów pracy należą:
 \begin{itemize}
     \item Sprawdzenie dokładności, z jaką algorytmy próbkowania odwzorowują rzeczywistą przestrzeń rozwiązań,
     \item Zbadanie wpływu metody próbkowania, oraz przeznaczonego na nie nakładu obliczeniowego na wartości miar uzyskanej spróbkowanej przestrzeni,
     \item Zbadanie korelacji wzajemnej miar przestrzeni rozwiązań oraz wpływu metody próbkowania na wartości współczynników korelacji.
 \end{itemize}
+
+Cel zostanie zrealizowany poprzez wykonanie eksperymentów na kilkudziesięciu różnorodnych --- pod względem liczby miast i ich ułożenia --- instancjach problemu.
 
 \section{Zakres Pracy}
 

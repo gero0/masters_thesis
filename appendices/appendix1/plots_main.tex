@@ -1,5 +1,5 @@
 \foreach \metric/\cap in \metrics{
-    \begin{figure}[p]
+    \begin{figure}[]
         \centering
         \includegraphics[width=\textwidth]{chapters/experiments/img/merged_plots/main_snowball/\metric.png}
         \caption{\cap \space w zależności od liczby wierzchołków --- próbkowanie snowball}
@@ -10,7 +10,7 @@
 \newpage
 
 \foreach \metric/\cap in \metrics{
-    \begin{figure}[p]
+    \begin{figure}[]
         \centering
         \includegraphics[width=\textwidth]{chapters/experiments/img/merged_plots/main_twophase/\metric.png}
         \caption{\cap \space w zależności od liczby wierzchołków --- próbkowanie dwufazowe}
@@ -18,14 +18,14 @@
     \end{figure}
 }
 
-\begin{figure}[h!]
+\begin{figure}[]
     \centering
     \includegraphics[width=\textwidth]{chapters/experiments/img/merged_plots/main_twophase/missed.png}
     \caption{Liczba nieudanych prób tworzenia krawędzi w zależności od liczby wierzchołków --- próbkowanie dwufazowe}
     \label{fig:main_twophase_missed}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[]
     \centering
     \includegraphics[width=\textwidth]{chapters/experiments/img/opt_nodes.png}
     \caption{Wykres zależności liczby wierzchołków od liczby wywołań funkcji celu.
@@ -34,7 +34,7 @@
     \label{fig:main_opt_nodes}
 \end{figure}
 
-\begin{figure}[h!]
+\begin{figure}[]
     \centering
     \includegraphics[width=\textwidth]{chapters/experiments/img/opt_edges.png}
     \caption{Wykres zależności liczby krawędzi od liczby wywołań funkcji celu.
