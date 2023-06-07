@@ -14,14 +14,14 @@ W kontekście optymalizacji Fitness landscape to trójka $(S, V, f)$, gdzie:
             - zwykle jest to wartość funkcji celu dla danego rozwiązania.
 \end{itemize}
 
-\subsection{Sieć optimów lokalnych}
+\section{Sieć optimów lokalnych}
 Sieć optimów lokalnych (ang. Local Optima Network, LON) jest formą reprezentacji przestrzeni rozwiązań zaprezentowaną po raz pierwszy w artykule \textit{Complex-network analysis of combinatorial spaces: The $NK$ landscape case} \cite{PhysRevE.78.066114},
 a następnie rozwiniętym w pracy \textit{Local Optima Networks: A New Model of Combinatorial Fitness Landscapes} \cite{DBLP:journals/corr/OchoaVDT14}.
 
 Jest to graf $G = (N, E)$ przedstawiający występujące w przestrzeni rozwiązań optima lokalne (zbiór wierzchołków $N$)
 i relacje między nimi (zbiór krawędzi $E$).
 
-\subsection{Wierzchołki}
+\section{Wierzchołki}
 Wierzchołki w sieci optimów lokalnych reprezentują optima lokalne w przestrzeni rozwiązań.
 Do optimów zaliczamy minima i maksima; w problemach optymalizacyjnych zazwyczaj poszukujemy tych pierwszych.
 Minimum lokalne to takie rozwiązanie $s$, w którego sąsiedztwie $V(s)$ nie znajduje się żadne rozwiązanie $x$, dla którego $f(x) < f(s)$.
@@ -31,12 +31,12 @@ z tym rozwiązaniem przyjętym jako punkt startowy.
 W dalszej części pracy takie przyporządkowanie będzie oznaczane jako $h(s) \rightarrow n\in{N}$.
 Wierzchołkom w sieci LON można przypisać wagę równą wartości funkcji celu w danym optimum lokalnym.
 
-\subsection{Krawędzie}
+\section{Krawędzie}
 Krawędzie w sieci lokalnych optimów mogą być zdefiniowane na jeden z kilku sposobów.
 W literaturze \cite{DBLP:journals/corr/OchoaVDT14} \cite{DBLP:conf/gecco/TeixeiraP22} zostały opisane trzy różne modele:
 \textit{basin-transition}, \textit{escape edges} i \textit{perturbation edges}.
 
-\subsubsection{Basin-transition}
+\subsection{Basin-transition}
 Basen przyciągania optimum lokalnego $n$ jest zdefiniowany jako zbiór:
 $$b_i = \{s\in{S} \mid h(s) = n\}$$
 Rozmiarem basenu jest liczność tego zbioru oznaczana jako $|b_i|$.
@@ -56,7 +56,7 @@ To całkowite prawdopodobieństwo stanowi wagę krawędzi w grafie.
 
 Krawędzie typu \textit{basin-transition} tworzą gęstszą sieć od krawędzi typu \textit{escape edges}.
 
-\subsubsection*{Escape Edges}
+\subsection{Escape Edges}
 Escape Edges zdefiniowane są przy pomocy funkcji dystansu $d$ zwracającej najmniejszą odległość między dwoma rozwiązaniami,
 oraz liczby całkowitej D.
 Krawędź $e_{ij}$ między lokalnymi optimami $n_i$ i $n_j$ istnieje, jeśli istnieje rozwiązanie $s$ takie, że:
@@ -66,7 +66,7 @@ Krawędź $e_{ij}$ między lokalnymi optimami $n_i$ i $n_j$ istnieje, jeśli ist
 \end{equation}
 Wagą takiej krawędzi jest liczba rozwiązań spełniających powyższy warunek.
 
-\subsubsection{Perturbation edges}
+\subsection{Perturbation edges}
 W tym modelu wagę krawędzi pomiędzy lokalnymi optimami $n_i$ i $n_j$ uzyskuje się poprzez kilkukrotne wykonanie
 operacji perturbacji na $n_i$, a następnie optymalizacji lokalnej otrzymanego rozwiązania.
 Liczba przypadków, w których po optymalizacji otrzymujemy rozwiązanie $n_j$ podzielona przez liczbę prób stanowi wagę krawędzi.
@@ -75,7 +75,7 @@ $$
       w_{ij} = \frac{ |\{opt(pert(n_i)) = n_j\}| }{n_{trials}}
 $$
 
-\subsection{Struktury lejowe}
+\section{Struktury lejowe}
 W sieci optimów lokalnych możemy wyróżnić sekwencje złożone z optimów lokalnych, których wartość przystosowania jest niemalejąca.
 Sekwencje te zwane są sekwencjami monotonicznymi \cite{DBLP:journals/heuristics/OchoaV18}.
 Sekwencje monotoniczne zmierzające do tego samego ścieku (ang. sink, wierzchołek bez krawędzi wychodzących)
@@ -85,7 +85,7 @@ kończące się w optimach lokalnych. Jeden wierzchołek w grafie może przynale
 
 Leje w sieci optimów lokalnych można zidentyfikować poprzez usunięcie z grafu krawędzi prowadzących od lepszych rozwiązań do gorszych,
 zidentyfikowanie ścieków, odwrócenie krawędzi i wykonanie przeszukiwania wgłąb lub wszerz w celu odnalezienia wierzchołków należących do leja.
-\subsection{Metryki przestrzeni rozwiązań} \label{sec:metrics}
+\section{Metryki przestrzeni rozwiązań} \label{sec:metrics}
 W tej sekcji opisane zostaną metryki przestrzeni rozwiązań wykorzystane w tej pracy.
 Definicje niektórych miar zostały oparte o dokumentację biblioteki \textit{igraph} \cite{igraphdocs}.
 \begin{itemize}
@@ -147,13 +147,13 @@ Definicje niektórych miar zostały oparte o dokumentację biblioteki \textit{ig
             Acentryczność(ang. eccentricity) wierzchołka to największa z odległości wierzchołka do innych wierzchołków grafu.
 \end{itemize}
 
-\subsection{Problem komiwojażera}
+\section{Problem komiwojażera}
 Problem komiwojażera(ang. Traveling Salesman Problem, TSP) jest znanym problemem optymalizacyjnym
 sformułowanym w następujący sposób: mając do dyspozycji listę miast i odległości między nimi, należy odnaleźć
 najkrótszą ścieżkę przechodzącą przez wszystkie miasta zaczynającą i kończącą się w ustalonym punkcie.
 Problem ten jest problemem NP-trudnym i z tego powodu do rozwiązywania większych jego instancji konieczne
 jest stosowanie algorytmów heurystycznych.
-\subsection{Operacja 2-exchange}
+\section{Operacja 2-exchange}
 Operacja 2-exchange jest operacją wybrania dwóch wierzchołków i zamiany krawędzi prowadzących do następnych wierzchołków.
 Procedura jest wykorzystywana w algorytmie heurystycznym 2opt, w którym w ten sposób ,,rozplatane'' są skrzyżowane krawędzie.
 
