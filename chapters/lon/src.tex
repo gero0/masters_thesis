@@ -147,14 +147,8 @@ Definicje niektórych miar zostały oparte o dokumentację biblioteki \textit{ig
             Acentryczność(ang. eccentricity) wierzchołka to największa z odległości wierzchołka do innych wierzchołków grafu.
 \end{itemize}
 
-\section{Problem komiwojażera}
-Problem komiwojażera(ang. Traveling Salesman Problem, TSP) jest znanym problemem optymalizacyjnym
-sformułowanym w następujący sposób: mając do dyspozycji listę miast i odległości między nimi, należy odnaleźć
-najkrótszą ścieżkę przechodzącą przez wszystkie miasta zaczynającą i kończącą się w ustalonym punkcie.
-Problem ten jest problemem NP-trudnym i z tego powodu do rozwiązywania większych jego instancji konieczne
-jest stosowanie algorytmów heurystycznych.
 \section{Operacja 2-exchange}
-Operacja 2-exchange jest operacją wybrania dwóch wierzchołków i zamiany krawędzi prowadzących do następnych wierzchołków.
+Operacja 2-exchange jest operacją modyfikującą rozwiązanie problemu komiwojażera. Polega na wybraniu dwóch wierzchołków (miast) i zamiany krawędzi prowadzących do następnych wierzchołków.
 Procedura jest wykorzystywana w algorytmie heurystycznym 2opt, w którym w ten sposób ,,rozplatane'' są skrzyżowane krawędzie.
 
 Algorytmy przeszukiwania przestrzeni rozwiązań zaprezentowane w tej pracy wykorzystują operację 2-exchange jako operację mutacji.

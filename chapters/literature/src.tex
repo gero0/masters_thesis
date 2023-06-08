@@ -1,8 +1,57 @@
 \chapter{Przegląd literatury}
 
-W tym rozdziale przedstawiony jest przegląd najnowszych publikacji z dziedziny badania przestrzeni rozwiązań.
-Pierwsza sekcja opisuje praktyczne zastosowania analizy przestrzeni rozwiązań znalezione w literaturze.
-Druga sekcja skupia się na przedstawionych w cytowanych pracach algorytmach próbkowania.
+W tym rozdziale przedstawiony jest przegląd najnowszych publikacji z dziedzin optymalizacji dyskretnej i badania przestrzeni rozwiązań.
+Pierwsza sekcja poświęcona jest wybranym problemom optymalizacji dyskretnej.
+Druga sekcja opisuje praktyczne zastosowania analizy przestrzeni rozwiązań znalezione w literaturze.
+Trzecia sekcja skupia się na przedstawionych w cytowanych pracach algorytmach próbkowania.
+
+\section{Problemy optymalizacyjne}
+Sekcja ma na celu przybliżyć problemy optymalizacyjne stanowiące obiekt badań tej pracy lub prac cytowanych w przeglądzie literatury.
+Są to: problem kwadratowego przypisania oraz problem komiwojażera. Zostaną przedstawione opisy problemów oraz kilka prac
+dotyczących ich rozwiązywania.
+
+\subsection{Problem komiwojażera}
+Problem komiwojażera (ang. Traveling Salesman Problem, TSP) jest znanym problemem optymalizacyjnym
+sformułowanym w następujący sposób: mając do dyspozycji listę miast i odległości między nimi, należy odnaleźć
+najkrótszą ścieżkę przechodzącą przez wszystkie miasta zaczynającą i kończącą się w ustalonym punkcie.
+Problem ten jest problemem NP-trudnym i z tego powodu do rozwiązywania większych jego instancji konieczne
+jest stosowanie algorytmów heurystycznych.
+
+Istnieje wiele różnych metod rozwiązywania problemu komiwojażera. Do metod dokładnych zalicza się metoda programowania dynamicznego,
+polegająca na memoizacji długości ścieżek dla każdej sprawdzonej kombinacji odwiedzonych miast.
+Ze względu na nieefektywność metod dokładnych dla większych instancji problemu, zwykle wykorzystuje się metody przybliżone.
+Oprócz ,,uniwersalnych'' heurystyk, takich jak symulowane wyżarzanie czy przeszukiwanie Tabu, stosuje się również metody stworzone
+specjalnie dla tego problemu. Do takich metod należy np. 2-opt, polegający na ,,rozplataniu'' skrzyżowanych ścieżek na trasie, czy Furthest Insertion,
+budujący trasę poprzez dodawanie do niej miast położonych najdalej od tych już odwiedzonych \cite{JUNGER1995225}.
+Do jednej z najlepszych heurystyk należy algorytm Lin-Kerninghan.
+Opiera się ona na operacji $\lambda-opt$ - operacji przypominającej 2-opt, ale dokonującą zmiany $\lambda$ krawędzi.
+Algorytm z każdą iteracją sprawdza możliwe zamiany od 2 do $\lambda$ krawędzi, poszukując takiej, która najbardziej skróci ścieżkę.
+Proces może być powtórzony kilkukrotnie z innymi warunkami początkowymi \cite{DBLP:journals/eor/Helsgaun00}. Rozwiązanie początkowe może być losowe, lub wybrane inną metodą.
+
+Metody rozwiązywania problemu komiwojażera są ciągle rozwijane i nadal powstają nowe algorytmy.
+Obecnie często próbuje się wykorzystywać metody uczenia maszynowego.
+Przykładem jest praca \textit{H-TSP: Hierarchically Solving the Large-Scale Travelling Salesman Problem} \cite{DBLP:journals/corr/abs-2304-09395}.
+W pracy wykorzystano hierarchiczny algorytm oparty o uczenie ze wzmacnianiem. Konstrukcję trasy oparto o metodę dziel i rządź - algorytm
+najpierw znajduje najkrótsze ścieżki dla mniejszych podzbiorów zbioru miast, a następnie łączy je w dłuższe trasy.
+Badania autorów wykazały, że otrzymane tą metodą wyniki są porównywalne z wynikami najlepszych znanych heurystyk (takich jak LKH3),
+a zarazem metoda ta cechuje się znacznie krótszym czasem obliczeń, w niektórych przypadkach krótszym o dwa rzędy wielkości.
+Innym przykładem wykorzystania uczenia maszynowego jest praca \textit{NeuroLKH: Combining Deep Learning Model with
+Lin-Kernighan-Helsgaun Heuristic for Solving the Traveling Salesman Problem} \cite{DBLP:conf/nips/XinSCZ21}.
+W pracy wykorzystano sieć neuronową do przyspieszenia procesu tworzenia zbioru krawędzi-kandydatów przez Algorytm Lin-Kernighan-Helsgaun.
+Opracowana modyfikacja, nazwana NeuroLKH zdołała porównana z oryginalnym algorytmem poprzez porównanie wyników otrzymanych po takim samym czasie działania.
+W każdym przetestowanych przypadków NeuroLKH znalazł znacznie lepsze rozwiązanie.
+
+Pojawiają się także metody inspirowane naturą.
+W pracy \textit{Ant colony optimization for traveling salesman problem based on parameters optimization}
+opracowano algorytm mrówkowy z automatycznym doborem wartości części parametrów.
+Dobór wartości dwóch najważniejszych parametrów, kontrolujących wpływ feromonów i innych czynników na wybór ścieżki,
+oparto o metodę wyszukiwania organizmów symbiotycznych (ang. symbiotic organisms search).
+Algorytm porównano z innymi algorytmami mrówkowymi, w porównaniu do nich osiągnięto lepsze lub podobne wyniki w mniejszej liczbie iteracji.
+W pracy \textit{Discrete sparrow search algorithm for symmetric traveling salesman problem} \cite{DBLP:journals/asc/ZhangH22} przedstawiono algorytm inspirowany zachowaniem wróbli.
+Oryginalny algorytm \textit{Sparrow Search} zmodyfikowano poprzez dodanie etapów mutacji Gaussowskiej, oraz lokalnej optymalizacji 2opt.
+Algorytm porównano z innymi metodami (D-GWO, DSFLA, DSMO), wykorzystując w tym celu instancje ze zbioru TSPLIB.
+Nowy algorytm uzyskał lepsze wyniki i krótszy czas konwergencji.
+
 
 \section{Cele badania przestrzeni rozwiązań}
 Analiza przestrzeni rozwiązań pozwala na lepsze poznanie niektórych cech problemu, a także zbadanie, w jakim stopniu cechy te zależne są od
@@ -56,7 +105,7 @@ lokalnego optimum. Następuje po tym wylosowanie nowego punktu i powtórzenie pr
 Druga faza to faza próbkowania krawędzi, polegająca na poddaniu znalezionych wcześniej rozwiązań operacji perturbacji, a następnie wykonaniu optymalizacji
 lokalnej. Jeśli otrzymane w ten sposób rozwiązanie jest innym lokalnym optimum znajdującym się w zbiorze wierzchołków, to dodawana jest odpowiednia krawędź.
 Metoda ta po raz pierwszy została zaprezentowana w pracy \textit{Data-Driven Local Optima Network Characterization of QAPLIB Instances} \cite{10.1145/2576768.2598275}
-do analizy problemu kwadratowego przypisania.
+do analizy problemu kwadratowego przydziału.
 W pracy \textit{Local Optima Networks in Solving Algorithm Selection Problem for TSP} \cite{DBLP:conf/depcos/BozejkoGNAB18}
 algorytm oparty o tę samą metodę został wykorzystany do badania przestrzeni problemu komiwojażera.
 Zastosowana tam odmiana wykorzystuje algorytm 2-opt do optymalizacji lokalnej i procedurę \textit{2-exchange} jako operację perturbacji.
@@ -79,7 +128,7 @@ został zaprezentowany po raz pierwszy w pracy \textit{Sampling Local Optima Net
 
 W pracy \textit{Clarifying the Difference in Local Optima Network Sampling Algorithms} \cite{DBLP:conf/evoW/ThomsonOV19}
 zostało przeprowadzone statystyczne porównanie algorytmów próbkowania \textit{Snowball}
-oraz \textit{Markov-chain}. Eksperyment polegał na spróbkowaniu 30 instancji problemu kwadratowego przypisania, a następnie użyciu zebranych danych
+oraz \textit{Markov-chain}. Eksperyment polegał na spróbkowaniu 30 instancji problemu kwadratowego przydziału, a następnie użyciu zebranych danych
 do stworzenia modeli regresji przewidujących jakość rozwiązań, które zostaną uzyskane przez algorytm optymalizacji uruchomiony na instancji.
 Wybranymi algorytmami heurystycznymi były \textit{Robust Taboo Search} Taillarda oraz \textit{Improved ILS} Stützla.
 Z zebranych danych utworzono grafy LON i zbadano takie właściwości, jak średnia wartość funkcji celu, średni stopień wychodzący
