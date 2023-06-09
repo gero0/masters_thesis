@@ -502,8 +502,6 @@ Próbkowanie snowball prowadzi natomiast do powolnego wzrostu z okazjonalnymi sp
 Oba algorytmy osiągają podobną końcową wartość miary, ale próbkowanie dwufazowe osiąga ją przy mniejszej
 liczbie spróbkowanych wierzchołków.
 
-Liczba lejów w przestrzeni jest miarą niestabilną, wartość miary zmienia się w zupełnie inny sposób
-dla różnych instancji (rys. \ref{fig:small_funnel_num}).
 Rozmiar największego leja w przestrzeni rośnie liniowo dla danych uzyskanych z próbkowania
 dwufazowego. Wartość uzyskana z próbkowania snowball nie jest tak stabilna (rys. \ref{fig:small_max_funnel_size}).
 Wzrost średniego rozmiaru lejów dla próbkowania dwufazowego również jest bliski liniowego,
@@ -653,11 +651,6 @@ Podobnie jest w przypadku wartości maksymalnej (rys. \ref{fig:main_snowball_max
 Współczynnik go\_path\_ratio jest nieprzewidywalny. O ile w niektórych przypadkach przy próbkowaniu dwufazowym stabilizuje się na pewnej wartości
 po początkowym wzroście, to w innych gwałtownie zmniejsza się i zwiększa (rys. \ref{fig:main_snowball_go_path_ratio}, rys. \ref{fig:main_twophase_go_path_ratio}).
 
-Dla próbkowania \textit{snowball} liczba lejów w przestrzeni wzrasta liniowo dla wszystkich instancji oprócz cliques\_50 (rys. \ref{fig:main_snowball_funnel_num}).
-Inaczej jest w przypadku próbkowania dwufazowego --- tutaj zależność ta wygląda zupełnie inaczej dla różnych instancji.
-Liniowy wzrost obserwujemy jedynie w instancjach: eil76, rat99, bier127, grid\_80, grid\_100. Podobnie wyglądają również uniform\_100 i grid\_50.
-Dla instancji cliques\_50 wartość miary jest stała przez cały okres próbkowania. W przypadku instancji uniform\_50, att48 i berlin52 wartość miary
-szybko zmniejsza się na początku, po czym utrzymuje stałą wartość do końca próbkowania (rys. \ref{fig:main_twophase_funnel_num}).
 Rozmiar największego leja dla niektórych instancji wzrasta liniowo. Dla innych wzrasta ,,schodkowo'', a w przypadku instancji grid\_80 i grid\_100 dla
 próbkowania dwufazowego --- ma stałą wartość 1. Oznacza to, że nie da się dokładnie przewidzieć wartości tej miary. Warto jednak zauważyć, że
 ,,schodkowe'' zwiększanie się wartości tej miary występuje w instancjach o największej liczbie lokalnych optimów.
@@ -735,35 +728,34 @@ Dla algorytmu snowball bliska zera jest również wartość dla współczynnika 
     \begin{tabular}{|l|l|l|}
         \hline
         Metryka               & alg. snowball & alg. dwufazowy \\ \hline
-        node\_count           & 0.53          & 0.52           \\ \hline
-        edge\_count           & 0.52          & 0.53           \\ \hline
-        num\_subsinks         & 0.45          & 0.39           \\ \hline
-        edge\_to\_node        & 0.42          & 0.50           \\ \hline
-        avg\_fitness          & 0.25          & 0.17           \\ \hline
-        distLO                & 0.07          & -0.06          \\ \hline
-        conrel                & -0.02         & 0.41           \\ \hline
-        avg\_loop\_weight     & 0.40          & 0.50           \\ \hline
-        go\_path\_ratio       & 0.32          & 0.31           \\ \hline
-        avg\_go\_path\_len    & -0.03         & 0.02           \\ \hline
-        max\_go\_path\_len    & 0.01          & 0.07           \\ \hline
-        num\_sinks            & 0.45          & 0.29           \\ \hline
-        num\_sources          & 0.49          & 0.41           \\ \hline
-        funnel\_num           & 0.45          & 0.29           \\ \hline
-        mean\_funnel\_size    & 0.29          & 0.49           \\ \hline
-        max\_funnel\_size     & 0.49          & 0.48           \\ \hline
-        max\_out\_degree      & 0.46          & 0.48           \\ \hline
-        avg\_out\_degree      & 0.41          & 0.49           \\ \hline
-        max\_in\_degree       & 0.50          & 0.48           \\ \hline
-        avg\_in\_degree       & 0.41          & 0.49           \\ \hline
+        node\_count           & 0.52          & 0.53           \\ \hline
+        edge\_count           & 0.51          & 0.53           \\ \hline
+        num\_subsinks         & 0.44          & 0.37           \\ \hline
+        edge\_to\_node        & 0.42          & 0.51           \\ \hline
+        avg\_fitness          & 0.25          & 0.18           \\ \hline
+        distLO                & 0.07          & -0.07          \\ \hline
+        conrel                & -0.01         & 0.42           \\ \hline
+        avg\_loop\_weight     & 0.40          & 0.51           \\ \hline
+        go\_path\_ratio       & 0.32          & 0.32           \\ \hline
+        avg\_go\_path\_len    & -0.03         & 0.01           \\ \hline
+        max\_go\_path\_len    & 0.01          & 0.06           \\ \hline
+        num\_sinks            & 0.44          & 0.27           \\ \hline
+        num\_sources          & 0.47          & 0.42           \\ \hline
+        mean\_funnel\_size    & 0.30          & 0.50           \\ \hline
+        max\_funnel\_size     & 0.49          & 0.49           \\ \hline
+        max\_out\_degree      & 0.46          & 0.49           \\ \hline
+        avg\_out\_degree      & 0.41          & 0.50           \\ \hline
+        max\_in\_degree       & 0.49          & 0.49           \\ \hline
+        avg\_in\_degree       & 0.41          & 0.50           \\ \hline
         assortativity\_deg    & 0.21          & -0.30          \\ \hline
-        density               & -0.20         & -0.06          \\ \hline
-        num\_cc               & 0.16          & 0.28           \\ \hline
-        largest\_cc           & 0.53          & 0.48           \\ \hline
+        density               & -0.19         & -0.05          \\ \hline
+        num\_cc               & 0.15          & 0.27           \\ \hline
+        largest\_cc           & 0.52          & 0.48           \\ \hline
         largest\_cc\_radius   & 0.11          & 0.12           \\ \hline
-        avg\_path\_len        & 0.08          & 0.22           \\ \hline
-        largest\_clique\_size & 0.43          & 0.44           \\ \hline
+        avg\_path\_len        & 0.07          & 0.21           \\ \hline
+        largest\_clique\_size & 0.42          & 0.44           \\ \hline
         reciprocity           & 0.32          & 0.24           \\ \hline
-        missed                & -             & 0.52           \\ \hline
+        missed                & -             & 0.53           \\ \hline
     \end{tabular}
 \end{table}
 
