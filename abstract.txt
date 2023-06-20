@@ -1,0 +1,36 @@
+Analiza przestrzeni rozwiązań problemu optymalizacyjnego pozwala na uzyskanie informacji o cechach danego problemu, lub jego konkretnej instancji.
+Przegląd przestrzeni wymaga bardzo dużego nakładu obliczeniowego, dlatego w tym celu zwykle stosuje się próbkowanie.
+W pracy przeprowadzono badania przestrzeni rozwiązań problemu komiwojażera.
+Praca miała trzy cele: Sprawdzenie dokładności, z jaką algorytmy próbkowania odwzorowują rzeczywistą przestrzeń rozwiązań,
+zbadanie wpływu metody i długości próbkowania na wartości miar spróbkowanej przestrzeni,
+oraz zbadanie korelacji wzajemnej miar i wpływu metody próbkowania na wartość współczynników korelacji.
+Zbadano 24 miary na 35 różnorodnych instancjach problemu.
+Wykorzystano dane ze zbioru TSPLIB oraz instancje utworzone przy pomocy własnych generatorów.
+Zaimplementowano dwa algorytmy próbkowania zapisujące informacje o przestrzeni rozwiązań w postaci sieci optimów lokalnych (LON).
+Dla małych instancji problemu wykonano przegląd zupełny, polegający na sprawdzeniu wszystkich możliwych rozwiązań.
+Uzyskane wartości miar porównano z estymacjami uzyskanymi z próbkowania w celu oceny dokładności algorytmów.
+Dla większych instancji wykonano długotrwałe próbkowanie z okresowym zapisywaniem stanu spróbkowanej przestrzeni, uzyskując wartości miar z różnych etapów próbkowania.
+Uzyskane dane pozwoliły na ocenę stabilności poszczególnych miar oraz na obliczenie ich wzajemnej korelacji.
+Badania wykazały, że większość z badanych miar zmienia się w sposób nieprzewidywalny, oraz jest ze sobą dodatnie skorelowana.
+Stwierdzono, że wybór metody próbkowania ma znaczący wpływ na otrzymane z próbkowania estymacje wartości miar oraz na ich wzajemną korelację.
+Wykazano, że dla małych instancji możliwe jest dokładne spróbkowanie przestrzeni w czasie krótszym od przeglądu wszystkich możliwych rozwiązań.
+Zauważono wpływ sposobu ułożenia miast na wartości miar i trudność przeglądu przestrzeni. Zidentyfikowano wady i zalety obu algorytmów próbkowania.
+
+Analysis of solution space of optimization problems can inform us about the properties of a given problem or its specific instance.
+A search of the space requires a very large computational effort, which is why sampling is usually used.
+In this paper a study of Traveling Salesman Problem's search space was conducted.
+The three main objectives were: verification of the accuracy of sampling algorithms' search space reproductions,
+examination of influence of sampling length and chosen algorithm on values of metrics of sampled space,
+and examination of cross-correlation between metrics and influence of sampling method on the correlation coefficients.
+The research was conducted on 24 metrics and 35 various instances of the problem.
+Some instances were chosen from the TSPLIB library and some were created by using my own generators.
+Two sampling algorithms were implemented. Both of them used Local Optima Network (LON) as the format for storing results.
+Small instances were sampled exhaustively, and the values of metrics were compared to the estimated values obtained from sampling.
+This was done to verify the sampling algorithms' accuracy.
+Larger instances were sampled over a longer time and the state of the search space was periodically recorded.
+This way values of metrics for different points in time were obtained, and those were used to assess the stability of metrics and to calculate their cross-correlation coefficients.
+The results show that most of the examined metrics change in an unpredictable way. Most of them are positively correlated.
+The sampling method has a significant impact on the values of metrics and their cross-correlation.
+For small instances, it is possible to accurately reproduce the search space by sampling for a time shorter than is required to run an exhaustive search that checks every possible solution.
+The city arrangement has an impact on the values of metrics and the difficulty of searching the space.
+Advantages and disadvantages of both algorithms were identified.
